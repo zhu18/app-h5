@@ -1,0 +1,64 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import home from './views/home/home';
+import footerTab from './components/footerTab/footerTab';
+import test1 from  './views/test/test1'
+import test2 from  './views/test/test2'
+import test3 from  './views/test/test3'
+import my from  './views/test/my'
+Vue.use(Router)
+Router.prototype.goBack = function () {
+  this.isBack = true;
+  window.history.go(-1);
+};
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'login',
+      component: () => import('./views/login/login')
+    },
+    {//加载首页
+          path: '/main',
+          name: 'main',
+          component: () => import('./views/home/main'),
+          children: [
+             {//生活服务主页
+                path: '/home',
+                components: {
+                  body: home,
+                  footer: footerTab
+                }
+              },
+              {//生活服务主页
+                path: '/test1',
+                components: {
+                    body: test1,
+                  footer: footerTab
+                }
+              },
+              {//生活服务主页
+                path: '/test2',
+                components: {
+                    body: test2,
+                  footer: footerTab
+                }
+              },
+              {//生活服务主页
+                path: '/test3',
+                components: {
+                    body: test3,
+                  footer: footerTab
+                }
+              },
+              {//生活服务主页
+                path: '/my',
+                components: {
+                    body: my,
+                  footer: footerTab
+                }
+              },
+          ]
+    },
+  ]
+})
