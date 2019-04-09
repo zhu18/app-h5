@@ -1,5 +1,6 @@
 <template>
     <div>
+        <router-view name="header"></router-view>
         <transition :name="slideName">
                 <router-view name="body" class="child-view"></router-view>
         </transition>

@@ -2,7 +2,9 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
-import test1 from  './views/test/test1'
+import headerBar from './components/header/index.vue';
+
+import TrademarkInquiry from  './views/TrademarkInquiry'
 import test2 from  './views/test/test2'
 import test3 from  './views/test/test3'
 import my from  './views/test/my'
@@ -27,35 +29,41 @@ export default new Router({
                 path: '/home',
                 components: {
                   body: home,
-                  footer: footerTab
+                  footer: footerTab,
+                  header: headerBar
                 }
               },
-              {//生活服务主页
-                path: '/test1',
+              {//商标查询
+                path: '/trademarkinquiry',
+                name:'trademarkinquiry',
                 components: {
-                    body: test1,
-                  footer: footerTab
+                  body: TrademarkInquiry,
+                  footer: footerTab,
+                  header: headerBar
                 }
               },
               {//生活服务主页
                 path: '/test2',
                 components: {
                     body: test2,
-                  footer: footerTab
+                  footer: footerTab,
+                  header: headerBar
                 }
               },
               {//生活服务主页
                 path: '/test3',
                 components: {
                     body: test3,
-                  footer: footerTab
+                  footer: footerTab,
+                  header: headerBar
                 }
               },
               {//生活服务主页
                 path: '/my',
                 components: {
                     body: my,
-                  footer: footerTab
+                  footer: footerTab,
+                  header: headerBar
                 }
               },
           ]
