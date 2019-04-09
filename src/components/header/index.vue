@@ -1,38 +1,33 @@
 <template lang="html">
   <div class="top-header">
-      <!-- <mt-header fixed title="商标智能检索/执法"></mt-header> -->
       <mt-header fixed :title="title">
-        <router-link to="/" slot="left">
-            <mt-button icon="back"></mt-button>
-        </router-link>
+        <div slot="left" >
+            <mt-button icon="back" @click='goBack'></mt-button>
+        </div>
         <mt-button icon="more" slot="right"></mt-button>
      </mt-header>
   </div>
 </template>
 
 <script>
-// import { Header } from 'mint-ui';
 export default {
     data(){
         return {
             title:'商标智能检索/执法'
         }
     },
-    // beforeRouteEnter(next){
-    //     console.log(next)
-    // },
-    mounted() {
-        console.log(this.$route.query.title)
-        this.title=this.$route.query.title?this.$route.query.title:'商标智能检索/执法'
+    beforeRouteLeave (to, from, next) {
+        this.title=to.params.title?to.params.title:'商标智能检索/执法'
+        next()
     },
-    // props:{
-    //     title: {
-    //         type: String,
-    //         default: function () {
-    //             return '商标智能检索/执法'
-    //             }
-    //         }
-    // }
+    methods:{
+        goBack(){
+           this.$router.go(-1)
+        }
+    },
+    mounted() {
+    },
+   
 }
 </script>
 

@@ -103,7 +103,7 @@ export default {
             flex:1;
             display: flex;
             flex-wrap: wrap;
-            align-content: start;
+            align-content: flex-start;
             .list-item{
                 height: 0.38rem;
                 line-height: 0.39rem;
