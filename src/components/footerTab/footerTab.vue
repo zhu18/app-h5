@@ -2,13 +2,13 @@
   <div class="footerTab">
          <div class="tab-item">
             <router-link to='/home'>
-              <i class="iconfont icon-6"></i>
+              <i class="iconfont icon-main"></i>
               <span>首页</span>
             </router-link>
          </div>
          <div class="tab-item">
             <router-link to='/test1'>
-                 <i class="iconfont icon-11"></i>
+                 <i class="iconfont icon-law"></i>
                  <span>执法</span>
             </router-link>
         </div>
@@ -17,13 +17,13 @@
         </div>
         <div class="tab-item">
            <router-link to='/test2'>
-               <i class="iconfont icon-8"></i>
+               <i class="iconfont icon-history"></i>
                <span>历史</span>
            </router-link>
         </div>
        <div class="tab-item">
            <router-link to='/my'>
-              <i class="iconfont icon-12"></i>
+              <i class="iconfont icon-my"></i>
               <span>我的</span>
            </router-link>
         </div>

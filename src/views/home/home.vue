@@ -4,7 +4,11 @@
         <Search/>
      </div>
      <div class="banner">
-       <img class="block" src="../../assets/images/home/banner.png" alt="">
+       <mt-swipe :auto="4000">
+        <mt-swipe-item><img src="../../assets/images/home/banner.png" alt=""></mt-swipe-item>
+        <mt-swipe-item><img src="../../assets/images/home/banner.png" alt=""></mt-swipe-item>
+        <mt-swipe-item><img src="../../assets/images/home/banner.png" alt=""></mt-swipe-item>
+      </mt-swipe>
      </div>
      <div class="list">
         <router-link :to="{ name: 'trademarkinquiry', params: { title: '商标查询'}} " class="list-item block" tag="div">
@@ -64,6 +68,7 @@ export default {
     img{
       width: 100%;
       border-radius: 10px;
+      box-shadow: 0 1px 5px rgba(0,0,0,.1)
     }
   }
   .list{
@@ -111,7 +116,7 @@ export default {
         background-size: 0.4rem 0.4rem;
       }
        .list-item:nth-child(5) .icon{
-        background: url(../../assets/images/home/i5.png) no-repeat center center #10e3c8;
+        background: url(../../assets/images/home/i5.png) no-repeat center center #f88776;
         background-size: 0.4rem 0.4rem;
       }
        .list-item:nth-child(6) .icon{
