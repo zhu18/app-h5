@@ -5,6 +5,7 @@ import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
 
 import TrademarkInquiry from  './views/TrademarkInquiry'
+import SearchResult from  './views/SearchResult'
 import test2 from  './views/test/test2'
 import test3 from  './views/test/test3'
 import my from  './views/test/my'
@@ -40,6 +41,14 @@ export default new Router({
                   body: TrademarkInquiry,
                   footer: footerTab,
                   header: headerBar
+                }
+              },
+              {//查询结果
+                path: '/searchresult',
+                name:'searchresult',
+                components: {
+                  body: SearchResult,
+                  footer: footerTab
                 }
               },
               {//生活服务主页
