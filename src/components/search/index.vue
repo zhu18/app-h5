@@ -1,7 +1,9 @@
 <template lang="html">
   <div class="top-search">
     <div class="search">
-        <input type="text"/>
+         <form action="javascript:;" id="searchFrom" @submit="searchList">
+                <input type="search" value="" placeholder="" />
+            </form>
         <button>搜索</button>     
     </div>
   </div>
@@ -10,6 +12,11 @@
 <script>
 // import { Header } from 'mint-ui';
 export default {
+    methods:{
+        searchList(){
+          this.$router.push({ path:'/searchresult'})
+      },
+    }
 }
 </script>
 
@@ -35,7 +42,7 @@ export default {
                 border:none;height: 100%;
                 background-color: transparent;
                 color: #fff;
-                font-size: 0.28rem;
+                font-size: 14px;
             }
             button{
                 text-indent: -9999px;
