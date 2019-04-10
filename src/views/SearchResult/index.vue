@@ -36,7 +36,7 @@
     <div class="serach-content">
         <p class="total">共为您检索到115条相关商标</p>
         <div class="list-content">
-            <div class="list-item" v-for="item in 2">
+            <router-link class="list-item" tag="div" to="/detailsInfo">
                 <div class="img-box">
                     <img src="../../assets/images/home/testlogo.jpg" alt="">
                 </div>
@@ -46,8 +46,8 @@
                     <p><span class="title">申请日</span> <span>12749588</span></p>
                     <p><span class="title">当前状态</span> <span class="icon">商标无效</span></p>
                 </div>
-            </div>
-            <div class="list-item" v-for="item in 2">
+            </router-link>
+            <router-link class="list-item" tag="div" to="/detailsInfo">
                 <div class="img-box">
                     <img src="../../assets/images/home/testlogo.jpg" alt="">
                 </div>
@@ -57,8 +57,8 @@
                     <p><span class="title">申请日</span> <span>12749588</span></p>
                     <p><span class="title">当前状态</span> <span class="icon noregister">商标无效</span></p>
                 </div>
-            </div>
-            <div class="list-item" v-for="item in 2">
+            </router-link>
+            <router-link class="list-item" tag="div" to="/detailsInfo">
                 <div class="img-box">
                     <img src="../../assets/images/home/testlogo.jpg" alt="">
                 </div>
@@ -68,7 +68,40 @@
                     <p><span class="title">申请日</span> <span>12749588</span></p>
                     <p><span class="title">当前状态</span> <span class="icon register">商标无效</span></p>
                 </div>
-            </div>
+            </router-link>
+            <router-link class="list-item" tag="div" to="/detailsInfo">
+                <div class="img-box">
+                    <img src="../../assets/images/home/testlogo.jpg" alt="">
+                </div>
+                <div class="item-content">
+                    <h4>耐克创新有限合伙公司</h4>
+                    <p><span class="title">注册号</span> <span>12749588</span></p>
+                    <p><span class="title">申请日</span> <span>12749588</span></p>
+                    <p><span class="title">当前状态</span> <span class="icon">商标无效</span></p>
+                </div>
+            </router-link>
+            <router-link class="list-item" tag="div" to="/detailsInfo">
+                <div class="img-box">
+                    <img src="../../assets/images/home/testlogo.jpg" alt="">
+                </div>
+                <div class="item-content">
+                    <h4>耐克创新有限合伙公司</h4>
+                    <p><span class="title">注册号</span> <span>12749588</span></p>
+                    <p><span class="title">申请日</span> <span>12749588</span></p>
+                    <p><span class="title">当前状态</span> <span class="icon noregister">商标无效</span></p>
+                </div>
+            </router-link>
+            <router-link class="list-item" tag="div" to="/detailsInfo">
+                <div class="img-box">
+                    <img src="../../assets/images/home/testlogo.jpg" alt="">
+                </div>
+                <div class="item-content">
+                    <h4>耐克创新有限合伙公司</h4>
+                    <p><span class="title">注册号</span> <span>12749588</span></p>
+                    <p><span class="title">申请日</span> <span>12749588</span></p>
+                    <p><span class="title">当前状态</span> <span class="icon register">商标无效</span></p>
+                </div>
+            </router-link>
         </div>
     </div>
     <!-- 搜索结果  结束  -->
