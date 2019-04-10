@@ -12,13 +12,13 @@
      </div>
      <div class="list">
         <router-link :to="{ name: 'trademarkinquiry', params: { title: '商标查询'}} " class="list-item block" tag="div">
-                <span class="icon"></span> 商标查询
+                <i class="iconfont icon-logoquery"></i> 商标查询
         </router-link>
-       <div class="list-item block"><span class="icon"></span> 智能检索</div>
-       <div class="list-item block"><span class="icon"></span> 法律法规</div>
-       <div class="list-item block"><span class="icon"></span> 收藏</div>
-       <div class="list-item block"><span class="icon"></span> 新闻</div>
-       <div class="list-item block"><span class="icon"></span> 阅读</div>
+       <div class="list-item block"><i class="iconfont icon-imgquery"></i>智能检索</div>
+       <div class="list-item block"><i class="iconfont icon-regulations"></i>法律法规</div>
+       <div class="list-item block"><i class="iconfont icon-collection"></i>收藏</div>
+       <div class="list-item block"><i class="iconfont icon-new"></i>新闻</div>
+       <div class="list-item block"><i class="iconfont icon-read"></i>阅读</div>
      </div>
   </div>
 </template>
@@ -88,7 +88,7 @@ export default {
         font-size: 0.32px;
         color: #1e2128;
         cursor: pointer;
-        .icon{
+        .iconfont{
           display: inline-block;
           width: 0.8rem;
           height: 0.8rem;
@@ -96,32 +96,28 @@ export default {
           background-color: #20cdf2;
           margin-left: 0.32rem;
           margin-right: 0.32rem;
+          color: #fff;
+          font-size:0.8rem;
         }
         
       }
-      .list-item:nth-child(1) .icon{
-        background: url(../../assets/images/home/i1.png) no-repeat center center #20cdf2;
-        background-size: 0.4rem 0.4rem;
+      .list-item:nth-child(1) .iconfont{ 
+        background: -webkit-linear-gradient(60deg,#00bbd3,#02a8f3) #20cdf2;
       }
-       .list-item:nth-child(2) .icon{
-        background: url(../../assets/images/home/i2.png) no-repeat center center #fec604;
-        background-size: 0.4rem 0.4rem;
+       .list-item:nth-child(2) .iconfont{
+        background: -webkit-linear-gradient(60deg,#fe9700,#fec006) #fec604;
       }
-       .list-item:nth-child(3) .icon{
-        background: url(../../assets/images/home/i3.png) no-repeat center center #53bafc;
-        background-size: 0.4rem 0.4rem;
+       .list-item:nth-child(3) .iconfont{ 
+        background: -webkit-linear-gradient(60deg,#3f83ff,#48abff) #53bafc;
       }
-       .list-item:nth-child(4) .icon{
-        background: url(../../assets/images/home/i4.png) no-repeat center center #fbb84f;
-        background-size: 0.4rem 0.4rem;
+       .list-item:nth-child(4) .iconfont{
+        background: -webkit-linear-gradient(60deg,#fe9700,#fec006) #fbb84f;
       }
-       .list-item:nth-child(5) .icon{
-        background: url(../../assets/images/home/i5.png) no-repeat center center #f88776;
-        background-size: 0.4rem 0.4rem;
+       .list-item:nth-child(5) .iconfont{
+        background: -webkit-linear-gradient(60deg,#f2896a,#e77e72) #f88776;
       }
-       .list-item:nth-child(6) .icon{
-        background: url(../../assets/images/home/i6.png) no-repeat center center #53bafc;
-        background-size: 0.4rem 0.4rem;
+       .list-item:nth-child(6) .iconfont{
+        background:  -webkit-linear-gradient(60deg,#51b9d1,#46acc3) #53bafc;
       }
   }
  
