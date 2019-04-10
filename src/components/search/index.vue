@@ -1,9 +1,9 @@
 <template lang="html">
   <div class="top-search">
     <div class="search">
-         <form action="javascript:;" id="searchFrom" @submit="searchList">
-                <input type="search" value="" placeholder="" />
-            </form>
+        <form action="javascript:;" id="searchFrom" @submit="searchList">
+            <input type="search" value="" placeholder="" />
+        </form>
         <button>搜索</button>     
     </div>
   </div>
@@ -12,11 +12,11 @@
 <script>
 // import { Header } from 'mint-ui';
 export default {
-    methods:{
-        searchList(){
-          this.$router.push({ path:'/searchresult'})
+     methods: {
+      searchList(){
+         this.$router.push('/searchresult')
       },
-    }
+     }
 }
 </script>
 
