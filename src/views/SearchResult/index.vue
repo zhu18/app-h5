@@ -8,7 +8,7 @@
   <div class="trademark-Wrap">
     <!-- 头部搜索区域 开始 -->
     <div class="top-header">
-      <div class="returnbox">
+      <div class="returnbox" @click="back()">
           <span class="iconfont icon-back"></span>
       </div>
       <div class="top-search">
@@ -157,6 +157,9 @@ export default {
   created() {},
   mounted() {},
   methods: {
+      back(){
+          this.$router.go(-1)
+      },
       searchList(){
           alert(123)
       },
