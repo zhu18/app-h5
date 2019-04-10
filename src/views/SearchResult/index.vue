@@ -13,7 +13,7 @@
       </div>
       <div class="top-search">
         <div class="search">
-          <input type="text">
+          <form action="#"><input type="search" /></form>
           <button>+</button>
         </div>
       </div>
