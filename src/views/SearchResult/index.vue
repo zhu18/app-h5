@@ -38,7 +38,7 @@
         <div class="list-content">
             <div class="list-item" v-for="item in 2">
                 <div class="img-box">
-                    <img src="../../assets/images/home/banner.png" alt="">
+                    <img src="../../assets/images/home/testlogo.jpg" alt="">
                 </div>
                 <div class="item-content">
                     <h4>耐克创新有限合伙公司</h4>
@@ -49,7 +49,7 @@
             </div>
             <div class="list-item" v-for="item in 2">
                 <div class="img-box">
-                    <img src="../../assets/images/home/banner.png" alt="">
+                    <img src="../../assets/images/home/testlogo.jpg" alt="">
                 </div>
                 <div class="item-content">
                     <h4>耐克创新有限合伙公司</h4>
@@ -60,7 +60,7 @@
             </div>
             <div class="list-item" v-for="item in 2">
                 <div class="img-box">
-                    <img src="../../assets/images/home/banner.png" alt="">
+                    <img src="../../assets/images/home/testlogo.jpg" alt="">
                 </div>
                 <div class="item-content">
                     <h4>耐克创新有限合伙公司</h4>
@@ -231,7 +231,7 @@ export default {
 .tab-box{
     height: 0.92rem;
     background-color: #fff;
-    box-shadow: 0 1px 10px 1px rgba(4, 0, 0, 0.1);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
     ul{
         width: 100%;
         height: 100%;
@@ -296,7 +296,7 @@ export default {
         background-color: #fff;
         border-radius: 0.05rem;
         margin-bottom:0.2rem;
-         box-shadow: 0px 5px 5px rgba(4, 0, 0, 0.1);
+        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
         .img-box{
             margin: 0.3rem;
             width: 1.8rem;

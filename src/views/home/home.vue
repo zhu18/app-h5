@@ -85,7 +85,7 @@ export default {
         background-color: #fff;
         display: flex;
         align-items: center;
-        font-size: 0.32px;
+        font-size: 0.32rem;
         color: #1e2128;
         cursor: pointer;
         .iconfont{
