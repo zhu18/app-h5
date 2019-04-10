@@ -14,7 +14,7 @@ export default {
   name: "home4",
   data() {
     return {
-      username:'我的测试页面',
+      username:'我的页面待开发...',
     };
   },
   created() {
