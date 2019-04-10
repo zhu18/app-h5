@@ -13,8 +13,10 @@
       </div>
       <div class="top-search">
         <div class="search">
-          <input type="text">
-          <button>+</button>
+            <form action="javascript:;" id="searchFrom" @submit="searchList">
+                <input type="search" value="" placeholder="" />
+            </form>
+            <button>+</button>
         </div>
       </div>
     </div>
@@ -26,7 +28,7 @@
             <li :class="{active:current==1}" @click="current=1">申请人</li>
             <li :class="{active:current==2}" @click="current=2">商品/服务</li>
             <li :class="{active:current==3}" @click="current=3">注册号</li>
-            <li :class="{active:current==4}" @click="current=4">筛选<span class="iconfont icon-"></span></li>
+            <li :class="{active:current==4}" @click="current=4,popupVisible=true">筛选<span class="iconfont icon-filter"></span></li>
         </ul>
     </div>
     <!-- tab 切换 结束  -->
@@ -71,6 +73,39 @@
     </div>
     <!-- 搜索结果  结束  -->
 
+    <!-- 筛选开始 -->
+    <mt-popup v-model="popupVisible" position='right'>
+        <div class="popup-box">
+            <div class="item">
+                <div class="title">默认排序</div>
+                <div class="list">
+                    <a href="javasctipt:;" :class="{active:subcurrent==0}"  data-content="+" @click="setCurrent(0,0)">相似程度</a>
+                    <a href="javasctipt:;" :class="{active:subcurrent==1}" data-content="+" @click="setCurrent(0,1)">注册号</a>
+                    <a href="javasctipt:;" :class="{active:subcurrent==2}" data-content="+" @click="setCurrent(0,2)">代理公司</a>
+                </div>      
+            </div>
+            <div class="item">
+                <div class="title">申请日</div>
+                <div class="list">
+                    <a href="javasctipt:;" :class="{active:subcurrent1==0}" data-content="+" @click="setCurrent(1,0)">正序</a>
+                    <a href="javasctipt:;" :class="{active:subcurrent1==1}" data-content="+" @click="setCurrent(1,2)">倒序</a>
+                </div>      
+            </div>
+            <div class="item">
+                <div class="title">申请人首字母</div>
+                <div class="list">
+                    <a href="javasctipt:;" :class="{active:subcurrent2==0}" data-content="+" @click="setCurrent(2,0)">A-Z</a>
+                    <a href="javasctipt:;" :class="{active:subcurrent2==1}" data-content="+" @click="setCurrent(2,1)">Z-A</a>
+                </div>      
+            </div>
+            <div class="btn-box">
+                <button class="btn-resize" @click="reszieFn">重置</button>     
+                <button class="btn-ok" @click="ok">确定</button>     
+            </div>
+        </div>
+    </mt-popup>
+    <!-- 筛选结束 -->
+
   </div>
 </template>
 <script>
@@ -79,21 +114,53 @@ export default {
   name: "home",
   data() {
     return {
-        current:0
+        current:0,
+        popupVisible:false,
+        subcurrent:0,
+        subcurrent1:0,
+        subcurrent2:0
     };
   },
   created() {},
   mounted() {},
-  methods: {},
+  methods: {
+      searchList(){
+          alert(123)
+      },
+      //   筛选
+      setCurrent(i,k){
+          if (i==0) {
+              this.subcurrent=k
+          }else if(i==1){
+            this.subcurrent1=k
+          }else if(i==2){
+                this.subcurrent2=k
+          }
+          
+      },
+      //重置
+      reszieFn(){
+          this.subcurrent=-1
+          this.subcurrent1=-1
+          this.subcurrent2=-1
+      },
+      // 确定
+      ok(){
+          this.reszieFn();
+          this.popupVisible=false
+      }
+  },
   components: {
     Search
   }
 };
 </script>
 <style lang="scss" scoped>
+::-webkit-search-cancel-button { display: none; }
 .trademark-Wrap{
     background-color: #f6f6f6;
 }
+// 头部搜索区域
 .top-header {
   height: 0.9rem;
   padding: 0 0.3rem 0 0;
@@ -152,7 +219,7 @@ export default {
         color:#fff;
         transform: rotate(45deg);
         position: relative;
-        top:-2px;
+        top:0.0rem;
         border: none;
         position: relative;
        
@@ -160,6 +227,7 @@ export default {
     }
   }
 }
+// tab 切换
 .tab-box{
     height: 0.92rem;
     background-color: #fff;
@@ -180,6 +248,9 @@ export default {
             align-items: center;
             justify-content: center;
             height: 100%;
+            .iconfont{
+                font-size: 0.64rem;
+            }
             &::before{
                 content:'';
                 position: absolute;
@@ -211,6 +282,7 @@ export default {
     }
 
 }
+// 搜索结果/
 .serach-content{
     padding: 0 0.32rem 1.12rem 0.32rem;
     .total{
@@ -269,6 +341,92 @@ export default {
                          color:#fff;
                     }
                 }
+            }
+        }
+    }
+}
+// 筛选
+.popup-box{
+    width: 70vw;
+    height: 100vh;
+    padding: 0.64rem 0.32rem;
+    box-sizing: border-box;
+    position: relative;
+    .item{
+        margin-bottom:0.32rem;
+    }
+    .title{
+        font-size: 0.28rem;
+        color: #5b5b69;
+        height: 0.64rem;
+        left: 0.64rem;
+    }
+    .list{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        a{
+            display: inline-block;
+            width: 45%;
+            background-color: #f2f2f2;
+            border-radius: 0.1rem;
+            height: 0.8rem;
+            line-height:  0.8rem;
+            text-align: center;
+            margin-bottom:0.3rem;
+            color: #333333;
+            position: relative;
+            overflow: hidden;
+            &.active{
+                background: #d2eafc;
+                color: #46a2f3;
+            }
+            &.active::before{
+               position: absolute;
+               content: attr(data-content); 
+               width: 0.3rem;
+               height: 0.3rem;
+               color:#fff;
+               font-size: 0.3rem;
+               transform: rotate(45deg);
+               right: -0.2rem;
+               bottom: 0.2rem;
+               z-index: 10;
+            }
+            &.active:after{
+               position: absolute;
+               content:'';
+               width: 0.6rem;
+               height: 0.6rem;
+               background: #2095f2;
+               right: -0.3rem;
+               bottom:-0.3rem;
+               transform: rotate(45deg)
+            }
+        }
+    }
+    .btn-box{
+        position: absolute;
+        bottom:0;
+        height: 1.2rem;
+        display: flex;
+        justify-content: space-between;
+        right: 0.32rem;
+        left: 0.32rem;
+        button{
+            display: inline-block;
+            width: 45%;
+            color:#fff;
+            background-color: #2095f2;
+            border-radius: 0.1rem;
+            height: 0.8rem;
+            line-height:  0.8rem;
+            text-align: center;
+            border:none;
+            font-size: 0.32rem;
+            &.btn-resize{
+                background-color: #fea71a;
             }
         }
     }
