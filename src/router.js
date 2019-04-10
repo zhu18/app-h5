@@ -3,12 +3,14 @@ import Router from 'vue-router'
 import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
-
 import TrademarkInquiry from  './views/TrademarkInquiry'
 import detailsInfo from  './views/test/details-info'
+import SearchResult from  './views/SearchResult'
+import test1 from  './views/test/test1'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import my from  './views/test/my'
+import searchhistory from  './views/SearchResult/searchhistory'
 Vue.use(Router)
 Router.prototype.goBack = function () {
   this.isBack = true;
@@ -43,11 +45,42 @@ export default new Router({
                   header: headerBar
                 }
               },
-              {//详情页面
-                path: '/detailsInfo',
-                name:'detailsInfo',
+              {//查询结果
+                  path: '/detailsInfo',
+                  name:'detailsInfo',
+                  components: {
+                      body: detailsInfo,
+                      footer: footerTab
+                  }
+              },
+              {//查询结果
+                path: '/searchresult',
+                name:'searchresult',
                 components: {
-                    body: detailsInfo,
+                  body: SearchResult,
+                  footer: footerTab
+                }
+              },
+              {//生活服务主页
+                path: '/searchhistory',
+                components: {
+                    body: searchhistory,
+                  footer: footerTab,
+                  header: headerBar
+                }
+              },
+              {//生活服务主页
+                path: '/test1',
+                components: {
+                    body: test1,
+                  footer: footerTab,
+                  header: headerBar
+                }
+              },
+              {//生活服务主页
+                path: '/test2',
+                components: {
+                    body: test2,
                   footer: footerTab,
                   header: headerBar
                 }

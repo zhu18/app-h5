@@ -1,6 +1,6 @@
 <!--李耀2019-4-10-->
 <template lang="html">
-  <div class="home-test2">
+  <div class="home-detailsinfo">
       <div class="top-header">
           <mt-header fixed :title="title">
             <div slot="left" >
@@ -87,7 +87,7 @@
 </template>
 <script>
 export default {
-  name: "home-test2",
+  name: "home-detailsinfo",
   data() {
     return {
         title:'耐克',
@@ -117,7 +117,7 @@ export default {
 };
 </script>
 <style lang="scss">
-.home-test2 {
+.home-detailsinfo {
     width: 100%;
     height: 100%;
     background-color: #f6f6f6;
