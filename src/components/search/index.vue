@@ -42,7 +42,7 @@ export default {
                 border:none;height: 100%;
                 background-color: transparent;
                 color: #fff;
-                font-size: 0.28rem;
+                font-size: 14px;
             }
             button{
                 text-indent: -9999px;
