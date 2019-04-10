@@ -1,3 +1,9 @@
+<!-- 
+* 文件名：header
+* 作者：王帅
+* 描述：公共头部
+* 修改时间：2019-04-08
+-->
 <template lang="html">
   <div class="top-header">
       <mt-header fixed :title="title">
