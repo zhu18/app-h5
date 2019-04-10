@@ -7,7 +7,8 @@
                 <mt-button icon="back" @click='goBack'></mt-button>
             </div>
             <div slot="right" >
-                <i class="iconfont icon-3"></i>
+                <i class="iconfont icon-collection1"></i>
+                <i class="iconfont icon-share"></i>
              </div>
          </mt-header>
       </div>
@@ -77,7 +78,9 @@
         </div>
       </div>
      <div class="print">
-         <img src="../../assets/images/print.png" class="p-img">打印
+             <span class="delete" @click="deleteall">添加我的取证</span>
+            <span class="edit" @click="edit"><img src="../../assets/images/print.png" class="p-img">打印</span>
+         
      </div>
      <div class="yuan-left">
      </div>
@@ -215,11 +218,25 @@ export default {
         height: 1rem;
         line-height: 1rem;
         background-color: #ffffff;
-        .p-img{
-            height: 0.3rem;
-            margin-top: 0.3rem;
-            margin-right: 0.2rem
+        .delete{
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            line-height: 1rem;
         }
+        .edit{
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            line-height: 1rem;
+            color: #2095f2;
+            .p-img{
+                height: 0.3rem;
+                margin-top: 0.3rem;
+                margin-right: 0.2rem
+           }
+        }
+
     }
 }
 .yuan-left{
