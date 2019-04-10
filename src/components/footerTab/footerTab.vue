@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="footerTab bd-top-1">
+  <div class="footerTab">
          <div class="tab-item">
             <router-link to='/home'>
               <i class="iconfont icon-6"></i>
@@ -45,7 +45,8 @@ export default {
         overflow: hidden;
         line-height:  0.98rem;
         z-index: 888;
-        background-color: #f9f9f9;
+        box-shadow: 0 0 5px rgba(0,0,0,.1);
+        background-color: #fff;
     }
     .footerTab .tab-item {
         width:20%;

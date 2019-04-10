@@ -4,17 +4,17 @@
         <Search/>
      </div>
      <div class="banner">
-       <img src="../../assets/images/home/banner.png" alt="">
+       <img class="block" src="../../assets/images/home/banner.png" alt="">
      </div>
      <div class="list">
-        <router-link :to="{ name: 'trademarkinquiry', params: { title: '商标查询'}} " class="list-item" tag="div">
+        <router-link :to="{ name: 'trademarkinquiry', params: { title: '商标查询'}} " class="list-item block" tag="div">
                 <span class="icon"></span> 商标查询
         </router-link>
-       <div class="list-item"><span class="icon"></span> 智能检索</div>
-       <div class="list-item"><span class="icon"></span> 法律法规</div>
-       <div class="list-item"><span class="icon"></span> 收藏</div>
-       <div class="list-item"><span class="icon"></span> 新闻</div>
-       <div class="list-item"><span class="icon"></span> 阅读</div>
+       <div class="list-item block"><span class="icon"></span> 智能检索</div>
+       <div class="list-item block"><span class="icon"></span> 法律法规</div>
+       <div class="list-item block"><span class="icon"></span> 收藏</div>
+       <div class="list-item block"><span class="icon"></span> 新闻</div>
+       <div class="list-item block"><span class="icon"></span> 阅读</div>
      </div>
   </div>
 </template>
@@ -46,6 +46,9 @@ export default {
   overflow: hidden;
   overflow-y: auto;
   top:0;
+  .block{
+    box-shadow: 0 1px 3px rgba(0,0,0,.1)
+  }
   .search-box{
     padding-top: 1rem;
     width: 100%;
@@ -60,6 +63,7 @@ export default {
     width: 6.86rem;
     img{
       width: 100%;
+      border-radius: 10px;
     }
   }
   .list{
@@ -73,7 +77,6 @@ export default {
         width: 3.27rem;
         margin:0.16rem 0 ;
         border-radius: 0.1rem;
-        box-shadow: 0 1px 1px #ccc;
         background-color: #fff;
         display: flex;
         align-items: center;
