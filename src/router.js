@@ -5,8 +5,9 @@ import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
 
 import TrademarkInquiry from  './views/TrademarkInquiry'
-import test2 from  './views/test/test2'
+import detailsInfo from  './views/test/details-info'
 import test3 from  './views/test/test3'
+import test2 from  './views/test/test2'
 import my from  './views/test/my'
 Vue.use(Router)
 Router.prototype.goBack = function () {
@@ -42,13 +43,23 @@ export default new Router({
                   header: headerBar
                 }
               },
-              {//生活服务主页
-                path: '/test2',
+              {//详情页面
+                path: '/detailsInfo',
+                name:'detailsInfo',
                 components: {
-                    body: test2,
+                    body: detailsInfo,
                   footer: footerTab,
                   header: headerBar
                 }
+              },
+              {//生活服务主页
+                  path: '/test2',
+                  name:'test2',
+                  components: {
+                      body: test2,
+                      footer: footerTab,
+                      header: headerBar
+                  }
               },
               {//生活服务主页
                 path: '/test3',
