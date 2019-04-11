@@ -18,7 +18,9 @@
             <i class="iconfont icon-imgquery"></i>智能检索
       </router-link>
        <div class="list-item block"><i class="iconfont icon-regulations"></i>法律法规</div>
-       <div class="list-item block"><i class="iconfont icon-collection"></i>收藏</div>
+         <router-link :to="{ name: 'collection', params: { title: '收藏',handleEdit:true}} " class="list-item block" tag="div">
+                 <i class="iconfont icon-collection"></i>收藏
+        </router-link>
        <div class="list-item block"><i class="iconfont icon-new"></i>新闻</div>
        <div class="list-item block"><i class="iconfont icon-read"></i>阅读</div>
      </div>
