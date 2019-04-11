@@ -14,7 +14,7 @@
       <div class="top-search">
         <div class="search">
             <form action="javascript:;" id="searchFrom" @submit="searchList">
-                <input type="search" value="" placeholder="" />
+                <input type="search" value="" placeholder="" v-model="name"/>
             </form>
             <button>+</button>
         </div>
@@ -121,7 +121,7 @@
                 <div class="title">申请日</div>
                 <div class="list">
                     <a href="javasctipt:;" :class="{active:subcurrent1==0}" data-content="+" @click="setCurrent(1,0)">正序</a>
-                    <a href="javasctipt:;" :class="{active:subcurrent1==1}" data-content="+" @click="setCurrent(1,2)">倒序</a>
+                    <a href="javasctipt:;" :class="{active:subcurrent1==1}" data-content="+" @click="setCurrent(1,1)">倒序</a>
                 </div>      
             </div>
             <div class="item">
@@ -147,6 +147,7 @@ export default {
   name: "home",
   data() {
     return {
+        name:'',
         current:0,
         popupVisible:false,
         subcurrent:0,
@@ -155,7 +156,11 @@ export default {
     };
   },
   created() {},
-  mounted() {},
+  mounted() {
+      if(this.$route.params.name){
+          this.name=this.$route.params.name
+      }
+  },
   methods: {
       back(){
           this.$router.go(-1)

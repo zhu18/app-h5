@@ -21,6 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+    ::-webkit-search-cancel-button { display: none; }
     .top-search{
         height: 0.64rem;
         padding: 0 0.3rem;

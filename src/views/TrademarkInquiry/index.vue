@@ -10,7 +10,8 @@
              <span class="delall" @click='delall' v-if="trademarkList.length">删除全部</span>
          </div>
          <div class="list-content">
-             <div class="list-item" v-for="(item,index) in trademarkList">{{item}}
+             <div class="list-item" v-for="(item,index) in trademarkList" :key="index">
+                 <router-link :to="{ name: 'searchresult', params: { name: item}}" tag='span'>{{item}}</router-link>
                  <div class="del" @click="del(index)">+</div>
              </div>
          </div>
