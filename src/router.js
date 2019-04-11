@@ -6,6 +6,8 @@ import headerBar from './components/header/index.vue';
 import TrademarkInquiry from  './views/TrademarkInquiry'
 import detailsInfo from  './views/test/details-info'
 import SearchResult from  './views/SearchResult'
+import SmartSearch from  './views/SmartSearch'
+
 import test1 from  './views/test/test1'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
@@ -44,6 +46,13 @@ export default new Router({
                   body: TrademarkInquiry,
                   footer: footerTab,
                   header: headerBar
+                }
+              },
+              {//智能检索主页
+                path: '/smartsearch',
+                name:'smartsearch',
+                components: {
+                    body: SmartSearch
                 }
               },
               {//查询结果

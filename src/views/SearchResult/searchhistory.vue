@@ -27,7 +27,7 @@
         <div class="content-item">
            <span class="item" v-for="(item, index) in dataList">
                {{item}}
-               <img src="../../assets/images/close.png" @click="claseitem" class="img">
+               <img src="../../assets/images/close.png" @click="closeitem(index)" class="img">
            </span>
         </div>
         <div class="content-button">
@@ -56,12 +56,12 @@ export default {
           this.$router.go(-1)
       },
       //关闭方法
-      claseitem(){
-
+      closeitem(item){
+       this.dataList.splice(item, 1 );
       },
       //全部删除
       deleteall(){
-
+        this.dataList=[];
       },
       //编辑
        edit(){
@@ -120,7 +120,7 @@ export default {
     }
     .content-item{
         margin-top: 0.08rem;
-        height: 9.5rem;
+        height: 9.2rem;
         	box-shadow: 4px 0px 0px 4px 	rgba(0, 0, 0, 0.1);
         width: 100%;
         background-color: #f6f6f6;
@@ -176,7 +176,7 @@ export default {
    }
    .splitline3{
       position: absolute;
-      top: 88%;
+      top: 85.5%;
       left:50%;
    }
 }

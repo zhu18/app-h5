@@ -12,9 +12,11 @@
      </div>
      <div class="list">
         <router-link :to="{ name: 'trademarkinquiry', params: { title: '商标查询'}} " class="list-item block" tag="div">
-                <i class="iconfont icon-logoquery"></i> 商标查询
+                <i class="iconfont icon-logoquery"></i>商标查询
         </router-link>
-       <div class="list-item block"><i class="iconfont icon-imgquery"></i>智能检索</div>
+       <router-link :to="{ name: 'smartsearch', params: { title: '智能检索'}} " class="list-item block" tag="div">
+            <i class="iconfont icon-imgquery"></i>智能检索
+      </router-link>
        <div class="list-item block"><i class="iconfont icon-regulations"></i>法律法规</div>
          <router-link :to="{ name: 'collection', params: { title: '收藏',handleEdit:true}} " class="list-item block" tag="div">
                  <i class="iconfont icon-collection"></i>收藏
@@ -75,7 +77,7 @@ export default {
   }
   .list{
       padding: 0 0.32rem 0.32rem 0.32rem;
-      height: calc(100vh - 7.67rem );
+      height: calc(100vh - 7.97rem );
       justify-content: space-between;
        flex-wrap:wrap;
        display: flex;

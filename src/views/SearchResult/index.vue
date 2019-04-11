@@ -344,6 +344,7 @@ export default {
     box-sizing: border-box;
     padding: 0 0.32rem 0.32rem 0.32rem;
     overflow-y: auto;
+    box-sizing: border-box;
     .total{
         height: 0.8rem;
         line-height: 0.8rem;
