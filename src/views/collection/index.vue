@@ -1,12 +1,12 @@
 <template>
 <div>
   <ul class="collet-box clearfix">
-    <li class="item" v-for="item in 20">
-      <img src="../../assets/images/brand.png" alt="" >
-      <h2>耐克创新有限合伙公司</h2>
-      <p>申请/注册号:12749588</p>
-      <p>申请日:2007-04-17</p>
-      <span class="icon-box" v-show="collectEdit" @click="select(item)" :ref="'span-'+item">
+    <li class="item" v-for="(item,idx) in dataList" :key='item.id'>
+      <img :src='item.imgS' alt="" >
+      <h2>{{item.title}}</h2>
+      <p>{{item.number}}</p>
+      <p>{{item.date}}</p>
+      <span class="icon-box" v-show="collectEdit" @click="select(item.id)" :ref="item.id">
          <i class="mint-toast-icon mintui mintui-field-success"></i> 
       </span>
     </li>
@@ -23,7 +23,7 @@
       </span>
       全选
       </p>
-    <p>删除</p>
+    <p @click="del">删除</p>
     <i class="line"></i>
   </mt-popup>
 </div>
@@ -34,11 +34,47 @@ import {mapState,mapMutations} from 'vuex'
 export default{
   data(){
     return{
-      popupV:false
+      popupV:false,
+      dataList:[
+        {
+          id:1,
+          imgS:'./brand.png',
+          title:'耐克创新有限合伙公司',
+          number:'申请/注册号:12749588',
+          date:'申请日:2007-04-17'
+        },
+        {
+          id:2,
+          imgS:'/brand.png',
+          title:'耐克创新有限合伙公司',
+          number:'申请/注册号:12749588',
+          date:'申请日:2007-04-17'
+        },
+        {
+          id:3,
+          imgS:'/brand.png',
+          title:'耐克创新有限合伙公司',
+          number:'申请/注册号:12749588',
+          date:'申请日:2007-04-17'
+        },
+        {
+          id:4,
+          imgS:'/brand.png',
+          title:'耐克创新有限合伙公司',
+          number:'申请/注册号:12749588',
+          date:'申请日:2007-04-17'
+        },
+        {
+          id:5,
+          imgS:'/brand.png',
+          title:'耐克创新有限合伙公司',
+          number:'申请/注册号:12749588',
+          date:'申请日:2007-04-17'
+        },
+      ]
     }
   },
   beforeRouteLeave (to, from, next) {
-    // ...
    this.changeCollectEdit('leaveCollect')
    next()
   },
@@ -53,7 +89,7 @@ export default{
   methods:{
     ...mapMutations(['changeCollectEdit']),
     select(item){
-       this.$refs['span-'+item][0].classList.toggle('is-select')
+       this.$refs[item][0].classList.toggle('is-select')
        let domArr=document.querySelectorAll('.item .icon-box')
         for(let i=0;i<domArr.length;i++){
           if(!domArr[i].classList.contains('is-select')){
@@ -76,6 +112,9 @@ export default{
         item.classList.remove('is-select')
       })
       }
+    },
+    del(){
+      
     }
   },
   computed:{
