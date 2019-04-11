@@ -71,7 +71,7 @@ export default{
           number:'申请/注册号:12749588',
           date:'申请日:2007-04-17'
         },
-      ]
+      ],
     }
   },
   beforeRouteLeave (to, from, next) {
@@ -174,12 +174,12 @@ export default{
         height: 0.4rem;
         border-radius: 50%;
         border: 0.02rem solid #c5c6c6;
-         transition: all .25s;
         i{
           display: none;
         }
        }
        .is-select{
+         border:none;
         i{
           transition: all .25s;
           position: relative;
@@ -227,12 +227,12 @@ export default{
         height: 0.4rem;
         border-radius: 50%;
         border: 0.02rem solid #c5c6c6;
-         transition: all .25s;
         i{
           display: none;
         }
        }
        .is-select{
+           border:none;
         i{
            transition: all .25s;
           position: relative;
