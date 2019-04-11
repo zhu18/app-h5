@@ -184,7 +184,6 @@ export default {
             margin-top: 0.2rem;
             .left-font{
                 width:43%;
-                vertical-align: middle;
                 padding-left: 0.2rem;
                 text-align: right;
                 padding-right: 0.4rem;
