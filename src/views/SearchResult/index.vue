@@ -36,51 +36,27 @@
     <div class="serach-content">
         <p class="total">共为您检索到115条相关商标</p>
         <div class="list-content">
-            <router-link class="list-item" tag="div" to="/detailsInfo">
-                <div class="img-box">
-                    <img src="../../assets/images/home/testlogo.jpg" alt="">
-                </div>
-                <div class="item-content">
-                    <h4>耐克创新有限合伙公司</h4>
-                    <p><span class="title">注册号</span> <span>12749588</span></p>
-                    <p><span class="title">申请日</span> <span>12749588</span></p>
-                    <p><span class="title">当前状态</span> <span class="icon">商标无效</span></p>
-                </div>
-            </router-link>
-            <router-link class="list-item" tag="div" to="/detailsInfo">
-                <div class="img-box">
-                    <img src="../../assets/images/home/testlogo.jpg" alt="">
-                </div>
-                <div class="item-content">
-                    <h4>耐克创新有限合伙公司</h4>
-                    <p><span class="title">注册号</span> <span>12749588</span></p>
-                    <p><span class="title">申请日</span> <span>12749588</span></p>
-                    <p><span class="title">当前状态</span> <span class="icon noregister">商标无效</span></p>
-                </div>
-            </router-link>
-            <router-link class="list-item" tag="div" to="/detailsInfo">
-                <div class="img-box">
-                    <img src="../../assets/images/home/testlogo.jpg" alt="">
-                </div>
-                <div class="item-content">
-                    <h4>耐克创新有限合伙公司</h4>
-                    <p><span class="title">注册号</span> <span>12749588</span></p>
-                    <p><span class="title">申请日</span> <span>12749588</span></p>
-                    <p><span class="title">当前状态</span> <span class="icon register">商标无效</span></p>
-                </div>
-            </router-link>
-            <router-link class="list-item" tag="div" to="/detailsInfo">
-                <div class="img-box">
-                    <img src="../../assets/images/home/testlogo.jpg" alt="">
-                </div>
-                <div class="item-content">
-                    <h4>耐克创新有限合伙公司</h4>
-                    <p><span class="title">注册号</span> <span>12749588</span></p>
-                    <p><span class="title">申请日</span> <span>12749588</span></p>
-                    <p><span class="title">当前状态</span> <span class="icon">商标无效</span></p>
-                </div>
-            </router-link>
-            <router-link class="list-item" tag="div" to="/detailsInfo">
+            <div
+            v-infinite-scroll="loadMore"
+            infinite-scroll-disabled="loading"
+            infinite-scroll-distance="10">
+            <template v-for="item in list" >
+                <router-link class="list-item" tag="div" to="/detailsInfo" >
+                    <div class="img-box">
+                        <img src="../../assets/images/home/testlogo.jpg" alt="">
+                    </div>
+                    <div class="item-content">
+                        <h4>耐克创新有限合伙公司</h4>
+                        <p><span class="title">注册号</span> <span>{{item}}</span></p>
+                        <p><span class="title">申请日</span> <span>12749588</span></p>
+                        <p><span class="title">当前状态</span> <span class="icon">商标无效</span></p>
+                    </div>
+                </router-link>
+            </template>
+            <div class="loading" v-if="loading">
+               <span class="tips">数据加载中</span><mt-spinner :type="3" color="#26a2ff"></mt-spinner>
+            </div>
+            <!-- <router-link class="list-item" tag="div" to="/detailsInfo">
                 <div class="img-box">
                     <img src="../../assets/images/home/testlogo.jpg" alt="">
                 </div>
@@ -102,6 +78,18 @@
                     <p><span class="title">当前状态</span> <span class="icon register">商标无效</span></p>
                 </div>
             </router-link>
+            <router-link class="list-item" tag="div" to="/detailsInfo">
+                <div class="img-box">
+                    <img src="../../assets/images/home/testlogo.jpg" alt="">
+                </div>
+                <div class="item-content">
+                    <h4>耐克创新有限合伙公司</h4>
+                    <p><span class="title">注册号</span> <span>12749588</span></p>
+                    <p><span class="title">申请日</span> <span>12749588</span></p>
+                    <p><span class="title">当前状态</span> <span class="icon">商标无效</span></p>
+                </div>
+            </router-link> -->
+            </div>
         </div>
     </div>
     <!-- 搜索结果  结束  -->
@@ -152,7 +140,9 @@ export default {
         popupVisible:false,
         subcurrent:0,
         subcurrent1:0,
-        subcurrent2:0
+        subcurrent2:0,
+        loading:false,
+        list:[1,2,3,4]
     };
   },
   created() {},
@@ -162,6 +152,16 @@ export default {
       }
   },
   methods: {
+      loadMore() {
+        this.loading = true;
+        setTimeout(() => {
+            let last = this.list[this.list.length - 1];
+            for (let i = 1; i <= 4; i++) {
+            this.list.push(last + i);
+            }
+            this.loading = false;
+        }, 3500);
+      },
       back(){
           this.$router.go(-1)
       },
@@ -199,6 +199,7 @@ export default {
 <style lang="scss" scoped>
 ::-webkit-search-cancel-button { display: none; }
 .trademark-Wrap{
+    min-height: 100vh;
     background-color: #f6f6f6;
 }
 // 头部搜索区域
@@ -211,6 +212,10 @@ export default {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  position: fixed;
+  top:0;
+  left:0;
+  right:0;
   z-index: 10;
   .returnbox{
       height:0.9rem;
@@ -230,6 +235,7 @@ export default {
     flex:1;
     margin:0;
     box-sizing: border-box;
+    z-index: 10;
     .search {
       height: 100%;
       background: url(../../assets/images/component/searchicon.png) no-repeat
@@ -263,6 +269,7 @@ export default {
         top:0.0rem;
         border: none;
         position: relative;
+        margin-right:0.3rem;
        
       }
     }
@@ -270,9 +277,15 @@ export default {
 }
 // tab 切换
 .tab-box{
+    position: fixed;
+    top:0.9rem;
+    left:0;
+    right:0;
     height: 0.92rem;
     background-color: #fff;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+
+    z-index: 10;
     ul{
         width: 100%;
         height: 100%;
@@ -325,7 +338,12 @@ export default {
 }
 // 搜索结果/
 .serach-content{
-    padding: 0 0.32rem 1.12rem 0.32rem;
+    position: fixed;
+    top:1.8rem;
+    left:0;right:0;bottom:0.98rem;
+    box-sizing: border-box;
+    padding: 0 0.32rem 0.32rem 0.32rem;
+    overflow-y: auto;
     .total{
         height: 0.8rem;
         line-height: 0.8rem;
@@ -335,7 +353,7 @@ export default {
     .list-item{
         display: flex;
         background-color: #fff;
-        border-radius: 0.05rem;
+        border-radius: 0.1rem;
         margin-bottom:0.2rem;
         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
         .img-box{
@@ -470,6 +488,16 @@ export default {
                 background-color: #fea71a;
             }
         }
+    }
+}
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.6rem;
+    .tips{
+        margin:0 0.3rem;
+        display: inline-block;
     }
 }
 </style>
