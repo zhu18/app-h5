@@ -11,6 +11,7 @@ import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import my from  './views/test/my'
 import searchhistory from  './views/SearchResult/searchhistory'
+import collection from  './views/collection'
 Vue.use(Router)
 Router.prototype.goBack = function () {
   this.isBack = true;
@@ -107,6 +108,14 @@ export default new Router({
                 components: {
                     body: my,
                   footer: footerTab,
+                  header: headerBar
+                }
+              },
+              {//收藏
+                path: '/collection',
+                name:'collection',
+                components: {
+                    body: collection,
                   header: headerBar
                 }
               },

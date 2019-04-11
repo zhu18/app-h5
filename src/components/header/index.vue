@@ -40,6 +40,7 @@ export default {
 <style lang="scss" scoped>
     .top-header{
         height: 0.9rem;
+        background-color: #2095f2;
         .mint-header{
             height: 0.9rem;
             background: transparent;
