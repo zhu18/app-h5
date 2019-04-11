@@ -16,7 +16,6 @@
         <div class="content-top">
               <div class="left-content">
                  <img src="../../assets/images/neike.png" class="img">
-
                </div>
               <div class="right-content">
                   <div class="p1">商品/服务</div>
@@ -27,6 +26,10 @@
 
               </div>
         </div>
+             <div class="yuan-left">
+         </div>
+          <div class="yuan-right">
+         </div>
         <div class="content-middle">
            <table>
               <tr>
@@ -82,10 +85,7 @@
             <span class="edit" @click="edit"><img src="../../assets/images/print.png" class="p-img">打印</span>
          
      </div>
-     <div class="yuan-left">
-     </div>
-      <div class="yuan-right">
-     </div>
+
   </div>
 </template>
 <script>
@@ -125,7 +125,7 @@ export default {
     height: 100%;
     background-color: #f6f6f6;
     overflow: hidden;
-    overflow-y: auto;
+
     top:0;
     font-size: 0.12rem;
     .top-header{
@@ -142,11 +142,11 @@ export default {
     }
     .content-all{
         width: 92%;
-        height: 10.2rem;
         margin: 0px auto;
         margin-top: 0.2rem;
         border: 0.01rem solid #ebebeb;
         background-color: #ffffff;
+        padding-bottom: 0.2rem;
         .content-top{
             height: 2.2rem;
             border-bottom: 0.02rem solid #ebebeb;
@@ -180,19 +180,20 @@ export default {
             }
         }
         .content-middle{
+            max-height: 7.2rem;
+            overflow-y: auto;
             font-size: 0.12rem;
             margin-top: 0.2rem;
             .left-font{
                 width:43%;
-                vertical-align: middle;
                 padding-left: 0.2rem;
                 text-align: right;
                 padding-right: 0.4rem;
-                line-height: 0.48rem;
+                line-height: 0.54rem;
             }
             .right-font{
                 width: 50%;
-                line-height: 0.48rem;
+                line-height: 0.54rem;
                 padding-right: 0.2rem
             }
             .button{
@@ -206,7 +207,7 @@ export default {
                 color:#2095f2;
             }
             .t-img{
-                height: 0.8rem;
+                height:1rem;
                 margin-top: 0.1rem
             }
         }

@@ -25,6 +25,12 @@
         <span class="splitline splitline2"></span>
         <div class="content-wrapper">
           <div class="content-wrapper1" v-if="index == 1">
+            <div class="content-item">
+              <span class="item" v-for="(item, index) in dataList">
+                  {{item}}
+                  <img src="../../assets/images/close.png" @click="closeitem(index)" class="img">
+              </span>
+            </div>
           </div>
           <div class="content-wrapper2"  v-if="index == 2">
             <ul class="content-item">
@@ -39,9 +45,7 @@
           </div>
           <div class="content-wrapper1"  v-if="index == 3">
           </div>
-          
         </div>
-        
         <div class="content-button" v-if="index != 2">
             <span class="delete" @click="deleteall">全部删除</span>
             <span class="edit" @click="edit">编辑</span>
@@ -56,7 +60,7 @@ export default {
     return {
         index:1,
         title:'查询历史',
-        dataList: []
+        dataList:["阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"]
     };
   },
   created() {
@@ -73,12 +77,12 @@ export default {
           this.$router.go(-1)
       },
       //关闭方法
-      claseitem(){
-
+      closeitem(item){
+       this.dataList.splice(item, 1 );
       },
       //全部删除
       deleteall(){
-
+        this.dataList=[];
       },
       //编辑
        edit(){
@@ -111,6 +115,7 @@ export default {
         }
     }
     .item {
+      position: relative;
       height: 1rem;
       background-color: #ffffff;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -145,15 +150,31 @@ export default {
     }
     .content-wrapper {
       .content-wrapper1 {
-        height: 9.5rem;
+        height: 9.2rem;
         overflow-y: scroll;
       }
       .content-wrapper2 {
-        height: 10.5rem;
+        height: 10.2rem;
         overflow-y: scroll;
       }
       .content-item{
-        padding: 0.38rem 0.32rem 0.14rem ;
+        padding: 0.38rem 0.32rem 0.14rem;
+        .item{
+            margin-top: 0.3rem;
+            display: inline-block;
+            padding: 0 0.4rem;
+            height: 0.8rem;
+            line-height: 0.8rem;
+            background-color: #bfbfbf;
+            border-radius: 3px;
+            opacity: 0.5;
+            margin-right: 0.3rem;
+            .img{
+                height: 0.2rem;
+                margin-top: 0.28rem;
+                margin-left: 0.1rem;
+            }
+        }
         li{
             padding: 0.44rem 0.33rem;
             margin-bottom: 0.24rem;
@@ -220,7 +241,7 @@ export default {
    }
    .splitline3{
       position: absolute;
-      top: 88%;
+      top: 85.5%;
       left:50%;
    }
 }

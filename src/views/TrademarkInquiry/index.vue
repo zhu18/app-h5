@@ -11,8 +11,12 @@
          </div>
          <div class="list-content">
              <div class="list-item" v-for="(item,index) in trademarkList" :key="index">
-                 <router-link :to="{ name: 'searchresult', params: { name: item}}" tag='span'>{{item}}</router-link>
+                 <!-- <router-link :to="{ name: 'searchresult', params: { name: item}}" tag='span'>{{item}}</router-link> -->
+                 <span>{{item}}</span>
                  <div class="del" @click="del(index)">+</div>
+             </div>
+             <div class="more">
+                <a href="javascript:;" v-if="trademarkList.length">更多</a>
              </div>
          </div>
      </div>
@@ -32,6 +36,13 @@ export default {
           '商标专利权4',
           '商标专利权5',
           '商标专利权6',
+          '商标专利权7',
+          '商标专利权7',
+          '商标专利权7',
+          '商标专利权7',
+          '商标专利权7',
+          '商标专利权7',
+          '商标专利权7',
           '商标专利权7',
       ]
     };
@@ -106,8 +117,8 @@ export default {
             flex-wrap: wrap;
             align-content: flex-start;
             .list-item{
-                height: 0.38rem;
-                line-height: 0.39rem;
+                height: 0.68rem;
+                line-height: 0.69rem;
                 padding:0 0.2rem;
                 background-color: #dfdfdf;
                 color: #73737f;
@@ -121,6 +132,16 @@ export default {
                 }
             }
             
+        }
+    }
+    .more{
+        height: 0.9rem;
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        a{
+            color:#73737f;
         }
     }
 
