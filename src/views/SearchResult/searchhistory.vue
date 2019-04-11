@@ -197,9 +197,14 @@ export default {
                 line-height: 0.34rem;
               }
               .item-text{
+                width: 4.7rem;
                 font-size: 0.28rem;
                 color: #333333;
                 line-height: 0.36rem;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
               }
             }
             
