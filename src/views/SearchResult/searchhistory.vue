@@ -11,30 +11,42 @@
        <div class="item">
            <ul class="ul">
              <div  class="li" >
-               <span :class="index==1?'span span-seletecd':'span'" @click="index=1">文字</span>
+               <span :class="index==1?'span span-seletecd':'span'" @click="navClick('1')">文字</span>
              </div>
-             
              <div  class="li" >
-               <span :class="index==2?'span span-seletecd':'span'" @click="index=2">识图</span>
+               <span :class="index==2?'span span-seletecd':'span'" @click="navClick('2')">识图</span>
              </div>
               <div  class="li">
-               <span :class="index==3?'span span-seletecd':'span'" @click="index=3">图片</span>
+               <span :class="index==3?'span span-seletecd':'span'" @click="navClick('3')">图片</span>
              </div>
            </ul>
         </div>
         <span class="splitline"></span>
         <span class="splitline splitline2"></span>
-        <div class="content-item">
-           <span class="item" v-for="(item, index) in dataList">
-               {{item}}
-               <img src="../../assets/images/close.png" @click="claseitem" class="img">
-           </span>
+        <div class="content-wrapper">
+          <div class="content-wrapper1" v-if="index == 1">
+          </div>
+          <div class="content-wrapper2"  v-if="index == 2">
+            <ul class="content-item">
+                <li class="clearfix" v-for="item in 10">
+                  <img class="fl" src="../../assets/images/result-logo.jpg"/>
+                  <div class="item-content fl">
+                    <p class="item-label">结果</p>
+                    <p class="item-text">计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)</p>
+                  </div>
+                </li>
+            </ul>
+          </div>
+          <div class="content-wrapper1"  v-if="index == 3">
+          </div>
+          
         </div>
-        <div class="content-button">
+        
+        <div class="content-button" v-if="index != 2">
             <span class="delete" @click="deleteall">全部删除</span>
             <span class="edit" @click="edit">编辑</span>
         </div>
-        <span class="splitline splitline3"></span>
+        <span class="splitline splitline3" v-if="index != 2"></span>
   </div>
 </template>
 <script>
@@ -44,7 +56,7 @@ export default {
     return {
         index:1,
         title:'查询历史',
-        dataList:["阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"]
+        dataList: []
     };
   },
   created() {
@@ -52,6 +64,11 @@ export default {
   mounted() {
   },
   methods: {
+      //点击导航
+      navClick(index){
+        this.index = index;
+        console.log(index)
+      },
       goBack(){
           this.$router.go(-1)
       },
@@ -96,52 +113,79 @@ export default {
     .item {
       height: 1rem;
       background-color: #ffffff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       .ul {
         width: 100%;
         height: 1rem;
-        color: black;
+        color: #1e2128;
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
         .li {
           display: inline-block;
           text-align: center;
           height: 1rem;
+          
           cursor: pointer;
-          width: 32%;
+          width: 33.33%;
           line-height: 1rem;
+          background: #fff;
           .span{
-              padding: 0.2rem 10%;
+            display: inline-block;
+            height:100%;
+            padding: 0 10%;
+            line-height: 1rem;
+            box-sizing: border-box;
           }
           .span-seletecd{
                color: #2095f2;
-                border-bottom: 0.05rem solid #2095f2;
+              border-bottom: 0.03rem solid #2095f2;
           }
 
         }
       }
     }
-    .content-item{
-        margin-top: 0.08rem;
+    .content-wrapper {
+      .content-wrapper1 {
         height: 9.5rem;
-        	box-shadow: 4px 0px 0px 4px 	rgba(0, 0, 0, 0.1);
-        width: 100%;
-        background-color: #f6f6f6;
-        padding-left: 0.3rem;
-        .item{
-            margin-top: 0.3rem;
-            display: inline-block;
-            padding: 0 0.4rem;
-            height: 0.8rem;
-            line-height: 0.8rem;
-            background-color: #bfbfbf;
-            border-radius: 3px;
-            opacity: 0.5;
-            margin-right: 0.3rem;
-            .img{
-                height: 0.2rem;
-                margin-top: 0.28rem;
-                margin-left: 0.1rem;
+        overflow-y: scroll;
+      }
+      .content-wrapper2 {
+        height: 10.5rem;
+        overflow-y: scroll;
+      }
+      .content-item{
+        padding: 0.38rem 0.32rem 0.14rem ;
+        li{
+            padding: 0.44rem 0.33rem;
+            margin-bottom: 0.24rem;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            img {
+              float: left;
+              width: 1.21rem;
+              height: 1.21rem;
+              margin-right: 0.26rem;
             }
+            .item-content {
+              float: left;
+              width: 4.7rem;
+              .item-label {
+                color: #5b5b69;
+                font-size: 0.24rem;
+                line-height: 0.34rem;
+              }
+              .item-text{
+                font-size: 0.28rem;
+                color: #333333;
+                line-height: 0.36rem;
+              }
+            }
+            
         }
     }
+    }
+    
     .content-button{
         width: 100%;
         height: 1rem;
@@ -162,17 +206,17 @@ export default {
     }
     .splitline{
     position: absolute;
-    top: 9%;
+    top: 9.5%;
     left:32%;
     display: inline-block;
-    height: 0.4rem;
+    height: 0.3rem;
     width: 0.02rem;
-    background-color:#b2b2b9;
+    background-color:#bfbfbf;
    }
    .splitline2{
       position: absolute;
-      top: 9%;
-      left:62%;
+      top: 9.5%;
+      left:66%;
    }
    .splitline3{
       position: absolute;
