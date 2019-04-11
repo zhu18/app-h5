@@ -41,9 +41,9 @@ export default {
         left: 0;
         bottom: 0;
         width: 100%;
-        height: 0.98rem;
+        height: 1.28rem;
         overflow: hidden;
-        line-height:  0.98rem;
+        line-height:  1.28rem;
         z-index: 888;
         box-shadow: 0 0 5px rgba(0,0,0,.1);
         background-color: #fff;
@@ -57,22 +57,28 @@ export default {
     }
     .footerTab .tab-item a{
         color: #666;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .tab-item i{
         display:block;
-        font-size:0.64rem;
+        font-size:0.96rem;
         line-height:normal;
-        margin:0.01rem auto 0 auto;
+        /* margin:0.01rem auto 0 auto; */
     }
     .searchbtn{
-        background: url(../../assets/images/component/searchbtn.png) no-repeat center 4px;
-        background-size: 0.94rem 0.92rem;
+        background: url(../../assets/images/component/searchbtn.png) no-repeat center 0.15rem;
+        background-size: 1.1rem 1.1rem;
     }
     .tab-item span{
-        display:block;
+        display:inline-block;
         height: 0.2rem;
         line-height: 0.2rem;
         font-size: 0.20rem;
+        position: relative;
+        top:-0.1rem;
     }
     .footerTab .tab-item a.router-link-active{
         color: #5aa9fd;

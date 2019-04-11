@@ -37,13 +37,20 @@ export default {
             display: flex;
             justify-content: space-between;
             input{
+                display: flex;
+                align-items: center;
+                align-content: center;
                 width: 6rem;
                 padding: 0 0.6rem;
                 box-sizing: border-box;
-                border:none;height: 100%;
+                border:none;
+                 height: 0.64rem;
+                line-height: 0.64rem;
                 background-color: transparent;
                 color: #fff;
-                font-size: 14px;
+                font-size: 16px;
+                padding-top:0.04rem;
+
             }
             button{
                 text-indent: -9999px;

@@ -75,7 +75,7 @@ export default {
   }
   .list{
       padding: 0 0.32rem 0.32rem 0.32rem;
-      height: calc(100vh - 7.67rem );
+      height: calc(100vh - 7.97rem );
       justify-content: space-between;
        flex-wrap:wrap;
        display: flex;
