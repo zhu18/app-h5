@@ -28,12 +28,11 @@
 
     <div class="search-view">
         <div class="scan-box">
-            <div class="scan-txt">
+            <div class="scan-txt" v-show="!isScaning">
                 <p>请把商标放于框内</p>
                 <p>商标清晰、无遮挡、无阴影</p>
             </div>
         </div>
-        
     </div>
     <div class="search-opt">
         <div class="opt-txtbar">
@@ -41,23 +40,55 @@
             <div class="txt" :class="scanType=='img'&&'active right'" @click="setScanType('img')">识图</div>
         </div>
         <div class="opt-btn">
-            <div class="btn-watch" @click='watch'>
-                <i class="iconfont icon-pic"></i>
+            <div class="btn-watch" :class="isScaning&&'stop'" @click='scan'>
+                <i class="iconfont icon-pic" v-show="!isScaning"></i>
+                <i class="iconfont icon-del" v-show="isScaning"></i>
             </div>
         </div>
+    </div>
+    <div class="result-list"  @click="showList">
+        <div class="list-head">
+            <div class="cls" @click.stop="closeList"><i class="iconfont icon-del"></i></div>
+            <div class="title">相似商标</div>
+            <div class="query"><i class="iconfont icon-query"></i></div>
+        </div>
+        <div class="list-body">
+            <div class="list-opt">
+                <span>您想找的是:</span>
+                <mt-button type="default" size="small">鞋类</mt-button>
+                <mt-button type="default" size="small">家具</mt-button>
+                <mt-button type="default" size="small">其他</mt-button>
+            </div>
+            <div class="list-block">
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+                <div class="block"><img src="../../assets/images/logo2.png"/></div>
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+                <div class="block"><img src="../../assets/images/logo2.png"/></div>
+                <div class="block"><img src="../../assets/images/logo2.png"/></div>
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+            </div>
+        </div>
+    </div>
+    <div class="loading" v-show="isScaning">
+        <mt-spinner color="#26a2ff" type="double-bounce"></mt-spinner>
+        <span class="loading-txt">识别中...</span>
     </div>
   </div>
 </template>
 <script>
 import anime from 'animejs';
-import { Indicator } from 'mint-ui';
-import { setTimeout } from 'timers';
+import { Spinner } from 'mint-ui';
 
 export default {
   name: "smartSearch",
   data() {
     return {
-        scanType:'img'
+        scanType:'img',
+        isScaning:false,
+        scanOk:false,
+        timer:null
     };
   },
   created() {},
@@ -76,13 +107,24 @@ export default {
     hideTip(){
         this.$refs.imgtip.remove();
     },
-    watch(){
-        Indicator.open({
-            spinnerType: 'fading-circle'
-        });
-        setTimeout(()=>{
-            //Indicator.close();
-        },1500)
+    scan(){
+        this.$refs.imgtip.remove();
+        //在识别中 取消识别
+        if(this.isScaning){
+            clearTimeout(this.timer);
+            this.isScaning=false;
+            return;
+        }
+        //开始识别
+        this.isScaning=true;
+        
+        this.timer = setTimeout(()=>{
+            this.isScaning=false;
+             anime({
+                targets:'.result-list',
+                translateY:['130%','65%']
+            })
+        },1000)
     },
     setScanType(type){
         if(this.scanType==type)
@@ -95,6 +137,19 @@ export default {
             targets:'.opt-txtbar',
             translateX:x
         })
+    },
+    showList(){
+         anime({
+            targets:'.result-list',
+            translateY:'10%'
+        })
+    },
+    closeList(){
+        console.log('..')
+         anime({
+            targets:'.result-list',
+            translateY:'130%'
+        })
     }
   },
   components: {}
@@ -104,6 +159,7 @@ export default {
 .search-wrap {
   display: flex;
   flex-direction: column;
+   color:#fff;
   height: 100%;
   .search-view {
     flex: 1;
@@ -116,14 +172,25 @@ export default {
         width: 4.76rem;
         height: 4.76rem;
         align-self: center;
-        border-radius: 15px;
+        border-radius: 5px;
         margin-top: 1rem;
-        background:rgba(0,0,0,.2);
-        box-shadow: 0 0 1px 999px rgba(0,0,0,.75)
+        background:rgba(0,0,0,.3) ;
+        box-shadow: 0 0 1px 999px rgba(0,0,0,.75);
+        &::before{
+            content:'';
+            background:url(../../assets/images/smartsearch/scanborder.png) no-repeat;
+            background-size: contain;
+            display: block;
+            position: relative;
+            width: 4.78rem;
+        height: 4.78rem;
+         align-self: center;
+         
+        }
     }
     .scan-txt{
         position: relative;
-        bottom: -5rem;
+        bottom: -.5rem;
         color:#fff;
         font-size: .28rem;
         text-align: center;
@@ -202,9 +269,94 @@ export default {
                 color: #fff;
                 font-size: .92rem;
              }
+             &.stop{
+                 background: -webkit-linear-gradient(100deg, #f22066, #f3558a) #f22066;
+             }
         }
     }
   }
+}
+.result-list{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    height: 95%;
+    width: 100%;
+    transform: translateY(130%);
+    background: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color:#555;
+   .list-head{
+       height: .9rem;
+       border-bottom:1px solid #eee;
+       width: 100%;
+       display: flex;
+       .cls{
+           
+       }
+       .title{
+           font-size:.32rem;
+           text-align: center;
+           flex:1;
+           line-height: .9rem;
+       }
+       .query{
+           
+       }
+       .iconfont{
+            font-size: .8rem;
+            margin: .1rem;
+            line-height: .9rem;
+       }
+   }
+    .list-body{
+        flex:1;
+        padding: .26rem .3rem;
+        display: flex;
+        flex-flow: column;
+        .list-opt{
+            padding-bottom: .26rem;
+            span{
+                font-size: .24rem;
+                color:#5b5b5b;
+            }
+            .mint-button{
+                margin-left: .25rem;
+            }
+        }
+        .list-block{
+            flex:1;
+            
+            .block{
+                width: 3.05rem;
+                height: 3.05rem;
+               
+                margin: .2rem;
+                float: left;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+                border-radius: 4px;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        
+    }
+}
+.loading{
+    position: fixed;
+    bottom: 4rem;
+    text-align: center;
+    align-self: center;
+    width: 2rem;
+    display: flex;
+    justify-content: center;
+    
+    .loading-txt{
+        display: block;
+        align-self: center;
+    }
 }
 // 头部搜索区域
 .top-header {
