@@ -25,3 +25,9 @@
         }
     }
 </script>
+<style lang="scss" scoped>
+.child-view{
+  // margin-top:0.9rem;
+}
+</style>
+
