@@ -120,7 +120,7 @@ export default {
     }
     .content-item{
         margin-top: 0.08rem;
-        height: 9.5rem;
+        height: 9.2rem;
         	box-shadow: 4px 0px 0px 4px 	rgba(0, 0, 0, 0.1);
         width: 100%;
         background-color: #f6f6f6;
@@ -176,7 +176,7 @@ export default {
    }
    .splitline3{
       position: absolute;
-      top: 88%;
+      top: 85.5%;
       left:50%;
    }
 }
