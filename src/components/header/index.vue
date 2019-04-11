@@ -10,8 +10,8 @@
         <div slot="left" >
             <mt-button icon="back" @click='goBack'></mt-button>
         </div>
-        <mt-button v-if='!handleEdit' icon="more" slot="right"></mt-button>
-        <mt-button v-if='handleEdit' slot="right" @click='edit'> {{collectEdit?'完成':'编辑'}} </mt-button>
+        <mt-button v-show='!handleEdit' icon="more" slot="right"></mt-button>
+        <mt-button v-show='handleEdit' slot="right" @click='edit'> {{collectEdit?'完成':'编辑'}} </mt-button>
      </mt-header>
   </div>
 </template>
@@ -38,7 +38,7 @@ export default {
            this.$router.go(-1)
         },
         edit(){
-          this.changeCollectEdit()
+          this.changeCollectEdit('')
         }
     },
    computed:{

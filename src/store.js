@@ -8,7 +8,8 @@ export default new Vuex.Store({
     collectEdit:false
   },
   mutations: {
-    changeCollectEdit(state){
+    changeCollectEdit(state,payload){
+      payload=='leaveCollect'&& (state.collectEdit=false)
       state.collectEdit=!state.collectEdit
     }
   },
