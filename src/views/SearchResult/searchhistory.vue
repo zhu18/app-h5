@@ -46,7 +46,7 @@
                   </div>
                 </li>
             </ul>
-            <div class="loading" >
+            <div class="loading" v-if="loading">
                <span class="tips">数据加载中</span><mt-spinner :type="3" color="#26a2ff" :size="24"></mt-spinner>
             </div>
           </div>
