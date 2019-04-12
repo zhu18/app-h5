@@ -49,7 +49,7 @@ after_success:
   - npm run build
   - cd dist
   - git add -A
-  - git commit -a -m "Update tools"
+  - git commit -a -m "Update tools1"
   - git push --force "https://${GH_TOKEN}@github.com/zhu18/app-h5-build.git" gh-pages:master
 #  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
 
