@@ -48,13 +48,13 @@
         </div>
       </div>
     </div>
-    <ResultList ref="resultlist"/>
+    <ResultPanel ref="resultpanel"/>
   </div>
 </template>
 <script>
 import anime from "animejs";
 import { Spinner } from "mint-ui";
-import ResultList from "./resultlist";
+import ResultPanel from "./resultpanel";
 
 export default {
   name: "smartSearch",
@@ -111,15 +111,15 @@ export default {
     },
     showList() {
       //显示识别结果
-      this.$refs.resultlist.show();
+      this.$refs.resultpanel.show('all');
     },
     closeList() {
       //关闭识别结果
-      this.$refs.resultlist.hide();
+      this.$refs.resultpanel.hide();
     }
   },
   components: {
-    ResultList
+    ResultPanel
   }
 };
 </script>
