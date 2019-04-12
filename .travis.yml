@@ -53,7 +53,7 @@ after_success:
   - git add -A
   - git commit -a -m "Update tools1"
   # - git push --force "https://${GH_TOKEN}@github.com/zhu18/app-h5-build.git" master:gh-pages
- - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:master
+ - git push --force --quiet "https://${GH_TOKEN}@${GH_REF1}" gh-pages:master
 
 
 # End: Build 生命周期
