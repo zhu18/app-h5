@@ -37,9 +37,13 @@
               </span>
             </div>
           </div>
-          <div class="content-wrapper2"  v-if="index == 2">
+          <div class="content-wrapper2"  v-if="index == 2"
+            v-infinite-scroll="loadMore"
+            infinite-scroll-disabled="loading"
+            infinite-scroll-distance="10"
+          >
             <ul class="content-item">
-                <li class="clearfix" v-for="item in 10">
+                <li class="clearfix" v-for="item in recognitionList">
                   <img class="fl" src="../../assets/images/result-logo.jpg"/>
                   <div class="item-content fl">
                     <p class="item-label">结果</p>
@@ -47,6 +51,9 @@
                   </div>
                 </li>
             </ul>
+            <div class="loading" v-if="loading">
+               <span class="tips">数据加载中</span><mt-spinner :type="3" color="#26a2ff" :size="24"></mt-spinner>
+            </div>
           </div>
           <div class="content-wrapper1"  v-if="index == 3">
           </div>
@@ -65,7 +72,9 @@ export default {
     return {
         index:1,
         title:'查询历史',
-        dataList:["阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"]
+        dataList:["阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
+        recognitionList: [1,2,3,4,5],
+        loading: false
     };
   },
   created() {
@@ -91,6 +100,16 @@ export default {
       //编辑
        edit(){
           
+      },
+      loadMore() {
+        this.loading = true;
+        setTimeout(() => {
+            let last = this.recognitionList[this.recognitionList.length - 1];
+            for (let i = 1; i <= 4; i++) {
+            this.recognitionList.push(last + i);
+            }
+            this.loading = false;
+        }, 3500);
       },
   },
   components:{
@@ -183,8 +202,8 @@ export default {
             padding: 0.44rem 0.33rem;
             margin-bottom: 0.24rem;
             background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 0.1rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             overflow: hidden;
             img {
               float: left;
@@ -253,5 +272,16 @@ export default {
       top: 85.5%;
       left:50%;
    }
+}
+.loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0.6rem;
+    padding-bottom: 0.2rem;
+    .tips{
+        margin:0 0.3rem;
+        display: inline-block;
+    }
 }
 </style>
