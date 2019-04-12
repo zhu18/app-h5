@@ -53,6 +53,7 @@
             <div class="query"><i class="iconfont icon-query"></i></div>
         </div>
         <div class="list-body">
+
             <div class="list-opt">
                 <span>您想找的是:</span>
                 <mt-button type="default" size="small">鞋类</mt-button>
@@ -80,7 +81,7 @@
 <script>
 import anime from 'animejs';
 import { Spinner } from 'mint-ui';
-
+import searchBywriting from '../../views/SmartSearch/searchBywriting';
 export default {
   name: "smartSearch",
   data() {
@@ -150,7 +151,9 @@ export default {
         })
     }
   },
-  components: {}
+  components: {
+      searchBywriting
+  }
 };
 </script>
 <style lang="scss" scoped>
