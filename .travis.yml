@@ -36,7 +36,9 @@ before_script:
   - git config user.name ${U_NAME}
   - git config user.email ${U_EMAIL}
   #- git clone --branch gh-pages https://${GH_REF} dist
-  - git clone https://git@github.com/zhu18/app-h5.git
+  - git clone --branch gh-pages https://git@github.com/zhu18/app-h5.git dist
+
+  #- git clone https://git@github.com/zhu18/app-h5.git
 
 # 指定构建或测试脚本，设置为true,表示不执行任何脚本，状态直接设为成功
 script:
