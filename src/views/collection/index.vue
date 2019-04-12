@@ -1,12 +1,12 @@
 <template>
 <div>
   <ul class="collet-box clearfix">
-    <li class="item" v-for="(item,idx) in dataList" :key='item.id'>
+    <li class="item" v-for="(item,idx) in dataList" :key='item.id' @click="select(item.id)">
       <img :src='item.imgS' alt="" >
       <h2>{{item.title}}</h2>
       <p>{{item.number}}</p>
       <p>{{item.date}}</p>
-      <span class="icon-box"  v-show="collectEdit" @click="select(item.id)" :ref="item.id" :id='item.id'>
+      <span class="icon-box"  v-show="collectEdit" :ref="item.id" :id='item.id'>
          <i class="mint-toast-icon mintui mintui-field-success"></i> 
       </span>
     </li>
@@ -18,7 +18,7 @@
     :modal='false'
   >
     <p @click="selectAll">
-       <span class="icon-box"  @click="selectAll" ref='select-all'>
+       <span class="icon-box"  ref='select-all'>
          <i class="mint-toast-icon mintui mintui-field-success"></i> 
       </span>
       全选
@@ -143,10 +143,10 @@ export default{
        width: 3.30rem;
        height:3.84rem;
        background: #ffffff;
-       border-radius: 0.06rem;
+       border-radius: 0.1rem;
        padding: 0.32rem 0.25rem;
        box-sizing: border-box;
-       box-shadow: 0px 4px 10px 1px rgba(0 ,0, 0,.1);
+       box-shadow: 0px 1px 3px rgba(0 ,0, 0,.1);
        margin-bottom: 0.25rem;
        &:nth-child(2n-1){
          margin-right: 0.25rem;
