@@ -35,8 +35,8 @@ install:
 before_script:
   - git config user.name ${U_NAME}
   - git config user.email ${U_EMAIL}
-  #- git clone --branch gh-pages https://${GH_REF} dist
-  - git clone --branch gh-pages https://git@github.com/zhu18/app-h5.git dist
+  - git clone --branch gh-pages https://${GH_REF} dist
+  # - git clone --branch gh-pages https://git@github.com/zhu18/app-h5.git dist
 
   #- git clone https://git@github.com/zhu18/app-h5.git
 
@@ -52,8 +52,8 @@ after_success:
   - cd dist
   - git add -A
   - git commit -a -m "Update tools1"
-  - git push --force "https://${GH_TOKEN}@github.com/zhu18/app-h5-build.git" master:gh-pages
-#  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
+  # - git push --force "https://${GH_TOKEN}@github.com/zhu18/app-h5-build.git" master:gh-pages
+ - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:master
 
 
 # End: Build 生命周期
