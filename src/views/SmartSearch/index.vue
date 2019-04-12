@@ -49,8 +49,8 @@
           <i class="iconfont icon-del" v-show="isScaning"></i>
         </div>
         <div class="language">
-            <div class="btn ch selected">中文</div>
-            <div class="btn ch selected">英文</div>
+            <div class="btn ch selected">中文1</div>
+            <div class="btn ch selected">英文1</div>
         </div>    
       </div>
     </div>
