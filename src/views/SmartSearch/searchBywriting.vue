@@ -5,7 +5,7 @@
 * 修改时间：2019-04-12
 -->
 <template lang="html">
-  <div class="home-searchBywriting">
+  <div class="home-searchBywriting" @click.stop="">
       <div class="top-header">
         <form action="javascript:;" id="searchFrom" @submit="searchList">
             <input type="search" value="" placeholder="请输入关键字查询" />

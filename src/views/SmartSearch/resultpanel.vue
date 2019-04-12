@@ -9,21 +9,24 @@
         <img src="../../assets/images/logo1.png">
         <div class="sort" @click.stop="sort()">排列</div>
       </div>
-      <div class="query" @click.stop="search()">
+      <div class="query" @click.stop="query()">
         <i class="iconfont icon-query"></i>
       </div>
     </div>
-    <LogoList />
+    <LogoList v-show="status==='list'" />
+    <SearchByWriting  v-show="status==='query'"/>
   </div>
 </template>
 
 <script>
 import anime from "animejs";
-import LogoList from "./logolist"
+import LogoList from "./logolist";
+import SearchByWriting from "./searchBywriting";
+
 export default {
   data() {
     return {
-   
+      status:'list',//'list','query','sort'
     };
   },
   mounted() {
@@ -49,15 +52,26 @@ export default {
     hide() {
       this.show("hide");
     },
-    search(){
-
+    list(){
+      this.setStatus('list')
+    },
+    query(){
+      this.setStatus('query')
     },
     sort(){
-
+      this.setStatus('sort')
+    },
+    setStatus(status){
+      //二次点击回到列表
+      if(status===this.status)
+        this.status='list'
+      else
+        this.status=status;
     }
   },
   components:{
-    LogoList
+    LogoList,
+    SearchByWriting
   }
 };
 </script>
