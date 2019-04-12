@@ -1,0 +1,74 @@
+# 操作系统
+#os: osx
+
+# 使用语言
+language: node_js
+
+# 使用node版本
+node_js:
+  - "10.10.0"
+
+# 指定缓存模块，可选。缓存可加快编译速度。
+cache:
+  apt: true
+  yarn: true
+  directories:
+    - node_modules
+
+
+# Start: Build 生命周期
+
+
+# install 阶段之前执行
+before_install:
+# 由于使用了yarn，所以需要下载，如不用yarn可删除这两行
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH=$HOME/.yarn/bin:$PATH
+# 安装依赖，设置为true跳过安装
+install:
+  - export DISPLAY=':99.0'
+  - Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
+  - yarn
+  - npm install
+
+# script 阶段之前执行
+before_script:
+  - git config user.name ${U_NAME}
+  - git config user.email ${U_EMAIL}
+  - git clone --branch gh-pages https://${GH_REF} dist
+
+# 指定构建或测试脚本，设置为true,表示不执行任何脚本，状态直接设为成功
+script:
+  true
+#  - npm run unit
+
+# script 阶段成功时执行
+after_success:
+
+  - npm run build
+  - cd dist
+  - git add -A
+  - git commit -a -m "Update tools"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF1}" gh-pages:master
+#  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
+
+
+# End: Build 生命周期
+
+
+
+# 指定分支，只有指定的分支提交时才会运行脚本
+branches:
+  only:
+    - master
+# 设置环境变量，或者在travis-ci.org的'Settings'设置
+env:
+  global:
+      - GH_REF1: github.com/zhu18/app-h5-build.git        #仓库地址
+#    - GH_TOKEN: ***********                            #Github的Access Token
+
+# 参考地址
+# travis官网地址： https://travis-ci.org/
+# https://www.jianshu.com/p/7cd484bd6dc1
+# https://www.cnblogs.com/morang/p/7228488.html
+# https://docs.travis-ci.com/user/getting-started/

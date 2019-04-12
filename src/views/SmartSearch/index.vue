@@ -126,26 +126,24 @@ export default {
             })
         },1000)
     },
-    setScanType(type){
+    setScanType(type){//设置识别类型
         if(this.scanType==type)
             return;
 
         this.scanType=type;
         let x=type==='txt'?'2.2rem':'0';
-        console.log(x);
         anime({
             targets:'.opt-txtbar',
             translateX:x
         })
     },
-    showList(){
+    showList(){//显示识别结果
          anime({
             targets:'.result-list',
             translateY:'10%'
         })
     },
-    closeList(){
-        console.log('..')
+    closeList(){//关闭识别结果
          anime({
             targets:'.result-list',
             translateY:'130%'
