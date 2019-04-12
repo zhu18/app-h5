@@ -6,7 +6,7 @@
       <h2>{{item.title}}</h2>
       <p>{{item.number}}</p>
       <p>{{item.date}}</p>
-      <span class="icon-box" v-show="collectEdit" @click="select(item.id)" :ref="item.id">
+      <span class="icon-box"  v-show="collectEdit" @click="select(item.id)" :ref="item.id" :id='item.id'>
          <i class="mint-toast-icon mintui mintui-field-success"></i> 
       </span>
     </li>
@@ -17,7 +17,7 @@
     class="pop-bottom"
     :modal='false'
   >
-    <p>
+    <p @click="selectAll">
        <span class="icon-box"  @click="selectAll" ref='select-all'>
          <i class="mint-toast-icon mintui mintui-field-success"></i> 
       </span>
@@ -114,7 +114,15 @@ export default{
       }
     },
     del(){
-      
+      let domArr=document.querySelectorAll('.item .icon-box')
+      let selectArr=[]
+        domArr.forEach(item=>{
+           if(item.classList.contains('is-select')){
+            selectArr.push(item.id)
+           }
+      })
+      console.log(selectArr)
+      // 调取接口刷新列表
     }
   },
   computed:{
@@ -210,13 +218,13 @@ export default{
       display:inline-block;
       width: 50%;
       height: 100%;
-      padding-left: 1rem;
+      padding-left: 1.25rem;
       line-height: 0.98rem;
       font-size: 0.28rem;
       box-sizing: border-box;
       &:nth-child(2){
         text-align: right;
-        padding-right: 1rem;
+        padding-right: 1.5rem;
       }
        .icon-box{
         position: absolute;
