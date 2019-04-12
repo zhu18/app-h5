@@ -50,6 +50,9 @@
 import anime from "animejs";
 export default {
     mounted(){
+        anime.set(".result-list",{
+        translateY: '130%',
+      });
     },
   methods: {
     show(type) {
@@ -77,7 +80,7 @@ export default {
   display: flex;
   position: fixed;
   flex-direction: column;
-  height: 300px;
+  height: 95%;
   width: 100%;
   transform: translateY(130%);
   background: #fff;
