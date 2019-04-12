@@ -1,4 +1,9 @@
-<!--李耀2019-4-10-->
+<!--
+* 文件名：searchhistory
+* 作者：李耀
+* 描述：历史查询
+* 修改时间：2019-04-10
+-->
 <template lang="html">
   <div class="home-searchhistory">
       <div class="top-header">
@@ -80,7 +85,6 @@ export default {
       //点击导航
       navClick(index){
         this.index = index;
-        console.log(index)
       },
       goBack(){
           this.$router.go(-1)

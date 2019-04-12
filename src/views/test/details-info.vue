@@ -1,4 +1,9 @@
-<!--李耀2019-4-10-->
+<!--
+* 文件名：details-info
+* 作者：李耀
+* 描述：商品详情
+* 修改时间：2019-04-12
+-->
 <template lang="html">
   <div class="home-detailsinfo">
       <div class="top-header">
@@ -67,11 +72,11 @@
              <tr>
                 <td class="left-font" >商标流程</td>
                 <td class="right-font">
-                    <div class="button">点击查看</div>
+                    <div class="button" @click="viewClick">点击查看</div>
                   </td>
              </tr>
               <tr>
-                <td class="left-font" >商标状态图标</td>
+                <td class="left-font" >商标状态</td>
                 <td class="right-font">
                     <img src="../../assets/images/17.png" class="t-img">
                   </td>
@@ -81,11 +86,11 @@
         </div>
       </div>
      <div class="print">
-             <span class="delete" @click="deleteall">添加我的取证</span>
-            <span class="edit" @click="edit"><img src="../../assets/images/print.png" class="p-img">打印</span>
+             <span class="delete" @click="addqz">添加我的取证</span>
+            <span class="edit" @click="print"><img src="../../assets/images/print.png" class="p-img">打印</span>
          
      </div>
-
+     <span class="splitline"></span>
   </div>
 </template>
 <script>
@@ -113,6 +118,18 @@ export default {
   methods: {
       goBack(){
           this.$router.go(-1)
+      },
+      //打印按钮方法
+      print(){
+
+      },
+      //添加我的取证按钮方法
+      addqz(){
+
+      },
+      //点击查看按钮方法
+      viewClick(){
+
       }
   },
   components:{
@@ -239,6 +256,15 @@ export default {
         }
 
     }
+    .splitline{
+        position: absolute;
+        top: 85.5%;
+        left:52%;
+        display: inline-block;
+        height: 0.3rem;
+        width: 0.02rem;
+        background-color:#bfbfbf;
+    }
 }
 .yuan-left{
     position: absolute;
@@ -262,4 +288,5 @@ export default {
     border-radius:50px 0 0 50px; /* 左上、右上、右下、左下 */
     box-shadow: inset 0.05rem 0.01rem 0.05rem #e8e8e8;
 }
+
 </style>

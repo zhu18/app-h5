@@ -1,4 +1,4 @@
-<!-- 
+<!--
 * 文件名：SmartSearch
 * 作者：zhu18
 * 描述：智能检索
@@ -36,6 +36,30 @@
         </div>
       </div>
     </div>
+    <div class="result-list"  @click="showList">
+        <div class="list-head">
+            <div class="cls" @click.stop="closeList"><i class="iconfont icon-del"></i></div>
+            <div class="title">相似商标</div>
+            <div class="query"><i class="iconfont icon-query"></i></div>
+        </div>
+        <div class="list-body">
+
+            <div class="list-opt">
+                <span>您想找的是:</span>
+                <mt-button type="default" size="small">鞋类</mt-button>
+                <mt-button type="default" size="small">家具</mt-button>
+                <mt-button type="default" size="small">其他</mt-button>
+            </div>
+            <div class="list-block">
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+                <div class="block"><img src="../../assets/images/logo2.png"/></div>
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+                <div class="block"><img src="../../assets/images/logo2.png"/></div>
+                <div class="block"><img src="../../assets/images/logo2.png"/></div>
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+                <div class="block"><img src="../../assets/images/logo1.png"/></div>
+            </div>
     <div class="search-opt">
       <div class="opt-txtbar">
         <div class="txt" :class="scanType=='txt'&&'active left'" @click="setScanType('txt')">扫图识字</div>
@@ -50,12 +74,14 @@
     </div>
     <ResultPanel ref="resultpanel"/>
   </div>
+ </div>
+  </div>
 </template>
 <script>
+import { Spinner } from 'mint-ui';
 import anime from "animejs";
-import { Spinner } from "mint-ui";
 import ResultPanel from "./resultpanel";
-
+import searchBywriting from '../../views/SmartSearch/searchBywriting';
 export default {
   name: "smartSearch",
   data() {
@@ -119,7 +145,8 @@ export default {
     }
   },
   components: {
-    ResultPanel
+    ResultPanel,
+    searchBywriting
   }
 };
 </script>
