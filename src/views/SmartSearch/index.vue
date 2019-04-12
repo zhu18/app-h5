@@ -12,13 +12,13 @@
         <div slot="left">
           <mt-button icon="back" @click="back"></mt-button>
         </div>
-        <mt-button slot="right">
+        <mt-button slot="right" @click="openHelp()">
           <i class="iconfont icon-help"></i>
         </mt-button>
-        <mt-button slot="right">
+        <mt-button slot="right" @click="openHistory()">
           <i class="iconfont icon-time"></i>
         </mt-button>
-        <mt-button slot="right">
+        <mt-button slot="right" @click="openPic()">
           <i class="iconfont icon-img"></i>
         </mt-button>
       </mt-header>
@@ -49,8 +49,8 @@
           <i class="iconfont icon-del" v-show="isScaning"></i>
         </div>
         <div class="language">
-            <div class="btn ch selected">中文111111144441</div>
-            <div class="btn ch selected">英文122222224442</div>
+            <div class="btn ch selected">中文</div>
+            <div class="btn ch selected">英文</div>
         </div>    
       </div>
     </div>
@@ -61,7 +61,7 @@
  
 </template>
 <script>
-import { Spinner } from 'mint-ui';
+import { Spinner,MessageBox } from 'mint-ui';
 import anime from "animejs";
 import ResultPanel from "./resultpanel";
 export default {
@@ -76,6 +76,7 @@ export default {
   },
   created() {},
   mounted() {
+    document.addEventListener("click",()=>{this.hideTip();},false);
     anime({
       targets: ".img-tip",
       translateY: [-30, 0],
@@ -89,6 +90,15 @@ export default {
     },
     hideTip() {
       this.$refs.imgtip.remove();
+    },
+    openHelp(){
+      MessageBox('提示', '帮助待开发...');
+    },
+    openHistory(){
+      this.$router.push('searchhistory');
+    },
+    openPic(){
+      MessageBox('提示', '原生app对接-打开系统相册');
     },
     scan() {
       this.$refs.imgtip.remove();
