@@ -61,7 +61,7 @@ export default {
       };
       anime({
         targets: ".result-list",
-        top: offset[type],
+        translateY: offset[type],
         easing:'easeInOutSine',
         duration:300
       });
@@ -77,10 +77,9 @@ export default {
   display: flex;
   position: fixed;
   flex-direction: column;
-  height: 95%;
+  height: 300px;
   width: 100%;
-  top:130%;
-  //transform: translateY(130%);
+  transform: translateY(130%);
   background: #fff;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
