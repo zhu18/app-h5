@@ -141,12 +141,12 @@ export default {
       position: relative;
       height: 1rem;
       background-color: #ffffff;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
       .ul {
         width: 100%;
         height: 1rem;
         color: #1e2128;
-        box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 0 0.06rem rgba(0, 0, 0, 0.1);
         .li {
           display: inline-block;
           text-align: center;
@@ -189,7 +189,7 @@ export default {
             height: 0.8rem;
             line-height: 0.8rem;
             background-color: #bfbfbf;
-            border-radius: 3px;
+            border-radius: 0.03rem;
             opacity: 0.5;
             margin-right: 0.3rem;
             .img{
@@ -203,7 +203,7 @@ export default {
             margin-bottom: 0.24rem;
             background: #fff;
             border-radius: 0.1rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0.01rem 0.03rem rgba(0, 0, 0, 0.1);
             overflow: hidden;
             img {
               float: left;

@@ -118,7 +118,6 @@ export default {
       }
       //开始识别
       this.isScaning = true;
-
       this.timer = setTimeout(() => {
         this.isScaning = false;
         this.showList();
