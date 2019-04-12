@@ -35,7 +35,8 @@ install:
 before_script:
   - git config user.name ${U_NAME}
   - git config user.email ${U_EMAIL}
-  - git clone --branch gh-pages https://${GH_REF} dist
+  #- git clone --branch gh-pages https://${GH_REF} dist
+  - git clone --branch gh-pages https://git@github.com:zhu18/app-h5.git dist
 
 # 指定构建或测试脚本，设置为true,表示不执行任何脚本，状态直接设为成功
 script:
@@ -49,7 +50,7 @@ after_success:
   - cd dist
   - git add -A
   - git commit -a -m "Update tools"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF1}" gh-pages:gh-pages
+  - git push --force --quiet "https://${GH_TOKEN}@github.com/zhu18/app-h5-build.git" gh-pages:master
 #  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
 
 

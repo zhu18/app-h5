@@ -48,7 +48,10 @@
           <i class="iconfont icon-pic" v-show="!isScaning"></i>
           <i class="iconfont icon-del" v-show="isScaning"></i>
         </div>
-        <div class="language"></div>    
+        <div class="language">
+            <div class="btn ch selected">中文</div>
+            <div class="btn ch selected">英文</div>
+        </div>    
       </div>
     </div>
     <ResultPanel ref="resultpanel"/>
@@ -250,6 +253,9 @@ export default {
     }
     .opt-btn {
       height: 2rem;
+      .btn{
+          
+      }
       .btn-watch {
         width: 0.92rem;
         height: 0.92rem;
