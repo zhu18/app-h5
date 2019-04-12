@@ -48,6 +48,7 @@
           <i class="iconfont icon-pic" v-show="!isScaning"></i>
           <i class="iconfont icon-del" v-show="isScaning"></i>
         </div>
+        <div class="language"></div>    
       </div>
     </div>
     <ResultPanel ref="resultpanel"/>
