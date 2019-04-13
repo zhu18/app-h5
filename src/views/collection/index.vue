@@ -2,7 +2,7 @@
 <div>
   <ul class="collet-box clearfix">
     <li class="item" v-for="(item,idx) in dataList" :key='item.id' @click="select(item.id)">
-      <img :src='item.imgS' alt="" >
+      <img src='../../assets/images/result-logo.jpg' alt="" >
       <h2>{{item.title}}</h2>
       <p>{{item.number}}</p>
       <p>{{item.date}}</p>
@@ -45,28 +45,28 @@ export default{
         },
         {
           id:2,
-          imgS:'/brand.png',
+          imgS:'./brand.png',
           title:'耐克创新有限合伙公司',
           number:'申请/注册号:12749588',
           date:'申请日:2007-04-17'
         },
         {
           id:3,
-          imgS:'/brand.png',
+          imgS:'./brand.png',
           title:'耐克创新有限合伙公司',
           number:'申请/注册号:12749588',
           date:'申请日:2007-04-17'
         },
         {
           id:4,
-          imgS:'/brand.png',
+          imgS:'./brand.png',
           title:'耐克创新有限合伙公司',
           number:'申请/注册号:12749588',
           date:'申请日:2007-04-17'
         },
         {
           id:5,
-          imgS:'/brand.png',
+          imgS:'./brand.png',
           title:'耐克创新有限合伙公司',
           number:'申请/注册号:12749588',
           date:'申请日:2007-04-17'
