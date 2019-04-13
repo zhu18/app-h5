@@ -80,7 +80,7 @@ export default {
       months: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
       years: [2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016],
       dates: [],
-      currDate: [2019, 3, 1],
+      currDate: [2019, 3],
       minYear: 1900
     }
   },
@@ -97,6 +97,7 @@ export default {
       this.month = now.getMonth()
       this.currDate = [this.year, this.month]
       this.computYears(this.year)
+      this.computDate()
     },
     computYears (year) {
       let start = year - (year - this.minYear) % 16
@@ -170,7 +171,7 @@ export default {
     }
   },
   mounted () {
-    this.computDate()
+    this.init()
   }
 }
 </script>

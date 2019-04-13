@@ -13,17 +13,23 @@
      </div>
      <div class="list">
         <router-link :to="{ name: 'trademarkinquiry', params: { title: '商标查询'}} " class="list-item block" tag="div">
-                <i class="iconfont icon-logoquery"></i>商标查询
+            <i class="iconfont icon-logoquery"></i>商标查询
         </router-link>
-       <router-link :to="{ name: 'smartSearch', params: { title: '智能检索'}} " class="list-item block" tag="div">
+        <router-link :to="{ name: 'smartSearch', params: { title: '智能检索'}} " class="list-item block" tag="div">
             <i class="iconfont icon-imgquery"></i>智能检索
-      </router-link>
-       <div class="list-item block"><i class="iconfont icon-regulations"></i>法律法规</div>
-         <router-link :to="{ name: 'collection', params: { title: '收藏',handleEdit:true}} " class="list-item block" tag="div">
-                 <i class="iconfont icon-collection"></i>收藏
         </router-link>
-       <div class="list-item block"><i class="iconfont icon-new"></i>新闻</div>
-       <div class="list-item block"><i class="iconfont icon-read"></i>阅读</div>
+        <router-link :to="{ name: 'lawenforcement', params: { title: '收藏',handleEdit:true}} " class="list-item block" tag="div">
+            <i class="iconfont icon-regulations"></i>法律法规
+        </router-link>
+        <router-link :to="{ name: 'collection', params: { title: '收藏',handleEdit:true}} " class="list-item block" tag="div">
+            <i class="iconfont icon-collection"></i>收藏
+        </router-link>
+       <div class="list-item block">
+          <i class="iconfont icon-new"></i>新闻
+        </div>
+       <div class="list-item block">
+         <i class="iconfont icon-read"></i>阅读
+       </div>
      </div>
       </div>
   </div>
