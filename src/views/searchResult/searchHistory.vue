@@ -16,18 +16,21 @@
        <div class="item">
            <ul class="ul">
              <div  class="li" >
-               <span :class="index==1?'span span-seletecd':'span'" @click="navClick('1')">文字</span>
+               <span :class="index==1?'span span-seletecd':'span'" @click="navClick('1')">
+                <p class="p">文字</p>
+               </span>
              </div>
              <div  class="li" >
-               <span :class="index==2?'span span-seletecd':'span'" @click="navClick('2')">识图</span>
+               <span :class="index==2?'span span-seletecd':'span'" @click="navClick('2')">
+               <p class="p">识图</p>
+               </span>
              </div>
               <div  class="li">
                <span :class="index==3?'span span-seletecd':'span'" @click="navClick('3')">图片</span>
              </div>
            </ul>
         </div>
-        <span class="splitline"></span>
-        <span class="splitline splitline2"></span>
+
         <div class="content-wrapper">
           <div class="content-wrapper1" v-if="index == 1">
             <div class="content-item">
@@ -59,7 +62,9 @@
           </div>
         </div>
         <div class="content-button" v-if="index != 2">
-            <span class="delete" @click="deleteall">全部删除</span>
+            <span class="delete" @click="deleteall">
+              <p class="p">全部删除</p>
+            </span>
             <span class="edit" @click="edit">编辑</span>
         </div>
         <span class="splitline splitline3" v-if="index != 2"></span>
@@ -157,11 +162,19 @@ export default {
           line-height: 1rem;
           background: #fff;
           .span{
+            width: 100%;
             display: inline-block;
             height:100%;
-            padding: 0 10%;
+            padding: 0 1%;
             line-height: 1rem;
             box-sizing: border-box;
+              .p{
+                  width: 100%;
+                  display: inline-block;
+                  height: 0.32rem;
+                  line-height: 0.32rem;
+                  border-right: 0.02rem solid #bfbfbf;
+              }
           }
           .span-seletecd{
                color: #2095f2;
@@ -178,7 +191,7 @@ export default {
           overflow-y: scroll;
       }
       .content-wrapper2 {
-          height: 10.2rem;;
+        height: 10.2rem;;
         overflow-y: scroll;
       }
       .content-item{
@@ -243,8 +256,17 @@ export default {
         .delete{
             display: inline-block;
             width: 50%;
+
+
             text-align: center;
             line-height: 1rem;
+            .p{
+                width: 100%;
+                display: inline-block;
+                height: 0.32rem;
+                line-height: 0.32rem;
+                border-right: 0.02rem solid #bfbfbf;
+            }
         }
         .edit{
             display: inline-block;
@@ -254,25 +276,6 @@ export default {
             color: #2095f2;
         }
     }
-    .splitline{
-    position: absolute;
-    top: 9.5%;
-    left:32%;
-    display: inline-block;
-    height: 0.3rem;
-    width: 0.02rem;
-    background-color:#bfbfbf;
-   }
-   .splitline2{
-      position: absolute;
-      top: 9.5%;
-      left:66%;
-   }
-   .splitline3{
-      position: absolute;
-      top: 85.5%;
-      left:50%;
-   }
 }
 .loading{
     display: flex;

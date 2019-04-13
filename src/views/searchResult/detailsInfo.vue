@@ -84,8 +84,9 @@
 
         </div>
        <div class="print">
-          <span class="splitline"></span>
-             <span class="delete" @click="addqz">添加我的取证</span>
+             <span class="delete" @click="addqz">
+              <p class="p">添加我的取证</p>
+             </span>
             <span class="edit" @click="print"><img src="../../assets/images/print.png" class="p-img">打印</span>
 
 
@@ -225,7 +226,7 @@ export default {
             }
         }
         .content-middle{
-            height: calc(100% - 2.2rem - 1rem - 1.7rem);
+            height: calc(100% - 2.2rem - 1rem - 1.8rem);
             overflow-y: auto;
             font-size: 0.24rem;
             padding-top: 0.2rem;
@@ -268,7 +269,13 @@ export default {
                 display: inline-block;
                 width: 50%;
                 text-align: center;
-                line-height: 1rem;
+                .p{
+                    width: 100%;
+                    display: inline-block;
+                    height: 0.32rem;
+                    line-height: 0.32rem;
+                    border-right: 0.02rem solid #bfbfbf;
+                }
             }
             .edit{
                 display: inline-block;
@@ -282,17 +289,6 @@ export default {
                     margin-right: 0.2rem
                 }
             }
-            .splitline{
-                position: absolute;
-                margin-top: 3.5%;
-                left:52%;
-                display: flex;
-                height: 0.3rem;
-                width: 0.02rem;
-                display: flex;
-                background-color:#bfbfbf;
-            }
-
         }
     }
 
