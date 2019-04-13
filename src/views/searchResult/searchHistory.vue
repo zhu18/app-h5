@@ -172,12 +172,13 @@ export default {
       }
     }
     .content-wrapper {
+        height: calc(100% - 0.9rem - 3.3rem);
       .content-wrapper1 {
-        height: 9.2rem;
-        overflow-y: scroll;
+
+          overflow-y: scroll;
       }
       .content-wrapper2 {
-        height: 10.2rem;
+          height: 10.2rem;;
         overflow-y: scroll;
       }
       .content-item{

@@ -30,11 +30,10 @@
                   <div class="p1">国际分类  <span class="p3">9</span></div>
 
               </div>
+               <div class="yuan-left"></div>
+              <div class="yuan-right"></div>
         </div>
-             <div class="yuan-left">
-         </div>
-          <div class="yuan-right">
-         </div>
+
         <div class="content-middle">
            <table>
               <tr>
@@ -85,9 +84,10 @@
 
         </div>
        <div class="print">
+          <span class="splitline"></span>
              <span class="delete" @click="addqz">添加我的取证</span>
             <span class="edit" @click="print"><img src="../../assets/images/print.png" class="p-img">打印</span>
-                <span class="splitline"></span>
+
 
      </div>
       </div>
@@ -199,6 +199,30 @@ export default {
                     padding-left: 0.2rem;
                 }
             }
+            .yuan-left{
+                position: absolute;
+                margin-top: 27.7%;
+                left:3.6%;
+                width: 0.2rem;
+                height: 0.3rem;
+                border-left: none;
+                display: flex;
+                background-color: #f5f5f5;
+                border-radius:0 0.5rem 0.5rem 0; /* 左上、右上、右下、左下 */
+                box-shadow: inset -0.05rem -0.01rem 0.05rem #e8e8e8;
+            }
+            .yuan-right{
+                position: absolute;
+                margin-top: 27.7%;
+                right:3.6%;
+                width: 0.2rem;
+                height: 0.3rem;
+                display: flex;
+                border-left: none;
+                background-color: #f5f5f5;
+                border-radius:0.5rem 0 0 0.5rem; /* 左上、右上、右下、左下 */
+                box-shadow: inset 0.05rem 0.01rem 0.05rem #e8e8e8;
+            }
         }
         .content-middle{
             height: calc(100% - 2.2rem - 1rem - 1.7rem);
@@ -260,7 +284,7 @@ export default {
             }
             .splitline{
                 position: absolute;
-                top: 85.5%;
+                margin-top: 3.5%;
                 left:52%;
                 display: flex;
                 height: 0.3rem;
@@ -274,29 +298,6 @@ export default {
 
 
 }
-.yuan-left{
-    position: absolute;
-    top: 23.5%;
-    left:3.6%;
-    width: 0.2rem;
-    height: 0.3rem;
-    border-left: none;
-    display: flex;
-    background-color: #f5f5f5;
-    border-radius:0 0.5rem 0.5rem 0; /* 左上、右上、右下、左下 */
-    box-shadow: inset -0.05rem -0.01rem 0.05rem #e8e8e8;
-}
-.yuan-right{
-    position: absolute;
-    top: 23.5%;
-    right:3.6%;
-    width: 0.2rem;
-    height: 0.3rem;
-    display: flex;
-    border-left: none;
-    background-color: #f5f5f5;
-    border-radius:0.5rem 0 0 0.5rem; /* 左上、右上、右下、左下 */
-    box-shadow: inset 0.05rem 0.01rem 0.05rem #e8e8e8;
-}
+
 
 </style>
