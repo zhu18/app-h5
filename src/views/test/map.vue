@@ -92,7 +92,7 @@ function getContent(nmb,txt){
 
 
 .map{
-    height: 100%;
+    height: 120%;
     width: 100%;
 }
 
