@@ -35,6 +35,7 @@ export default {
   methods: {
       //查询按钮
       searchList(){
+          this.$router.push('/searchresult')
       },
       //关闭方法
       closeitem(item){

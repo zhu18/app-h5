@@ -3,16 +3,20 @@ import Router from 'vue-router'
 import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
-import TrademarkInquiry from  './views/TrademarkInquiry'
-import detailsInfo from  './views/test/details-info'
-import SearchResult from  './views/SearchResult'
-import SmartSearch from  './views/SmartSearch'
 
-import test1 from  './views/test/test1'
+import trademarkInquiry from  './views/TrademarkInquiry'
+import detailsInfo from  './views/SearchResult/detailsInfo'
+import searchresult from  './views/SearchResult'
+import smartSearch from  './views/SmartSearch'
+
+import LawEnforcement from  './views/LawEnforcement'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
+import test4 from './views/test/test4'
+import map from './views/test/map'
+
 import my from  './views/test/my'
-import searchhistory from  './views/SearchResult/searchhistory'
+import searchHistory from  './views/SearchResult/searchhistory'
 import collection from  './views/collection'
 Vue.use(Router)
 Router.prototype.goBack = function () {
@@ -20,8 +24,7 @@ Router.prototype.goBack = function () {
   window.history.go(-1);
 };
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'login',
       component: () => import('./views/login/login')
@@ -43,16 +46,16 @@ export default new Router({
                 path: '/trademarkinquiry',
                 name:'trademarkinquiry',
                 components: {
-                  body: TrademarkInquiry,
+                  body: trademarkInquiry,
                   footer: footerTab,
                   header: headerBar
                 }
               },
               {//智能检索主页
-                path: '/smartsearch',
-                name:'smartsearch',
+                path: '/smartSearch',
+                name:'smartSearch',
                 components: {
-                    body: SmartSearch
+                    body: smartSearch
                 }
               },
               {//查询结果
@@ -67,24 +70,23 @@ export default new Router({
                 path: '/searchresult',
                 name:'searchresult',
                 components: {
-                  body: SearchResult,
+                  body: searchresult,
                   footer: footerTab
                 }
               },
               {//生活服务主页
                 path: '/searchhistory',
                 components: {
-                    body: searchhistory,
+                    body: searchHistory,
                   footer: footerTab,
                   header: headerBar
                 }
               },
-              {//生活服务主页
-                path: '/test1',
+              {//执法
+                path: '/lawenforcement',
                 components: {
-                    body: test1,
-                  footer: footerTab,
-                  header: headerBar
+                    body: LawEnforcement,
+                  footer: footerTab
                 }
               },
               {//生活服务主页
@@ -113,6 +115,14 @@ export default new Router({
                 }
               },
               {//生活服务主页
+                path: '/test4',
+                components: {
+                    body: test4,
+                  footer: footerTab,
+                  header: headerBar
+                }
+              },
+              {//生活服务主页
                 path: '/my',
                 components: {
                     body: my,
@@ -126,6 +136,14 @@ export default new Router({
                 components: {
                     body: collection,
                   header: headerBar
+                }
+              },
+               {//收藏
+                path: '/map',
+                name:'map',
+                components: {
+                body: map,
+                 
                 }
               },
           ]

@@ -7,13 +7,15 @@
             </router-link>
          </div>
          <div class="tab-item">
-            <router-link to='/test1'>
+            <router-link to='/lawenforcement'>
                  <i class="iconfont icon-law"></i>
                  <span>执法</span>
             </router-link>
         </div>
         <div class="tab-item searchbtn">
-           
+           <router-link to='/smartSearch' >
+               
+            </router-link>
         </div>
         <div class="tab-item">
            <router-link to='/searchhistory'>
@@ -35,7 +37,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
     .footerTab {
         position: fixed;
         left: 0;
@@ -71,6 +73,11 @@ export default {
     .searchbtn{
         background: url(../../assets/images/component/searchbtn.png) no-repeat center 0.15rem;
         background-size: 1.1rem 1.1rem;
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
     }
     .tab-item span{
         display:inline-block;

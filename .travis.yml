@@ -6,7 +6,7 @@ language: node_js
 
 # 使用node版本
 node_js:
-  - "10.10.0"
+  - "11.0.0"
 
 # 指定缓存模块，可选。缓存可加快编译速度。
 cache:
@@ -33,27 +33,24 @@ install:
 
 # script 阶段之前执行
 before_script:
-  - git config user.name ${U_NAME}
-  - git config user.email ${U_EMAIL}
-  - git clone --branch gh-pages https://${GH_REF} dist
-  # - git clone --branch gh-pages https://git@github.com/zhu18/app-h5.git dist
 
-  #- git clone https://git@github.com/zhu18/app-h5.git
+  # - git clone --branch gh-pages https://${GH_REF} dist
+  # - git clone --branch gh-pages https://git@github.com/zhu18/app-h5.git dist
+  # - git clone https://git@github.com/zhu18/app-h5.git
 
 # 指定构建或测试脚本，设置为true,表示不执行任何脚本，状态直接设为成功
 script:
-  true
-#  - npm run unit
+  - npm run build
 
 # script 阶段成功时执行
 after_success:
-
-  - npm run build
-  - cd dist
-  - git add -A
-  - git commit -a -m "Update tools1"
-  # - git push --force "https://${GH_TOKEN}@github.com/zhu18/app-h5-build.git" master:gh-pages
- - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:master
+  - cd ./dist
+  - git init
+  - git config user.name "${U_NAME}"
+  - git config user.email "${U_EMAIL}"
+  - git add .
+  - git commit -m "Update tools"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF1}" master:master
 
 
 # End: Build 生命周期
@@ -68,8 +65,7 @@ branches:
 env:
   global:
       - GH_REF1: github.com/zhu18/app-h5-build.git        #仓库地址
-#    - GH_TOKEN: ***********                            #Github的Access Token
-
+#     - GH_TOKEN: ***********                            #Github的Access Token
 # 参考地址
 # travis官网地址： https://travis-ci.org/
 # https://www.jianshu.com/p/7cd484bd6dc1

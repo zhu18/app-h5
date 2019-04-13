@@ -2,3 +2,7 @@
 @import '../fonts/iconfont.css';
 @import './base.css';
 @import './mint-ui.css';
+
+body{
+    font-size: .28rem; /* 14px */
+}
