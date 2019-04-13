@@ -262,9 +262,10 @@ export default {
                 position: absolute;
                 top: 85.5%;
                 left:52%;
-                display: inline-block;
+                display: flex;
                 height: 0.3rem;
                 width: 0.02rem;
+                display: flex;
                 background-color:#bfbfbf;
             }
 
@@ -280,6 +281,7 @@ export default {
     width: 0.2rem;
     height: 0.3rem;
     border-left: none;
+    display: flex;
     background-color: #f5f5f5;
     border-radius:0 0.5rem 0.5rem 0; /* 左上、右上、右下、左下 */
     box-shadow: inset -0.05rem -0.01rem 0.05rem #e8e8e8;
@@ -290,6 +292,7 @@ export default {
     right:3.6%;
     width: 0.2rem;
     height: 0.3rem;
+    display: flex;
     border-left: none;
     background-color: #f5f5f5;
     border-radius:0.5rem 0 0 0.5rem; /* 左上、右上、右下、左下 */
