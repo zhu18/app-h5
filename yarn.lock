@@ -1019,6 +1019,11 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/amdefine/download/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+animejs@^3.0.1:
+  version "3.0.1"
+  resolved "http://registry.npm.taobao.org/animejs/download/animejs-3.0.1.tgz#8b808bad575e3b6106489d8b04b92bc4062166fe"
+  integrity sha1-i4CLrVdeO2EGSJ2LBLkrxAYhZv4=
+
 ansi-colors@^3.0.0:
   version "3.2.4"
   resolved "http://registry.npm.taobao.org/ansi-colors/download/ansi-colors-3.2.4.tgz#e3a3da4bfbae6c86a9c285625de124a234026fbf"
@@ -6467,10 +6472,6 @@ vm-browserify@0.0.4:
 vue-cli-plugin-element@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/vue-cli-plugin-element/download/vue-cli-plugin-element-1.0.1.tgz#34e58fb65b36cf59afaf14f503288e5e578b1554"
-
-vue-directive-touch@^1.0.28:
-  version "1.0.28"
-  resolved "http://registry.npm.taobao.org/vue-directive-touch/download/vue-directive-touch-1.0.28.tgz#973e48344ed30d0a7fcbc8e5ce93643293c81431"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.3"

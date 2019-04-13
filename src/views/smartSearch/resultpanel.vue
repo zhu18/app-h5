@@ -39,7 +39,7 @@
       </div>
     </div>
     <!-- 识别的logo列表 -->
-    <LogoList v-show="status==='list'" />
+    <LogoList v-show="status==='list'" :scan-type="scanType" />
     <!-- 查询面板 -->
     <SearchByWriting v-show="status==='query'" />
   </div>
@@ -144,7 +144,9 @@ export default {
   max-height: 90%;
   min-height: 10%;
   width: 100%;
-  // transform: translateY(130%);
+  // top:0;
+  // left:0;
+  // transform: translateY('130%');
   background: #fff;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;

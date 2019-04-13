@@ -127,19 +127,16 @@ export default {
       img
     };
   },
-  created () {
+  created() {
     this.clientWidth = document.body.clientWidth
-    this.width = this.height = this.clientWidth * 480 / 750
-    // this.$refs.cropper.startCrop() 
-  },
-  mounted () {
-    document.addEventListener(
-      "click",
-      () => {
+    this.width = this.height = this.clientWidth * 480 / 750},
+  mounted() {
+    ["click", "touchstart"].forEach(item => {
+      window.addEventListener(item, () => {
         this.hideTip();
-      },
-      false
-    );
+      });
+    });
+
     anime({
       targets: ".img-tip",
       translateY: [-30, 0],
@@ -151,7 +148,7 @@ export default {
     back () {
       this.$router.go(-1);
     },
-    hideTip () {
+    hideTip() {
       this.$refs.imgtip && this.$refs.imgtip.remove();
     },
     openHelp () {
@@ -172,7 +169,6 @@ export default {
       }
       //开始识别
       this.isScaning = true;
-
       this.timer = setTimeout(() => {
         this.isScaning = false;
         this.showList();

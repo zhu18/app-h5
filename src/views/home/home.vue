@@ -3,6 +3,7 @@
      <div class="search-box">
         <Search/>
      </div>
+      <div class="content-box">
      <div class="banner">
        <mt-swipe :auto="4000">
         <mt-swipe-item><img src="../../assets/images/home/banner.png" alt=""></mt-swipe-item>
@@ -14,7 +15,7 @@
         <router-link :to="{ name: 'trademarkinquiry', params: { title: '商标查询'}} " class="list-item block" tag="div">
                 <i class="iconfont icon-logoquery"></i>商标查询
         </router-link>
-       <router-link :to="{ name: 'smartsearch', params: { title: '智能检索'}} " class="list-item block" tag="div">
+       <router-link :to="{ name: 'smartSearch', params: { title: '智能检索'}} " class="list-item block" tag="div">
             <i class="iconfont icon-imgquery"></i>智能检索
       </router-link>
        <div class="list-item block"><i class="iconfont icon-regulations"></i>法律法规</div>
@@ -24,6 +25,7 @@
        <div class="list-item block"><i class="iconfont icon-new"></i>新闻</div>
        <div class="list-item block"><i class="iconfont icon-read"></i>阅读</div>
      </div>
+      </div>
   </div>
 </template>
 <script>
@@ -65,6 +67,10 @@ export default {
     background-size: cover;
     box-sizing: border-box;
   }
+    .content-box{
+        height: calc(100% - 2.17rem - 1.28rem);
+        overflow-y: auto;
+    }
   .banner{
     padding: 0.32rem;
     height: 3.88rem;

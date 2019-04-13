@@ -4,16 +4,21 @@ import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
 
-import trademarkInquiry from './views/trademarkInquiry'
-import detailsInfo from './views/test/details-info'
-import searchResult from './views/searchResult'
+import trademarkInquiry from './views/trademarkInquiry/index.vue'
+import detailsInfo from './views/searchResult/detailsInfo.vue'
+import searchresult from './views/searchResult'
 import smartSearch from './views/smartSearch'
 
-import test1 from './views/test/test1'
-import test2 from './views/test/test2'
+import dateSelect from './views/dateSelect'
+
+import LawEnforcement from './views/lawEnforcement'
+import LElog from './views/lawEnforcement/leLog.vue'
 import test3 from './views/test/test3'
+import test2 from './views/test/test2'
 import test4 from './views/test/test4'
 import test5 from './views/test/test5'
+import map from './views/test/map'
+
 import my from './views/test/my'
 import searchHistory from './views/searchResult/searchhistory'
 import collection from './views/collection'
@@ -50,8 +55,8 @@ export default new Router({
           }
         },
         { //智能检索主页
-          path: '/smartsearch',
-          name: 'smartsearch',
+          path: '/smartSearch',
+          name: 'smartSearch',
           components: {
             body: smartSearch
           }
@@ -68,7 +73,7 @@ export default new Router({
           path: '/searchresult',
           name: 'searchresult',
           components: {
-            body: searchResult,
+            body: searchresult,
             footer: footerTab
           }
         },
@@ -80,13 +85,27 @@ export default new Router({
             header: headerBar
           }
         },
-        { //生活服务主页
-          path: '/test1',
+        { //执法
+          path: '/lawenforcement',
           components: {
-            body: test1,
+            body: LawEnforcement,
+            footer: footerTab
+          }
+        },
+        { //执法记录
+          path: '/lelog',
+          components: {
+            body: LElog
+          }
+        },
+        {
+          path: '/dateSelect',
+          components: {
+            body: dateSelect,
             footer: footerTab,
             header: headerBar
           }
+          
         },
         { //生活服务主页
           path: '/test2',
@@ -113,7 +132,7 @@ export default new Router({
             header: headerBar
           }
         },
-        {
+        { 
           path: '/test4',
           components: {
             body: test4,
@@ -121,7 +140,7 @@ export default new Router({
             header: headerBar
           }
         },
-        {
+        { 
           path: '/test5',
           components: {
             body: test5,
@@ -143,6 +162,14 @@ export default new Router({
           components: {
             body: collection,
             header: headerBar
+          }
+        },
+        { //收藏
+          path: '/map',
+          name: 'map',
+          components: {
+            body: map,
+
           }
         },
       ]
