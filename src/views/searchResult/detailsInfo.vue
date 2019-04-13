@@ -263,7 +263,7 @@ export default {
 
     .splitline{
         position: absolute;
-        top: 85.8%;
+        top: 85.5%;
         left:52%;
         display: inline-block;
         height: 0.3rem;
