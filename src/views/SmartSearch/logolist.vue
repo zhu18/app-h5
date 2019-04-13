@@ -8,10 +8,13 @@
   <div class="list-body">
     <!-- 头部分类区 -->
     <div class="list-opt">
-      <span>您想找的是:</span><mt-button type="primary" size="small">修改</mt-button>
-      <mt-button type="default" size="small">鞋类</mt-button>
-      <mt-button type="default" size="small">家具</mt-button>
-      <mt-button type="default" size="small">其他</mt-button>
+      <span>您想找的是:</span>
+      <span v-show="scanType==='txt'">{{scanTxt}}<mt-button type="primary" size="small">修改</mt-button></span>
+      <div :class="scanType==='txt'?'btnline':'btnfloat'">
+        <mt-button type="default" size="small">鞋类</mt-button>
+        <mt-button type="default" size="small">家具</mt-button>
+        <mt-button type="default" size="small">其他</mt-button>
+      </div>
     </div>
     <!-- 商标列表 -->
     <ul class="logo-box clearfix">
@@ -28,8 +31,10 @@
 <script>
 import anime from "animejs";
 export default {
+  props:["scan-type"],
   data() {
     return {
+      scanTxt:'1928304839487',
       dataList: [
         {
           id: 1,
@@ -89,12 +94,21 @@ export default {
     flex-flow: column;
     .list-opt {
       padding-bottom: 0.26rem;
+      .btnline{
+        display: block;
+            margin-top: .25rem;
+    margin-left: -.25rem;
+      }
+      .btnfloat{
+        display: inline;
+      }
       span {
         font-size: 0.24rem;
         color: #5b5b5b;
       }
       .mint-button {
         margin-left: 0.25rem;
+        height: .57rem;
       }
     }
 }

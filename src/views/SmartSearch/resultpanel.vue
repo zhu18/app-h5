@@ -25,7 +25,7 @@
       </div>
     </div>
     <!-- 识别的logo列表 -->
-    <LogoList v-show="status==='list'" />
+    <LogoList v-show="status==='list'" :scan-type="scanType" />
     <!-- 查询面板 -->
     <SearchByWriting  v-show="status==='query'"/>
   </div>
