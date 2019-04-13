@@ -4,18 +4,20 @@ import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
 
-import trademarkInquiry from  './views/trademarkInquiry'
-import detailsInfo from  './views/test/details-info'
-import searchResult from  './views/searchResult'
-import smartSearch from  './views/smartSearch'
+import trademarkInquiry from  './views/TrademarkInquiry'
+import detailsInfo from  './views/SearchResult/detailsInfo'
+import searchresult from  './views/SearchResult'
+import smartSearch from  './views/SmartSearch'
 
 import LawEnforcement from  './views/LawEnforcement'
 import LElog from  './views/LawEnforcement/leLog.vue'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import test4 from './views/test/test4'
+import map from './views/test/map'
+
 import my from  './views/test/my'
-import searchHistory from  './views/searchResult/searchhistory'
+import searchHistory from  './views/SearchResult/searchhistory'
 import collection from  './views/collection'
 Vue.use(Router)
 Router.prototype.goBack = function () {
@@ -51,8 +53,8 @@ export default new Router({
                 }
               },
               {//智能检索主页
-                path: '/smartsearch',
-                name:'smartsearch',
+                path: '/smartSearch',
+                name:'smartSearch',
                 components: {
                     body: smartSearch
                 }
@@ -69,7 +71,7 @@ export default new Router({
                 path: '/searchresult',
                 name:'searchresult',
                 components: {
-                  body: searchResult,
+                  body: searchresult,
                   footer: footerTab
                 }
               },
@@ -141,6 +143,14 @@ export default new Router({
                 components: {
                     body: collection,
                   header: headerBar
+                }
+              },
+               {//收藏
+                path: '/map',
+                name:'map',
+                components: {
+                body: map,
+                 
                 }
               },
           ]

@@ -102,7 +102,9 @@ export default {
   flex-direction: column;
   height: 95%;
   width: 100%;
-  transform: translateY(130%);
+  top:0;
+  left:0;
+  transform: translateY('130%');
   background: #fff;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;

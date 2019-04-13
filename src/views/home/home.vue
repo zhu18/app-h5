@@ -14,7 +14,7 @@
         <router-link :to="{ name: 'trademarkinquiry', params: { title: '商标查询'}} " class="list-item block" tag="div">
                 <i class="iconfont icon-logoquery"></i>商标查询
         </router-link>
-       <router-link :to="{ name: 'smartsearch', params: { title: '智能检索'}} " class="list-item block" tag="div">
+       <router-link :to="{ name: 'smartSearch', params: { title: '智能检索'}} " class="list-item block" tag="div">
             <i class="iconfont icon-imgquery"></i>智能检索
       </router-link>
        <div class="list-item block"><i class="iconfont icon-regulations"></i>法律法规</div>
