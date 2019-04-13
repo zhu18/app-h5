@@ -86,13 +86,12 @@ export default {
   },
   created() {},
   mounted() {
-    document.addEventListener(
-      "click",
-      () => {
+    ["click", "touchstart"].forEach(item => {
+      window.addEventListener(item, () => {
         this.hideTip();
-      },
-      false
-    );
+      });
+    });
+
     anime({
       targets: ".img-tip",
       translateY: [-30, 0],
@@ -105,7 +104,7 @@ export default {
       this.$router.go(-1);
     },
     hideTip() {
-      this.$refs.imgtip&&this.$refs.imgtip.remove();
+      this.$refs.imgtip && this.$refs.imgtip.remove();
     },
     openHelp() {
       MessageBox("提示", "帮助待开发...");
