@@ -87,11 +87,12 @@
        <div class="print">
              <span class="delete" @click="addqz">添加我的取证</span>
             <span class="edit" @click="print"><img src="../../assets/images/print.png" class="p-img">打印</span>
+                <span class="splitline"></span>
 
      </div>
       </div>
 
-     <span class="splitline"></span>
+
   </div>
 </template>
 <script>
@@ -257,19 +258,20 @@ export default {
                     margin-right: 0.2rem
                 }
             }
+            .splitline{
+                position: absolute;
+                top: 85.5%;
+                left:52%;
+                display: inline-block;
+                height: 0.3rem;
+                width: 0.02rem;
+                background-color:#bfbfbf;
+            }
 
         }
     }
 
-    .splitline{
-        position: absolute;
-        top: 85.5%;
-        left:52%;
-        display: inline-block;
-        height: 0.3rem;
-        width: 0.02rem;
-        background-color:#bfbfbf;
-    }
+
 }
 .yuan-left{
     position: absolute;
