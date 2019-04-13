@@ -48,20 +48,21 @@
           <i class="iconfont icon-pic" v-show="!isScaning"></i>
           <i class="iconfont icon-del" v-show="isScaning"></i>
         </div>
-        <div class="language">
-            <div class="btn ch selected">中文</div>
-            <div class="btn ch selected">英文</div>
-        </div>    
+        <div class="language" v-show="scanType=='txt'">
+          <p>语言</p>
+          <div class="btn selected">中文</div>
+          <div class="btn">英文</div>
+          <div class="more">
+            <i class="iconfont icon-back"></i>
+          </div>
+        </div>
       </div>
     </div>
     <ResultPanel ref="resultpanel"/>
-
   </div>
- 
- 
 </template>
 <script>
-import { Spinner,MessageBox } from 'mint-ui';
+import { Spinner, MessageBox } from "mint-ui";
 import anime from "animejs";
 import ResultPanel from "./resultpanel";
 export default {
@@ -76,7 +77,13 @@ export default {
   },
   created() {},
   mounted() {
-    document.addEventListener("click",()=>{this.hideTip();},false);
+    document.addEventListener(
+      "click",
+      () => {
+        this.hideTip();
+      },
+      false
+    );
     anime({
       targets: ".img-tip",
       translateY: [-30, 0],
@@ -89,19 +96,18 @@ export default {
       this.$router.go(-1);
     },
     hideTip() {
-      this.$refs.imgtip.remove();
+      this.$refs.imgtip&&this.$refs.imgtip.remove();
     },
-    openHelp(){
-      MessageBox('提示', '帮助待开发...');
+    openHelp() {
+      MessageBox("提示", "帮助待开发...");
     },
-    openHistory(){
-      this.$router.push('searchhistory');
+    openHistory() {
+      this.$router.push("searchhistory");
     },
-    openPic(){
-      MessageBox('提示', '原生app对接-打开系统相册');
+    openPic() {
+      MessageBox("提示", "原生app对接-打开系统相册");
     },
     scan() {
-      this.$refs.imgtip.remove();
       //在识别中 取消识别
       if (this.isScaning) {
         clearTimeout(this.timer);
@@ -129,7 +135,7 @@ export default {
     },
     showList() {
       //显示识别结果
-      this.$refs.resultpanel.show('all');
+      this.$refs.resultpanel.show("all");
     },
     closeList() {
       //关闭识别结果
@@ -263,8 +269,30 @@ export default {
     }
     .opt-btn {
       height: 2rem;
-      .btn{
-          
+      position: relative;
+      .language {
+        position: absolute;
+        text-align: center;
+        top: -0.2rem;
+        left: 0.3rem;
+        .more {
+          i {
+            display: inline-block;
+            transform: rotate(-90deg);
+          }
+        }
+      }
+      .btn {
+        width: 1rem;
+        height: 0.45rem;
+        text-align: center;
+        line-height: 0.45rem;
+        background: rgba(190, 190, 190, 0.2);
+        border-radius: 0.05rem;
+        margin-top: 0.2rem;
+        &.selected {
+          background: #f1a71a;
+        }
       }
       .btn-watch {
         width: 0.92rem;
