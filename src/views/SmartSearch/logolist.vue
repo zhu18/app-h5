@@ -1,11 +1,19 @@
+<!--
+* 文件名：logolist
+* 作者：zhu18
+* 描述：智能检索-结果面板中的-商标列表
+* 修改时间：2019-04-12
+-->
 <template>
   <div class="list-body">
+    <!-- 头部分类区 -->
     <div class="list-opt">
-      <span>您想找的是:</span>
+      <span>您想找的是:</span><mt-button type="primary" size="small">修改</mt-button>
       <mt-button type="default" size="small">鞋类</mt-button>
       <mt-button type="default" size="small">家具</mt-button>
       <mt-button type="default" size="small">其他</mt-button>
     </div>
+    <!-- 商标列表 -->
     <ul class="logo-box clearfix">
       <li class="item" v-for="item in dataList" :key="item.id" @click="select(item.id)">
         <img src="../../assets/images/logo1.png" alt>
@@ -68,7 +76,7 @@ export default {
   },
   methods: {
     select(id){
-
+      this.$router.push('/searchresult')
     }
   }
 };

@@ -9,9 +9,11 @@
     <!-- 页头 -->
     <div class="top-header">
       <mt-header fixed>
+        <!-- 左侧-返回 -->
         <div slot="left">
           <mt-button icon="back" @click="back"></mt-button>
         </div>
+        <!-- 右侧-帮助、历史、打开相册 -->
         <mt-button slot="right" @click="openHelp()">
           <i class="iconfont icon-help"></i>
         </mt-button>
@@ -27,10 +29,12 @@
     <!-- 扫描区 -->
     <div class="search-view">
       <div class="scan-box">
+        <!-- 扫描文本提示 -->
         <div class="scan-txt" v-show="!isScaning">
           <p>请把商标放于框内</p>
           <p>商标清晰、无遮挡、无阴影</p>
         </div>
+        <!-- 加载效果 & 识别中 -->
         <div class="loading" v-show="isScaning">
           <mt-spinner color="#26a2ff" type="double-bounce"></mt-spinner>
           <span class="loading-txt">识别中...</span>
@@ -39,15 +43,19 @@
     </div>
     <!-- 底部操作区 -->
     <div class="search-opt">
+      <!-- 扫描类型旋转-上部 -->
       <div class="opt-txtbar">
         <div class="txt" :class="scanType=='txt'&&'active left'" @click="setScanType('txt')">扫图识字</div>
         <div class="txt" :class="scanType=='img'&&'active right'" @click="setScanType('img')">识图</div>
       </div>
+      <!-- 操作区-下部 -->
       <div class="opt-btn">
+        <!-- 拍照&停止 按钮 -->
         <div class="btn-watch" :class="isScaning&&'stop'" @click="scan">
           <i class="iconfont icon-pic" v-show="!isScaning"></i>
           <i class="iconfont icon-del" v-show="isScaning"></i>
         </div>
+        <!-- 文字识别-语言分类 -->
         <div class="language" v-show="scanType=='txt'">
           <p>语言</p>
           <div class="btn selected">中文</div>
@@ -58,7 +66,8 @@
         </div>
       </div>
     </div>
-    <ResultPanel ref="resultpanel"/>
+    <!-- 识别结果滑动面板 -->
+    <ResultPanel ref="resultpanel" :scan-type="scanType"/>
   </div>
 </template>
 <script>
