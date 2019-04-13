@@ -1,19 +1,32 @@
+<!--
+* 文件名：resultpanel
+* 作者：zhu18
+* 描述：智能检索-识别结果面板
+* 修改时间：2019-04-12
+-->
 <template>
   <div class="result-panel" @click="show()">
+    <!-- 结果面板-头部 -->
     <div class="list-head">
+      <!-- 关闭按钮-左侧 -->
       <div class="cls" @click.stop="hide()">
         <i class="iconfont icon-del"></i>
       </div>
+      <!-- 文字区域-中间 -->
       <div class="title">
         相似商标
-        <img src="../../assets/images/logo1.png">
+        <img v-show="scanType==='img'" src="../../assets/images/logo1.png">
+        <img v-show="scanType==='txt'" src="../../assets/images/smartsearch/txtscan.jpg">
         <div class="sort" @click.stop="sort()">排列</div>
       </div>
+      <!-- 查询按钮-右侧 -->
       <div class="query" @click.stop="query()">
         <i class="iconfont icon-query"></i>
       </div>
     </div>
+    <!-- 识别的logo列表 -->
     <LogoList v-show="status==='list'" />
+    <!-- 查询面板 -->
     <SearchByWriting  v-show="status==='query'"/>
   </div>
 </template>
@@ -24,9 +37,15 @@ import LogoList from "./logolist";
 import SearchByWriting from "./searchBywriting";
 
 export default {
+  props:{
+    scanType:{
+      required: true,
+      default:'img'
+    }
+  },
   data() {
     return {
-      status:'list',//'list','query','sort'
+      status:'list',//'list','query','sort' 加载不同面板
     };
   },
   mounted() {
