@@ -66,8 +66,7 @@ branches:
 env:
   global:
       - GH_REF1: github.com/zhu18/app-h5-build.git        #仓库地址
-#    - GH_TOKEN: ***********                            #Github的Access Token
-
+#     - GH_TOKEN: ***********                            #Github的Access Token
 # 参考地址
 # travis官网地址： https://travis-ci.org/
 # https://www.jianshu.com/p/7cd484bd6dc1
