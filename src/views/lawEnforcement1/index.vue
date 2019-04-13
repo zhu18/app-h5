@@ -62,7 +62,12 @@
     ::-webkit-search-cancel-button { display: none; }
     .law-enforcement{
         background: #f6f6f6;
-        height:calc(100vh - 1.28rem);
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:1.28rem;
+        /*height:calc(100% - 1.28rem);*/
         overflow-y: auto;
         .title{
             heihgt:0.9rem;

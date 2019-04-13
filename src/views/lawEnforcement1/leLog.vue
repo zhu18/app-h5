@@ -79,7 +79,11 @@
     ::-webkit-search-cancel-button { display: none; }
     .lelog{
         background: #f6f6f6;
-        height:100vh;
+        position: absolute;
+        top:0;
+        left:0;
+        right:0;
+        bottom:0;
         overflow-y: auto;
         .top-header{
             height: 0.9rem;
@@ -95,7 +99,7 @@
             box-sizing: border-box;
         }
         .list{
-            height:calc(100vh - 1.8rem - 1.28rem);
+            height:calc(100% - 1.8rem - 1.28rem);
             overflow-y: auto;
             padding: 0 0.32rem;
             box-sizing: border-box;

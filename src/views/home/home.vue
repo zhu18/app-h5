@@ -3,6 +3,7 @@
      <div class="search-box">
         <Search/>
      </div>
+      <div class="content-box">
      <div class="banner">
        <mt-swipe :auto="4000">
         <mt-swipe-item><img src="../../assets/images/home/banner.png" alt=""></mt-swipe-item>
@@ -24,6 +25,7 @@
        <div class="list-item block"><i class="iconfont icon-new"></i>新闻</div>
        <div class="list-item block"><i class="iconfont icon-read"></i>阅读</div>
      </div>
+      </div>
   </div>
 </template>
 <script>
@@ -65,6 +67,10 @@ export default {
     background-size: cover;
     box-sizing: border-box;
   }
+    .content-box{
+        height: calc(100% - 2.17rem - 1.28rem);
+        overflow-y: auto;
+    }
   .banner{
     padding: 0.32rem;
     height: 3.88rem;
