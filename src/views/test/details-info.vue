@@ -144,7 +144,7 @@ export default {
     overflow: hidden;
 
     top:0;
-    font-size: 0.12rem;
+    font-size: 0.24rem;
     .top-header{
         height: 0.9rem;
         .mint-header{
@@ -199,7 +199,7 @@ export default {
         .content-middle{
             max-height: 7.2rem;
             overflow-y: auto;
-            font-size: 0.12rem;
+            font-size: 0.24rem;
             margin-top: 0.2rem;
             .left-font{
                 width:42%;

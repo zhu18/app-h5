@@ -36,6 +36,9 @@ before_script:
   - git config user.name ${U_NAME}
   - git config user.email ${U_EMAIL}
   - git clone --branch gh-pages https://${GH_REF} dist
+  # - git clone --branch gh-pages https://git@github.com/zhu18/app-h5.git dist
+
+  #- git clone https://git@github.com/zhu18/app-h5.git
 
 # 指定构建或测试脚本，设置为true,表示不执行任何脚本，状态直接设为成功
 script:
@@ -48,9 +51,9 @@ after_success:
   - npm run build
   - cd dist
   - git add -A
-  - git commit -a -m "Update tools"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF1}" gh-pages:master
-#  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
+  - git commit -a -m "Update tools1"
+  # - git push --force "https://${GH_TOKEN}@github.com/zhu18/app-h5-build.git" master:gh-pages
+ - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:master
 
 
 # End: Build 生命周期
