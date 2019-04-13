@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
+
 import trademarkInquiry from  './views/trademarkInquiry'
 import detailsInfo from  './views/test/details-info'
 import searchResult from  './views/searchResult'
@@ -11,6 +12,7 @@ import smartSearch from  './views/smartSearch'
 import test1 from  './views/test/test1'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
+import test4 from './views/test/test4'
 import my from  './views/test/my'
 import searchHistory from  './views/searchResult/searchhistory'
 import collection from  './views/collection'
@@ -20,8 +22,7 @@ Router.prototype.goBack = function () {
   window.history.go(-1);
 };
 export default new Router({
-  routes: [
-    {
+  routes: [{
       path: '/',
       name: 'login',
       component: () => import('./views/login/login')
@@ -108,6 +109,14 @@ export default new Router({
                 path: '/test3',
                 components: {
                     body: test3,
+                  footer: footerTab,
+                  header: headerBar
+                }
+              },
+              {//生活服务主页
+                path: '/test4',
+                components: {
+                    body: test4,
                   footer: footerTab,
                   header: headerBar
                 }
