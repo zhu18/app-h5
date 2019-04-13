@@ -1,4 +1,7 @@
 [![Build Status](https://travis-ci.org/zhu18/app-h5.svg?branch=master)](https://travis-ci.org/zhu18/app-h5)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/zhu18/app-h5.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/zhu18/app-h5/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/zhu18/app-h5.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/zhu18/app-h5/context:javascript)
+
 # app-h5
 
 ## Project setup
