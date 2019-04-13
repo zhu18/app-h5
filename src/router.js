@@ -13,6 +13,8 @@ import test1 from  './views/test/test1'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import test4 from './views/test/test4'
+import map from './views/test/map'
+
 import my from  './views/test/my'
 import searchHistory from  './views/searchResult/searchhistory'
 import collection from  './views/collection'
@@ -135,6 +137,14 @@ export default new Router({
                 components: {
                     body: collection,
                   header: headerBar
+                }
+              },
+               {//收藏
+                path: '/map',
+                name:'map',
+                components: {
+                body: map,
+                 
                 }
               },
           ]
