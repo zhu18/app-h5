@@ -67,7 +67,7 @@
             </span>
             <span class="edit" @click="edit">编辑</span>
         </div>
-        <span class="splitline splitline3" v-if="index != 2"></span>
+
   </div>
 </template>
 <script>

@@ -226,7 +226,7 @@ export default {
             }
         }
         .content-middle{
-            height: calc(100% - 2.2rem - 1rem - 1.8rem);
+            height: calc(100% - 2.2rem - 1rem - 1.7rem);
             overflow-y: auto;
             font-size: 0.24rem;
             padding-top: 0.2rem;
@@ -246,10 +246,10 @@ export default {
             .button{
                 cursor: pointer;
                 width: 1.3rem;
-                height: 0.54rem;
+                height: 0.42rem;
                 border-radius: 0.04rem;
-                border: solid 0.01rem #2095f2;
-                line-height: 0.54rem;
+                border: solid 0.02rem #2095f2;
+                line-height: 0.45rem;
                 text-align: center;
                 color:#2095f2;
             }
@@ -269,6 +269,7 @@ export default {
                 display: inline-block;
                 width: 50%;
                 text-align: center;
+                line-height: 1rem;
                 .p{
                     width: 100%;
                     display: inline-block;
