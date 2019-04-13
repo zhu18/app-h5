@@ -4,12 +4,13 @@ import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
 
-import trademarkInquiry from  './views/trademarkInquiry'
-import detailsInfo from  './views/test/details-info'
-import searchResult from  './views/searchResult'
+import trademarkInquiry from  './views/trademarkInquiry/index.vue'
+import detailsInfo from  './views/searchResult/detailsInfo.vue'
+import searchresult from  './views/searchResult'
 import smartSearch from  './views/smartSearch'
 
 import LawEnforcement from  './views/LawEnforcement'
+import LElog from  './views/LawEnforcement/leLog.vue'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import test4 from './views/test/test4'
@@ -52,8 +53,8 @@ export default new Router({
                 }
               },
               {//智能检索主页
-                path: '/smartsearch',
-                name:'smartsearch',
+                path: '/smartSearch',
+                name:'smartSearch',
                 components: {
                     body: smartSearch
                 }
@@ -70,7 +71,7 @@ export default new Router({
                 path: '/searchresult',
                 name:'searchresult',
                 components: {
-                  body: searchResult,
+                  body: searchresult,
                   footer: footerTab
                 }
               },
@@ -88,6 +89,12 @@ export default new Router({
                     body: LawEnforcement,
                   footer: footerTab
                 }
+              },
+              {//执法记录
+                  path: '/lelog',
+                  components: {
+                      body: LElog
+                  }
               },
               {//生活服务主页
                 path: '/test2',

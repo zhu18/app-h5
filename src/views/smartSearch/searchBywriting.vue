@@ -54,7 +54,7 @@ export default {
     overflow: hidden;
     overflow-y: auto;
     top: 0;
-    font-size: 0.12rem;
+    font-size: 0.24rem;
     .top-header {
         background: url(../../assets/images/component/searchByblack.png) no-repeat .20rem center;
         background-size: 0.32rem 0.32rem;
@@ -90,7 +90,7 @@ export default {
             height: 0.8rem;
             line-height: 0.8rem;
             background-color: #bfbfbf;
-            border-radius: 3px;
+            border-radius: 0.03rem;
             opacity: 0.5;
             margin-right: 0.3rem;
             .img{
@@ -103,8 +103,8 @@ export default {
             padding: 0.44rem 0.33rem;
             margin-bottom: 0.24rem;
             background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            border-radius: 0.05rem;
+            box-shadow: 0 0 0.05rem rgba(0, 0, 0, 0.1);
             overflow: hidden;
             img {
                 float: left;

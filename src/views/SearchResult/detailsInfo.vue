@@ -144,7 +144,7 @@ export default {
     overflow: hidden;
 
     top:0;
-    font-size: 0.12rem;
+    font-size: 0.24rem;
     .top-header{
         height: 0.9rem;
         .mint-header{
@@ -169,7 +169,7 @@ export default {
             border-bottom: 0.02rem solid #ebebeb;
             .left-content{
                 margin-top: 0.2rem;
-                width: 38%;
+                width: 36%;
                 margin-left: 0.3rem;
                 float: left;
                 .img{
@@ -199,11 +199,10 @@ export default {
         .content-middle{
             max-height: 7.2rem;
             overflow-y: auto;
-            font-size: 0.12rem;
+            font-size: 0.24rem;
             margin-top: 0.2rem;
             .left-font{
-                width:43%;
-                padding-left: 0.2rem;
+                width:42%;
                 text-align: right;
                 padding-right: 0.4rem;
                 line-height: 0.54rem;
@@ -217,8 +216,8 @@ export default {
                 cursor: pointer;
                 width: 1.3rem;
                 height: 0.54rem;
-                border-radius: 4px;
-                border: solid 1px #2095f2;
+                border-radius: 0.04rem;
+                border: solid 0.01rem #2095f2;
                 line-height: 0.54rem;
                 text-align: center;
                 color:#2095f2;
@@ -274,7 +273,7 @@ export default {
     height: 0.3rem;
     border-left: none;
     background-color: #f5f5f5;
-    border-radius:0 50px 50px 0; /* 左上、右上、右下、左下 */
+    border-radius:0 0.5rem 0.5rem 0; /* 左上、右上、右下、左下 */
     box-shadow: inset -0.05rem -0.01rem 0.05rem #e8e8e8;
 }
 .yuan-right{
@@ -285,7 +284,7 @@ export default {
     height: 0.3rem;
     border-left: none;
     background-color: #f5f5f5;
-    border-radius:50px 0 0 50px; /* 左上、右上、右下、左下 */
+    border-radius:0.5rem 0 0 0.5rem; /* 左上、右上、右下、左下 */
     box-shadow: inset 0.05rem 0.01rem 0.05rem #e8e8e8;
 }
 

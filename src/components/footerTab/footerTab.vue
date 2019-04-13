@@ -13,7 +13,7 @@
             </router-link>
         </div>
         <div class="tab-item searchbtn">
-           <router-link to='/smartsearch' >
+           <router-link to='/smartSearch' >
                
             </router-link>
         </div>
