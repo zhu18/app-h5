@@ -3,16 +3,16 @@ import Router from 'vue-router'
 import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
-import TrademarkInquiry from  './views/TrademarkInquiry'
+import trademarkInquiry from  './views/trademarkInquiry'
 import detailsInfo from  './views/test/details-info'
-import SearchResult from  './views/SearchResult'
-import SmartSearch from  './views/SmartSearch'
+import SearchResult from  './views/searchResult'
+import SmartSearch from  './views/smartSearch'
 
 import test1 from  './views/test/test1'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import my from  './views/test/my'
-import searchhistory from  './views/SearchResult/searchhistory'
+import searchhistory from  './views/searchResult/searchhistory'
 import collection from  './views/collection'
 Vue.use(Router)
 Router.prototype.goBack = function () {
@@ -43,7 +43,7 @@ export default new Router({
                 path: '/trademarkinquiry',
                 name:'trademarkinquiry',
                 components: {
-                  body: TrademarkInquiry,
+                  body: trademarkInquiry,
                   footer: footerTab,
                   header: headerBar
                 }
