@@ -99,7 +99,6 @@
             overflow-y: auto;
             padding: 0 0.32rem;
             box-sizing: border-box;
-            display: flex;
             flex-direction:column;
             .item{
                 height:2.4rem;
