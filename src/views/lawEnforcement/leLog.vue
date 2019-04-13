@@ -114,7 +114,7 @@
                 display: flex;
                 align-items: center;
                 flex-direction: column;
-                box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.1);
+                box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.2);
                 box-sizing: border-box;
                 h3{
                     height:1rem;

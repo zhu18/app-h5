@@ -55,7 +55,7 @@
             </template>
             <div class="loading" v-if="loading">
                <span class="tips">数据加载中</span><mt-spinner :type="3" color="#26a2ff"></mt-spinner>
-            </div>
+            </div>2
             <!-- <router-link class="list-item" tag="div" to="/detailsInfo">
                 <div class="img-box">
                     <img src="../../assets/images/home/testlogo.jpg" alt="">
@@ -97,32 +97,7 @@
     <!-- 筛选开始 -->
     <mt-popup v-model="popupVisible" position='right'>
         <div class="popup-box">
-            <div class="item">
-                <div class="title">默认排序</div>
-                <div class="list">
-                    <a href="javasctipt:;" :class="{active:subcurrent==0}"  data-content="+" @click="setCurrent(0,0)">相似程度</a>
-                    <a href="javasctipt:;" :class="{active:subcurrent==1}" data-content="+" @click="setCurrent(0,1)">注册号</a>
-                    <a href="javasctipt:;" :class="{active:subcurrent==2}" data-content="+" @click="setCurrent(0,2)">代理公司</a>
-                </div>      
-            </div>
-            <div class="item">
-                <div class="title">申请日</div>
-                <div class="list">
-                    <a href="javasctipt:;" :class="{active:subcurrent1==0}" data-content="+" @click="setCurrent(1,0)">正序</a>
-                    <a href="javasctipt:;" :class="{active:subcurrent1==1}" data-content="+" @click="setCurrent(1,1)">倒序</a>
-                </div>      
-            </div>
-            <div class="item">
-                <div class="title">申请人首字母</div>
-                <div class="list">
-                    <a href="javasctipt:;" :class="{active:subcurrent2==0}" data-content="+" @click="setCurrent(2,0)">A-Z</a>
-                    <a href="javasctipt:;" :class="{active:subcurrent2==1}" data-content="+" @click="setCurrent(2,1)">Z-A</a>
-                </div>      
-            </div>
-            <div class="btn-box">
-                <button class="btn-resize" @click="reszieFn">重置</button>     
-                <button class="btn-ok" @click="ok">确定</button>     
-            </div>
+            <screen @callback="screenCallback"/>
         </div>
     </mt-popup>
     <!-- 筛选结束 -->
@@ -131,6 +106,7 @@
 </template>
 <script>
 import Search from "../../components/search/index";
+import screen from "../../components/screen/index";
 export default {
   name: "home",
   data() {
@@ -138,9 +114,7 @@ export default {
         name:'',
         current:0,
         popupVisible:false,
-        subcurrent:0,
-        subcurrent1:0,
-        subcurrent2:0,
+
         loading:false,
         list:[1,2,3,4]
     };
@@ -168,31 +142,13 @@ export default {
       searchList(){
           alert(123)
       },
-      //   筛选
-      setCurrent(i,k){
-          if (i==0) {
-              this.subcurrent=k
-          }else if(i==1){
-            this.subcurrent1=k
-          }else if(i==2){
-                this.subcurrent2=k
-          }
-          
-      },
-      //重置
-      reszieFn(){
-          this.subcurrent=-1
-          this.subcurrent1=-1
-          this.subcurrent2=-1
-      },
-      // 确定
-      ok(){
-          this.reszieFn();
+      screenCallback(params){
           this.popupVisible=false
+          console.log(params)
       }
   },
   components: {
-    Search
+    Search,screen
   }
 };
 </script>
