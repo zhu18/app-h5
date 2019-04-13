@@ -19,6 +19,9 @@ export default {
          },
          map(){
              this.$router.push('/map')
+         },
+         searchList(){
+             
          }
      }
 }

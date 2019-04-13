@@ -4,21 +4,35 @@ import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
 
+/* - - - - - - - 1.商标查询 - - - - - - - - - */
 import trademarkInquiry from './views/trademarkInquiry/index.vue'
-import detailsInfo from './views/searchResult/detailsInfo.vue'
 import searchresult from  './views/searchResult'
+import detailsInfo from './views/searchResult/detailsInfo.vue'
+import searchHistory from './views/searchResult/searchHistory'
+
+/* - - - - - - - 2.智能检索 - - - - - - - - - */
 import smartSearch from  './views/smartSearch'
 
+/* - - - - - - - 3.法律法规 - - - - - - - - - */
+// 执法首页
 import LawEnforcement from  './views/lawEnforcement'
+// 执法记录
 import LElog from  './views/lawEnforcement/leLog.vue'
+// 执法地图
+import map from './views/lawEnforcement/map'
+
+/* - - - - - - - 4.收藏 - - - - - - - - - */
+import collection from  './views/collection'
+
+/* - - - - - - - 5.新闻 - - - - - - - - - */
+/* - - - - - - - 6.阅读 - - - - - - - - - */
+
+// 临时测试路由
+import my from  './views/test/my'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import test4 from './views/test/test4'
-import map from './views/lawEnforcement/map'
 
-import my from  './views/test/my'
-import searchHistory from './views/searchResult/searchHistory'
-import collection from  './views/collection'
 Vue.use(Router)
 Router.prototype.goBack = function () {
   this.isBack = true;
@@ -35,7 +49,7 @@ export default new Router({
           name: 'main',
           component: () => import('./views/home/main'),
           children: [
-             {//生活服务主页
+             {//主页
                 path: '/home',
                 components: {
                   body: home,
@@ -43,6 +57,7 @@ export default new Router({
                   header: headerBar
                 }
               },
+              /* - - - - - - - 1.商标查询 - - - - - - - - - */
               {//商标查询
                 path: '/trademarkinquiry',
                 name:'trademarkinquiry',
@@ -52,14 +67,7 @@ export default new Router({
                   header: headerBar
                 }
               },
-              {//智能检索主页
-                path: '/smartSearch',
-                name:'smartSearch',
-                components: {
-                    body: smartSearch
-                }
-              },
-              {//查询结果
+              {//商标详情
                   path: '/detailsInfo',
                   name:'detailsInfo',
                   components: {
@@ -75,7 +83,7 @@ export default new Router({
                   footer: footerTab
                 }
               },
-              {//生活服务主页
+              {//查询历史
                 path: '/searchhistory',
                 components: {
                     body: searchHistory,
@@ -83,8 +91,18 @@ export default new Router({
                   header: headerBar
                 }
               },
+              /* - - - - - - - 2.智能检索 - - - - - - - - - */
+              {//智能检索
+                path: '/smartSearch',
+                name:'smartSearch',
+                components: {
+                    body: smartSearch
+                }
+              },
+              /* - - - - - - - 3.法律法规 - - - - - - - - - */
               {//执法
                 path: '/lawenforcement',
+                name: 'lawenforcement',
                 components: {
                     body: LawEnforcement,
                   footer: footerTab
@@ -96,6 +114,25 @@ export default new Router({
                       body: LElog
                   }
               },
+              {//执法地图
+                path: '/map',
+                name:'map',
+                components: {
+                body: map,
+                  
+                }
+              },
+              /* - - - - - - - 4.收藏 - - - - - - - - - */
+              {//收藏
+                path: '/collection',
+                name:'collection',
+                components: {
+                    body: collection,
+                  header: headerBar
+                }
+              },
+              /* - - - - - - - 5.新闻 - - - - - - - - - */
+              /* - - - - - - - 6.阅读 - - - - - - - - - */
               {//生活服务主页
                 path: '/test2',
                 components: {
@@ -135,22 +172,6 @@ export default new Router({
                     body: my,
                   footer: footerTab,
                   header: headerBar
-                }
-              },
-              {//收藏
-                path: '/collection',
-                name:'collection',
-                components: {
-                    body: collection,
-                  header: headerBar
-                }
-              },
-               {//收藏
-                path: '/map',
-                name:'map',
-                components: {
-                body: map,
-                 
                 }
               },
           ]

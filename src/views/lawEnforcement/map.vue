@@ -27,6 +27,9 @@ export default {
     marker=createMarker(98,'丰台区',[116.300784,39.874192])
     map.add(marker)
 
+  },
+  components:{
+      Search
   }
 };
 function createMarker(nmb,txt,pos){
@@ -88,7 +91,16 @@ function getContent(nmb,txt){
 </style>
 
 <style lang="scss" scoped>
-
+.top-header{
+    position:absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.9rem;
+    background: #2095f2;
+    box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.2);
+}
 
 .map{
     height: 120%;
