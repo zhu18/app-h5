@@ -5,29 +5,43 @@
 * 修改时间：2019-04-12
 -->
 <template>
-  <div class="result-panel" @click="show()">
+  <div ref="resultPanel"
+       class="result-panel"
+       :style="resultPanelStyle"
+       @click="show()">
     <!-- 结果面板-头部 -->
     <div class="list-head">
       <!-- 关闭按钮-左侧 -->
-      <div class="cls" @click.stop="hide()">
+      <div class="cls"
+           @click.stop.prevent="hide()">
         <i class="iconfont icon-del"></i>
       </div>
       <!-- 文字区域-中间 -->
-      <div class="title">
-        <span v-show="scanType==='img'" >相似商标</span>
-        <img v-show="scanType==='img'" src="../../assets/images/logo1.png">
-        <img v-show="scanType==='txt'" src="../../assets/images/smartsearch/txtscan.jpg">
-        <div class="sort" @click.stop="sort()">排列</div>
+      <div class="title"
+           @mousedown="moveStart"
+           @touchstart="moveStart"
+           @mousemove="move"
+           @touchmove="move"
+           @mouseup="moveEnd"
+           @touchend="moveEnd">
+        <span v-show="scanType==='img'">相似商标</span>
+        <img v-show="scanType==='img'"
+             src="../../assets/images/logo1.png">
+        <img v-show="scanType==='txt'"
+             src="../../assets/images/smartsearch/txtscan.jpg">
+        <div class="sort"
+             @click.stop.prevent="sort()">排列</div>
       </div>
       <!-- 查询按钮-右侧 -->
-      <div class="query" @click.stop="query()">
+      <div class="query"
+           @click.stop="query()">
         <i class="iconfont icon-query"></i>
       </div>
     </div>
     <!-- 识别的logo列表 -->
     <LogoList v-show="status==='list'" />
     <!-- 查询面板 -->
-    <SearchByWriting  v-show="status==='query'"/>
+    <SearchByWriting v-show="status==='query'" />
   </div>
 </template>
 
@@ -37,72 +51,100 @@ import LogoList from "./logolist";
 import SearchByWriting from "./searchBywriting";
 
 export default {
-  props:{
-    scanType:{
+  props: {
+    scanType: {
       required: true,
-      default:'img'
+      default: 'img',
+      moving: false,
+      moveY: 0
     }
   },
-  data() {
+  data () {
     return {
-      status:'list',//'list','query','sort' 加载不同面板
+      status: 'list',//'list','query','sort' 加载不同面板
+      height: 0
     };
   },
-  mounted() {
+  computed: {
+    resultPanelStyle () {
+      let style = {}
+      if (this.height) {
+        style.height = `${this.height}px`
+      }
+      return style
+    }
+  },
+  mounted () {
     anime.set(".result-panel", {
-      translateY: "130%"
+      // translateY: "130%"
+      bottom: "-100%"
     });
   },
   methods: {
-    show(type) {
+    show (type) {
       type = type || "little";
       let offset = {
-        all: "10%",
-        little: "65%",
-        hide: "130%"
+        all: "0",
+        little: "0",
+        hide: "-100%"
       };
       anime({
         targets: ".result-panel",
-        translateY: offset[type],
+        // translateY: offset[type],
+        bottom: offset[type],
         easing: "easeInOutSine",
         duration: 300
       });
     },
-    hide() {
+    hide () {
       this.show("hide");
     },
-    list(){
+    list () {
       this.setStatus('list')
     },
-    query(){
+    query () {
       this.setStatus('query')
     },
-    sort(){
+    sort () {
       this.setStatus('sort')
     },
-    setStatus(status){
+    setStatus (status) {
       //二次点击回到列表
-      if(status===this.status)
-        this.status='list'
+      if (status === this.status)
+        this.status = 'list'
       else
-        this.status=status;
+        this.status = status;
+    },
+    moveStart (event) {
+      this.moving = true
+      this.height = this.$refs.resultPanel.offsetHeight;
+      this.moveY = event.touches ? event.touches[0].clientY : event.clientY
+    },
+    move () {
+      if (!this.moving) return
+      let y = this.moveY
+      this.moveY = event.touches ? event.touches[0].clientY : event.clientY
+      this.height += y - this.moveY
+    },
+    moveEnd () {
+      this.moving = false
     }
   },
-  components:{
+  components: {
     LogoList,
     SearchByWriting
   }
 };
 </script>
 <style lang="scss" scoped>
- 
 .result-panel {
   display: flex;
   position: fixed;
   flex-direction: column;
-  height: 95%;
+  max-height: 90%;
+  min-height: 10%;
   width: 100%;
-  transform: translateY(130%);
+  // transform: translateY(130%);
   background: #fff;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -112,8 +154,6 @@ export default {
     border-bottom: 1px solid #eee;
     width: 100%;
     display: flex;
-    .cls {
-    }
     .title {
       font-size: 0.32rem;
       text-align: left;
@@ -157,8 +197,6 @@ export default {
         margin-left: 0.25rem;
       }
     }
-   
   }
 }
-
 </style>
