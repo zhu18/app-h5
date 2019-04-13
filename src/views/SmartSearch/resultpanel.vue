@@ -14,7 +14,7 @@
       </div>
       <!-- 文字区域-中间 -->
       <div class="title">
-        相似商标
+        <span v-show="scanType==='img'" >相似商标</span>
         <img v-show="scanType==='img'" src="../../assets/images/logo1.png">
         <img v-show="scanType==='txt'" src="../../assets/images/smartsearch/txtscan.jpg">
         <div class="sort" @click.stop="sort()">排列</div>

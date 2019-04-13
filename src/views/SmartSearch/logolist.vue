@@ -8,7 +8,7 @@
   <div class="list-body">
     <!-- 头部分类区 -->
     <div class="list-opt">
-      <span>您想找的是:</span>
+      <span>您想找的是:</span><mt-button type="primary" size="small">修改</mt-button>
       <mt-button type="default" size="small">鞋类</mt-button>
       <mt-button type="default" size="small">家具</mt-button>
       <mt-button type="default" size="small">其他</mt-button>

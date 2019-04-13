@@ -5,14 +5,14 @@ import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
 import trademarkInquiry from  './views/trademarkInquiry'
 import detailsInfo from  './views/test/details-info'
-import SearchResult from  './views/searchResult'
-import SmartSearch from  './views/smartSearch'
+import searchResult from  './views/searchResult'
+import smartSearch from  './views/smartSearch'
 
 import test1 from  './views/test/test1'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import my from  './views/test/my'
-import searchhistory from  './views/searchResult/searchhistory'
+import searchHistory from  './views/searchResult/searchhistory'
 import collection from  './views/collection'
 Vue.use(Router)
 Router.prototype.goBack = function () {
@@ -52,7 +52,7 @@ export default new Router({
                 path: '/smartsearch',
                 name:'smartsearch',
                 components: {
-                    body: SmartSearch
+                    body: smartSearch
                 }
               },
               {//查询结果
@@ -67,14 +67,14 @@ export default new Router({
                 path: '/searchresult',
                 name:'searchresult',
                 components: {
-                  body: SearchResult,
+                  body: searchResult,
                   footer: footerTab
                 }
               },
               {//生活服务主页
                 path: '/searchhistory',
                 components: {
-                    body: searchhistory,
+                    body: searchHistory,
                   footer: footerTab,
                   header: headerBar
                 }
