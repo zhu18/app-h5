@@ -107,17 +107,17 @@
                     justify-content: center;
                     align-items: center;
                     font-size: 0.72rem;
-                    background:linear-gradient( top,#2ab1f9,#18cbec);
+                    background:linear-gradient(#2ab1f9,#18cbec);
 
                 }
                 .icon2{
-                    background:linear-gradient( top,#fec31e,#fea61a);
+                    background:linear-gradient( #fec31e,#fea61a);
                 }
                 .icon3{
-                    background:linear-gradient( top,#53bafc,#53bafc);
+                    background:linear-gradient( #53bafc,#53bafc);
                 }
                 .icon4{
-                    background:linear-gradient( top,#fec31e,#fea51a);
+                    background:linear-gradient(#fec31e,#fea51a);
                 }
                 .title{
                     color: #1e2128;
