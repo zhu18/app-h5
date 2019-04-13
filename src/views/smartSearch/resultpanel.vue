@@ -98,7 +98,7 @@ export default {
  
 .result-panel {
   display: flex;
-  position: absolute;
+  position: fixed;
   flex-direction: column;
   height: 95%;
   width: 100%;
