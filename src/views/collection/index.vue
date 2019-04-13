@@ -1,7 +1,7 @@
 <template>
 <div>
   <ul class="collet-box clearfix">
-    <li class="item" v-for="(item,idx) in dataList" :key='item.id' @click="select(item.id)">
+    <li class="item" v-for="item in dataList" :key='item.id' @click="select(item.id)">
       <img src='../../assets/images/result-logo.jpg' alt="" >
       <h2>{{item.title}}</h2>
       <p>{{item.number}}</p>

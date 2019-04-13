@@ -77,7 +77,7 @@ export default {
             color: #5b5b69;
             padding-top: 0.04rem;
             ::-webkit-input-placeholder { /* WebKit browsers */
-                　　color: #5b5b69;
+                color: #5b5b69;
             }
         }
     }
