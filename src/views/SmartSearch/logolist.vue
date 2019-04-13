@@ -76,7 +76,7 @@ export default {
   },
   methods: {
     select(id){
-
+      this.$router.push('/searchresult')
     }
   }
 };
