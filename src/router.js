@@ -4,20 +4,20 @@ import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
 import headerBar from './components/header/index.vue';
 
-import trademarkInquiry from  './views/trademarkInquiry/index.vue'
-import detailsInfo from  './views/searchResult/detailsInfo.vue'
+import trademarkInquiry from './views/trademarkInquiry/index.vue'
+import detailsInfo from './views/searchResult/detailsInfo.vue'
 import searchresult from  './views/searchResult'
 import smartSearch from  './views/smartSearch'
 
-import LawEnforcement from  './views/LawEnforcement'
-import LElog from  './views/LawEnforcement/leLog.vue'
+import LawEnforcement from  './views/lawEnforcement'
+import LElog from  './views/lawEnforcement/leLog.vue'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import test4 from './views/test/test4'
 import map from './views/lawEnforcement/map'
 
 import my from  './views/test/my'
-import searchHistory from  './views/searchResult/searchhistory'
+import searchHistory from './views/searchResult/searchHistory'
 import collection from  './views/collection'
 Vue.use(Router)
 Router.prototype.goBack = function () {

@@ -34,7 +34,7 @@
 <script>
 import anime from "animejs";
 import LogoList from "./logolist";
-import SearchByWriting from "./searchBywriting";
+import SearchByWriting from "./searchByWriting";
 
 export default {
   props:{
