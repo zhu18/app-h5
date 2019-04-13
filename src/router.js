@@ -10,6 +10,7 @@ import searchResult from  './views/searchResult'
 import smartSearch from  './views/smartSearch'
 
 import LawEnforcement from  './views/LawEnforcement'
+import LElog from  './views/LawEnforcement/leLog.vue'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import test4 from './views/test/test4'
@@ -86,6 +87,12 @@ export default new Router({
                     body: LawEnforcement,
                   footer: footerTab
                 }
+              },
+              {//执法记录
+                  path: '/lelog',
+                  components: {
+                      body: LElog
+                  }
               },
               {//生活服务主页
                 path: '/test2',

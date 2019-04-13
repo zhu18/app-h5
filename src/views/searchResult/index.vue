@@ -9,8 +9,8 @@
     <!-- 头部搜索区域 开始 -->
     <div class="top-header">
       <div class="returnbox" @click="back()">
-          <span class="iconfont icon-back"></span>
-      </div>
+        <span class="iconfont icon-back"></span>
+    </div>
       <div class="top-search">
         <div class="search">
             <form action="javascript:;" id="searchFrom" @submit="searchList">
