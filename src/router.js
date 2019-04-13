@@ -9,7 +9,7 @@ import detailsInfo from  './views/test/details-info'
 import searchResult from  './views/searchResult'
 import smartSearch from  './views/smartSearch'
 
-import test1 from  './views/test/test1'
+import LawEnforcement from  './views/LawEnforcement'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import test4 from './views/test/test4'
@@ -80,12 +80,11 @@ export default new Router({
                   header: headerBar
                 }
               },
-              {//生活服务主页
-                path: '/test1',
+              {//执法
+                path: '/lawenforcement',
                 components: {
-                    body: test1,
-                  footer: footerTab,
-                  header: headerBar
+                    body: LawEnforcement,
+                  footer: footerTab
                 }
               },
               {//生活服务主页
