@@ -7,7 +7,7 @@
             </router-link>
          </div>
          <div class="tab-item">
-            <router-link to='/test1'>
+            <router-link to='/lawenforcement'>
                  <i class="iconfont icon-law"></i>
                  <span>执法</span>
             </router-link>
