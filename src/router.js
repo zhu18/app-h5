@@ -14,7 +14,7 @@ import LElog from  './views/LawEnforcement/leLog.vue'
 import test3 from  './views/test/test3'
 import test2 from  './views/test/test2'
 import test4 from './views/test/test4'
-import map from './views/test/map'
+import map from './views/lawEnforcement/map'
 
 import my from  './views/test/my'
 import searchHistory from  './views/searchResult/searchhistory'

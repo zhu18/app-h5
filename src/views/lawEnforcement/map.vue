@@ -1,9 +1,13 @@
 <template>
 <div id="container" class="map">
-
+        <div class="top-header">
+            <Search/>
+        </div>
 </div>
 </template>
 <script>
+    import Search from "../../components/search/lesearch.vue";
+
 export default {
   mounted() {
     var map = new AMap.Map("container", {
@@ -11,12 +15,7 @@ export default {
       zoom: 11,
       center: [116.39, 39.9]
     });
-    var content = `<div class="cmarker">
-        <div class="txt-wrap">
-            <div class="nmb">328</div>
-            <div class="txt">朝阳区</div>
-        </div>
-        <i class="iconfont icon-msg"></i></div>`;
+    
     let marker=createMarker(328,'朝阳区',[116.474983,39.953884])
     map.add(marker)
     marker=createMarker(123,'海淀区',[116.311707,39.970253])

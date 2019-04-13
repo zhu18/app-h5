@@ -7,7 +7,7 @@
         </form>
     </div>
     <span class="iconfont icon-date"></span>
-    <span class="iconfont icon-map"></span>
+    <span class="iconfont icon-map" @click="map()"></span>
   </div>
 </template>
 
@@ -16,6 +16,9 @@ export default {
      methods: {
          back(){
              this.$router.go(-1)
+         },
+         map(){
+             this.$router.push('/map')
          }
      }
 }
