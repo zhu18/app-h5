@@ -114,12 +114,14 @@ export default new Router({
         },
         { //执法记录
           path: '/lelog',
+          name:'lelog',
           components: {
             body: LElog
           }
         },
         { //执法记录详情
             path: '/enforcementdetails',
+            name: 'enforcementdetails',
             components: {
                 body: enforcementdetails
             }
