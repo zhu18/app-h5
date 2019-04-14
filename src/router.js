@@ -14,6 +14,8 @@ import searchHistory from './views/searchResult/searchHistory'
 import smartSearch from './views/smartSearch'
 
 /* - - - - - - - 3.法律法规 - - - - - - - - - */
+// 取证详情
+import lawDetails from './views/lawEnforcement/lawDetails'
 // 执法首页
 import LawEnforcement from './views/lawEnforcement'
 // 执法记录
@@ -32,8 +34,6 @@ import dateSelect from './views/dateSelect'
 import startLawEnforcement from './views/lawEnforcement/startLawEnforcement.vue'
 //开始执法-上传
 import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcementUpload.vue'
-// 取证详情
-import lawDetails1 from './views/lawEnforcement/lawDetails'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
 import evidenceList from './views/evidenceList'
