@@ -11,11 +11,11 @@
             <Search/>
         </div>
         <div class="list">
-            <router-link tag="div"  to="/startLawEnforcement" class="item">
+            <div tag="div"  to="#" @click="newLaw()" class="item">
                 <span class="icon iconfont icon-police"></span>
                 <span class="title">开始执法</span>
                 <span class="arrow"> <span class="iconfont icon-back"></span></span>
-            </router-link>
+            </div>
             <router-link tag="div"  to="/lelog" class="item">
                 <span class="icon icon2 iconfont icon-info"></span>
                 <span class="title">执法记录</span>
@@ -28,7 +28,7 @@
             </div>
             <div class="item">
                 <span class="icon icon4 iconfont icon-collection"></span>
-                <span class="title">取证管理</span>
+                <span class="title">我的收藏</span>
                 <span class="arrow">
                      <span class="iconfont icon-back"></span>
                 </span>
@@ -54,7 +54,9 @@
         mounted() {
         },
         methods: {
-
+            newLaw(){
+                this.popupVisible=true
+            }
         },
         components: {
             Search,

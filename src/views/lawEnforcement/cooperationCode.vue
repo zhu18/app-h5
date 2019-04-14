@@ -36,7 +36,7 @@ import codeInput from '@/components/codeInput/codeInput'
                 this.$router.go(-1)
             },
             submit(code){
-                // alert(code);
+                this.$router.push({name:"startLawEnforcement",params:{code}})
             }
         },
         components:{

@@ -120,6 +120,8 @@ export default {
     };
   },
   mounted() {
+      this.$route.params.code && (this.title = "执法("+this.$route.params.code+")")
+
       anime.set(".start-hidden-li", {
         bottom: "0",
         scale: [0, 0],
