@@ -22,6 +22,8 @@ import LElog from './views/lawEnforcement/leLog.vue'
 import map from './views/lawEnforcement/map'
 //记录详情
 import enforcementdetails from './views/lawEnforcement/enforcementdetails'
+// 执法日期
+import dateSelect from './views/dateSelect'
 
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
@@ -29,7 +31,7 @@ import collection from './views/collection'
 /* - - - - - - - 5.新闻 - - - - - - - - - */
 /* - - - - - - - 6.阅读 - - - - - - - - - */
 /** */
-import dateSelect from './views/dateSelect'
+
 // 临时测试路由
 import my from './views/test/my'
 import test3 from './views/test/test3'
@@ -130,6 +132,14 @@ export default new Router({
 
           }
         },
+        { //执法日期
+          path: '/dateSelect',
+          components: {
+            body: dateSelect,
+            footer: footerTab,
+            header: headerBar
+          }
+        },
         /* - - - - - - - 4.收藏 - - - - - - - - - */
         { //收藏
           path: '/collection',
@@ -141,14 +151,6 @@ export default new Router({
         },
         /* - - - - - - - 5.新闻 - - - - - - - - - */
         /* - - - - - - - 6.阅读 - - - - - - - - - */
-        { //生活服务主页
-          path: '/dateSelect',
-          components: {
-            body: dateSelect,
-            footer: footerTab,
-            header: headerBar
-          }
-        },
         { //生活服务主页
           path: '/test2',
           components: {
