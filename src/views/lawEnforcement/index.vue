@@ -28,7 +28,7 @@
             </div>
             <div class="item">
                 <span class="icon icon4 iconfont icon-collection"></span>
-                <span class="title">取证管理</span>
+                <span class="title">我的收藏</span>
                 <span class="arrow">
                      <span class="iconfont icon-back"></span>
                 </span>
