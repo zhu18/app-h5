@@ -34,17 +34,20 @@
                 </span>
             </div>
         </div>
-
-
-
+        <mt-popup v-model="popupVisible">
+            <leBegin></leBegin>
+        </mt-popup>
     </div>
 </template>
 <script>
     import Search from "../../components/search/index";
+    import leBegin from "./leBegin.vue"
+
     export default {
         name: "law-enforcement",
         data() {
             return {
+                popupVisible:false
             };
         },
         created() {},
@@ -54,7 +57,8 @@
 
         },
         components: {
-            Search
+            Search,
+            leBegin
         }
     };
 </script>

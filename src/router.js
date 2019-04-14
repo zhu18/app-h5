@@ -18,6 +18,8 @@ import smartSearch from './views/smartSearch'
 import LawEnforcement from './views/lawEnforcement'
 // 执法记录
 import LElog from './views/lawEnforcement/leLog.vue'
+//新建协同码
+import cooperationCode from './views/lawEnforcement/cooperationCode'
 // 执法-协同码
 import synergyCode from './views/lawEnforcement/synergyCode.vue'
 // 执法地图
@@ -30,8 +32,13 @@ import dateSelect from './views/dateSelect'
 import startLawEnforcement from './views/lawEnforcement/startLawEnforcement.vue'
 //开始执法-上传
 import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcementUpload.vue'
+// 取证详情
+import lawDetails from './views/lawEnforcement/lawDetails'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
+//我的收藏
+import selfCollection from './views/collection/self'
+
 
 /* - - - - - - - 5.新闻 - - - - - - - - - */
 /* - - - - - - - 6.阅读 - - - - - - - - - */
@@ -110,18 +117,32 @@ export default new Router({
         },
         /* - - - - - - - 3.法律法规 - - - - - - - - - */
         { //执法
-          path: '/lawenforcement',
-          name: 'lawenforcement',
-          components: {
-            body: LawEnforcement,
-            footer: footerTab
-          }
-        },
+              path: '/lawenforcement',
+              name: 'lawenforcement',
+              components: {
+                  body: LawEnforcement,
+                  footer: footerTab
+              }
+          },
+          { //取证详情
+              path: '/lawDetails',
+              name: 'lawDetails',
+              components: {
+                  body: lawDetails,
+                  footer: footerTab
+              }
+          },
         { //执法记录
           path: '/lelog',
           name:'lelog',
           components: {
             body: LElog
+          }
+        },
+        { //新建协同码
+          path: '/cooperationCode',
+          components: {
+            body: cooperationCode
           }
         },
         { //执法协同码
@@ -177,6 +198,13 @@ export default new Router({
             header: headerBar
           }
         },
+        { //我的收藏
+          path: '/selfCollection',
+          name: 'selfCollection',
+          components: {
+            body: selfCollection
+          }
+        },
         /* - - - - - - - 5.新闻 - - - - - - - - - */
         /* - - - - - - - 6.阅读 - - - - - - - - - */
         { //生活服务主页
@@ -217,7 +245,6 @@ export default new Router({
           components: {
             body: my,
             footer: footerTab,
-            header: headerBar
           }
         },
       ]

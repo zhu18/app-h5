@@ -16,7 +16,16 @@ export default {
       zoom: 11,
       center: [116.39, 39.9]
     });
-
+    let marker=createMarker(328,'朝阳区',[116.474983,39.953884])
+    map.add(marker)
+    marker=createMarker(123,'海淀区',[116.311707,39.970253])
+    map.add(marker)
+    marker=createMarker(135,'东城区',[116.420366,39.931757])
+    map.add(marker)
+    marker=createMarker(233,'西城区',[116.364025,39.919362])
+    map.add(marker)
+    marker=createMarker(98,'丰台区',[116.300784,39.874192])
+    map.add(marker)
     AMap.plugin(["AMap.ToolBar"], function() {
       // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
       map.addControl(

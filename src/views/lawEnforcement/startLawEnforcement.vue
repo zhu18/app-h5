@@ -108,6 +108,7 @@
 </template>
 <script>
 import anime from "animejs";
+import {  MessageBox } from "mint-ui";
 export default {
   name: "startLawEnforcement",
   data() {
@@ -165,6 +166,7 @@ export default {
     },
     // 图片按钮点击
     picBtnClick() {
+        MessageBox("提示", "原生app对接，现在为模拟状态");
       this.$router.push({
         name: "startLawEnforcementUpload",
         params: { type: "pic" }
@@ -172,6 +174,7 @@ export default {
     },
     // 图片按钮点击
     recordBtnClick() {
+        MessageBox("提示", "原生app对接，现在为模拟状态");
       this.$router.push({
         name: "startLawEnforcementUpload",
         params: { type: "record" }
