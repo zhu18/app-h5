@@ -71,7 +71,7 @@
             },
             //执法详情
             openDetails(){
-                this.$router.push('enforcementdetails');
+                this.$router.push('/enforcementdetails');
             }
         },
         components: {
