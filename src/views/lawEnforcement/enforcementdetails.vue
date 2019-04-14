@@ -147,6 +147,7 @@
                 max-height: 6.47rem;
                 font-size: 0.12rem;
                 margin-top: 0.2rem;
+                margin-bottom: 0.2rem;
                 overflow-y: auto;
                 padding: 0.32rem 0.05rem 0 0.32rem;
                 .lable-title{
