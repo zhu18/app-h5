@@ -10,28 +10,28 @@
        :style="resultPanelStyle"
        @click="show()">
     <!-- 结果面板-头部 -->
-    <div class="list-head">
+    <div class="list-head flex-fixed">
       <!-- 关闭按钮-左侧 -->
       <div class="cls"
            @click.stop.prevent="hide()">
         <i class="iconfont icon-del"></i>
       </div>
       <!-- 文字区域-中间 -->
-      <div class="title"
-           @mousedown.stop="moveStart"
-           @touchstart.stop="moveStart"
-           @mousemove.stop="move"
-           @touchmove.stop="move"
-           @mouseup.stop="moveEnd"
-           @touchend.stop="moveEnd">
-        <span v-show="scanType==='img'"
-              :style="{opacity:opacity}">相似商标</span>
-        <img v-show="scanType==='img'"
-             src="../../assets/images/logo1.png"
-             :style="{opacity:opacity}">
-        <img v-show="scanType==='txt'"
-             src="../../assets/images/smartsearch/txtscan.jpg"
-             :style="{opacity:opacity}">
+      <div class="title flex">
+        <div class="flex-fill"
+             @touchstart.prevent="moveStart"
+             @touchmove.prevent="move"
+             @touchend.prevent="moveEnd">
+          <span v-show="scanType==='img'"
+                :style="{opacity:opacity}">相似商标</span>
+          <img v-show="scanType==='img'"
+               src="../../assets/images/logo1.png"
+               :style="{opacity:opacity}">
+          <img v-show="scanType==='txt'"
+               src="../../assets/images/smartsearch/txtscan.jpg"
+               :style="{opacity:opacity}">
+        </div>
+
         <div class="sort"
              @click.stop.prevent="sort()">排列</div>
       </div>
@@ -111,8 +111,7 @@ export default {
     hide () {
       this.show("hide");
       setTimeout(() => {
-        this.height = 0
-        this.maxHeight = 0
+        this.reset()
       }, 400);
     },
     list () {
@@ -120,9 +119,11 @@ export default {
     },
     query () {
       this.setStatus('query')
+      this.reset()
     },
     sort () {
       this.setStatus('sort')
+      this.reset()
     },
     sortCallback (params) {
       this.list()
@@ -152,6 +153,11 @@ export default {
     },
     moveEnd () {
       this.moving = false
+    },
+    reset () {
+      this.height = 0
+      this.opacity = 1
+      this.maxHeight = 0
     }
   },
   components: {
@@ -167,6 +173,7 @@ export default {
   position: fixed;
   flex-direction: column;
   max-height: 90%;
+  height: 90%;
   min-height: 25%;
   width: 100%;
   // top:0;
@@ -186,6 +193,7 @@ export default {
       text-align: left;
       flex: 1;
       line-height: 0.9rem;
+      display: flex;
       img {
         display: block;
         left: 50%;
@@ -197,11 +205,6 @@ export default {
         border: 0.1rem solid #fff;
         background: #ddd;
       }
-      .sort {
-        float: right;
-      }
-    }
-    .query {
     }
     .iconfont {
       font-size: 0.8rem;

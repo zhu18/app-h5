@@ -6,3 +6,15 @@
 body{
     font-size: .28rem; /* 14px */
 }
+
+.flex{
+    display: flex;
+}
+.flex-fixed{
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.flex-fill{
+    flex-grow: 1;
+    flex-shrink: 1;
+}

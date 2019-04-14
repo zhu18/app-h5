@@ -36,6 +36,7 @@ import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcemen
 import lawDetails from './views/lawEnforcement/lawDetails'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
+import evidenceList from './views/evidenceList'
 //我的收藏
 import selfCollection from './views/collection/self'
 
@@ -195,6 +196,15 @@ export default new Router({
           name: 'collection',
           components: {
             body: collection,
+            header: headerBar
+          }
+        },
+        {
+          //取证记录
+          path: '/evidenceList',
+          name: 'evidenceList',
+          components: {
+            body: evidenceList,
             header: headerBar
           }
         },
