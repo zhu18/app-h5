@@ -29,6 +29,8 @@ import dateSelect from './views/dateSelect'
 
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
+//我的收藏
+import selfCollection from './views/collection/self'
 
 /* - - - - - - - 5.新闻 - - - - - - - - - */
 /* - - - - - - - 6.阅读 - - - - - - - - - */
@@ -156,6 +158,13 @@ export default new Router({
           components: {
             body: collection,
             header: headerBar
+          }
+        },
+        { //我的收藏
+          path: '/selfCollection',
+          name: 'selfCollection',
+          components: {
+            body: selfCollection
           }
         },
         /* - - - - - - - 5.新闻 - - - - - - - - - */
