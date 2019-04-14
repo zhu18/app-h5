@@ -17,49 +17,43 @@ export default {
       center: [116.39, 39.9]
     });
 
-    AMap.plugin([
-        'AMap.ToolBar',
-    ], function(){
-        // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
-        map.addControl(new AMap.ToolBar({
-            // 简易缩放模式，默认为 false
-            liteStyle: true
-        }));
+    AMap.plugin(["AMap.ToolBar"], function() {
+      // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+      map.addControl(
+        new AMap.ToolBar({
+          // 简易缩放模式，默认为 false
+          liteStyle: true
+        })
+      );
     });
-    let marker = createMarker(328, "朝阳区", [116.474983, 39.953884]);
-    map.add(marker);
-    marker = createMarker(123, "海淀区", [116.311707, 39.970253]);
-    map.add(marker);
-    marker = createMarker(135, "东城区", [116.420366, 39.931757]);
-    map.add(marker);
-    marker = createMarker(233, "西城区", [116.364025, 39.919362]);
-    map.add(marker);
-    marker = createMarker(98, "丰台区", [116.300784, 39.874192]);
-    map.add(marker);
+    let marker1 = createMarker(328, "朝阳区", [116.474983, 39.953884]);
+    let marker2 = createMarker(123, "海淀区", [116.311707, 39.970253]);
+    let marker3 = createMarker(135, "东城区", [116.420366, 39.931757]);
+    let marker4 = createMarker(233, "西城区", [116.364025, 39.919362]);
+    let marker5 = createMarker(98, "丰台区", [116.300784, 39.874192]);
 
-    // document.addEventListener("gesturestart", function(e) {
-    //   e.preventDefault();
-    // });
-    // document.addEventListener("dblclick", function(e) {
-    //   e.preventDefault();
-    // });
+    map.add(marker1);
+    map.add(marker2);
+    map.add(marker3);
+    map.add(marker4);
+    map.add(marker5);
+
+    marker1.on("click", this.showInfo);
+    marker2.on("click", this.showInfo);
+    marker3.on("click", this.showInfo);
+    marker4.on("click", this.showInfo);
+    marker5.on("click", this.showInfo);
+
     document.addEventListener("touchstart", function(event) {
       if (event.touches.length > 1) {
         event.preventDefault();
       }
     });
-    // var lastTouchEnd = 0;
-    // document.addEventListener(
-    //   "touchend",
-    //   function(event) {
-    //     var now = new Date().getTime();
-    //     if (now - lastTouchEnd <= 300) {
-    //       event.preventDefault();
-    //     }
-    //     lastTouchEnd = now;
-    //   },
-    //   false
-    // );
+  },
+  methods: {
+    showInfo() {
+      this.$router.push("enforcementdetails");
+    }
   },
   components: {
     Search
@@ -142,7 +136,7 @@ function getContent(nmb, txt) {
   left: 0;
 }
 .map {
-    position: relative;
+  position: relative;
   height: 100%;
   width: 100%;
   touch-action: none;
