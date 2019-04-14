@@ -28,7 +28,8 @@ import enforcementdetails from './views/lawEnforcement/enforcementdetails'
 import dateSelect from './views/dateSelect'
 //开始执法
 import startLawEnforcement from './views/lawEnforcement/startLawEnforcement.vue'
-
+//开始执法-上传
+import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcementUpload.vue'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
 
@@ -160,7 +161,13 @@ export default new Router({
             body: startLawEnforcement
           }
         },
-        
+        { //开始执法-上传
+          path: '/startLawEnforcementUpload',
+          name:'startLawEnforcementUpload',
+          components: {
+            body: startLawEnforcementUpload
+          }
+        },
         /* - - - - - - - 4.收藏 - - - - - - - - - */
         { //收藏
           path: '/collection',
