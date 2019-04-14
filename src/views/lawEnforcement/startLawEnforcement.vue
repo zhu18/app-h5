@@ -339,12 +339,13 @@ export default {
         border-radius: 50%;
         border: .02rem solid rgba(32,149,242,.3);
         text-align: center;
-        line-height: .32rem;
+        line-height: .3rem;
         i {
             display: inline-block;
             color: #2095f2;
             // font-size: 0.6rem;
             transform: scale(2.3);
+            transform-origin: 50% 50%;
         }
     }
     &:nth-child(3n) {
