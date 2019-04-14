@@ -37,6 +37,7 @@
         methods: {
             submit(code){
                 // alert(code);
+                this.$router.push({name:"startLawEnforcement",params:{code}})
             }
         },
         components:{
