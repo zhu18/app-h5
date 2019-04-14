@@ -15,7 +15,7 @@ import smartSearch from './views/smartSearch'
 
 /* - - - - - - - 3.法律法规 - - - - - - - - - */
 // 取证详情
-import lawDetailss from './views/lawEnforcement/lawDetails'
+//import lawDetails from './views/lawEnforcement/lawDetails'
 // 执法首页
 import LawEnforcement from './views/lawEnforcement'
 // 执法记录
@@ -126,10 +126,10 @@ export default new Router({
               }
           },
           { //取证详情
-              path: '/lawDetailss',
-              name: 'lawDetailss',
+              path: '/lawDetails',
+              name: 'lawDetails',
               components: {
-                  body: lawDetailss,
+                  body: lawDetails,
                   footer: footerTab
               }
           },
