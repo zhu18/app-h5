@@ -11,11 +11,11 @@
             <Search/>
         </div>
         <div class="list">
-            <div class="item">
+            <router-link tag="div"  to="/startLawEnforcement" class="item">
                 <span class="icon iconfont icon-police"></span>
                 <span class="title">开始执法</span>
                 <span class="arrow"> <span class="iconfont icon-back"></span></span>
-            </div>
+            </router-link>
             <router-link tag="div"  to="/lelog" class="item">
                 <span class="icon icon2 iconfont icon-info"></span>
                 <span class="title">执法记录</span>
@@ -34,17 +34,20 @@
                 </span>
             </div>
         </div>
-
-
-
+        <mt-popup v-model="popupVisible">
+            <leBegin></leBegin>
+        </mt-popup>
     </div>
 </template>
 <script>
     import Search from "../../components/search/index";
+    import leBegin from "./leBegin.vue"
+
     export default {
         name: "law-enforcement",
         data() {
             return {
+                popupVisible:false
             };
         },
         created() {},
@@ -54,7 +57,8 @@
 
         },
         components: {
-            Search
+            Search,
+            leBegin
         }
     };
 </script>

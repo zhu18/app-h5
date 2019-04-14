@@ -10,6 +10,7 @@
                  v-for="(ev, idx) in item.list"
                  :key="idx">
               <img :src="ev.img"/>
+              <i class="iconfont icon-sound"></i>
             </div>
           </div>
         </div>
@@ -139,6 +140,7 @@ export default {
       background-color: #f6f6f6;
       border-radius: 0.08rem;
       overflow: hidden;
+
     }
     img{
       width:100%;
