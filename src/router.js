@@ -32,8 +32,8 @@ import dateSelect from './views/dateSelect'
 import startLawEnforcement from './views/lawEnforcement/startLawEnforcement.vue'
 //开始执法-上传
 import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcementUpload.vue'
-
-
+// 取证详情
+import lawDetails1 from './views/lawEnforcement/lawDetails'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
 import evidenceList from './views/evidenceList'

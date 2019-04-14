@@ -184,19 +184,19 @@
         /*
         播放按钮换成圆形
         */
-        height: 1.6em;
-        width: 1.6em;
+        width: 0.7rem;
         line-height: 2em;
-        border-radius: 1em;
-        border: 0.02rem solid #2095f2;
+        border-radius: 50%;
+        border: 0.03rem solid #2095f2;
     }
     .vjs-custom-skin > .video-js .vjs-big-play-button{
-        font-size:0.42rem;
+        font-size:0.32rem !important;
         top: 21%;
         left:91%;
     }
     .vjs-icon-play:before, .video-js .vjs-big-play-button .vjs-icon-placeholder:before, .video-js .vjs-play-control .vjs-icon-placeholder:before{
         color:#2095f2;
+        font-size: 0.42rem;
     }
     .vjs-custom-skin > .video-js{
         width: 90%;
