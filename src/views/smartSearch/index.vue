@@ -43,7 +43,7 @@
       </div>-->
       <clipbox
         ref="cropper"
-       
+        :img="img"
         :autoCrop="true"
         :autoCropWidth="width"
         :autoCropHeight="height"
