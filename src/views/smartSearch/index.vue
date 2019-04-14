@@ -47,17 +47,18 @@
           <span class="loading-txt">识别中...</span>
         </div>
       </div>-->
-      <clipbox ref="cropper"
-               :img="img"
-               :autoCrop="true"
-               :autoCropWidth="width"
-               :autoCropHeight="height"
-               :canMove="false"
-               :info="false"
-               mode="cover"
-               centerBox />
-      <div class="scan-tips"
-           v-show="!isScaning">
+      <clipbox
+        ref="cropper"
+        :img="img"
+        :autoCrop="true"
+        :autoCropWidth="width"
+        :autoCropHeight="height"
+        :canMove="false"
+        :info="false"
+        mode="cover"
+        centerBox
+      />
+      <div class="scan-tips" v-show="!isScaning">
         <p>请把商标放于框内</p>
         <p>商标清晰、无遮挡、无阴影</p>
       </div>
