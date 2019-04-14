@@ -116,12 +116,16 @@
                     .r-area{
                         float:left;
                         margin-left:.24rem;
+                        height:1rem;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
                         label{
                             width:1.12rem;
                             display:inline-block;
                         }
                         div{
-                            margin-bottom:.14rem;
+                            flex:0 1 auto;
                         }
                     }
                     &::after{
