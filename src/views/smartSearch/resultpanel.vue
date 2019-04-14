@@ -18,17 +18,20 @@
       </div>
       <!-- 文字区域-中间 -->
       <div class="title"
-           @mousedown="moveStart"
-           @touchstart="moveStart"
-           @mousemove="move"
-           @touchmove="move"
-           @mouseup="moveEnd"
-           @touchend="moveEnd">
-        <span v-show="scanType==='img'">相似商标</span>
+           @mousedown.stop="moveStart"
+           @touchstart.stop="moveStart"
+           @mousemove.stop="move"
+           @touchmove.stop="move"
+           @mouseup.stop="moveEnd"
+           @touchend.stop="moveEnd">
+        <span v-show="scanType==='img'"
+              :style="{opacity:opacity}">相似商标</span>
         <img v-show="scanType==='img'"
-             src="../../assets/images/logo1.png">
+             src="../../assets/images/logo1.png"
+             :style="{opacity:opacity}">
         <img v-show="scanType==='txt'"
-             src="../../assets/images/smartsearch/txtscan.jpg">
+             src="../../assets/images/smartsearch/txtscan.jpg"
+             :style="{opacity:opacity}">
         <div class="sort"
              @click.stop.prevent="sort()">排列</div>
       </div>
@@ -39,11 +42,13 @@
       </div>
     </div>
     <!-- 识别的logo列表 -->
-    <LogoList v-show="status==='list'" :scan-type="scanType" />
+    <LogoList v-show="status==='list'"
+              :scan-type="scanType" />
     <!-- 查询面板 -->
     <SearchByWriting v-show="status==='query'" />
     <!-- 排序面板 -->
-    <Sort v-show="status==='sort'" @callback="sortCallback" />
+    <Sort v-show="status==='sort'"
+          @callback="sortCallback" />
   </div>
 </template>
 
@@ -52,6 +57,8 @@ import anime from "animejs";
 import LogoList from "./logolist";
 import SearchByWriting from "./searchByWriting";
 import Sort from "../../components/screen";
+import { match } from 'minimatch';
+// import { settings } from 'cluster';
 
 export default {
   props: {
@@ -65,7 +72,9 @@ export default {
   data () {
     return {
       status: 'list',//'list','query','sort' 加载不同面板
-      height: 0
+      height: 0,
+      maxHeight: 0,
+      opacity: 1
     };
   },
   computed: {
@@ -101,6 +110,10 @@ export default {
     },
     hide () {
       this.show("hide");
+      setTimeout(() => {
+        this.height = 0
+        this.maxHeight = 0
+      }, 400);
     },
     list () {
       this.setStatus('list')
@@ -111,7 +124,7 @@ export default {
     sort () {
       this.setStatus('sort')
     },
-    sortCallback(params){
+    sortCallback (params) {
       this.list()
     },
     setStatus (status) {
@@ -124,13 +137,18 @@ export default {
     moveStart (event) {
       this.moving = true
       this.height = this.$refs.resultPanel.offsetHeight;
+      if (!this.maxHeight) {
+        this.maxHeight = this.height
+      }
       this.moveY = event.touches ? event.touches[0].clientY : event.clientY
     },
     move () {
       if (!this.moving) return
       let y = this.moveY
       this.moveY = event.touches ? event.touches[0].clientY : event.clientY
-      this.height += y - this.moveY
+      this.height += Math.min(this.maxHeight, y - this.moveY)
+
+      this.opacity = (Math.max(0, this.height - 300)) / (this.maxHeight - 300)
     },
     moveEnd () {
       this.moving = false
