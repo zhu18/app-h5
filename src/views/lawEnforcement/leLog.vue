@@ -16,7 +16,7 @@
              infinite-scroll-distance="10">
             <div class="item" v-for="(item,index) in list" :key="index">
                 <h3>廖某某案件相关执法</h3>
-                <div class="content">
+                <div class="content" @click="openDetails">
                     <div class="img-box">
                         <img src="../../assets/images/home/banner.png" alt="">
                     </div>
@@ -68,6 +68,10 @@
                     }
                     this.loading = false;
                 }, 3500);
+            },
+            //执法详情
+            openDetails(){
+                this.$router.push('/enforcementdetails');
             }
         },
         components: {

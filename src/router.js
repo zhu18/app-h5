@@ -20,6 +20,8 @@ import LawEnforcement from './views/lawEnforcement'
 import LElog from './views/lawEnforcement/leLog.vue'
 // 执法地图
 import map from './views/lawEnforcement/map'
+//记录详情
+import enforcementdetails from './views/lawEnforcement/enforcementdetails'
 // 执法日期
 import dateSelect from './views/dateSelect'
 
@@ -115,6 +117,12 @@ export default new Router({
           components: {
             body: LElog
           }
+        },
+        { //执法记录详情
+            path: '/enforcementdetails',
+            components: {
+                body: enforcementdetails
+            }
         },
         { //执法地图
           path: '/map',
