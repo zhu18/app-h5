@@ -36,13 +36,10 @@ import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcemen
 import lawDetails from './views/lawEnforcement/lawDetails'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
-<<<<<<< HEAD
 import evidenceList from './views/evidenceList'
-=======
 //我的收藏
 import selfCollection from './views/collection/self'
 
->>>>>>> 21748153b6f531eb9bdfa9e402b443bb9634fd6c
 
 /* - - - - - - - 5.新闻 - - - - - - - - - */
 /* - - - - - - - 6.阅读 - - - - - - - - - */
