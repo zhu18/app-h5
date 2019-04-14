@@ -24,9 +24,11 @@ import map from './views/lawEnforcement/map'
 import enforcementdetails from './views/lawEnforcement/enforcementdetails'
 // 执法日期
 import dateSelect from './views/dateSelect'
-
+// 取证详情
+import lawDetails from './views/lawEnforcement/lawDetails'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
+
 
 /* - - - - - - - 5.新闻 - - - - - - - - - */
 /* - - - - - - - 6.阅读 - - - - - - - - - */
@@ -105,13 +107,21 @@ export default new Router({
         },
         /* - - - - - - - 3.法律法规 - - - - - - - - - */
         { //执法
-          path: '/lawenforcement',
-          name: 'lawenforcement',
-          components: {
-            body: LawEnforcement,
-            footer: footerTab
-          }
-        },
+              path: '/lawenforcement',
+              name: 'lawenforcement',
+              components: {
+                  body: LawEnforcement,
+                  footer: footerTab
+              }
+          },
+          { //取证详情
+              path: '/lawDetails',
+              name: 'lawDetails',
+              components: {
+                  body: lawDetails,
+                  footer: footerTab
+              }
+          },
         { //执法记录
           path: '/lelog',
           components: {
@@ -189,7 +199,6 @@ export default new Router({
           components: {
             body: my,
             footer: footerTab,
-            header: headerBar
           }
         },
       ]

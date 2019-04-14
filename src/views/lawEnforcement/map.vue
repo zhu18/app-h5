@@ -15,7 +15,7 @@ export default {
       zoom: 11,
       center: [116.39, 39.9]
     });
-    
+
     let marker=createMarker(328,'朝阳区',[116.474983,39.953884])
     map.add(marker)
     marker=createMarker(123,'海淀区',[116.311707,39.970253])

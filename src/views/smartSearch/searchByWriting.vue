@@ -25,7 +25,7 @@ export default {
   data() {
     return {
         index:1,
-        dataList:["阿迪达斯","NIKE","汉方","同仁堂","草本","Samsung","Apple","阿迪达斯","NIKE","汉方","同仁堂","草本","Samsung","Apple","阿迪达斯","NIKE","汉方","同仁堂","草本","Samsung","Apple","阿迪达斯","NIKE","汉方","同仁堂","草本","Samsung","Apple"]
+        dataList:["阿迪达斯","NIKE","汉方","同仁堂","草本","Samsung","Apple"]
     };
   },
   created() {
