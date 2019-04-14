@@ -149,7 +149,7 @@ export default {
   position: fixed;
   flex-direction: column;
   max-height: 90%;
-  min-height: 10%;
+  min-height: 25%;
   width: 100%;
   // top:0;
   // left:0;
