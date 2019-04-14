@@ -1,78 +1,78 @@
 <template>
-  <div class="home-wrap4">
-    <div class="header-content">
-      <div class="font-info">
-        <div class="left-font">
-          <div class="name-font">{{username}}</div>
-        </div>
-      </div>
+  <div class="container">
+    <div class="player">
+      <video-player  class="video-player vjs-custom-skin"
+                     ref="videoPlayer"
+                     :playsinline="false"
+                     :options="playerOptions"
+                     @play="onPlayerPlay($event)"
+                     @pause="onPlayerPause($event)"
+      >
+      </video-player>
     </div>
   </div>
 </template>
 <script>
+    import { videoPlayer } from 'vue-video-player';
+    require('video.js/dist/video-js.css')
+    require('vue-video-player/src/custom-theme.css')
     export default {
-        name: "home4",
-        data() {
-            return {
-                username:'我的页面待开发...',
-            };
-        },
-        created() {
-        },
-        mounted() {
-        },
-        methods: {
+            data () {
+                return {
+                    playerOptions: {
+                        autoplay: false, //如果true,浏览器准备好时开始回放。
+                        muted: false, // 默认情况下将会消除任何音频。
+                        controls:false,
+                        loop: false, // 导致视频一结束就重新开始。
+                        preload: 'none', // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
+                        language: 'zh-CN',
+                        aspectRatio: '16:9', // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+                        fluid: false, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+                        sources: [{
+                            type: "video/mp4",
+                            src: "http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4" //你的视频地址（必填）
+                        }],
+                        poster: "poster.jpg", //你的封面地址
+                        width: document.documentElement.clientWidth,
+                        notSupportedMessage: '此视频暂无法播放，请稍后再试', //允许覆盖Video.js无法播放媒体源时显示的默认信息。
+                        controlBar: {
+                            timeDivider: false,
+                            durationDisplay: false,
+                            remainingTimeDisplay: false,
+                            fullscreenToggle: false  //全屏按钮
+                        }
+                    }
+                }
+            },
+            components: {
+                videoPlayer
+            },
+            methods: {
+                onPlayerPlay(player) {
+                    alert("play");
+                },
+                onPlayerPause(player){
+                    alert("pause");
+                },
+            },
         }
-    };
 </script>
-<style lang="scss">
-  .home-wrap4 {
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style type="text/css">
+  .container {
+    background-color: #efefef;
+    height: 6rem;
     width: 100%;
-    height: 100%;
-    background: #ffffff;
     overflow: hidden;
-    overflow-y: auto;
-    .header-content {
-      height: 100%;
-      width: 100%;
-      background-color: #5df690;
-      background-size: 100%;
-      .font-info {
-        display: inline-block;
-        margin-top: 3.45rem;
-        .left-font {
-          width: 6rem;
-          position: absolute;
-          left: 0.3rem;
-          .name-font {
-            font-size: 0.32rem;
-            font-family: PingFangSC-Regular;
-          }
-          .erm {
-            font-size: 0.22rem;
-            padding-top: 0.15rem;
-            .pass {
-              background-color: white;
-              display: inline-block;
-              border-radius: 0.06rem;
-              margin-left: 0.1rem;
-              color: #f6a65d;
-              padding-left: 0.2rem;
-              padding-right: 0.2rem;
-              padding-top: 0.04rem;
-              padding-bottom: 0.04rem;
-            }
-          }
-        }
-        .right-img {
-          position: absolute;
-          left: 6.5rem;
-          img {
-            width: 0.7rem;
-            height: 0.7rem;
-          }
-        }
-      }
-    }
+  }
+  .video-js .vjs-big-play-button{
+    /*
+    播放按钮换成圆形
+    */
+    height: 2em;
+    width: 2em;
+    line-height: 2em;
+    border-radius: 1em;
   }
 </style>
