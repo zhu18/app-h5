@@ -24,7 +24,7 @@
            </router-link>
         </div>
        <div class="tab-item">
-           <router-link to='/lawDetails'>
+           <router-link to='/my'>
               <i class="iconfont icon-my"></i>
               <span>我的</span>
            </router-link>
