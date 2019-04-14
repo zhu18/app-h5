@@ -17,6 +17,15 @@ export default {
       center: [116.39, 39.9]
     });
 
+    AMap.plugin([
+        'AMap.ToolBar',
+    ], function(){
+        // 在图面添加工具条控件，工具条控件集成了缩放、平移、定位等功能按钮在内的组合控件
+        map.addControl(new AMap.ToolBar({
+            // 简易缩放模式，默认为 false
+            liteStyle: true
+        }));
+    });
     let marker = createMarker(328, "朝阳区", [116.474983, 39.953884]);
     map.add(marker);
     marker = createMarker(123, "海淀区", [116.311707, 39.970253]);
@@ -27,6 +36,30 @@ export default {
     map.add(marker);
     marker = createMarker(98, "丰台区", [116.300784, 39.874192]);
     map.add(marker);
+
+    // document.addEventListener("gesturestart", function(e) {
+    //   e.preventDefault();
+    // });
+    // document.addEventListener("dblclick", function(e) {
+    //   e.preventDefault();
+    // });
+    document.addEventListener("touchstart", function(event) {
+      if (event.touches.length > 1) {
+        event.preventDefault();
+      }
+    });
+    // var lastTouchEnd = 0;
+    // document.addEventListener(
+    //   "touchend",
+    //   function(event) {
+    //     var now = new Date().getTime();
+    //     if (now - lastTouchEnd <= 300) {
+    //       event.preventDefault();
+    //     }
+    //     lastTouchEnd = now;
+    //   },
+    //   false
+    // );
   },
   components: {
     Search
@@ -101,15 +134,16 @@ function getContent(nmb, txt) {
   background: #2095f2;
   box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.2);
 }
-.map-wrap{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+.map-wrap {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 .map {
-  height: 50%;
+    position: relative;
+  height: 100%;
   width: 100%;
   touch-action: none;
   overflow: hidden;
