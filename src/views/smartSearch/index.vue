@@ -141,7 +141,7 @@ export default {
         this.hideTip();
       });
     });
-    this.setScanType(this.$route.params.type)
+    this.$route.params.type && this.setScanType(this.$route.params.type)
     anime({
       targets: ".img-tip",
       translateY: [-30, 0],
