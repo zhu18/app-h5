@@ -99,8 +99,8 @@ export default new Router({
         },
         /* - - - - - - - 2.智能检索 - - - - - - - - - */
         { //智能检索
-          path: '/smartSearch',
-          name: 'smartSearch',
+          path: '/smartsearch',
+          name: 'smartsearch',
           components: {
             body: smartSearch
           }

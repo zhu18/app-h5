@@ -95,7 +95,7 @@ export default {
       let now = new Date()
       this.year = now.getFullYear()
       this.month = now.getMonth()
-      this.currDate = [this.year, this.month]
+      this.currDate = [this.year, this.month, now.getDate()]
       this.computYears(this.year)
       this.computDate()
     },

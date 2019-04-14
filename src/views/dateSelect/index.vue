@@ -28,7 +28,7 @@ export default {
 .date-select {
   width: 100%;
   height: calc(100vh - 0.9rem - 1.28rem);
-  background: #ffffff;
+  background: #f6f6f6;
   overflow: hidden;
   overflow-y: auto;
   .header-content {

@@ -18,7 +18,7 @@
                 <h3>廖某某案件相关执法</h3>
                 <div class="content" @click="openDetails">
                     <div class="img-box">
-                        <img src="../../assets/images/home/banner.png" alt="">
+                        <img src="../../assets/images/lawenforcement/evidence.jpg" alt="">
                     </div>
                     <div class="info">
                         <p><span class="p-title">经办人</span>经办人{{index+1}}  </p>
@@ -118,7 +118,7 @@
                 display: flex;
                 align-items: center;
                 flex-direction: column;
-                box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.2);
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
                 box-sizing: border-box;
                 h3{
                     height:1rem;
