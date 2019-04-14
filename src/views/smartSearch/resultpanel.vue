@@ -113,6 +113,7 @@ export default {
       setTimeout(() => {
         this.height = 0
         this.maxHeight = 0
+        this.opacity = 1
       }, 400);
     },
     list () {

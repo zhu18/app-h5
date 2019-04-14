@@ -1,7 +1,8 @@
 <template>
   <div class="date-select">
     <div class="header-content">
-      <date-picker class="datapicker" />
+      <date-picker class="datapicker"
+                   @selectDate="selectDate" />
     </div>
   </div>
 </template>
@@ -18,9 +19,11 @@ export default {
   created () {
   },
   mounted () {
-
   },
   methods: {
+    selectDate (date) {
+      this.$router.push({ name: 'enforcementdetails', query: { date } })
+    }
   }
 };
 </script>
@@ -28,7 +31,7 @@ export default {
 .date-select {
   width: 100%;
   height: calc(100vh - 0.9rem - 1.28rem);
-  background: #f6f6f6;
+  background: #ffffff;
   overflow: hidden;
   overflow-y: auto;
   .header-content {

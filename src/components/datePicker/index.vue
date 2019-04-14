@@ -73,8 +73,8 @@
 export default {
   data () {
     return {
-      year:2019,
-      month:3,
+      year: 2019,
+      month: 3,
       type: 'date',// month/year
       weeks: ['周日', '周一', '周二', '周三', '周四', '周五', '周六'],
       months: ['一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二'],
@@ -85,7 +85,7 @@ export default {
     }
   },
   computed: {
-    prevYearDisabled (){
+    prevYearDisabled () {
       //return true
       return this.type === 'year' && this.years[0] === this.minYear || this.type === 'date' && this.year === this.minYear
     }
@@ -158,6 +158,8 @@ export default {
     selectDate (item) {
       if (!item) return
       this.currDate = [this.year, this.month, item]
+      let month = this.month + 1
+      this.$emit('selectDate', `${this.year}-${month < 10 ? "0" + month : month}-${item < 10 ? '0' + item : item}`)
     },
     selectMonth (month) {
       this.month = month

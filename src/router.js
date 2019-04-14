@@ -29,6 +29,7 @@ import dateSelect from './views/dateSelect'
 
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
+import evidenceList from './views/evidenceList'
 
 /* - - - - - - - 5.新闻 - - - - - - - - - */
 /* - - - - - - - 6.阅读 - - - - - - - - - */
@@ -159,6 +160,15 @@ export default new Router({
             body: collection,
             header: headerBar
           }
+        },
+        {
+          //取证记录
+          path: '/evidenceList',
+          name: 'evidenceList',
+          components: {
+            body: evidenceList,
+            header: headerBar
+          }  
         },
         /* - - - - - - - 5.新闻 - - - - - - - - - */
         /* - - - - - - - 6.阅读 - - - - - - - - - */
