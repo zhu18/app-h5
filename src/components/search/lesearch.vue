@@ -6,7 +6,7 @@
             <input type="search" value="" placeholder="" />
         </form>
     </div>
-    <span class="iconfont icon-date"></span>
+    <span class="iconfont icon-date" @click="date()"></span>
     <span class="iconfont icon-map" @click="map()"></span>
   </div>
 </template>
@@ -17,11 +17,14 @@ export default {
          back(){
              this.$router.go(-1)
          },
+         date(){
+             this.$router.push('/dateSelect')
+         },
          map(){
              this.$router.push('/map')
          },
          searchList(){
-             
+
          }
      }
 }

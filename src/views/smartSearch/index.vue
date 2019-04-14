@@ -11,26 +11,20 @@
       <mt-header fixed>
         <!-- 左侧-返回 -->
         <div slot="left">
-          <mt-button icon="back"
-                     @click="back"></mt-button>
+          <mt-button icon="back" @click="back"></mt-button>
         </div>
         <!-- 右侧-帮助、历史、打开相册 -->
-        <mt-button slot="right"
-                   @click="openHelp()">
+        <mt-button slot="right" @click="openHelp()">
           <i class="iconfont icon-help"></i>
         </mt-button>
-        <mt-button slot="right"
-                   @click="openHistory()">
+        <mt-button slot="right" @click="openHistory()">
           <i class="iconfont icon-time"></i>
         </mt-button>
-        <mt-button slot="right"
-                   @click="openPic()">
+        <mt-button slot="right" @click="openPic()">
           <i class="iconfont icon-img"></i>
         </mt-button>
       </mt-header>
-      <div ref="imgtip"
-           class="img-tip"
-           @click="hideTip">相册可以直接选择图片识别</div>
+      <div ref="imgtip" class="img-tip" @click="hideTip">相册可以直接选择图片识别</div>
     </div>
     <!-- 扫描区 -->
     <div class="search-view">
@@ -46,25 +40,24 @@
                       type="double-bounce"></mt-spinner>
           <span class="loading-txt">识别中...</span>
         </div>
-      </div> -->
-      <clipbox ref="cropper"
-               :img="img"
-               :autoCrop="true"
-               :autoCropWidth="width"
-               :autoCropHeight="height"
-               :canMove="false"
-               :info="false"
-               mode="cover"
-               centerBox />
-      <div class="scan-tips"
-           v-show="!isScaning">
+      </div>-->
+      <clipbox
+        ref="cropper"
+       
+        :autoCrop="true"
+        :autoCropWidth="width"
+        :autoCropHeight="height"
+        :canMove="false"
+        :info="false"
+        mode="cover"
+        centerBox
+      />
+      <div class="scan-tips" v-show="!isScaning">
         <p>请把商标放于框内</p>
         <p>商标清晰、无遮挡、无阴影</p>
       </div>
-      <div class="scan-loading"
-           v-show="isScaning">
-        <mt-spinner color="#26a2ff"
-                    type="double-bounce"></mt-spinner>
+      <div class="scan-loading" v-show="isScaning">
+        <mt-spinner color="#26a2ff" type="double-bounce"></mt-spinner>
         <span class="loading-txt">识别中...</span>
       </div>
     </div>
@@ -72,27 +65,18 @@
     <div class="search-opt">
       <!-- 扫描类型旋转-上部 -->
       <div class="opt-txtbar">
-        <div class="txt"
-             :class="scanType=='txt'&&'active left'"
-             @click="setScanType('txt')">扫图识字</div>
-        <div class="txt"
-             :class="scanType=='img'&&'active right'"
-             @click="setScanType('img')">识图</div>
+        <div class="txt" :class="scanType=='txt'&&'active left'" @click="setScanType('txt')">扫图识字</div>
+        <div class="txt" :class="scanType=='img'&&'active right'" @click="setScanType('img')">识图</div>
       </div>
       <!-- 操作区-下部 -->
       <div class="opt-btn">
         <!-- 拍照&停止 按钮 -->
-        <div class="btn-watch"
-             :class="isScaning&&'stop'"
-             @click="scan">
-          <i class="iconfont icon-pic"
-             v-show="!isScaning"></i>
-          <i class="iconfont icon-del"
-             v-show="isScaning"></i>
+        <div class="btn-watch" :class="isScaning&&'stop'" @click="scan">
+          <i class="iconfont icon-pic" v-show="!isScaning"></i>
+          <i class="iconfont icon-del" v-show="isScaning"></i>
         </div>
         <!-- 文字识别-语言分类 -->
-        <div class="language"
-             v-show="scanType=='txt'">
+        <div class="language" v-show="scanType=='txt'">
           <p>语言</p>
           <div class="btn selected">中文</div>
           <div class="btn">英文</div>
@@ -103,19 +87,18 @@
       </div>
     </div>
     <!-- 识别结果滑动面板 -->
-    <ResultPanel ref="resultpanel"
-                 :scan-type="scanType" />
+    <ResultPanel ref="resultpanel" :scan-type="scanType"/>
   </div>
 </template>
 <script>
-import clipbox from '../../components/clipbox'
+import clipbox from "../../components/clipbox";
 import { Spinner, MessageBox } from "mint-ui";
 import anime from "animejs";
 import ResultPanel from "./resultpanel";
-import img from '../../assets/images/scanbg.jpg'
+import img from "../../assets/images/scanbg.jpg";
 export default {
   name: "smartSearch",
-  data () {
+  data() {
     return {
       scanType: "img",
       isScaning: false,
@@ -128,8 +111,9 @@ export default {
     };
   },
   created() {
-    this.clientWidth = document.body.clientWidth
-    this.width = this.height = this.clientWidth * 480 / 750},
+    this.clientWidth = document.body.clientWidth;
+    this.width = this.height = (this.clientWidth * 480) / 750;
+  },
   mounted() {
     ["click", "touchstart"].forEach(item => {
       window.addEventListener(item, () => {
@@ -145,22 +129,22 @@ export default {
     });
   },
   methods: {
-    back () {
+    back() {
       this.$router.go(-1);
     },
     hideTip() {
       this.$refs.imgtip && this.$refs.imgtip.remove();
     },
-    openHelp () {
+    openHelp() {
       MessageBox("提示", "帮助待开发...");
     },
-    openHistory () {
+    openHistory() {
       this.$router.push("searchhistory");
     },
-    openPic () {
+    openPic() {
       MessageBox("提示", "原生app对接-打开系统相册");
     },
-    scan () {
+    scan() {
       //在识别中 取消识别
       if (this.isScaning) {
         clearTimeout(this.timer);
@@ -174,14 +158,14 @@ export default {
         this.showList();
       }, 1000);
     },
-    setScanType (type) {
+    setScanType(type) {
       //设置识别类型
       if (this.scanType == type) return;
 
       this.scanType = type;
-      let scanHeight = type === 'txt' ? 300 : 480
-      this.width = this.clientWidth * 480 / 750
-      this.height = this.clientWidth * scanHeight / 750
+      let scanHeight = type === "txt" ? 300 : 480;
+      this.width = (this.clientWidth * 480) / 750;
+      this.height = (this.clientWidth * scanHeight) / 750;
       let x = type === "txt" ? "2.2rem" : "0";
 
       anime({
@@ -189,17 +173,18 @@ export default {
         translateX: x
       });
     },
-    showList () {
+    showList() {
       //显示识别结果
       this.$refs.resultpanel.show("all");
     },
-    closeList () {
+    closeList() {
       //关闭识别结果
       this.$refs.resultpanel.hide();
     }
   },
   components: {
-    ResultPanel, clipbox
+    ResultPanel,
+    clipbox
   }
 };
 </script>

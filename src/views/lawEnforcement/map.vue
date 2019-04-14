@@ -51,9 +51,9 @@ function getContent(nmb,txt){
 }
 </script>
 <style>
-.amap-logo,.amap-copyright{
+/* .amap-logo,.amap-copyright{
  visibility: hidden;
-}
+} */
 .cmarker{
     position: relative;
 }
@@ -87,12 +87,12 @@ function getContent(nmb,txt){
     text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
     
     z-index: 1;
-    }
+}
 </style>
 
 <style lang="scss" scoped>
 .top-header{
-    position:absolute;
+    position: fixed;
     z-index: 10;
     top: 0;
     left: 0;
@@ -103,8 +103,9 @@ function getContent(nmb,txt){
 }
 
 .map{
-    height: 120%;
+    height: 100%;
     width: 100%;
+        touch-action: none;
 }
 
 </style>

@@ -42,6 +42,8 @@
     <LogoList v-show="status==='list'" :scan-type="scanType" />
     <!-- 查询面板 -->
     <SearchByWriting v-show="status==='query'" />
+    <!-- 排序面板 -->
+    <Sort v-show="status==='sort'" @callback="sortCallback" />
   </div>
 </template>
 
@@ -49,6 +51,7 @@
 import anime from "animejs";
 import LogoList from "./logolist";
 import SearchByWriting from "./searchByWriting";
+import Sort from "../../components/screen";
 
 export default {
   props: {
@@ -108,6 +111,9 @@ export default {
     sort () {
       this.setStatus('sort')
     },
+    sortCallback(params){
+      this.list()
+    },
     setStatus (status) {
       //二次点击回到列表
       if (status === this.status)
@@ -132,7 +138,8 @@ export default {
   },
   components: {
     LogoList,
-    SearchByWriting
+    SearchByWriting,
+    Sort
   }
 };
 </script>
