@@ -18,6 +18,8 @@ import smartSearch from './views/smartSearch'
 import LawEnforcement from './views/lawEnforcement'
 // 执法记录
 import LElog from './views/lawEnforcement/leLog.vue'
+//新建协同码
+import cooperationCode from './views/lawEnforcement/cooperationCode'
 // 执法-协同码
 import synergyCode from './views/lawEnforcement/synergyCode.vue'
 // 执法地图
@@ -131,6 +133,12 @@ export default new Router({
           name:'lelog',
           components: {
             body: LElog
+          }
+        },
+        { //新建协同码
+          path: '/cooperationCode',
+          components: {
+            body: cooperationCode
           }
         },
         { //执法协同码
