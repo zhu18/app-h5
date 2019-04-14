@@ -4,7 +4,7 @@
         <form action="javascript:;" id="searchFrom" @submit="searchList">
             <input type="search" value="" placeholder="" />
         </form>
-        <button>搜索</button>     
+        <button @click="smartSearch('txt')">搜索</button>     
     </div>
   </div>
 </template>
@@ -16,6 +16,9 @@ export default {
       searchList(){
          this.$router.push('/searchresult')
       },
+      smartSearch(type){
+        this.$router.push({name:'smartsearch',params:{type}})
+      }
      }
 }
 </script>

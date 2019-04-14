@@ -95,8 +95,8 @@
         <div class="language"
              v-show="scanType=='txt'">
           <p>语言</p>
-          <div class="btn selected">中文</div>
-          <div class="btn">英文</div>
+          <div class="btn" :class="{selected:language=='ch'}" @click="setLanguage('ch')">中文</div>
+          <div class="btn" :class="{selected:language=='en'}" @click="setLanguage('en')">英文</div>
           <div class="more">
             <i class="iconfont icon-back"></i>
           </div>
@@ -125,6 +125,7 @@ export default {
       width: 210,
       height: 210,
       clientWidth: 0,
+      language:'ch',
       img
     };
   },
@@ -133,17 +134,19 @@ export default {
     this.width = this.height = (this.clientWidth * 480) / 750;
   },
   mounted () {
+    
+
     ["click", "touchstart"].forEach(item => {
       window.addEventListener(item, () => {
         this.hideTip();
       });
     });
-
+    this.setScanType(this.$route.params.type)
     anime({
       targets: ".img-tip",
       translateY: [-30, 0],
       opacity: 1,
-      duration: 1000
+      duration: 1500
     });
   },
   methods: {
@@ -190,6 +193,9 @@ export default {
         targets: ".opt-txtbar",
         translateX: x
       });
+    },
+    setLanguage(type){
+      this.language=type
     },
     showList () {
       //显示识别结果
