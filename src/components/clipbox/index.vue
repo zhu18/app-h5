@@ -23,6 +23,7 @@
          @touchstart="startMove"></div>
     <div v-show="cropping"
          class="cropper-crop-box"
+         :class="{'transition':resizing}"
          :style="{
 					'width': cropW + 'px',
 					'height': cropH + 'px',
@@ -90,6 +91,7 @@
 
 <script>
 import exifmin from "./exif-js-min";
+import { setTimeout } from 'timers';
 
 export default {
   data: function () {
@@ -153,7 +155,8 @@ export default {
       scalingSet: "",
       coeStatus: "",
       // 控制emit触发频率
-      isCanShow: true
+      isCanShow: true,
+      resizing:false
     };
   },
   props: {
@@ -1624,7 +1627,11 @@ export default {
         h = this.h;
         w = (h / this.fixedNumber[1]) * this.fixedNumber[0];
       }
+      this.resizing = true
       this.changeCrop(w, h);
+      setTimeout(()=>{
+        this.resizing = false
+      },100)
     },
     // 手动改变截图框大小函数
     changeCrop (w, h) {
@@ -1785,6 +1792,10 @@ export default {
   bottom: 0;
   left: 0;
   user-select: none;
+}
+
+.transition {
+  transition: all .2s ease;
 }
 
 .cropper-box-canvas img {

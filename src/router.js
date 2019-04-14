@@ -18,6 +18,8 @@ import smartSearch from './views/smartSearch'
 import LawEnforcement from './views/lawEnforcement'
 // 执法记录
 import LElog from './views/lawEnforcement/leLog.vue'
+// 执法-协同码
+import synergyCode from './views/lawEnforcement/synergyCode.vue'
 // 执法地图
 import map from './views/lawEnforcement/map'
 //记录详情
@@ -28,6 +30,8 @@ import dateSelect from './views/dateSelect'
 import lawDetails from './views/lawEnforcement/lawDetails'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
+//我的收藏
+import selfCollection from './views/collection/self'
 
 
 /* - - - - - - - 5.新闻 - - - - - - - - - */
@@ -99,8 +103,8 @@ export default new Router({
         },
         /* - - - - - - - 2.智能检索 - - - - - - - - - */
         { //智能检索
-          path: '/smartSearch',
-          name: 'smartSearch',
+          path: '/smartsearch',
+          name: 'smartsearch',
           components: {
             body: smartSearch
           }
@@ -124,12 +128,21 @@ export default new Router({
           },
         { //执法记录
           path: '/lelog',
+          name:'lelog',
           components: {
             body: LElog
           }
         },
+        { //执法协同码
+          path: '/synergyCode',
+          components: {
+            body: synergyCode,
+            header: headerBar
+          }
+        },
         { //执法记录详情
             path: '/enforcementdetails',
+            name: 'enforcementdetails',
             components: {
                 body: enforcementdetails
             }
@@ -157,6 +170,13 @@ export default new Router({
           components: {
             body: collection,
             header: headerBar
+          }
+        },
+        { //我的收藏
+          path: '/selfCollection',
+          name: 'selfCollection',
+          components: {
+            body: selfCollection
           }
         },
         /* - - - - - - - 5.新闻 - - - - - - - - - */
