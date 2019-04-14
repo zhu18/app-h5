@@ -297,7 +297,7 @@ export default {
     height: 0.98rem;
     margin-right: 0.6rem;
     border-radius: 50%;
-    border: 0.01rem solid #e5e5e5;
+    border: 0.02rem solid #e5e5e5;
     box-sizing: border-box;
     text-align: center;
     &:last-child {
@@ -335,7 +335,7 @@ export default {
         width: .32rem;
         height: .32rem;
         border-radius: 50%;
-        border: .01rem solid rgba(32,149,242,.3);
+        border: .02rem solid rgba(32,149,242,.3);
         text-align: center;
         line-height: .32rem;
         i {
