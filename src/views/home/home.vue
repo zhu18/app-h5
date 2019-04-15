@@ -24,7 +24,7 @@
         <router-link :to="{ name: 'collection', params: { title: '收藏',handleEdit:true}} " class="list-item block" tag="div">
             <i class="iconfont icon-collection"></i>收藏
         </router-link>
-        <router-link :to="{ name: 'news'}" class="list-item block" tag="div">
+        <router-link :to="{ name: ''}" class="list-item block" tag="div">
             <i class="iconfont icon-new"></i>新闻
         </router-link>
        <div class="list-item block">
