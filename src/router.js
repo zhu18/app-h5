@@ -124,14 +124,14 @@ export default new Router({
                   footer: footerTab
               }
           },
-          { //取证详情
-              path: '/lawDetails',
-              name: 'lawDetails',
-              components: {
-                  body: lawDetails,
-                  footer: footerTab
-              }
-          },
+          // { //取证详情
+          //     path: '/lawDetails',
+          //     name: 'lawDetails',
+          //     components: {
+          //         body: lawDetails,
+          //         footer: footerTab
+          //     }
+          // },
         { //执法记录
           path: '/lelog',
           name:'lelog',
