@@ -131,11 +131,11 @@ export default new Router({
                     }
                 },
                 { 
-                path: '/lawsRegulationsDetail',
-                name: 'lawsRegulationsDetail',
-                components: {
-                    body: lawsRegulationsDetail
-                }
+                    path: '/lawsRegulationsDetail',
+                    name: 'lawsRegulationsDetail',
+                    components: {
+                        body: lawsRegulationsDetail
+                    }
                 },
                 { //执法
                     path: '/lawenforcement',
