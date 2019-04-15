@@ -13,37 +13,42 @@
         <div class="middle-content">
             <div class="title">2019年4月15日    北京市海淀区</div>
             <div class="item">
-                <div class="file" style="height: 4rem">
+                <div class="file file-video">
                     <video-player  class="video-player vjs-custom-skin"
                                    ref="videoPlayer"
                                    :playsinline="false"
                                    :options="playerOptions"
-                                   @play="onPlayerPlay($event)"
-                                   @pause="onPlayerPause($event)"
                     >
                     </video-player>
                 </div>
                 <div class="footer">视频详情介绍5356353视频详情介绍</div>
             </div>
             <div class="item">
-                <div class="file">
-                    <img src="../../assets/images/dddd.png">
+                <div class="file file-audio">
+                    <div class="imgdiv">
+                        <img src="../../assets/images/audioopen.png"  @click="open">
+                    </div>
+                    <canvas id='canvas' class="canvas"  height="130"></canvas>
+                    <audio id="audio" class="audio"  >
+                        <source  src="../../assets/images/Sugar.mp3" type="audio/ogg">
+                        您的浏览器不支持 audio 元素。
+                    </audio>
                 </div>
-                <div class="footer"></div>
+                <div class="footer footer-audio">音频详情介绍5356353音频详情介绍</div>
             </div>
             <div class="item">
                 <div class="file" style="height: 3.8rem;">
                     <img src="../../assets/images/lawdetails.png">
                 </div>
-                <div class="footer">图片详情介绍5356353视频详情介绍</div>
+                <div class="footer">图片详情介绍5356353图片详情介绍</div>
             </div>
         </div>
         <div class="bottom-content">
-      <span @click="fbutton(0)"><p :class="tab==0? 'p1 p2': 'p1 '">
+      <span @click="fbutton(0)"><p class="p1">
         <img src="../../assets/images/sc-qz.png">
         收藏
       </p></span>
-            <span @click="fbutton(1)"><p :class="tab==1? 'p2': ''"><img src="../../assets/images/fx-qz.png"> 分享</p></span>
+            <span @click="fbutton(1)"><p><img src="../../assets/images/fx-qz.png"> 分享</p></span>
         </div>
     </div>
 </template>
@@ -57,6 +62,7 @@
             return {
                 tab:0,
                 title:'取证详情',
+                filepath:'../../assets/images/Sugar.mp3',
                 playerOptions: {
                     autoplay: false, //如果true,浏览器准备好时开始回放。
                     muted: false, // 默认情况下将会消除任何音频。
@@ -79,7 +85,18 @@
                         remainingTimeDisplay: false,
                         fullscreenToggle: false  //全屏按钮
                     }
-                }
+                },
+                analyser:null,
+                meterNum:0,
+                ctx:null,
+                cwidth:0,
+                cheight:0,
+                capYPositionArray:[],
+                capStyle:'',
+                meterWidth:0,
+                capHeight:0,
+                gradient:null,
+                audio:null,
             };
         },
         created() {
@@ -96,6 +113,67 @@
             edit(){
 
             },
+            load(){
+                this.audio = document.getElementById('audio');
+                this.ctx = new AudioContext();
+                this.analyser = this.ctx.createAnalyser();
+                var audioSrc = this.ctx.createMediaElementSource(this.audio);
+                audioSrc.connect(this.analyser);
+                this.analyser.connect(this.ctx.destination);
+                var frequencyData = new Uint8Array(this.analyser.frequencyBinCount);
+                this.meterNum=800 / (10 + 2)//count of the meters;
+                this.cwidth='0';
+                this.cheight=200-2;
+                this.capStyle= '#e0e0e0';
+                this.meterWidth=5;
+                this.capHeight=2;
+                var canvas = document.getElementById('canvas'),
+                    cwidth = this.cwidth,
+                    cheight = this.cheight,
+                    meterWidth = this.meterWidth, //width of the meters in the spectrum
+                    gap = 2, //gap between meters
+                    capHeight = this.capHeight,
+                    capStyle = this.capStyle,
+                    meterNum = this.meterNum, //count of the meters
+                    capYPositionArray =this.capYPositionArray; ////store the vertical position of hte caps for the preivous frame
+                this.ctx = canvas.getContext('2d'),
+                    this.gradient = this.ctx.createLinearGradient(0, 0, 0, 300);
+                this.gradient.addColorStop(1, '#e0e0e0');
+                this.gradient.addColorStop(0.5, '#80cfe9');
+                this.gradient.addColorStop(0, '#80cfe9');
+                this.renderFrame();
+                this.audio.play();
+            },
+            renderFrame() {
+                var array = new Uint8Array(this.analyser.frequencyBinCount);
+                this.analyser.getByteFrequencyData(array);
+                var step = Math.round(array.length / this.meterNum); //sample limited data from the total array
+                this.ctx.clearRect(0, 0, this.cwidth, this.cheight);
+                for (var i = 0; i < this.meterNum; i++) {
+                    var value = array[i * step];
+                    if (this.capYPositionArray.length < Math.round(this.meterNum)) {
+                        this.capYPositionArray.push(value);
+                    }
+                    this.ctx.fillStyle = this.capStyle;
+                    //draw the cap, with transition effect
+                    if (value < this.capYPositionArray[i]) {
+                        this.ctx.fillRect(i * 12, this.cheight - (--this.capYPositionArray[i]), this.meterWidth, this.capHeight);
+                    } else {
+                        this.ctx.fillRect(i * 12, this.cheight - value, this.meterWidth, this.capHeight);
+                        this.capYPositionArray[i] = value;
+                    }
+                    this.ctx.fillStyle = this.gradient; //set the filllStyle to gradient for a better look
+                    this.ctx.fillRect(i * 12 /*this.meterWidth+gap*/, this.cheight - value + this.capHeight, this.meterWidth, this.cheight); //the meter
+                }
+                requestAnimationFrame(this.renderFrame);
+            },
+            open(){
+                if(this.audio){
+                    this.audio.play();
+                }else{
+                    this.load();
+                }
+            }
         },
         components: {
             videoPlayer
@@ -141,10 +219,37 @@
                         height: 3.4rem
                     }
                 }
+                .file-video{
+                    height: 4rem
+                }
+                .file-audio{
+                    background-color: #f6f6f6;
+                    width: 90%;
+                    margin: 0 auto;
+                    .imgdiv{
+                        text-align: right;
+                        img{
+                            height: 0.64rem;
+                            margin-top: 0.2rem
+                        }
+                    }
+                    .canvas{
+                        background-color: #f6f6f6;
+                        width: 91%;
+                        margin-left: 0.3rem
+                    }
+                    .audio{
+                        height: 0rem;
+                        width: 1rem
+                    }
+                }
                 .footer{
                     font-size: 0.32rem;
                     padding: 0.2rem 0.3rem;
                     color: #5b5b69;
+                }
+                .footer-audio{
+                    margin-top: 0.2rem
                 }
             }
 
@@ -173,9 +278,6 @@
                 .p1{
                     border-right: 0.02rem solid #bfbfbf;
 
-                }
-                .p2{
-                    color: #2095f2;
                 }
             }
         }
