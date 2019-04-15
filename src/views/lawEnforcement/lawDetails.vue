@@ -48,9 +48,9 @@
     </div>
 </template>
 <script>
-    import { videoPlayer } from 'vue-video-player';
-    require('video.js/dist/video-js.css')
-    require('vue-video-player/src/custom-theme.css')
+   // import { videoPlayer } from 'vue-video-player';
+    // require('video.js/dist/video-js.css')
+    // require('vue-video-player/src/custom-theme.css')
     export default {
         name: "home-lawDetails",
         data() {
