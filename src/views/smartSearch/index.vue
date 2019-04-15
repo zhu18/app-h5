@@ -47,18 +47,10 @@
           <span class="loading-txt">识别中...</span>
         </div>
       </div>-->
-      <clipbox
-        ref="cropper"
-        :img="img"
-        :autoCrop="true"
-        :autoCropWidth="width"
-        :autoCropHeight="height"
-        :canMove="false"
-        :info="false"
-        mode="cover"
-        centerBox
-      />
-      <div class="scan-tips" v-show="!isScaning">
+      <clipbox :scanWidth="width"
+               :scanHeight="height" />
+      <div class="scan-tips"
+           v-show="!isScaning">
         <p>请把商标放于框内</p>
         <p>商标清晰、无遮挡、无阴影</p>
       </div>
@@ -95,8 +87,12 @@
         <div class="language"
              v-show="scanType=='txt'">
           <p>语言</p>
-          <div class="btn" :class="{selected:language=='ch'}" @click="setLanguage('ch')">中文</div>
-          <div class="btn" :class="{selected:language=='en'}" @click="setLanguage('en')">英文</div>
+          <div class="btn"
+               :class="{selected:language=='ch'}"
+               @click="setLanguage('ch')">中文</div>
+          <div class="btn"
+               :class="{selected:language=='en'}"
+               @click="setLanguage('en')">英文</div>
           <div class="more">
             <i class="iconfont icon-back"></i>
           </div>
@@ -113,7 +109,7 @@ import clipbox from "../../components/clipbox";
 import { Spinner, MessageBox } from "mint-ui";
 import anime from "animejs";
 import ResultPanel from "./resultpanel";
-import img from "../../assets/images/scanbg.jpg";
+// import img from "../../assets/images/scanbg.jpg";
 export default {
   name: "smartSearch",
   data () {
@@ -125,8 +121,8 @@ export default {
       width: 210,
       height: 210,
       clientWidth: 0,
-      language:'ch',
-      img
+      language: 'ch',
+      // img
     };
   },
   created () {
@@ -134,7 +130,7 @@ export default {
     this.width = this.height = (this.clientWidth * 480) / 750;
   },
   mounted () {
-    
+
 
     ["click", "touchstart"].forEach(item => {
       window.addEventListener(item, () => {
@@ -194,8 +190,8 @@ export default {
         translateX: x
       });
     },
-    setLanguage(type){
-      this.language=type
+    setLanguage (type) {
+      this.language = type
     },
     showList () {
       //显示识别结果
@@ -239,7 +235,7 @@ export default {
   height: 100%;
   .search-view {
     flex: 1;
-    // background: #ddd url(../../assets/images/scanbg.jpg) no-repeat;
+    background: #ddd url(../../assets/images/scanbg.jpg) no-repeat;
     justify-content: center;
     display: flex;
     background-size: cover;
