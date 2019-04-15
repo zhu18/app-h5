@@ -6,7 +6,7 @@
 -->
 <template>
   <div class="start-wrapper">
-    <div class="start-wrapper-blur" :class="{active: btnClickFlag}">
+    <div class="start-wrapper-blur" :class="{active: btnClickFlag}" @click="blurWrapperClick">
       <div class="top-header">
         <mt-header fixed :title="title">
           <div slot="left">
@@ -27,8 +27,8 @@
               <ul class="lawuser-box clearfix">
                 <li>
                   <span class="host">
-                    <i class="iconfont icon-host"></i>
                   </span>
+                  <i class="iconfont icon-host"></i>
                   <img src="../../assets/images/lawenforcement/lawUser.jpg" class="img">
                 </li>
                 <li>
@@ -72,10 +72,10 @@
               <i class="iconfont icon-share"></i>
             </span>
             <span>
-              <i class="iconfont icon-info"></i>
+              <i class="iconfont icon-print1"></i>
             </span>
             <span>
-              <i class="iconfont icon-collection"></i>
+              <i class="iconfont icon-coll"></i>
             </span>
           </div>
         </div>
@@ -182,7 +182,22 @@ export default {
         params: { type: "record" }
       });
     },
-    
+    blurWrapperClick(){
+      this.btnClickFlag = !this.btnClickFlag;
+      anime({
+            targets: ".start-hidden-li",
+            // translateY: offset[type],
+            translateY: function(el, i) {
+                return 0;
+            },
+            easing: "easeInOutCubic",
+            duration: 300,
+            delay: anime.stagger(100),
+            endDelay: function(el, i, l) {
+                return (l - i) * 100;
+            }
+        })
+    }
   },
   components: {}
 };
@@ -214,9 +229,11 @@ export default {
   z-index: 1;
 }
 .top-header {
+  position: relative;
   height: 0.9rem;
   background-color: #2095f2;
   box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.2);
+  z-index: 1;
   .mint-header {
     height: 0.9rem;
     background: transparent;
@@ -307,7 +324,7 @@ export default {
     }
     i {
       line-height: 0.98rem;
-      font-size: 0.6rem;
+      font-size: 0.8rem;
       color: rgba(191, 191, 191, 0.8);
     }
   }
@@ -340,14 +357,15 @@ export default {
         border: .02rem solid rgba(32,149,242,.3);
         text-align: center;
         line-height: .3rem;
-        i {
-            display: inline-block;
-            color: #2095f2;
-            // font-size: 0.6rem;
-            transform: scale(2.3);
-            transform-origin: 50% 50%;
-        }
+        
     }
+    i.icon-host {
+        position: absolute;
+        top: 0;
+        left: .03rem;
+        color: #2095f2;
+        font-size: 0.5rem;
+      }
     &:nth-child(3n) {
       margin-right: 0;
     }
