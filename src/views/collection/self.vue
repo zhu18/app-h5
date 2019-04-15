@@ -92,11 +92,12 @@
             margin:1.3rem .32rem .4rem .32rem;
             li{
                 border-radius:.1rem;
-                box-shadow:0 1px 10px 3px rgba(4, 0, 0, 0.1);
+                box-shadow:0 1px 3px rgba(0, 0, 0, 0.1);
                 margin-bottom:.28rem;
                 padding:.35rem .3rem;
                 position:relative;
                 cursor:pointer;
+                background: #fff;
                 .title{
                     color:#1e2128;
                     font-size:.32rem;

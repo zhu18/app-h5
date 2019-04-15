@@ -14,6 +14,9 @@ import searchHistory from './views/searchResult/searchHistory'
 import smartSearch from './views/smartSearch'
 
 /* - - - - - - - 3.法律法规 - - - - - - - - - */
+import lawsRegulations from './views/lawsRegulations'
+import lawsRegulationsDetail from './views/lawsRegulations/detail'
+
 // 取证详情
 // 执法首页
 import LawEnforcement from './views/lawEnforcement'
@@ -116,6 +119,20 @@ export default new Router({
           }
         },
         /* - - - - - - - 3.法律法规 - - - - - - - - - */
+        { 
+          path: '/lawsRegulations',
+          name: 'lawsRegulations',
+          components: {
+              body: lawsRegulations
+          }
+      },
+      { 
+        path: '/lawsRegulationsDetail',
+        name: 'lawsRegulationsDetail',
+        components: {
+            body: lawsRegulationsDetail
+        }
+      },
         { //执法
               path: '/lawenforcement',
               name: 'lawenforcement',
