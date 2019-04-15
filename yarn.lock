@@ -1022,7 +1022,6 @@ amdefine@>=0.0.4:
 animejs@^3.0.1:
   version "3.0.1"
   resolved "http://registry.npm.taobao.org/animejs/download/animejs-3.0.1.tgz#8b808bad575e3b6106489d8b04b92bc4062166fe"
-  integrity sha1-i4CLrVdeO2EGSJ2LBLkrxAYhZv4=
 
 ansi-colors@^3.0.0:
   version "3.2.4"
@@ -4347,9 +4346,9 @@ node-releases@^1.1.13:
   dependencies:
     semver "^5.3.0"
 
-node-sass@^4.9.2:
+node-sass@^4.11.0:
   version "4.11.0"
-  resolved "http://registry.npm.taobao.org/node-sass/download/node-sass-4.11.0.tgz#183faec398e9cbe93ba43362e2768ca988a6369a"
+  resolved "http://registry.npm.taobao.org/node-sass/download/node-sass-4.11.0.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Fnode-sass%2Fdownload%2Fnode-sass-4.11.0.tgz#183faec398e9cbe93ba43362e2768ca988a6369a"
   dependencies:
     async-foreach "^0.1.3"
     chalk "^1.1.1"
@@ -6469,6 +6468,12 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
+vue-audio@^0.0.12:
+  version "0.0.12"
+  resolved "http://registry.npm.taobao.org/vue-audio/download/vue-audio-0.0.12.tgz#0e4d7af19bc2cc8924a90a57e01edd7de0945cc4"
+  dependencies:
+    vue "^2.5.8"
+
 vue-cli-plugin-element@^1.0.0:
   version "1.0.1"
   resolved "http://registry.npm.taobao.org/vue-cli-plugin-element/download/vue-cli-plugin-element-1.0.1.tgz#34e58fb65b36cf59afaf14f503288e5e578b1554"
@@ -6513,7 +6518,7 @@ vue-template-es2015-compiler@^1.9.0:
   version "1.9.1"
   resolved "http://registry.npm.taobao.org/vue-template-es2015-compiler/download/vue-template-es2015-compiler-1.9.1.tgz#1ee3bc9a16ecbf5118be334bb15f9c46f82f5825"
 
-vue@^2.5.17:
+vue@^2.5.17, vue@^2.5.8:
   version "2.6.10"
   resolved "http://registry.npm.taobao.org/vue/download/vue-2.6.10.tgz#a72b1a42a4d82a721ea438d1b6bf55e66195c637"
 
