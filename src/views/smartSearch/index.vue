@@ -34,7 +34,7 @@
     </div>
     <!-- 扫描区 -->
     <div class="search-view">
-      <!-- <div class="scan-box">
+      <div class="scan-box">
         <div class="scan-txt"
              v-show="!isScaning">
           <p>请把商标放于框内</p>
@@ -46,8 +46,8 @@
                       type="double-bounce"></mt-spinner>
           <span class="loading-txt">识别中...</span>
         </div>
-      </div>-->
-      <clipbox
+      </div>
+      <!-- <clipbox
         ref="cropper"
         :img="img"
         :autoCrop="true"
@@ -67,7 +67,7 @@
         <mt-spinner color="#26a2ff"
                     type="double-bounce"></mt-spinner>
         <span class="loading-txt">识别中...</span>
-      </div>
+      </div> -->
     </div>
     <!-- 底部操作区 -->
     <div class="search-opt">
