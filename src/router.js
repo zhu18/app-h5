@@ -15,7 +15,6 @@ import smartSearch from './views/smartSearch'
 
 /* - - - - - - - 3.法律法规 - - - - - - - - - */
 // 取证详情
-import lawDetails from './views/lawEnforcement/lawDetails'
 // 执法首页
 import LawEnforcement from './views/lawEnforcement'
 // 执法记录
