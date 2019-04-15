@@ -46,11 +46,10 @@
                       type="double-bounce"></mt-spinner>
           <span class="loading-txt">识别中...</span>
         </div>
-      </div>-->
+      </div> -->
       <clipbox :scanWidth="width"
                :scanHeight="height" />
-      <div class="scan-tips"
-           v-show="!isScaning">
+      <div class="scan-tips" v-show="!isScaning">
         <p>请把商标放于框内</p>
         <p>商标清晰、无遮挡、无阴影</p>
       </div>
@@ -273,7 +272,7 @@ export default {
     }
     .scan-tips {
       position: absolute;
-      bottom: 1rem;
+      bottom: .5rem;
       color: #fff;
       font-size: 0.28rem;
       text-align: center;
