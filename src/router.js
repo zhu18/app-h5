@@ -67,71 +67,6 @@ export default new Router({
             component: () =>
                 import ('./views/login/login')
         },
-<<<<<<< HEAD
-        /* - - - - - - - 3.法律法规 - - - - - - - - - */
-        { 
-          path: '/lawsRegulations',
-          name: 'lawsRegulations',
-          components: {
-              body: lawsRegulations
-          }
-      },
-      { 
-        path: '/lawsRegulationsDetail',
-        name: 'lawsRegulationsDetail',
-        components: {
-            body: lawsRegulationsDetail
-        }
-      },
-        { //执法
-              path: '/lawenforcement',
-              name: 'lawenforcement',
-              components: {
-                  body: LawEnforcement,
-                  footer: footerTab
-              }
-          },
-          // { //取证详情
-          //     path: '/lawDetails',
-          //     name: 'lawDetails',
-          //     components: {
-          //         body: lawDetails,
-          //         footer: footerTab
-          //     }
-          // },
-        { //执法记录
-          path: '/lelog',
-          name:'lelog',
-          components: {
-            body: LElog
-          }
-        },
-        { //新建协同码
-          path: '/cooperationCode',
-          components: {
-            body: cooperationCode
-          }
-        },
-        { //执法协同码
-          path: '/synergyCode',
-          components: {
-            body: synergyCode,
-            header: headerBar
-          }
-        },
-        { //执法记录详情
-            path: '/enforcementdetails',
-            name: 'enforcementdetails',
-            components: {
-                body: enforcementdetails
-            }
-        },
-        { //执法地图
-          path: '/map',
-          name: 'map',
-          components: {
-            body: map,
-=======
         { //加载首页
             path: '/main',
             name: 'main',
@@ -187,7 +122,21 @@ export default new Router({
                         body: smartSearch
                     }
                 },
-                /* - - - - - - - 3.法律法规 - - - - - - - - - */
+                 /* - - - - - - - 3.法律法规 - - - - - - - - - */
+                { 
+                    path: '/lawsRegulations',
+                    name: 'lawsRegulations',
+                    components: {
+                        body: lawsRegulations
+                    }
+                },
+                { 
+                path: '/lawsRegulationsDetail',
+                name: 'lawsRegulationsDetail',
+                components: {
+                    body: lawsRegulationsDetail
+                }
+                },
                 { //执法
                     path: '/lawenforcement',
                     name: 'lawenforcement',
@@ -235,9 +184,7 @@ export default new Router({
                     path: '/map',
                     name: 'map',
                     components: {
-                        body: map,
->>>>>>> e6363c131c93ae145fa8e7288c4c3b5b618d0299
-
+                        body: map
                     }
                 },
                 { //执法日期
