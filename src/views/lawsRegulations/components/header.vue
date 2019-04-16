@@ -31,6 +31,7 @@
             },
             edit(){
                 this.isEdit = !this.isEdit;
+                this.$emit('edit',this.isEdit);
             }
         },
         components: {
