@@ -183,8 +183,8 @@ export default {
       });
     },
     blurWrapperClick(){
-      this.btnClickFlag = !this.btnClickFlag;
-      anime({
+      if(this.btnClickFlag){
+        anime({
             targets: ".start-hidden-li",
             // translateY: offset[type],
             translateY: function(el, i) {
@@ -197,6 +197,10 @@ export default {
                 return (l - i) * 100;
             }
         })
+        this.btnClickFlag = !this.btnClickFlag;
+      }
+      
+      
     }
   },
   components: {}

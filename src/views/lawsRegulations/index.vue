@@ -7,10 +7,7 @@
 <template>
     <div class="container">
         <MyHeader title="法律法规" isShowOp="true"></MyHeader>
-        <div class="search">
-                <i class="icon iconfont icon-query"></i>
-                <input type="input" value="" placeholder="请输入关键字" />
-        </div>
+        <Search />
         <ul>
             <li v-for="item in list" @click="go()">
                 <span class="title">{{item.title}}</span>
@@ -26,6 +23,7 @@
 <script>
     import Footer from './components/footer.vue'
     import MyHeader from './components/header.vue'
+    import Search from './components/search.vue'
       export default {
         name: "lawsRegulations",
         data() {
@@ -33,7 +31,7 @@
                 list:[{title:'《国家专利保护法》'},{title:'《国家专利保护法》'},{title:'《国家专利保护法》'}]
             };
         },
-        components:{Footer,MyHeader},
+        components:{Footer,MyHeader,Search},
         created() {},
         mounted() {
         },
@@ -47,30 +45,6 @@
 <style lang="scss" scoped>
     .container{
         font-size:.24rem;
-        .search{
-            height: 0.64rem;
-            margin:1.3rem .32rem .4rem .32rem;
-            border-radius: 0.05rem;
-            background-color: #e5e5e5;
-            border:0;
-            position: relative;
-            font-size: .28rem;
-            .icon{
-                position:absolute;
-                top:.08rem;
-                left:.08rem;
-                cursor:pointer;
-                font-size: .5rem;
-                color:#777782;
-            }
-            input{
-                height: 0.64rem;
-                line-height: 0.64rem;
-                padding: 0 0.6rem;
-                border:none;
-                background-color: transparent;
-            }
-        }
         ul{
             margin:0.02px .32rem;
             li{
