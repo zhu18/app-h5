@@ -7,10 +7,10 @@
 <template lang="html">
   <div class="top-header">
       <mt-header fixed :title="title">
-        <div slot="left" >
-            <mt-button icon="back" @click='goBack'></mt-button>
+        <div slot="left"  >
+            <mt-button icon="back" @click='goBack' v-if="$route.path!='/home'"></mt-button>
         </div>
-        <mt-button v-show='!handleEdit' icon="more" slot="right"></mt-button>
+        <mt-button v-show='!handleEdit'  slot="right"></mt-button>
         <mt-button v-show='handleEdit' slot="right" @click='edit'> {{collectEdit?'完成':'编辑'}} </mt-button>
      </mt-header>
   </div>
@@ -30,7 +30,7 @@ export default {
         this.handleEdit=to.params.handleEdit
         next()
     },
-     mounted() {
+    mounted() {
     },
     methods:{
       ...mapMutations(['changeCollectEdit']),

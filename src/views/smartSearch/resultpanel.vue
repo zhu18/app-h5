@@ -22,8 +22,7 @@
              @touchstart.prevent="moveStart"
              @touchmove.prevent="move"
              @touchend.prevent="moveEnd">
-          <span v-show="scanType==='img'"
-                :style="{opacity:opacity}">相似商标</span>
+          <span v-show="scanType==='img'">相似商标</span>
           <img v-show="scanType==='img'"
                src="../../assets/images/logo1.png"
                :style="{opacity:opacity}">
@@ -176,6 +175,7 @@ export default {
   height: 90%;
   min-height: 25%;
   width: 100%;
+  touch-action: none;
   // top:0;
   // left:0;
   // transform: translateY('130%');
