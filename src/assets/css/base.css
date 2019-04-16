@@ -41,6 +41,7 @@ textarea{
 body {
   -webkit-touch-callout:none;/* 禁止长按页面，iOS系统弹出默认菜单 */
   -webkit-text-size-adjust: none;
+  background: #f6f6f6;
 }
 /*
   retina屏幕下border：1px 问题

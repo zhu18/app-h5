@@ -21,18 +21,18 @@
                 <span class="title">执法记录</span>
                 <span class="arrow"> <span class="iconfont icon-back"></span></span>
             </router-link>
-            <div class="item">
+           <router-link tag="div"  to="/evidenceList" class="item">
                 <span class="icon icon3 iconfont icon-evidence"></span>
                 <span class="title">取证管理</span>
                 <span class="arrow"> <span class="iconfont icon-back"></span></span>
-            </div>
-            <div class="item">
+            </router-link>
+            <router-link tag="div"  to="/selfCollection" class="item">
                 <span class="icon icon4 iconfont icon-collection"></span>
                 <span class="title">我的收藏</span>
                 <span class="arrow">
                      <span class="iconfont icon-back"></span>
                 </span>
-            </div>
+             </router-link>
         </div>
         <mt-popup v-model="popupVisible">
             <leBegin></leBegin>
@@ -76,7 +76,7 @@
         /*height:calc(100% - 1.28rem);*/
         overflow-y: auto;
         .title{
-            heihgt:0.9rem;
+            height: 0.9rem;
             line-height:0.9rem;
             color: #fff;
             font-size: 0.36rem;
