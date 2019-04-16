@@ -10,40 +10,29 @@
         <div slot="left"  >
             <mt-button icon="back" @click='goBack' v-if="$route.path!='/home'"></mt-button>
         </div>
-        <mt-button v-show='!handleEdit' icon="more" slot="right"></mt-button>
-        <mt-button v-show='handleEdit' slot="right" @click='edit'> {{collectEdit?'完成':'编辑'}} </mt-button>
+        <mt-button  icon="more" slot="right"></mt-button>
      </mt-header>
   </div>
 </template>
 
 <script>
-import {mapState,mapMutations} from 'vuex'
 export default {
     data(){
         return {
             title:'商标智能检索/执法',
-            handleEdit:false,
         }
     },
     beforeRouteLeave (to, from, next) {
         this.title=to.params.title?to.params.title:'商标智能检索/执法'
-        this.handleEdit=to.params.handleEdit
         next()
     },
     mounted() {
     },
     methods:{
-      ...mapMutations(['changeCollectEdit']),
         goBack(){
            this.$router.go(-1)
-        },
-        edit(){
-          this.changeCollectEdit('')
         }
     },
-   computed:{
-     ...mapState(['collectEdit'])
-   }
    
 }
 </script>
