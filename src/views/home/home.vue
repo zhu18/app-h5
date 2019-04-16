@@ -18,7 +18,7 @@
         <router-link :to="{ name: 'smartsearch', params: { title: '智能检索'}} " class="list-item block" tag="div">
             <i class="iconfont icon-imgquery"></i>智能检索
         </router-link>
-        <router-link :to="{ name: '', params: { title: '法律法规',handleEdit:true}} " class="list-item block" tag="div">
+        <router-link :to="{ name: 'lawsRegulations', params: { title: '法律法规',handleEdit:true}} " class="list-item block" tag="div">
             <i class="iconfont icon-regulations"></i>法律法规
         </router-link>
         <router-link :to="{ name: 'collection', params: { title: '收藏',handleEdit:true}} " class="list-item block" tag="div">
