@@ -10,24 +10,22 @@
         </mt-button>
       </mt-header>
     </header>
-    <div class="collet-box-view">
-      <ul class="collet-box clearfix">
-        <li
-          class="item"
-          v-for="item in dataList"
-          :key="item.id"
-          @click="select(item.id)"
-        >
-          <img src="../../assets/images/result-logo.jpg" alt="" />
-          <h2>{{ item.title }}</h2>
-          <p>{{ item.number }}</p>
-          <p>{{ item.date }}</p>
-          <span class="icon-box" v-show="isEdit" :ref="item.id" :id="item.id">
-            <i class="mint-toast-icon mintui mintui-field-success"></i>
-          </span>
-        </li>
-      </ul>
-    </div>
+    <ul class="collet-box clearfix">
+      <li
+        class="item"
+        v-for="item in dataList"
+        :key="item.id"
+        @click="select(item.id)"
+      >
+        <img src="../../assets/images/result-logo.jpg" alt="" />
+        <h2>{{ item.title }}</h2>
+        <p>{{ item.number }}</p>
+        <p>{{ item.date }}</p>
+        <span class="icon-box" v-show="isEdit" :ref="item.id" :id="item.id">
+          <i class="mint-toast-icon mintui mintui-field-success"></i>
+        </span>
+      </li>
+    </ul>
     <mt-popup
       v-model="isEdit"
       position="bottom"
@@ -74,34 +72,6 @@ export default {
         },
         {
           id: '4',
-          imgS: './brand.png',
-          title: '耐克创新有限合伙公司',
-          number: '申请/注册号:12749588',
-          date: '申请日:2007-04-17'
-        },
-        {
-          id: '5',
-          imgS: './brand.png',
-          title: '耐克创新有限合伙公司',
-          number: '申请/注册号:12749588',
-          date: '申请日:2007-04-17'
-        },
-        {
-          id: '6',
-          imgS: './brand.png',
-          title: '耐克创新有限合伙公司',
-          number: '申请/注册号:12749588',
-          date: '申请日:2007-04-17'
-        },
-        {
-          id: '7',
-          imgS: './brand.png',
-          title: '耐克创新有限合伙公司',
-          number: '申请/注册号:12749588',
-          date: '申请日:2007-04-17'
-        },
-        {
-          id: '8',
           imgS: './brand.png',
           title: '耐克创新有限合伙公司',
           number: '申请/注册号:12749588',
@@ -174,7 +144,6 @@ export default {
 <style lang="scss" scoped>
 .container {
   font-size: 0.24rem;
-  position: relative;
   header {
     height: 0.9rem;
     width: 100%;
@@ -187,19 +156,14 @@ export default {
     }
   }
 }
-.collet-box-view {
-  position: absolute;
-  top: 0.9rem;
-  height: calc(100vh - 0.9rem);
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index:-1
-}
 .collet-box {
   padding: 0.32rem;
   background: #f6f6f6;
   box-sizing: border-box;
-  min-height: calc(100% - 0.9rem);
+  height: calc(100% - 0.9rem);
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: 0.9rem;
   .item {
     position: relative;
     float: left;

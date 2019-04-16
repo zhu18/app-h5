@@ -239,7 +239,6 @@ export default new Router({
                     name: 'collection',
                     components: {
                         body: collection,
-                        // header: headerBar
                     }
                 },
                
