@@ -173,8 +173,7 @@ export default new Router({
                     path: '/evidenceList',
                     name: 'evidenceList',
                     components: {
-                        body: evidenceList,
-                        header: headerBar
+                        body: evidenceList
                     }
                 },
                 { //我的收藏
