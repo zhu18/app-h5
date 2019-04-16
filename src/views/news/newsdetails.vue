@@ -81,8 +81,9 @@
     }
     .home-newsdetails {
         width: 100%;
-        height: auto;
+        height: 100%;
         top:0;
+        background: #fff;
         font-size: 0.12rem;
         .top-header{
             height: 0.9rem;
