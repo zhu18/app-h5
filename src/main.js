@@ -14,7 +14,6 @@ import VueLazyload from 'vue-lazyload'
 import defaultImg from "./assets/images/default.png";
 Vue.use(VueLazyload, {
     preLoad: 1.3,
-    error: './assets/images/sc-qz.png',
     loading: defaultImg,
     attempt: 1
 })
