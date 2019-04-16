@@ -116,7 +116,6 @@ export default new Router({
                     path: '/searchhistory',
                     components: {
                         body: searchHistory,
-                        footer: footerTab,
                         header: headerBar
                     }
                 },

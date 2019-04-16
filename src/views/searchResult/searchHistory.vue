@@ -11,6 +11,7 @@
             <div slot="left" >
                 <mt-button icon="back" @click='goBack'></mt-button>
             </div>
+            <mt-button v-show='handleEdit' slot="right" @click='edit'> {{isEdit?'完成':'编辑'}} </mt-button>
          </mt-header>
       </div>
        <div class="item">
@@ -46,12 +47,15 @@
             infinite-scroll-distance="10"
           >
             <ul class="content-item">
-                <li class="clearfix" v-for="item in recognitionList">
+                <li class="clearfix" v-for="item in recognitionList" @click="sel(item)">
                   <img class="fl" src="../../assets/images/result-logo.jpg"/>
                   <div class="item-content fl">
                     <p class="item-label">结果</p>
-                    <p class="item-text">计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)</p>
+                    <p class="item-text">{{item.res}}</p>
                   </div>
+                  <span :class="[item.isChecked?'is-select':'','icon-box']"  v-show="isEdit" >
+                    <i class="mint-toast-icon mintui mintui-field-success"></i> 
+                </span>
                 </li>
             </ul>
             <div class="loading" v-if="loading">
@@ -61,13 +65,7 @@
           <div class="content-wrapper1"  v-if="index == 3">
           </div>
         </div>
-        <div class="content-button" v-if="index != 2">
-            <span class="delete" @click="deleteall">
-              <p class="p">全部删除</p>
-            </span>
-            <span class="edit" @click="edit">编辑</span>
-        </div>
-
+        <footer :class="[isEdit?'show':'']" @click="del">删除</footer>
   </div>
 </template>
 <script>
@@ -78,8 +76,16 @@ export default {
         index:1,
         title:'查询历史',
         dataList:["阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
-        recognitionList: [1,2,3,4,5],
-        loading: false
+        recognitionList: [
+          {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
+          {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
+          {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
+          {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
+        ],
+        loading: false,
+        handleEdit: false,
+        isEdit: false,
+
     };
   },
   created() {
@@ -90,6 +96,11 @@ export default {
       //点击导航
       navClick(index){
         this.index = index;
+        if(index == 2){
+          this.handleEdit = true;
+        }else {
+          this.handleEdit = false;
+        }
       },
       goBack(){
           this.$router.go(-1)
@@ -103,19 +114,30 @@ export default {
         this.dataList=[];
       },
       //编辑
-       edit(){
-          
+      edit(){
+          this.isEdit = !this.isEdit;
       },
       loadMore() {
         this.loading = true;
         setTimeout(() => {
-            let last = this.recognitionList[this.recognitionList.length - 1];
+            let obj = {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false};
             for (let i = 1; i <= 4; i++) {
-            this.recognitionList.push(last + i);
+            this.recognitionList.push(obj);
             }
             this.loading = false;
         }, 3500);
       },
+      sel(item){
+          if(!this.isEdit) return;
+          item.isChecked = !item.isChecked;
+      },
+      del(){
+          let temp =[];
+          this.recognitionList.forEach((item,index)=>{
+              if(!item.isChecked) temp.push(item);
+          });
+          this.recognitionList = temp;
+      }
   },
   components:{
   }
@@ -147,6 +169,7 @@ export default {
       height: 1rem;
       background-color: #ffffff;
       box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
+      z-index:2;
       .ul {
         width: 100%;
         height: 1rem;
@@ -185,13 +208,20 @@ export default {
       }
     }
     .content-wrapper {
-        height: calc(100% - 0.9rem - 3.3rem);
+      position: fixed;
+      top: 1.9rem;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow-y: scroll;
+      z-index: 1;
       .content-wrapper1 {
-
           overflow-y: scroll;
       }
       .content-wrapper2 {
-        height: 10.2rem;;
+        position: absolute;
+        top: 0;
+        bottom: 0;
         overflow-y: scroll;
       }
       .content-item{
@@ -213,6 +243,7 @@ export default {
             }
         }
         li{
+            position: relative;
             padding: 0.44rem 0.33rem;
             margin-bottom: 0.24rem;
             background: #fff;
@@ -244,14 +275,43 @@ export default {
                 overflow: hidden;
               }
             }
+            .icon-box{
+                position: absolute;
+                box-sizing: border-box;
+                right: 0.24rem;
+                top:0.24rem;
+                width: 0.4rem;
+                height: 0.4rem;
+                border-radius: 50%;
+                border: 0.02rem solid #c5c6c6;
+                background:#d4d5d7;
+                i{
+                    display: none;
+                }
+            }
+            .is-select{
+                border:none;
+                i{
+                    transition: all .25s;
+                    position: relative;
+                    left:-0.04rem;
+                    top:-0.04rem;
+                    font-size: 0.46rem;
+                    color:#2095f2;
+                    display: block;
+                }
+            }
             
         }
     }
     }
     
     .content-button{
+        position: fixed;
+        bottom: 1.28rem;
         width: 100%;
         height: 1rem;
+
         background-color: #ffffff;
         .delete{
             display: inline-block;
@@ -288,4 +348,23 @@ export default {
         display: inline-block;
     }
 }
+footer{
+      position:fixed;
+      bottom:-1rem;
+      z-index:1000;
+      width:100%;
+      height:1rem;
+      line-height:1rem;
+      text-align:center;
+      font-size:.32rem;
+      color:#5b5b69;
+      background:#fff;
+      border-top:1px solid rgba(4, 0, 0, 0.1);
+      box-shadow:0 1px 10px 3px rgba(4, 0, 0, 0.1);
+      cursor:pointer;
+      transition:bottom .3s;
+      &.show{
+          bottom:0;
+      }
+  }
 </style>
