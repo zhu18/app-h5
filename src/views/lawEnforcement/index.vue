@@ -76,7 +76,7 @@
         /*height:calc(100% - 1.28rem);*/
         overflow-y: auto;
         .title{
-            heihgt:0.9rem;
+            height: 0.9rem;
             line-height:0.9rem;
             color: #fff;
             font-size: 0.36rem;
