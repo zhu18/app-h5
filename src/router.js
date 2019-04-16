@@ -14,6 +14,9 @@ import searchHistory from './views/searchResult/searchHistory'
 import smartSearch from './views/smartSearch'
 
 /* - - - - - - - 3.法律法规 - - - - - - - - - */
+import lawsRegulations from './views/lawsRegulations'
+import lawsRegulationsDetail from './views/lawsRegulations/detail'
+
 // 取证详情
 // 执法首页
 import LawEnforcement from './views/lawEnforcement'
@@ -33,6 +36,8 @@ import dateSelect from './views/dateSelect'
 import startLawEnforcement from './views/lawEnforcement/startLawEnforcement.vue'
 //开始执法-上传
 import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcementUpload.vue'
+// 取证详情
+import lawDetails from './views/lawEnforcement/lawDetails'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
 import evidenceList from './views/evidenceList'
@@ -121,7 +126,21 @@ export default new Router({
                         body: smartSearch
                     }
                 },
-                /* - - - - - - - 3.法律法规 - - - - - - - - - */
+                 /* - - - - - - - 3.法律法规 - - - - - - - - - */
+                { 
+                    path: '/lawsRegulations',
+                    name: 'lawsRegulations',
+                    components: {
+                        body: lawsRegulations
+                    }
+                },
+                { 
+                    path: '/lawsRegulationsDetail',
+                    name: 'lawsRegulationsDetail',
+                    components: {
+                        body: lawsRegulationsDetail
+                    }
+                },
                 { //执法
                     path: '/lawenforcement',
                     name: 'lawenforcement',
@@ -130,14 +149,14 @@ export default new Router({
                         footer: footerTab
                     }
                 },
-                // { //取证详情
-                //     path: '/lawDetails',
-                //     name: 'lawDetails',
-                //     components: {
-                //         body: lawDetails,
-                //         footer: footerTab
-                //     }
-                // },
+                 { //取证详情
+                     path: '/lawDetails',
+                     name: 'lawDetails',
+                     components: {
+                         body: lawDetails,
+                        footer: footerTab
+                    }
+                },
                 { //执法记录
                     path: '/lelog',
                     name: 'lelog',
@@ -169,8 +188,7 @@ export default new Router({
                     path: '/map',
                     name: 'map',
                     components: {
-                        body: map,
-
+                        body: map
                     }
                 },
                 { //执法日期
