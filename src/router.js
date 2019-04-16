@@ -52,6 +52,8 @@ import evidenceList from './views/evidenceList'
 import selfCollection from './views/collection/self'
 /* - - - - - - - 5.新闻 - - - - - - - - - */
 import News from './views/news';
+//新闻详情
+import newsDetails from './views/news/newsdetails.vue';
 /* - - - - - - - 6.阅读 - - - - - - - - - */
 
 // 临时测试路由
@@ -249,6 +251,14 @@ export default new Router({
                     name: 'news',
                     components: {
                         body: News,
+                        footer: footerTab,
+                    }
+                },
+                {//新闻详情
+                    path: '/newsDetails',
+                    name: 'newsDetails',
+                    components: {
+                        body: newsDetails,
                         footer: footerTab,
                     }
                 },
