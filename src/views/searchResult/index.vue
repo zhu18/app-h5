@@ -16,7 +16,7 @@
             <form action="javascript:;" id="searchFrom" @submit="searchList">
                 <input type="search" value="" placeholder="" v-model="name"/>
             </form>
-            <button>+</button>
+            <button @click="delSearchVal" v-if="name.length" class="iconfont icon-del"></button>
         </div>
       </div>
     </div>
@@ -40,22 +40,23 @@
             v-infinite-scroll="loadMore"
             infinite-scroll-disabled="loading"
             infinite-scroll-distance="10">
-            <template v-for="item in list" >
+            <template v-for="(item,index) in list" >
                 <router-link class="list-item" tag="div" to="/detailsInfo" >
                     <div class="img-box">
-                        <img src="../../assets/images/home/testlogo.jpg" alt="">
+                        <!-- <img v-lazy="img.src" > -->
+                        <img v-lazy="img" alt="">
                     </div>
                     <div class="item-content">
-                        <h4>耐克创新有限合伙公司</h4>
+                        <h4>耐克创新有限合伙公司耐克创新有限合伙公司</h4>
                         <p><span class="title">注册号</span> <span>{{item}}</span></p>
                         <p><span class="title">申请日</span> <span>12749588</span></p>
-                        <p><span class="title">当前状态</span> <span class="icon">商标无效</span></p>
+                        <p><span class="title">当前状态</span> <span class="icon" :class="{'register':index==1,'noregister':index==2}">商标无效</span></p>
                     </div>
                 </router-link>
             </template>
             <div class="loading" v-if="loading">
                <span class="tips">数据加载中</span><mt-spinner :type="3" color="#26a2ff"></mt-spinner>
-            </div>2
+            </div>
             <!-- <router-link class="list-item" tag="div" to="/detailsInfo">
                 <div class="img-box">
                     <img src="../../assets/images/home/testlogo.jpg" alt="">
@@ -107,10 +108,12 @@
 <script>
 import Search from "../../components/search/index";
 import screen from "../../components/screen/index";
+import img from '../../assets/images/home/testlogo.jpg';
 export default {
   name: "home",
   data() {
     return {
+        img:img,
         name:'',
         current:0,
         popupVisible:false,
@@ -126,6 +129,10 @@ export default {
       }
   },
   methods: {
+    //   删除搜索狂内容
+      delSearchVal(){
+          this.name=""
+      },
       loadMore() {
         this.loading = true;
         setTimeout(() => {
@@ -203,8 +210,8 @@ export default {
       display: flex;
       justify-content: space-between;
       input {
-        width: 6rem;
-        padding: 0 0.6rem;
+        width: 5.8rem;
+        padding: 0 0.1rem 0 0.6rem;
         box-sizing: border-box;
         border: none;
         height: 100%;
@@ -220,12 +227,14 @@ export default {
         background-color: transparent;
         font-size: 0.55rem;
         color:#fff;
-        transform: rotate(45deg);
-        position: relative;
-        top:0.0rem;
         border: none;
-        position: relative;
-        margin-right:0.3rem;
+        margin-right: 0.3rem;
+        // transform: rotate(45deg);
+        // position: relative;
+        // top:-0.005rem;
+        // border: none;
+        // position: relative;
+        // margin-right:0.3rem;
        
       }
     }
@@ -320,6 +329,7 @@ export default {
             img{
                 width: 100%;
                 height: 100%;
+                object-fit: cover;
             }
         }
         .item-content{
@@ -328,11 +338,16 @@ export default {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            overflow: hidden;
             h4{
                 color: #1e2128;
                 font-size: 0.32rem ;
                 font-weight: normal;
                 line-height: 0.36rem;
+                width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
             }
             p{
                 font-size: 0.24rem;

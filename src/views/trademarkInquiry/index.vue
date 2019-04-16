@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       trademarkList:[
-          '商标专利权',
+          '商标专利权商标专利权商标专利权商标专利权商标专利权商标专利权',
           '商标专利权1',
           '商标专利权2',
           '商标专利权3',
@@ -119,16 +119,25 @@ export default {
             .list-item{
                 height: 0.68rem;
                 line-height: 0.69rem;
-                padding:0 0.2rem;
+                padding:0 0.4rem 0 0.2rem;
                 background-color: #dfdfdf;
                 color: #73737f;
                 font-size: 0.24rem;
                 border-radius: 0.06rem;
                 margin:0.12rem;
+                max-width: 100%;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                box-sizing: border-box;
+                position: relative;
                 .del{
                     margin-left: 0.12rem;
                     display: inline-block;
                     transform: rotate(-45deg);
+                    position: absolute;
+                    right: 0.15rem;
+
                 }
             }
             
