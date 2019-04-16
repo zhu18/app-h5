@@ -153,21 +153,6 @@ export default new Router({
                         footer: footerTab
                     }
                 },
-                 { //取证详情
-                     path: '/lawDetails',
-                     name: 'lawDetails',
-                     components: {
-                         body: lawDetails,
-                        footer: footerTab
-                    }
-                },
-                { //执法记录
-                    path: '/lelog',
-                    name: 'lelog',
-                    components: {
-                        body: LElog
-                    }
-                },
                 { //新建协同码
                     path: '/cooperationCode',
                     name:'cooperationCode',
@@ -183,6 +168,38 @@ export default new Router({
                         header: headerBar
                     }
                 },
+                {
+                    //取证管理
+                    path: '/evidenceList',
+                    name: 'evidenceList',
+                    components: {
+                        body: evidenceList,
+                        header: headerBar
+                    }
+                },
+                { //我的收藏
+                    path: '/selfCollection',
+                    name: 'selfCollection',
+                    components: {
+                        body: selfCollection
+                    }
+                },
+                 { //取证详情
+                     path: '/lawDetails',
+                     name: 'lawDetails',
+                     components: {
+                         body: lawDetails,
+                        footer: footerTab
+                    }
+                },
+                { //执法记录
+                    path: '/lelog',
+                    name: 'lelog',
+                    components: {
+                        body: LElog
+                    }
+                },
+               
                 { //执法记录详情
                     path: '/enforcementdetails',
                     name: 'enforcementdetails',
@@ -229,22 +246,7 @@ export default new Router({
                         header: headerBar
                     }
                 },
-                {
-                    //取证管理
-                    path: '/evidenceList',
-                    name: 'evidenceList',
-                    components: {
-                        body: evidenceList,
-                        header: headerBar
-                    }
-                },
-                { //我的收藏
-                    path: '/selfCollection',
-                    name: 'selfCollection',
-                    components: {
-                        body: selfCollection
-                    }
-                },
+               
                 /* - - - - - - - 5.新闻 - - - - - - - - - */
                 { //新闻
                     path: '/news',

@@ -21,18 +21,18 @@
                 <span class="title">执法记录</span>
                 <span class="arrow"> <span class="iconfont icon-back"></span></span>
             </router-link>
-            <div class="item">
+           <router-link tag="div"  to="/evidenceList" class="item">
                 <span class="icon icon3 iconfont icon-evidence"></span>
                 <span class="title">取证管理</span>
                 <span class="arrow"> <span class="iconfont icon-back"></span></span>
-            </div>
-            <div class="item">
+            </router-link>
+            <router-link tag="div"  to="/selfCollection" class="item">
                 <span class="icon icon4 iconfont icon-collection"></span>
                 <span class="title">我的收藏</span>
                 <span class="arrow">
                      <span class="iconfont icon-back"></span>
                 </span>
-            </div>
+             </router-link>
         </div>
         <mt-popup v-model="popupVisible">
             <leBegin></leBegin>
