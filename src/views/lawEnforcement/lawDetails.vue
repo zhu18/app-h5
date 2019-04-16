@@ -25,7 +25,7 @@
                     <div class="footer">视频详情介绍5356353视频详情介绍</div>
             </div>
             <div class="item">
-                <div class="file" >
+                <div class="file">
                     <img src="../../assets/images/lawdetails.png">
                 </div>
                 <div class="footer">图片详情介绍5356353图片详情介绍</div>
@@ -88,7 +88,7 @@
             }
         }
         .middle-content{
-            height: calc(100% - 2rem - 2rem);
+            height: calc(100% - 2rem - 0.8rem);
             overflow-y: auto;
             width: 90%;
             background-color: #ffffff;

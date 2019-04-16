@@ -3,7 +3,7 @@
     <div class="header-content">
       <div class="body">
         <div v-for="(item, index) in evidences"
-             :key="index">
+             :key="index" @click="viewdetails">
           <h3 class="evidence-title">{{item.date}} {{item.address}}</h3>
           <div class="evidence-list">
             <div class="evidence-item"
@@ -99,6 +99,9 @@ export default {
   mounted () {
   },
   methods: {
+      viewdetails(){
+          this.$router.push('/lawDetails');
+      },
   }
 };
 </script>
