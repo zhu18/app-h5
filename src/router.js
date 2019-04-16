@@ -102,7 +102,6 @@ export default new Router({
                     name: 'detailsInfo',
                     components: {
                         body: detailsInfo,
-                        footer: footerTab
                     }
                 },
                 { //查询结果
@@ -187,8 +186,7 @@ export default new Router({
                      path: '/lawDetails',
                      name: 'lawDetails',
                      components: {
-                         body: lawDetails,
-                        footer: footerTab
+                         body: lawDetails
                     }
                 },
                 { //执法记录

@@ -83,6 +83,9 @@
             </table>
 
         </div>
+
+      </div>
+
        <div class="print">
              <span class="delete" @click="addqz">
               <p class="p">添加我的取证</p>
@@ -91,9 +94,6 @@
 
 
      </div>
-      </div>
-
-
   </div>
 </template>
 <script>
@@ -145,7 +145,6 @@ export default {
     height: 100%;
     background-color: #f6f6f6;
     overflow: hidden;
-
     top:0;
     font-size: 0.24rem;
     .top-header{
@@ -166,7 +165,7 @@ export default {
         margin-top: 0.2rem;
         border: 0.01rem solid #ebebeb;
         background-color: #f6f6f6;
-        height: calc(100% - 1.2rem);
+        height: calc(100% - 2.4rem);
         overflow-y: auto;
         .content-top{
             height: 2.2rem;
@@ -226,7 +225,7 @@ export default {
             }
         }
         .content-middle{
-            height: calc(100% - 2.2rem - 1rem - 1.7rem);
+            height: calc(100% - 2.2rem - 0.5rem);
             overflow-y: auto;
             font-size: 0.24rem;
             padding-top: 0.2rem;
@@ -258,41 +257,42 @@ export default {
                 margin-top: 0.1rem
             }
         }
-        .print{
-            margin-top: 0.2rem;
+
+    }
+    .print{
+        margin-top: 0.2rem;
+        text-align: center;
+        width: 100%;
+        height: 1rem;
+        line-height: 1rem;
+        color: black;
+        background-color: #ffffff;
+        .delete{
+            display: inline-block;
+            width: 50%;
             text-align: center;
-            width: 100%;
-            height: 1rem;
             line-height: 1rem;
-            background-color: #ffffff;
-            .delete{
+            .p{
+                width: 100%;
                 display: inline-block;
-                width: 50%;
-                text-align: center;
-                line-height: 1rem;
-                .p{
-                    width: 100%;
-                    display: inline-block;
-                    height: 0.32rem;
-                    line-height: 0.32rem;
-                    border-right: 0.02rem solid #bfbfbf;
-                }
+                height: 0.32rem;
+                line-height: 0.32rem;
+                border-right: 0.02rem solid #bfbfbf;
             }
-            .edit{
-                display: inline-block;
-                width: 50%;
-                text-align: center;
-                line-height: 1rem;
-                color: #2095f2;
-                .p-img{
-                    height: 0.3rem;
-                    margin-top: 0.3rem;
-                    margin-right: 0.2rem
-                }
+        }
+        .edit{
+            display: inline-block;
+            width: 50%;
+            text-align: center;
+            line-height: 1rem;
+            color: #2095f2;
+            .p-img{
+                height: 0.3rem;
+                margin-top: 0.32rem;
+                margin-right: 0.2rem
             }
         }
     }
-
 
 }
 
