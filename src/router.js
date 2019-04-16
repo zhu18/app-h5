@@ -1,31 +1,19 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import home from './views/home/home';
 import footerTab from './components/footerTab/footerTab';
-import headerBar from './components/header/index.vue';
+import headerBar from './components/header';
 
-/* - - - - - - - 1.商标查询 - - - - - - - - - */
-import trademarkInquiry from './views/trademarkInquiry/index.vue'
-import searchresult from './views/searchResult'
-import detailsInfo from './views/searchResult/detailsInfo.vue'
-import searchHistory from './views/searchResult/searchHistory'
-
-/* - - - - - - - 2.智能检索 - - - - - - - - - */
-import smartSearch from './views/smartSearch'
-
-/* - - - - - - - 3.法律法规 - - - - - - - - - */
-import lawsRegulations from './views/lawsRegulations'
-import lawsRegulationsDetail from './views/lawsRegulations/detail'
-
-// 取证详情
-// 执法首页
+/* ============== 主菜单 ================ */
+/* - - - - - - - 1.首页 - - - - - - - - - */
+import home from './views/home/home';
+/* - - - - - - - 2.执法 - - - - - - - - - */
 import LawEnforcement from './views/lawEnforcement'
 // 执法记录
-import LElog from './views/lawEnforcement/leLog.vue'
+import LElog from './views/lawEnforcement/leLog'
 //新建协同码
 import cooperationCode from './views/lawEnforcement/cooperationCode'
 // 执法-协同码
-import synergyCode from './views/lawEnforcement/synergyCode.vue'
+import synergyCode from './views/lawEnforcement/synergyCode'
 // 执法地图
 import map from './views/lawEnforcement/map'
 //记录详情
@@ -33,23 +21,38 @@ import enforcementdetails from './views/lawEnforcement/enforcementdetails'
 // 执法日期
 import dateSelect from './views/dateSelect'
 //开始执法
-import startLawEnforcement from './views/lawEnforcement/startLawEnforcement.vue'
+import startLawEnforcement from './views/lawEnforcement/startLawEnforcement'
 //开始执法-上传
-import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcementUpload.vue'
+import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcementUpload'
 // 取证详情
 import lawDetails from './views/lawEnforcement/lawDetails'
+/* - - - - - - - 3.检索 - - - - - - - - - */
+import smartSearch from './views/smartSearch'
+/* - - - - - - - 4.历史 - - - - - - - - - */
+import searchHistory from './views/searchResult/searchHistory'
+/* - - - - - - - 5.我的 - - - - - - - - - */
+
+
+/* ============== 首页6个模块 ================ */
+/* - - - - - - - 1.商标查询 - - - - - - - - - */
+import trademarkInquiry from './views/trademarkInquiry'
+import searchresult from './views/searchResult'
+import detailsInfo from './views/searchResult/detailsInfo'
+
+/* - - - - - - - 2.智能检索 - - - - - - - - - */
+//使用 3.检索 smartSearch 路由
+
+/* - - - - - - - 3.法律法规 - - - - - - - - - */
+import lawsRegulations from './views/lawsRegulations'
+import lawsRegulationsDetail from './views/lawsRegulations/detail'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
 import evidenceList from './views/evidenceList'
 //我的收藏
 import selfCollection from './views/collection/self'
-
-
 /* - - - - - - - 5.新闻 - - - - - - - - - */
-
 import News from './views/news';
 /* - - - - - - - 6.阅读 - - - - - - - - - */
-/** */
 
 // 临时测试路由
 import my from './views/test/my'
@@ -82,7 +85,7 @@ export default new Router({
                         header: headerBar
                     }
                 },
-                /* - - - - - - - 1.商标查询 - - - - - - - - - */
+                /* - - - - - - - 商标查询 - - - - - - - - - */
                 { //商标查询
                     path: '/trademarkinquiry',
                     name: 'trademarkinquiry',
@@ -116,7 +119,7 @@ export default new Router({
                         header: headerBar
                     }
                 },
-                /* - - - - - - - 2.智能检索 - - - - - - - - - */
+                /* - - - - - - - 智能检索 - - - - - - - - - */
                 { //智能检索
                     path: '/smartsearch',
                     name: 'smartsearch',
@@ -124,21 +127,22 @@ export default new Router({
                         body: smartSearch
                     }
                 },
-                 /* - - - - - - - 3.法律法规 - - - - - - - - - */
-                { 
+                 /* - - - - - - - 法律法规 - - - - - - - - - */
+                { //列表
                     path: '/lawsRegulations',
                     name: 'lawsRegulations',
                     components: {
                         body: lawsRegulations
                     }
                 },
-                { 
+                { //详情
                     path: '/lawsRegulationsDetail',
                     name: 'lawsRegulationsDetail',
                     components: {
                         body: lawsRegulationsDetail
                     }
                 },
+                /* - - - - - - - 执法 - - - - - - - - - */
                 { //执法
                     path: '/lawenforcement',
                     name: 'lawenforcement',
@@ -164,12 +168,14 @@ export default new Router({
                 },
                 { //新建协同码
                     path: '/cooperationCode',
+                    name:'cooperationCode',
                     components: {
                         body: cooperationCode
                     }
                 },
                 { //执法协同码
                     path: '/synergyCode',
+                    name:'synergyCode',
                     components: {
                         body: synergyCode,
                         header: headerBar
@@ -191,6 +197,7 @@ export default new Router({
                 },
                 { //执法日期
                     path: '/dateSelect',
+                    name:'dateSelect',
                     components: {
                         body: dateSelect,
                         footer: footerTab,
@@ -221,7 +228,7 @@ export default new Router({
                     }
                 },
                 {
-                    //取证记录
+                    //取证管理
                     path: '/evidenceList',
                     name: 'evidenceList',
                     components: {
