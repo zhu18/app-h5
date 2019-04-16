@@ -59,8 +59,11 @@
                 this.isEdit = !this.isEdit;
             },
             sel(item){
-                if(!this.isEdit) return;
-                item.isChecked = !item.isChecked;
+                if(!this.isEdit){
+                    this.$router.push('enforcementdetails');
+                }
+                else
+                    item.isChecked = !item.isChecked;
             },
             del(){
                 let temp =[];
