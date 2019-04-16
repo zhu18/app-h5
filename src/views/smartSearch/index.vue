@@ -49,11 +49,12 @@
       </div> -->
       <clipbox :scanWidth="width"
                :scanHeight="height" />
-      <div class="scan-tips" v-show="!isScaning">
+      <div class="scan-tips scan-txt"
+           v-show="!isScaning">
         <p>请把商标放于框内</p>
         <p>商标清晰、无遮挡、无阴影</p>
       </div>
-      <div class="scan-loading"
+      <div class="scan-tips scan-loading"
            v-show="isScaning">
         <mt-spinner color="#26a2ff"
                     type="double-bounce"></mt-spinner>
@@ -260,32 +261,49 @@ export default {
         align-self: center;
       }
     }
-    .scan-txt {
-      position: relative;
-      bottom: -0.3rem;
-      color: #fff;
-      font-size: 0.28rem;
-      text-align: center;
-      p {
-        margin: 0.2rem;
-      }
-    }
+    // .scan-txt {
+    //   position: relative;
+    //   bottom: -0.3rem;
+    //   color: #fff;
+    //   font-size: 0.28rem;
+    //   text-align: center;
+    //   p {
+    //     margin: 0.2rem;
+    //   }
+    // }
     .scan-tips {
       position: absolute;
-      bottom: .5rem;
+      left: 50%;
+      transform: translateX(-50%);
       color: #fff;
       font-size: 0.28rem;
+      line-height: 1.5;
+      bottom: 0.5rem;
       text-align: center;
-      p {
-        margin: 0.2rem;
+      &.scan-loading {
+        display: flex;
+        align-items: center;
       }
     }
-    .scan-loading {
-      position: absolute;
-      bottom: 1rem;
-      display: flex;
-      align-items: center;
-    }
+    // .scan-tips {
+    //   position: absolute;
+    //   bottom: 0.5rem;
+    //   color: #fff;
+    //   font-size: 0.28rem;
+    //   left: 50%;
+    //   transform: translateX(-50%);
+
+    //   p {
+    //     text-align: center;
+    //     margin: 0.2rem 0;
+    //   }
+    // }
+    // .scan-loading {
+    //   position: absolute;
+    //   bottom: 1rem;
+    //   display: flex;
+    //   align-items: center;
+    // }
   }
   .img-tip {
     color: #fff;
