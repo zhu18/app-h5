@@ -76,6 +76,20 @@ export default {
           title: '耐克创新有限合伙公司',
           number: '申请/注册号:12749588',
           date: '申请日:2007-04-17'
+        },
+        {
+          id: '5',
+          imgS: './brand.png',
+          title: '耐克创新有限合伙公司',
+          number: '申请/注册号:12749588',
+          date: '申请日:2007-04-17'
+        },
+        {
+          id: '6',
+          imgS: './brand.png',
+          title: '耐克创新有限合伙公司',
+          number: '申请/注册号:12749588',
+          date: '申请日:2007-04-17'
         }
       ]
     }
@@ -157,12 +171,12 @@ export default {
   }
 }
 .collet-box {
-  padding: 0.32rem;
+  padding: 0.32rem 0.07rem 0.32rem 0.32rem;
+  width: 100vw;
   background: #f6f6f6;
   box-sizing: border-box;
   height: calc(100% - 0.9rem);
   overflow-y: auto;
-  overflow-x: hidden;
   margin-top: 0.9rem;
   .item {
     position: relative;
@@ -175,9 +189,7 @@ export default {
     box-sizing: border-box;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 0.25rem;
-    &:nth-child(2n-1) {
-      margin-right: 0.25rem;
-    }
+    margin-right: 0.25rem;
     img {
       width: 1.8rem;
       height: 1.8rem;

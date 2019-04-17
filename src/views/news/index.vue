@@ -22,12 +22,14 @@
         <template v-for="(item,index) in list" >
             <router-link class="list-item" tag="div" to="/newsdetails" :key="index">
                 <div class="img-box" v-if="item.images.length==1">
-                    <img src="../../assets/images/news/news.png" alt="" v-for="(url,index2) in item.images" :key="index2">
+                    <img src="https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=03ffa97602d79123ffe092749d355917/48540923dd54564e5b271d47bdde9c82d1584f0a.jpg" alt="" v-for="(url,index2) in item.images" :key="index2">
                 </div>
                 <div class="item-content">
                     <h4>{{item.title}}</h4>
                     <div class="img-box2" v-if="item.images.length>1">
-                        <img src="../../assets/images/news/news.png" alt="" v-for="(url,index2) in item.images" :key="index2">
+                        <span v-for="(url,index2) in item.images" :key="index2">
+                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555417513810&di=322d9fa187a1d55d9ff2b8f33c7489a2&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fwallpaper%2F1504%2F21%2Fc0%2F5753481_1429626381597_800x600.jpg" alt="" >
+                        </span>
                     </div>
                     <div class="tinfo"><span class="title">{{item.source}}<var>{{item.numbers}}评论</var></span> <span>{{item.times}}</span></div>
                 </div>
@@ -142,7 +144,7 @@ export default {
     left:0;
     right:0;
     bottom:1.28rem;
-    // background-color: #f6f6f6;
+    background-color: #fff;
     .news-list{
         height: calc(100% - 0.9rem);
         overflow-y: auto;
@@ -159,10 +161,18 @@ export default {
                 width: 2.2rem;
                 height: 1.2rem;
                 margin-right: 0.2rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
                 img{
-                  width: 2.2rem;
-                  height: 1.2rem;
+                //   width: 2.2rem;
+                //   height: 1.2rem;
+                    width: 2rem;
+                    height: 1.2rem;
+                    object-fit: cover;
                   border-radius: 0.1rem;
+                
                 }
             }
             .img-box2{
@@ -170,10 +180,17 @@ export default {
                 display: flex;
                 justify-content: space-between;
                 padding:0.32rem 0;
+                span{
+                    width: 31%;
+                    display: inline-block;
+                    // border:1px solid rgba(0,0,0,.1);
+                }
                 img{
-                  width: 31%;
-                  height: 1.2rem;
                   border-radius: 0.1rem;
+                   width: 2rem;
+                   height: 1.2rem;
+                    object-fit: cover;
+                  object-fit: cover;
                 }
             }
             .item-content{
