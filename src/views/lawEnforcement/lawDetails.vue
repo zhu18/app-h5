@@ -35,7 +35,7 @@
       <span @click="fbutton" class="span1">
           <p class="p1">
        <!-- <img src="../../assets/images/sc-qz.png">-->
-           <i :class="index==1 ? 'iconfont icon-collection iconfonta' : 'iconfont icon-collection'"></i>
+           <i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'"></i>
            <span :class="index==1 ?'p2':''">收藏</span>
         </p>
       </span>
@@ -62,7 +62,7 @@
         methods: {
             iconclick() {
                 Toast({
-                    message: '分享成功',
+                    message: '原生app对接-调用原生分享功能',
                 });
             },
             goBack(){
