@@ -116,7 +116,6 @@ export default new Router({
                     path: '/searchhistory',
                     components: {
                         body: searchHistory,
-                        footer: footerTab,
                         header: headerBar
                     }
                 },
@@ -240,7 +239,6 @@ export default new Router({
                     name: 'collection',
                     components: {
                         body: collection,
-                        header: headerBar
                     }
                 },
                

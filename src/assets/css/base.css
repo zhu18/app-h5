@@ -21,6 +21,7 @@ textarea{
 ::-webkit-scrollbar {
   width: 0rem;
   height:0.05rem;
+  display: none;
 }
 ::-webkit-scrollbar-track-piece {
   background-color: rgba(0, 0, 0, 0.2);
