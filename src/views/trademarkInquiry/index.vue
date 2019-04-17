@@ -16,7 +16,7 @@
                  <div class="del" @click="del(index)">+</div>
              </div>
              <div class="more">
-                <a href="javascript:;" v-if="trademarkList.length" @click="loadMore">更多</a>
+                <a href="javascript:;" v-if="trademarkList.length<25" @click="loadMore">更多</a>
              </div>
          </div>
      </div>

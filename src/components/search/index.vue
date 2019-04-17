@@ -2,9 +2,15 @@
   <div class="top-search">
     <div class="search">
         <form action="javascript:;" id="searchFrom" @submit="searchList">
-            <input type="search" value="" placeholder="" />
+            <input type="search" value="" placeholder="" v-model="name"/>
         </form>
-        <button @click="smartSearch('txt')">搜索</button>     
+        <!-- <span class="iconfont icon-date" @click="date()"></span> -->
+        <div class="op-box">
+            <div class="delbox">
+                <span @click="delSearchVal" v-if="name.length" class="iconfont icon-del"></span>
+            </div>
+            <button @click="smartSearch('txt')">搜索</button> 
+        </div>    
     </div>
   </div>
 </template>
@@ -12,7 +18,15 @@
 <script>
 // import { Header } from 'mint-ui';
 export default {
+    data(){
+        return{
+            name:''
+        }
+    },
      methods: {
+         delSearchVal(){
+             this.name=""
+         },
       searchList(){
          this.$router.push('/searchresult')
       },
@@ -39,11 +53,24 @@ export default {
             width: 100%;
             display: flex;
             justify-content: space-between;
+            align-items:center;
+            form{
+                 flex:1;
+                 position:relative;
+                 
+            }
+            .op-box{
+                width:1.28rem;
+                display:flex;
+                justify-content: space-between;
+                align-items:center;
+                height:100%;
+            }
             input{
                 display: flex;
                 align-items: center;
                 align-content: center;
-                width: 6rem;
+                width: 100%;
                 padding: 0 0.1rem 0 0.6rem;
                 box-sizing: border-box;
                 border:none;
@@ -53,7 +80,22 @@ export default {
                 color: #fff;
                 font-size: 16px;
                 padding-top:0.04rem;
+                position:relative;
 
+            }
+            .delbox{
+                width:0.64rem;
+                height:0.64rem;
+                display:flex;
+                justify-content: space-between;
+                align-items:center;
+
+            }
+            .icon-del{
+                display:inline-block;
+                font-size: 0.55rem;
+                color:#fff;
+                border: none;
             }
             button{
                 text-indent: -9999px;
@@ -63,6 +105,7 @@ export default {
                 background-size: 0.32rem 0.32rem;
                 border:none;
                 position: relative;
+                float:right;
                 &::after{
                     content:'';
                     height: 0.32rem;
