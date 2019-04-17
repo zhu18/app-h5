@@ -235,7 +235,7 @@ export default {
   height: 100%;
   .search-view {
     flex: 1;
-    background: #ddd url(../../assets/images/scanbg.jpg) no-repeat;
+    // background: #ddd url(../../assets/images/scanbg.jpg) no-repeat;
     justify-content: center;
     display: flex;
     background-size: cover;

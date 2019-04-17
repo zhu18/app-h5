@@ -67,7 +67,7 @@
         }
     };
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
     .mb55{margin-bottom: .55rem!important;}
     .icon-query{
         float: right;
