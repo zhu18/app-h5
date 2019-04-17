@@ -41,10 +41,10 @@
               </span>
             </div>
           </div>
-          <div class="content-wrapper2"  v-if="index == 2 || index == 3"
+          <div class="content-wrapper2"  v-if="index == 2"
             v-infinite-scroll="loadMore"
             infinite-scroll-disabled="loading"
-            infinite-scroll-distance="5"
+            infinite-scroll-distance="20"
           >
             <ul class="content-item">
                 <li class="clearfix" v-for="(item,index) in recognitionList" @click="sel(item,index)" :key="index">
@@ -66,7 +66,7 @@
           <div class="content-wrapper3"  v-if="index == 3"
             v-infinite-scroll="loadMore"
             infinite-scroll-disabled="loading"
-            infinite-scroll-distance="5">
+            infinite-scroll-distance="10">
             <ul class="content-item">
                 <li class="clearfix" v-for="(item,index) in picList" :key='index' @click="sel(item,index)">
                   <img class="fl" src="../../assets/images/result-logo1.jpg"/>
@@ -185,9 +185,9 @@ export default {
                 if(!item.isChecked) temp.push(item);
             });
             this.recognitionList = temp;
-            // if(this.recognitionList.length < 5){
-            //   this.loadMore()
-            // }
+            if(this.recognitionList.length < 5){
+              this.loadMore()
+            }
           }else if(index == 3){
             
             this.picList.forEach((item,index)=>{
@@ -195,9 +195,9 @@ export default {
             });
             
             this.picList = temp;
-            // if(this.picList.length < 5){
-            //   this.loadMore()
-            // }
+            if(this.picList.length < 5){
+              this.loadMore()
+            }
           }
           
       }
