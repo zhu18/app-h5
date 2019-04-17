@@ -32,23 +32,26 @@
             </div>
         </div>
         <div class="bottom-content">
-      <span @click="fbutton(0)"><p class="p1">
-        <img src="../../assets/images/sc-qz.png">
-        收藏
-      </p></span>
-            <span @click="fbutton(1)"><p><img src="../../assets/images/fx-qz.png"> 分享</p></span>
+      <span @click="fbutton" class="span1">
+          <p class="p1">
+       <!-- <img src="../../assets/images/sc-qz.png">-->
+           <i :class="index==1 ? 'iconfont icon-collection iconfonta' : 'iconfont icon-collection'"></i>
+           <span :class="index==1 ?'p2':''">收藏</span>
+        </p>
+      </span>
+      <span @click="iconclick" class="span1"><p>
+          <i class="iconfont icon-share"></i>
+                <span>分享</span></p></span>
         </div>
     </div>
 </template>
 <script>
-    import { videoPlayer } from 'vue-video-player';
-    require('video.js/dist/video-js.css')
-    require('vue-video-player/src/custom-theme.css')
+    import {Toast} from 'mint-ui';
     export default {
         name: "home-lawDetails",
         data() {
             return {
-                tab:0,
+                index:0,
                 title:'取证详情',
             };
         },
@@ -57,11 +60,27 @@
         mounted() {
         },
         methods: {
+            iconclick() {
+                Toast({
+                    message: '分享成功',
+                });
+            },
             goBack(){
                 this.$router.go(-1)
             },
-            fbutton(index){
-                this.tab=index;
+            fbutton(){
+                if(this.index==0){
+                    this.index=1
+                    Toast({
+                        message: '收藏成功',
+                    });
+                }
+                else{
+                    this.index=0;
+                    Toast({
+                        message: '取消收藏',
+                    });
+                }
             },
             edit(){
             },
@@ -88,7 +107,7 @@
             }
         }
         .middle-content{
-            height: calc(100% - 2rem - 0.8rem);
+            height: calc(100% - 2rem - 0.7rem);
             overflow-y: auto;
             width: 90%;
             background-color: #ffffff;
@@ -152,12 +171,22 @@
             width: 100%;
             height: 1rem;
             background-color: #ffffff;
-            span{
+            .span1{
                 width: 48%;
                 text-align: center;
                 display: inline-block;
                 height: 0.32rem;
                 line-height: 1rem;
+                .iconfont{
+                    font-size: 0.74rem;
+                    vertical-align: middle
+                }
+                .iconfonta{
+                    color: #2095f2;
+                }
+                .p2{
+                    color: #2095f2;
+                }
                 p{
                     width: 100%;
                     display: inline-block;
@@ -169,6 +198,7 @@
                     }
                 }
                 .p1{
+                    height: 0.32rem;
                     border-right: 0.02rem solid #bfbfbf;
 
                 }

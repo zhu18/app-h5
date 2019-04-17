@@ -114,9 +114,10 @@ export default new Router({
                 },
                 { //查询历史
                     path: '/searchhistory',
+                    name: '/searchhistory',
                     components: {
                         body: searchHistory,
-                        header: headerBar
+                        footer: footerTab
                     }
                 },
                 /* - - - - - - - 智能检索 - - - - - - - - - */

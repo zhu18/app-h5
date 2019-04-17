@@ -167,12 +167,14 @@ export default {
                 align-items: center;
                 overflow: hidden;
                 img{
-                //   width: 2.2rem;
-                //   height: 1.2rem;
                   border-radius: 0.1rem;
                   max-height: 100%;
                   max-width: 100%;
                   object-fit: cover;
+                    width: 2rem;
+                    height: 1.2rem;
+                    object-fit: cover;
+                  border-radius: 0.1rem;
                 }
             }
             .img-box2{
@@ -189,6 +191,13 @@ export default {
                   border-radius: 0.1rem;
                   max-height: 100%;
                   max-width: 100%;
+                    // border:1px solid rgba(0,0,0,.1);
+                }
+                img{
+                  border-radius: 0.1rem;
+                   width: 2rem;
+                   height: 1.2rem;
+                    object-fit: cover;
                   object-fit: cover;
                 }
             }

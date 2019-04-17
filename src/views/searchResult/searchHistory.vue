@@ -36,12 +36,12 @@
           <div class="content-wrapper1" v-if="index == 1">
             <div class="content-item">
               <span class="item" v-for="(item, index) in dataList">
-                  {{item}}
+                  <span class="span" @click="searchList">{{item}}</span>
                   <img src="../../assets/images/close.png" @click="closeitem(index)" class="img">
               </span>
             </div>
           </div>
-          <div class="content-wrapper2"  v-if="index == 2"
+          <div class="content-wrapper2"  v-if="index == 2 || index == 3"
             v-infinite-scroll="loadMore"
             infinite-scroll-disabled="loading"
             infinite-scroll-distance="5"
@@ -94,7 +94,7 @@ export default {
     return {
         index:1,
         title:'查询历史',
-        dataList:["阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
+        dataList:["阿迪达斯阿迪达斯阿迪达斯阿迪达斯达斯阿迪达斯达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
         recognitionList: [
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
@@ -114,7 +114,6 @@ export default {
         loading: false,
         handleEdit: false,
         isEdit: false,
-
     };
   },
   created() {
@@ -124,7 +123,6 @@ export default {
   methods: {
       //点击导航
       navClick(index){
-        console.log(this.recognitionList)
         this.index = index;
         this.isEdit = false;
         if(index == 1){
@@ -143,6 +141,9 @@ export default {
       //全部删除
       deleteall(){
         this.dataList=[];
+      },
+      searchList(){
+          this.$router.push('/searchresult')
       },
       //编辑
       edit(){
@@ -211,7 +212,6 @@ export default {
     height: 100%;
     background-color: #f6f6f6;
     overflow: hidden;
-    overflow-y: auto;
     top:0;
     font-size: 0.24rem;
     .top-header{
@@ -298,6 +298,16 @@ export default {
             border-radius: 0.03rem;
             opacity: 0.5;
             margin-right: 0.3rem;
+            max-width: 88%;
+            .span{
+                text-overflow: ellipsis;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: inline-block;
+                white-space: nowrap;
+                max-width: 93%;
+            }
+
             .img{
                 height: 0.2rem;
                 margin-top: 0.28rem;
