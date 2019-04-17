@@ -57,14 +57,18 @@ export default {
             display: flex;
             justify-content: space-between;
             margin-right:0.2rem;
+            form{
+                width: 100%;
+            }
             input{
+                width: 100%;
                 display: flex;
                 align-items: center;
                 align-content: center;
-                padding: 0 0.6rem;
+                padding: 0 0.1rem 0 0.6rem;
                 box-sizing: border-box;
                 border:none;
-                 height: 0.64rem;
+                height: 0.64rem;
                 line-height: 0.64rem;
                 background-color: transparent;
                 color: #fff;

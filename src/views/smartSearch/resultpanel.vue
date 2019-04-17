@@ -208,7 +208,7 @@ export default {
     }
     .iconfont {
       font-size: 0.8rem;
-      margin: 0.1rem;
+      margin: 0 0.1rem;
       line-height: 0.9rem;
     }
   }
