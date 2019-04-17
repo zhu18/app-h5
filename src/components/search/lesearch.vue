@@ -3,7 +3,8 @@
           <span class="iconfont icon-back" @click="back()"></span>
     <div class="search">
         <form action="javascript:;" id="searchFrom" @submit="searchList">
-            <input type="search" value="" placeholder="" />
+            <input type="search" value="" placeholder="" v-model="name"/>
+            <span @click="delSearchVal" v-if="name.length" class="iconfont icon-del"></span>
         </form>
     </div>
     <span class="iconfont icon-date" @click="date()"></span>
@@ -13,7 +14,15 @@
 
 <script>
 export default {
+    data(){
+        return{
+            name:''
+        }
+    },
      methods: {
+         delSearchVal(){
+             this.name=""
+         },
          back(){
              this.$router.goBack()
          },
@@ -56,12 +65,17 @@ export default {
             flex:1;
             display: flex;
             justify-content: space-between;
+            align-items:center;
             margin-right:0.2rem;
             form{
                 width: 100%;
+                display:flex;
+                justify-content: space-between;
+                align-items:center;
             }
             input{
-                width: 100%;
+                width: calc(100% - 0.64rem);
+                // flex:1;
                 display: flex;
                 align-items: center;
                 align-content: center;
