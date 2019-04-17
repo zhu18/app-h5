@@ -12,7 +12,7 @@
                 <mt-button icon="back" @click='goBack'></mt-button>
             </div>
             <div slot="right" >
-                <i :class="index==1 ? 'iconfont icon-collection iconfonta' : 'iconfont icon-collection'" @click="iconclick"></i>
+                <i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'" @click="iconclick"></i>
                 <i class="iconfont icon-share" @click="pageshare"></i>
              </div>
          </mt-header>
@@ -74,11 +74,20 @@
                     <div class="button" @click="viewClick">点击查看</div>
                   </td>
              </tr>
-              <tr>
+              <tr >
                 <td class="left-font" >商标状态</td>
                 <td class="right-font">
-                    <img src="../../assets/images/17.png" @click="sblc" class="t-img">
-                    <span class="span">商标状态说明</span>
+                      <table>
+                          <tr>
+                          <td>
+                                  <img src="../../assets/images/17.png" @click="sblc" class="t-img">
+                          </td>
+                          <td>
+                                <span class="span" >LIVE/APPLICATION/Awaiting Examination</span>
+                               <span class="span" >商标状态说明</span>
+                          </td>
+                       </tr>
+                      </table>
                  </td>
              </tr>
             </table>
@@ -127,7 +136,7 @@ export default {
       },
       pageshare(){
           Toast({
-              message: '分享成功',
+              message: '原生app对接-调用原生分享功能',
           });
       },
       iconclick(){
@@ -270,7 +279,12 @@ export default {
                 line-height: 0.54rem;
                 padding-right: 0.2rem;
                 .span{
+                    width: 2rem;
+                    display: inline-block;
                     padding-left: 0.2rem;
+                    overflow: hidden;
+                    text-overflow:ellipsis;
+                    white-space: nowrap;
                 }
                 .t-img{
                     height:1rem;
