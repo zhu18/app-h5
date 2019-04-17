@@ -1,7 +1,7 @@
 <!--
 * 文件名：details-info
 * 作者：李耀
-* 描述：商品详情
+* 描述：商品详情np
 * 修改时间：2019-04-12
 -->
 <template lang="html">
@@ -12,8 +12,8 @@
                 <mt-button icon="back" @click='goBack'></mt-button>
             </div>
             <div slot="right" >
-                <i class="iconfont icon-collection1"></i>
-                <i class="iconfont icon-share"></i>
+                <i :class="index==1 ? 'iconfont icon-collection iconfonta' : 'iconfont icon-collection'" @click="iconclick"></i>
+                <i class="iconfont icon-share" @click="pageshare"></i>
              </div>
          </mt-header>
       </div>
@@ -77,8 +77,9 @@
               <tr>
                 <td class="left-font" >商标状态</td>
                 <td class="right-font">
-                    <img src="../../assets/images/17.png" class="t-img">
-                  </td>
+                    <img src="../../assets/images/17.png" @click="sblc" class="t-img">
+                    <span class="span">商标状态说明</span>
+                 </td>
              </tr>
             </table>
 
@@ -97,11 +98,13 @@
   </div>
 </template>
 <script>
+import {Toast} from 'mint-ui';
 export default {
   name: "home-detailsinfo",
   data() {
     return {
         title:'耐克',
+        index:0,
         obj:{
             name1:'12749588',
             name2:'2013-06-14',
@@ -121,6 +124,28 @@ export default {
   methods: {
       goBack(){
           this.$router.go(-1)
+      },
+      pageshare(){
+          Toast({
+              message: '分享成功',
+          });
+      },
+      iconclick(){
+          if(this.index==0){
+              this.index=1
+              Toast({
+                  message: '收藏成功',
+              });
+          }
+          else{
+              this.index=0;
+              Toast({
+                  message: '取消收藏',
+              });
+          }
+      },
+      sblc(){
+          this.$router.push('/brandProcess')
       },
       //打印按钮方法
       print(){
@@ -157,6 +182,9 @@ export default {
         .iconfont {
             line-height: 1rem;
             font-size:0.66rem;
+        }
+        .iconfonta{
+            color: red;
         }
     }
     .content-all{
@@ -240,7 +268,13 @@ export default {
             .right-font{
                 width: 50%;
                 line-height: 0.54rem;
-                padding-right: 0.2rem
+                padding-right: 0.2rem;
+                .span{
+                    padding-left: 0.2rem;
+                }
+                .t-img{
+                    height:1rem;
+                }
             }
             .button{
                 cursor: pointer;
@@ -252,10 +286,7 @@ export default {
                 text-align: center;
                 color:#2095f2;
             }
-            .t-img{
-                height:1rem;
-                margin-top: 0.1rem
-            }
+
         }
 
     }

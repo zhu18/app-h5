@@ -35,7 +35,7 @@
           <div class="content-wrapper1" v-if="index == 1">
             <div class="content-item">
               <span class="item" v-for="(item, index) in dataList">
-                  {{item}}
+                  <span class="span" @click="searchList">{{item}}</span>
                   <img src="../../assets/images/close.png" @click="closeitem(index)" class="img">
               </span>
             </div>
@@ -77,7 +77,7 @@ export default {
     return {
         index:1,
         title:'查询历史',
-        dataList:["阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
+        dataList:["阿迪达斯阿迪达斯阿迪达斯阿迪达斯阿迪达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
         recognitionList: [1,2,3,4,5],
         loading: false
     };
@@ -101,6 +101,9 @@ export default {
       //全部删除
       deleteall(){
         this.dataList=[];
+      },
+      searchList(){
+          this.$router.push('/searchresult')
       },
       //编辑
        edit(){
@@ -206,6 +209,16 @@ export default {
             border-radius: 0.03rem;
             opacity: 0.5;
             margin-right: 0.3rem;
+            max-width: 88%;
+            .span{
+                text-overflow: ellipsis;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: inline-block;
+                white-space: nowrap;
+                max-width: 93%;
+            }
+
             .img{
                 height: 0.2rem;
                 margin-top: 0.28rem;

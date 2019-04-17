@@ -12,8 +12,8 @@
         </form>
       </div>
         <div class="content-item">
-          <span class="item" v-for="(item, index) in dataList">
-              {{item}}
+          <span class="item" v-for="(item, index) in dataList" @click="searchList">
+              <span class="span">{{item}}</span>
               <img src="../../assets/images/close.png" @click="closeitem(index)" class="img">
           </span>
         </div>
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
         index:1,
-        dataList:["阿迪达斯","NIKE","汉方","同仁堂","草本","Samsung","Apple"]
+        dataList:["阿迪达斯阿迪达斯阿迪达斯阿迪达斯阿迪达斯阿迪达斯","NIKE","汉方","同仁堂","草本","Samsung","Apple"]
     };
   },
   created() {
@@ -36,6 +36,9 @@ export default {
       //查询按钮
       searchList(){
           this.$router.push('/searchresult')
+      },
+      serchR(){
+
       },
       //关闭方法
       closeitem(item){
@@ -75,6 +78,7 @@ export default {
             line-height: 0.68rem;
             background-color: transparent;
             color: #5b5b69;
+            opacity: 0.5;
             padding-top: 0.04rem;
             ::-webkit-input-placeholder { /* WebKit browsers */
                 color: #5b5b69;
@@ -91,8 +95,21 @@ export default {
             line-height: 0.8rem;
             background-color: #bfbfbf;
             border-radius: 0.03rem;
-            opacity: 0.5;
+            opacity: 0.8;
             margin-right: 0.3rem;
+            color: #333333;
+            font-size: 0.24rem;
+            max-width: 89%;
+            .span{
+                text-overflow: ellipsis;
+
+                overflow: hidden;
+
+                text-overflow: ellipsis;
+                display: inline-block;
+                white-space: nowrap;
+                max-width: 95%;
+            }
             .img{
                 height: 0.2rem;
                 margin-top: 0.28rem;
