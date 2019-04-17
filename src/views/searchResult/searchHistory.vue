@@ -132,7 +132,7 @@ export default {
         }
       },
       goBack(){
-          this.$router.go(-1)
+          this.$router.goBack()
       },
       //关闭方法
       closeitem(item){

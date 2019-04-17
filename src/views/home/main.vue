@@ -11,8 +11,8 @@
 import { debug } from 'util';
     export default {
         name: 'mainComps',
+        prePath:'home',
         beforeRouteUpdate (to, from, next) {
-          
             let isBack = this.$router.isBack;
             if (isBack) {
                 this.slideName = 'slide-right';

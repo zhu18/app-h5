@@ -112,7 +112,7 @@ export default {
         }, 3500);
       },
       back(){
-          this.$router.go(-1)
+          this.$router.goBack()
       }
       
   },
