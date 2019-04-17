@@ -38,7 +38,7 @@
 </template>
 <script>
     import MyHeader from './components/header.vue'
-    import Search from './components/search.vue'
+    import Search from '../../components/search/innerSearch'
       export default {
         name: "lawsRegulations",
         data() {
@@ -111,6 +111,7 @@
     };
 </script>
 <style lang="scss" scoped>
+.search{margin:1.3rem 0.32rem 0.4rem 0.32rem}
     .container{
         font-size:.24rem;
         ul{

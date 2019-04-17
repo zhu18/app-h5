@@ -6,11 +6,12 @@
 -->
 <template lang="html">
   <div class="home-searchBywriting" @click.stop="">
-      <div class="top-header">
-        <form action="javascript:;" id="searchFrom" @submit="searchList">
+      
+          <Search @submit="searchList"/>
+        <!-- <form action="javascript:;" id="searchFrom" @submit="searchList">
             <input type="search" value="" placeholder="请输入关键字查询" />
-        </form>
-      </div>
+        </form> -->
+      
         <div class="content-item">
           <span class="item" v-for="(item, index) in dataList" @click="searchList">
               <span class="span">{{item}}</span>
@@ -20,6 +21,8 @@
   </div>
 </template>
 <script>
+    import Search from '../../components/search/innerSearch'
+
 export default {
   name: "home-searchBywriting",
   data() {
@@ -46,6 +49,7 @@ export default {
       },
   },
   components:{
+      Search
   }
 };
 </script>
@@ -58,35 +62,11 @@ export default {
     overflow-y: auto;
     top: 0;
     font-size: 0.24rem;
-    .top-header {
-        background: url(../../assets/images/component/searchByblack.png) no-repeat .20rem center;
-        background-size: 0.32rem 0.32rem;
-        background-color: #dfdfdf;
-        border-radius: 0.08rem;
-        margin: 0 0.3rem;
-        margin-top: 0.2rem;
-        height: 0.68rem;
-        input {
-            display: flex;
-            align-items: center;
-            align-content: center;
-            width: 100%;
-            padding-left: 0.8rem;
-            padding-right: 0.3rem;
-            box-sizing: border-box;
-            border: none;
-            line-height: 0.68rem;
-            background-color: transparent;
-            color: #5b5b69;
-            opacity: 0.5;
-            padding-top: 0.04rem;
-            ::-webkit-input-placeholder { /* WebKit browsers */
-                color: #5b5b69;
-            }
-        }
+    .search{
+        margin:.3rem .3rem 0;
     }
     .content-item{
-        padding: 0.38rem 0.32rem 0.14rem;
+        padding: 0 0.32rem 0.14rem;
         .item{
             margin-top: 0.3rem;
             display: inline-block;
