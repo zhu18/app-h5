@@ -25,7 +25,7 @@
 <script>
 import Search from '../../components/search/index';
 export default {
-  name: "home",
+  name: "trademarkInquiry",
   data() {
     return {
       trademarkList:[

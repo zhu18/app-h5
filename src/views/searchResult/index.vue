@@ -110,7 +110,7 @@ import Search from "../../components/search/index";
 import screen from "../../components/screen/index";
 import img from '../../assets/images/home/testlogo.jpg';
 export default {
-  name: "home",
+  name: "searchResult",
   data() {
     return {
         img:img,
