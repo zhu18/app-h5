@@ -12,7 +12,7 @@
                     <mt-button icon="back" @click='goBack'></mt-button>
                 </div>
                 <div slot="right" >
-                    <i class="mintui mintui-more"></i>
+                    <i class="mintuibtn-operate mintui-more"></i>
                     <i class="iconfont icon-query"></i>
                 </div>
             </mt-header>
@@ -31,8 +31,8 @@
                 <p>{{obj.name6}}</p>
             </div>
             <div class="btn-operate">
-                <a class="a-like"><i class="iconfont icon-zan"></i>45</a>
-                <a class="a-collect"><i class="iconfont icon-coll"></i>45</a>
+                <a class="a-like"><i class="iconfont icon-zan"></i><span>45</span></a>
+                <a class="a-collect"><i class="iconfont icon-coll"></i><span>45</span></a>
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
     }
     .home-newsdetails {
         width: 100%;
-        height: 100%;
+        min-height: 100%;
         top:0;
         background: #fff;
         font-size: 0.12rem;
@@ -148,36 +148,36 @@
                 }
             }
             .btn-operate{
-                width: 3.6rem;
                 margin: 35px auto 0;
+                text-align: center;
                 a{
-                    width: 1.6rem;
+                    min-width: 1.6rem;
                     height: 0.7rem;
                     line-height: 0.69rem;
                     border: 1px solid #bfbfbf;
                     border-radius: 0.4rem;
-                    float: left;
                     margin-right: 0.4rem;
                     font-size: 0.28rem;
                     color: #5b5b69;
                     box-sizing: border-box;
                     text-align: right;
+                    display: inline-block;
+                    position: relative;
                     i{
                         line-height: 0.7rem;
-                        float: left;
                         color: #bfbfbf;
+                        float: left;
                     }
                 }
                 a.a-like{
                     padding:0 0.4rem 0 0.15rem;
                     i{
                         font-size: 0.8rem;
-                        width: 0.27rem;
                         margin-top: -2px;
                     }
                 }
                 a.a-collect{
-                    padding:0 0.43rem 0 0.2rem;
+                    padding:0 0.4rem 0 0.23rem;
                     i{
                         font-size: 0.6rem;
                         margin-top: -2px;
