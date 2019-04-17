@@ -159,7 +159,7 @@ export default {
                 this.recognitionList.push(copy(obj));
             }
             this.loading = false;
-          }, 3500);
+          }, 1500);
         } else if(this.index == 3){
           setTimeout(() => {
             // let obj = {res: '耳塞机; 扬声器音箱; 头戴耳机; 声音传送器具; 麦克风; 摄像机;  电池', isChecked: false};
@@ -167,7 +167,7 @@ export default {
                 this.picList.push({res: '耳塞机; 扬声器音箱; 头戴耳机; 声音传送器具; 麦克风; 摄像机;  电池', isChecked: false});
             }
             this.loading = false;
-          }, 3500);
+          }, 1500);
         }
         
       },
