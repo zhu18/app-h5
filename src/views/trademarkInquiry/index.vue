@@ -42,8 +42,6 @@ export default {
           '商标专利权7',
           '商标专利权7',
           '商标专利权7',
-          '商标专利权7',
-          '商标专利权7',
       ]
     };
   },
@@ -128,8 +126,8 @@ export default {
             flex-wrap: wrap;
             align-content: flex-start;
             .list-item{
-                height: 0.68rem;
-                line-height: 0.69rem;
+                height: 0.8rem;
+                line-height: 0.8rem;
                 padding:0 0.4rem 0 0.2rem;
                 background-color: #dfdfdf;
                 color: #73737f;
