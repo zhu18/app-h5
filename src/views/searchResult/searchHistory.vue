@@ -44,8 +44,7 @@
           <div class="content-wrapper2"  v-if="index == 2 || index == 3"
             v-infinite-scroll="loadMore"
             infinite-scroll-disabled="loading"
-            infinite-scroll-distance="10"
-          >
+            infinite-scroll-distance="10">
             <ul class="content-item">
                 <li class="clearfix" v-for="item in recognitionList" @click="sel(item)">
                   <img class="fl" src="../../assets/images/result-logo.jpg"/>
@@ -77,6 +76,8 @@ export default {
         title:'查询历史',
         dataList:["阿迪达斯阿迪达斯阿迪达斯阿迪达斯达斯阿迪达斯达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
         recognitionList: [
+          {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
+          {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
@@ -170,6 +171,7 @@ export default {
       height: 1rem;
       background-color: #ffffff;
       box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
+      z-index:2;
       .ul {
         width: 100%;
         height: 1rem;

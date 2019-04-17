@@ -16,6 +16,9 @@
       <div :class="scanType==='txt'?'btnline':'btnfloat'">
         <mt-button type="default" size="small">鞋类</mt-button>
         <mt-button type="default" size="small">家具</mt-button>
+        <mt-button type="default" size="small">服饰</mt-button>
+        <mt-button type="default" size="small">保健品</mt-button>
+        <mt-button type="default" size="small">食品</mt-button>
         <mt-button type="default" size="small">其他</mt-button>
       </div>
     </div>
@@ -117,6 +120,8 @@ export default {
     .mint-button {
       margin-left: 0.25rem;
       height: 0.57rem;
+      margin-top: 0.15rem;
+
     }
   }
 }
