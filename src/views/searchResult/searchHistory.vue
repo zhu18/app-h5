@@ -44,10 +44,10 @@
           <div class="content-wrapper2"  v-if="index == 2"
             v-infinite-scroll="loadMore"
             infinite-scroll-disabled="loading"
-            infinite-scroll-distance="10"
+            infinite-scroll-distance="5"
           >
             <ul class="content-item">
-                <li class="clearfix" v-for="item in recognitionList" @click="sel(item)">
+                <li class="clearfix" v-for="(item,index) in recognitionList" @click="sel(item,index)" :key="index">
                   <img class="fl" src="../../assets/images/result-logo.jpg"/>
                   <div class="item-content fl">
                     <p class="item-label">结果</p>
@@ -62,7 +62,26 @@
                <span class="tips">数据加载中</span><mt-spinner :type="3" color="#26a2ff" :size="24"></mt-spinner>
             </div>
           </div>
-          <div class="content-wrapper1"  v-if="index == 3">
+          <!-- 图片 -->
+          <div class="content-wrapper3"  v-if="index == 3"
+            v-infinite-scroll="loadMore"
+            infinite-scroll-disabled="loading"
+            infinite-scroll-distance="5">
+            <ul class="content-item">
+                <li class="clearfix" v-for="(item,index) in picList" :key='index' @click="sel(item,index)">
+                  <img class="fl" src="../../assets/images/result-logo1.jpg"/>
+                  <div class="item-content fl">
+                    <p class="item-label">结果</p>
+                    <p class="item-text">{{item.res}}</p>
+                  </div>
+                  <span :class="[item.isChecked?'is-select':'','icon-box']"  v-show="isEdit" >
+                    <i class="mint-toast-icon mintui mintui-field-success"></i> 
+                </span>
+                </li>
+            </ul>
+            <div class="loading" v-if="loading">
+               <span class="tips">数据加载中</span><mt-spinner :type="3" color="#26a2ff" :size="24"></mt-spinner>
+            </div>
           </div>
         </div>
         <footer :class="[isEdit?'show':'']" @click="del">删除</footer>
@@ -84,6 +103,14 @@ export default {
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
         ],
+        picList: [
+          {res: '防护面罩; 防护帽; 防毒面具(非人工呼吸用); 灭火设备; 电开关; 加法器', isChecked: false},
+          {res: '防护面罩; 防护帽; 防毒面具(非人工呼吸用); 灭火设备; 电开关; 加法器', isChecked: false},
+          {res: '防护面罩; 防护帽; 防毒面具(非人工呼吸用); 灭火设备; 电开关; 加法器', isChecked: false},
+          {res: '防护面罩; 防护帽; 防毒面具(非人工呼吸用); 灭火设备; 电开关; 加法器', isChecked: false},
+          {res: '防护面罩; 防护帽; 防毒面具(非人工呼吸用); 灭火设备; 电开关; 加法器', isChecked: false},
+          {res: '防护面罩; 防护帽; 防毒面具(非人工呼吸用); 灭火设备; 电开关; 加法器', isChecked: false},
+        ],
         loading: false,
         handleEdit: false,
         isEdit: false,
@@ -97,11 +124,13 @@ export default {
   methods: {
       //点击导航
       navClick(index){
+        console.log(this.recognitionList)
         this.index = index;
-        if(index == 2){
-          this.handleEdit = true;
-        }else {
+        this.isEdit = false;
+        if(index == 1){
           this.handleEdit = false;
+        }else {
+          this.handleEdit = true;
         }
       },
       goBack(){
@@ -121,24 +150,55 @@ export default {
       },
       loadMore() {
         this.loading = true;
-        setTimeout(() => {
-            let obj = {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false};
-            for (let i = 1; i <= 4; i++) {
-            this.recognitionList.push(obj);
+        if(this.index == 2){
+          setTimeout(() => {
+            let obj = {res: '耳塞机; 扬声器音箱; 头戴耳机; 声音传送器具; 麦克风; 摄像机;  电池', isChecked: false};
+            const copy = ({...rest}) => ({...rest})
+            for (let i = 1; i <= 6; i++) {
+                this.recognitionList.push(copy(obj));
             }
             this.loading = false;
-        }, 3500);
+          }, 3500);
+        } else if(this.index == 3){
+          setTimeout(() => {
+            // let obj = {res: '耳塞机; 扬声器音箱; 头戴耳机; 声音传送器具; 麦克风; 摄像机;  电池', isChecked: false};
+            for (let i = 1; i <= 6; i++) {
+                this.picList.push({res: '耳塞机; 扬声器音箱; 头戴耳机; 声音传送器具; 麦克风; 摄像机;  电池', isChecked: false});
+            }
+            this.loading = false;
+          }, 3500);
+        }
+        
       },
-      sel(item){
+      sel(item,index){
           if(!this.isEdit) return;
           item.isChecked = !item.isChecked;
       },
       del(){
+          let index = this.index;
           let temp =[];
-          this.recognitionList.forEach((item,index)=>{
-              if(!item.isChecked) temp.push(item);
-          });
-          this.recognitionList = temp;
+          if(index == 2){
+            
+            this.recognitionList.forEach((item,index)=>{
+              
+                if(!item.isChecked) temp.push(item);
+            });
+            this.recognitionList = temp;
+            // if(this.recognitionList.length < 5){
+            //   this.loadMore()
+            // }
+          }else if(index == 3){
+            
+            this.picList.forEach((item,index)=>{
+                if(!item.isChecked) temp.push(item);
+            });
+            
+            this.picList = temp;
+            // if(this.picList.length < 5){
+            //   this.loadMore()
+            // }
+          }
+          
       }
   },
   components:{
@@ -257,6 +317,7 @@ export default {
               width: 1.21rem;
               height: 1.21rem;
               margin-right: 0.26rem;
+              object-fit: cover;
             }
             .item-content {
               float: left;
@@ -345,6 +406,7 @@ export default {
     align-items: center;
     height: 0.6rem;
     padding-bottom: 0.2rem;
+    margin-bottom: 1rem;
     .tips{
         margin:0 0.3rem;
         display: inline-block;
