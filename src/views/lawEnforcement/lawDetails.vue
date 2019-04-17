@@ -107,7 +107,7 @@
             }
         }
         .middle-content{
-            height: calc(100% - 2rem - 0.8rem);
+            height: calc(100% - 2rem - 0.7rem);
             overflow-y: auto;
             width: 90%;
             background-color: #ffffff;
