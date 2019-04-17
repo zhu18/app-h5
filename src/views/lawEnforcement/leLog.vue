@@ -15,10 +15,11 @@
              infinite-scroll-disabled="loading"
              infinite-scroll-distance="10">
             <div class="item" v-for="(item,index) in list" :key="index">
-                <h3>廖某某案件相关执法</h3>
+                <h3>廖某某案件相关执法廖某某案件相关执法廖某某案件相关执法</h3>
                 <div class="content" @click="openDetails">
                     <div class="img-box">
-                        <img src="../../assets/images/lawenforcement/evidence.jpg" alt="">
+                        <!-- <img src="../../assets/images/lawenforcement/evidence.jpg" alt=""> -->
+                        <img  v-lazy="img" alt="">
                     </div>
                     <div class="info">
                         <p><span class="p-title">经办人</span>经办人{{index+1}}  </p>
@@ -42,10 +43,12 @@
 </template>
 <script>
     import Search from "../../components/search/lesearch.vue";
+    import img from '../../assets/images/lawenforcement/evidence.jpg';
     export default {
         name: "law-enforcement",
         data() {
             return {
+                img:img,
                 current:0,
                 loading:false,
                 list:[1,3,2,2,2]
@@ -129,6 +132,9 @@
                     color: #1e2128;
                     font-weight:normal;
                     text-indent:0.32rem;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
                 }
                 .content{
                     margin:0;
@@ -144,6 +150,7 @@
                         img{
                             width: 100%;
                             height:100%;
+                            object-fit: cover;
                         }
                     }
                     .info{
@@ -151,8 +158,13 @@
                         display: flex;
                         flex-direction: column;
                         justify-content: space-between;
+                        width: calc(100% - 2.12rem);
                         p{
                             color: #333333;
+                            width: 100%;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
                         }
                         .p-title{
                             font-size: 0.24rem;
