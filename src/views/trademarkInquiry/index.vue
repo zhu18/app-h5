@@ -16,7 +16,7 @@
                  <div class="del" @click="del(index)">+</div>
              </div>
              <div class="more">
-                <a href="javascript:;" v-if="trademarkList.length">更多</a>
+                <a href="javascript:;" v-if="trademarkList.length" @click="loadMore">更多</a>
              </div>
          </div>
      </div>
@@ -52,6 +52,16 @@ export default {
   mounted() {
   },
   methods: {
+      loadMore(){
+          this.trademarkList.push(...[
+                 '商标专利权7',
+                '商标专利权7',
+                '商标专利权7',
+                '商标专利权7',
+                '商标专利权7',
+                '商标专利权7'
+          ])
+      },
       delall(){
           this.trademarkList=[]
       },
@@ -97,6 +107,7 @@ export default {
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
+        overflow-y: auto;
         .title{
             height: 0.48rem;
             line-height: 0.48rem;
