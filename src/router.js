@@ -55,7 +55,7 @@ import News from './views/news';
 //新闻详情
 import newsDetails from './views/news/newsdetails.vue';
 /* - - - - - - - 6.阅读 - - - - - - - - - */
-
+import brandProcess from './views/brandProcess'
 // 临时测试路由
 import my from './views/test/my'
 import test3 from './views/test/test3'
@@ -116,8 +116,7 @@ export default new Router({
                     path: '/searchhistory',
                     components: {
                         body: searchHistory,
-                        footer: footerTab,
-                        header: headerBar
+                        footer: footerTab
                     }
                 },
                 /* - - - - - - - 智能检索 - - - - - - - - - */
@@ -172,8 +171,7 @@ export default new Router({
                     path: '/evidenceList',
                     name: 'evidenceList',
                     components: {
-                        body: evidenceList,
-                        header: headerBar
+                        body: evidenceList
                     }
                 },
                 { //我的收藏
@@ -241,7 +239,6 @@ export default new Router({
                     name: 'collection',
                     components: {
                         body: collection,
-                        header: headerBar
                     }
                 },
                
@@ -262,7 +259,14 @@ export default new Router({
                         footer: footerTab,
                     }
                 },
-                /* - - - - - - - 6.阅读 - - - - - - - - - */
+            /* - - - - - - - 6.阅读 - - - - - - - - - */
+                 {//商标流程
+                    path: '/brandProcess',
+                    name: 'brandProcess',
+                    components: {
+                        body: brandProcess
+                    }
+                },
                 { //生活服务主页
                     path: '/test2',
                     components: {

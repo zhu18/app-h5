@@ -193,7 +193,7 @@ export default {
         margin-top: 0.2rem;
         border: 0.01rem solid #ebebeb;
         background-color: #f6f6f6;
-        height: calc(100% - 2.4rem);
+        height: calc(100% - 2.3rem);
         overflow-y: auto;
         .content-top{
             height: 2.2rem;

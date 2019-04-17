@@ -99,7 +99,7 @@ export default {
             margin-right: 0.3rem;
             color: #333333;
             font-size: 0.24rem;
-            max-width: 89%;
+            max-width: 90%;
             .span{
                 text-overflow: ellipsis;
 
@@ -108,7 +108,7 @@ export default {
                 text-overflow: ellipsis;
                 display: inline-block;
                 white-space: nowrap;
-                max-width: 95%;
+                max-width: 92%;
             }
             .img{
                 height: 0.2rem;

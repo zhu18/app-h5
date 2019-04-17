@@ -1,6 +1,16 @@
 <template>
-  <div class="evidence">
-    <div class="header-content">
+  <div class="evidence ">
+    <div class="top-header ">
+      <mt-header fixed
+                 title="取证列表">
+        <div slot="left">
+          <mt-button icon="back"
+                     @click='goBack'></mt-button>
+        </div>
+        <mt-button slot="right"> 筛选 </mt-button>
+      </mt-header>
+    </div>
+    <div class="header-content ">
       <div class="body">
         <div v-for="(item, index) in evidences"
              :key="index" @click="viewdetails">
@@ -10,8 +20,10 @@
                  v-for="(ev, idx) in item.list"
                  :key="idx">
               <img :src="ev.img" />
-              <i class="iconfont icon-sound" v-if="ev.type==='sound'"></i>
-              <i class="iconfont icon-video" v-if="ev.type==='video'"></i>
+              <i class="iconfont icon-sound"
+                 v-if="ev.type==='sound'"></i>
+              <i class="iconfont icon-video"
+                 v-if="ev.type==='video'"></i>
             </div>
           </div>
         </div>
@@ -99,6 +111,9 @@ export default {
   mounted () {
   },
   methods: {
+    goBack () {
+      this.$router.go(-1)
+    },
       viewdetails(){
           this.$router.push('/lawDetails');
       },
@@ -108,12 +123,18 @@ export default {
 <style lang="scss">
 .evidence {
   width: 100%;
-  height: calc(100vh - 0.9rem - 1.28rem);
-  background: #ffffff;
+  height: 100%;
   overflow: hidden;
   overflow-y: auto;
+  .top-header {
+    height: 0.9rem;
+    background-color: #2095f2;
+    .mint-header {
+      height: 0.9rem;
+      background: #2095f2;
+    }
+  }
   .header-content {
-    height: 100%;
     width: 100%;
     background-size: 100%;
     position: relative;
