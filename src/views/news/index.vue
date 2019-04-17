@@ -161,7 +161,6 @@ export default {
                 width: 2.2rem;
                 height: 1.2rem;
                 margin-right: 0.2rem;
-                border:1px solid rgba(0,0,0,.1);
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -169,10 +168,11 @@ export default {
                 img{
                 //   width: 2.2rem;
                 //   height: 1.2rem;
+                    width: 2rem;
+                    height: 1.2rem;
+                    object-fit: cover;
                   border-radius: 0.1rem;
-                  max-height: 100%;
-                  max-width: 100%;
-                  object-fit: cover;
+                
                 }
             }
             .img-box2{
@@ -183,12 +183,13 @@ export default {
                 span{
                     width: 31%;
                     display: inline-block;
-                    border:1px solid rgba(0,0,0,.1);
+                    // border:1px solid rgba(0,0,0,.1);
                 }
                 img{
                   border-radius: 0.1rem;
-                  max-height: 100%;
-                  max-width: 100%;
+                   width: 2rem;
+                   height: 1.2rem;
+                    object-fit: cover;
                   object-fit: cover;
                 }
             }
