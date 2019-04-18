@@ -111,7 +111,6 @@ export default {
         box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        overflow-y: auto;
         .title{
             height: 0.48rem;
             line-height: 0.48rem;
@@ -131,6 +130,7 @@ export default {
             display: flex;
             flex-wrap: wrap;
             align-content: flex-start;
+            overflow-y: auto;
             .list-item{
                 height: 0.8rem;
                 line-height: 0.8rem;
