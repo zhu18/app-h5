@@ -14,7 +14,7 @@ import { debug } from 'util';
         prePath:'home',
         beforeRouteUpdate (to, from, next) {
             let isBack = this.$router.isBack;
-            if (isBack) {
+            if (!isBack) {
                 this.slideName = 'slide-left';
 
             } else {
