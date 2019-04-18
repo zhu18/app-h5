@@ -216,8 +216,7 @@ export default new Router({
                     name:'dateSelect',
                     components: {
                         body: dateSelect,
-                        footer: footerTab,
-                        header: headerBar
+                        footer: footerTab
                     }
                 },
                 { //开始执法

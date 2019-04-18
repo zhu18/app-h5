@@ -7,13 +7,20 @@
           <mt-button icon="back"
                      @click='goBack'></mt-button>
         </div>
-        <mt-button slot="right"> 筛选 </mt-button>
+        <!-- <mt-button slot="right"> 筛选 </mt-button> -->
+        <div slot="right">
+          <span class="iconfont icon-date"
+                @click="date()"></span>
+          <span class="iconfont icon-map"
+                @click="map()"></span>
+        </div>
       </mt-header>
     </div>
     <div class="header-content ">
       <div class="body">
         <div v-for="(item, index) in evidences"
-             :key="index" @click="viewdetails">
+             :key="index"
+             @click="viewdetails">
           <h3 class="evidence-title">{{item.date}} {{item.address}}</h3>
           <div class="evidence-list">
             <div class="evidence-item"
@@ -114,9 +121,15 @@ export default {
     goBack () {
       this.$router.goBack()
     },
-      viewdetails(){
-          this.$router.push('/lawDetails');
-      },
+    viewdetails () {
+      this.$router.push('/lawDetails');
+    },
+    date () {
+      this.$router.push('/dateSelect?title=取证列表')
+    },
+    map () {
+      this.$router.push('/map?title=取证列表')
+    },
   }
 };
 </script>
@@ -132,6 +145,11 @@ export default {
     .mint-header {
       height: 0.9rem;
       background: #2095f2;
+    }
+    .iconfont {
+      width: 0.72rem;
+      color: #fff;
+      font-size: 0.72rem;
     }
   }
   .header-content {
