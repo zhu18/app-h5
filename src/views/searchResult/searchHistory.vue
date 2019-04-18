@@ -130,7 +130,7 @@ export default {
         }
       },
       goBack(){
-          this.$router.go(-1)
+          this.$router.goBack()
       },
       //全部删除
       deleteall(){

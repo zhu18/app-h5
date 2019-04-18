@@ -130,7 +130,7 @@ export default {
   },
   methods: {
     goBack() {
-      this.$router.go(-1);
+      this.$router.goBack();
     },
     edit() {},
     //右下角加号点击

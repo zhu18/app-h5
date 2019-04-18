@@ -12,7 +12,7 @@
          <div class="list-content">
              <hisList :datalist="list"></hisList>
              <div class="more">
-                <a href="javascript:;" v-if="list.length" @click="loadMore">更多</a>
+                <a href="javascript:;" v-if="list.length<25" @click="loadMore">更多</a>
              </div>
          </div>
      </div>
@@ -22,7 +22,7 @@
 import hisList from '../../components/historyList/hisList';
 import Search from '../../components/search/index';
 export default {
-  name: "home",
+  name: "trademarkInquiry",
   data() {
     return {
         list:[
@@ -33,8 +33,6 @@ export default {
           '商标专利权4',
           '商标专利权5',
           '商标专利权6',
-          '商标专利权7',
-          '商标专利权7',
           '商标专利权7',
           '商标专利权7',
           '商标专利权7',
@@ -126,8 +124,8 @@ export default {
             flex-wrap: wrap;
             align-content: flex-start;
             .list-item{
-                height: 0.68rem;
-                line-height: 0.69rem;
+                height: 0.8rem;
+                line-height: 0.8rem;
                 padding:0 0.4rem 0 0.2rem;
                 background-color: #dfdfdf;
                 color: #73737f;

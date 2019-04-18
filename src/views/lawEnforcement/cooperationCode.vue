@@ -33,7 +33,7 @@ import codeInput from '@/components/codeInput/codeInput'
         },
         methods: {
             goBack(){
-                this.$router.go(-1)
+                this.$router.goBack()
             },
             submit(code){
                 this.$router.push({name:"startLawEnforcement",params:{code}})
