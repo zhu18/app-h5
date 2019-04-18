@@ -8,17 +8,29 @@
   <div class="news-wrap">
     <!-- 头部 开始 -->
     <div class="top-header">
-      <span class="iconfont icon-back" @click='back'></span>
-      <span class="title">新闻资讯</span>
-      <span class="iconfont icon-txtquery"></span>
+        <div class="inner">
+            <span class="iconfont icon-back" @click='back'></span>
+            <span class="title">新闻资讯</span>
+            <span class="iconfont-k"></span>
+        </div>
+        <div class="top-search">
+            <div class="search">
+                <form action="javascript:;" id="searchFrom" @submit="searchList">
+                    <input type="search" value="" placeholder="" v-model="name"/>
+                </form>
+                <button @click="delSearchVal" v-if="name.length" class="iconfont icon-del"></button>
+            </div>
+        </div>
     </div>
+
     <!-- 头部 结束 -->
  
     <!-- 新闻列表  开始  -->
-    <div class="news-list"
-        v-infinite-scroll="loadMore"
+    
+    <div class="news-list" v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="10">
+        <mt-loadmore :top-method="loadTop"  :bottom-all-loaded="allLoaded" ref="loadmore">
         <template v-for="(item,index) in list" >
             <router-link class="list-item" tag="div" to="/newsdetails" :key="index">
                 <div class="img-box" v-if="item.images.length==1">
@@ -35,6 +47,8 @@
                 </div>
             </router-link>
         </template>
+        
+        </mt-loadmore>
         <div class="loading" v-if="loading">
             <span class="tips">数据加载中</span><mt-spinner :type="3" color="#26a2ff"></mt-spinner>
         </div>
@@ -45,17 +59,20 @@
   </div>
 </template>
 <script>
+import search from '../../components/search/lesearch';
 export default {
   name: "home",
   data() {
     return {
+        allLoaded:false,
         loading:false,
+        name:'',
         list:[
             {
                 title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌',
                 source:'新华网',
                 numbers:'2223',
-                times:'17分钟前',
+                times:`${Math.ceil(Math.random()*10)}分钟前`,
                 images:['../../assets/images/news/news.png']
             },
              {
@@ -101,6 +118,34 @@ export default {
       }
   },
   methods: {
+      getLIst(){
+           let list=[1,2,3,4,6,7].map(v=>{
+               let images=[]
+           if (Math.ceil(Math.random()*10)>=5) {
+                images=['../../assets/images/news/news.png','../../assets/images/news/news.png','../../assets/images/news/news.png']
+           }else{
+               images=['../../assets/images/news/news.png']
+           }
+            return {
+                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌',
+                source:'新华网',
+                numbers:`${Math.ceil(Math.random()*1000)}`,
+                times:`${Math.ceil(Math.random()*10)}分钟前`,
+                images:images
+              }
+           })
+            this.list=list
+      },
+      loadTop() {
+        //   ...// 加载更多数据
+        this.getLIst()
+        this.$refs.loadmore.onTopLoaded();
+        },
+      loadBottom() {
+        // ...// 加载更多数据
+        this.allLoaded = true;// 若数据已全部获取完毕
+        this.$refs.loadmore.onBottomLoaded();
+      },
       loadMore() {
         this.loading = true;
         setTimeout(() => {
@@ -113,10 +158,21 @@ export default {
       },
       back(){
           this.$router.goBack()
+      },
+      delSearchVal(){
+          this.name=""
+      },
+      searchList(){
+          alert(123)
+      },
+      screenCallback(params){
+          this.popupVisible=false
+          console.log(params)
       }
       
   },
   components: {
+      search
   }
 };
 </script>
@@ -124,13 +180,27 @@ export default {
 ::-webkit-search-cancel-button { display: none; }
 .news-wrap{
     .top-header{
-        height: 0.9rem;
+        height: 1.8rem;
         background-color: #2095f2;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
         color: #fff;
-        box-shadow: 0 1px 3px rgba(0,0,0,.1);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding-bottom:0.26rem;
+        box-sizing: border-box;
+        div.inner{
+            height: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .iconfont-k{
+            width: 0.64rem;
+            display: inline-block;
+            visibility: hidden;
+        }
         .iconfont{
             font-size: 0.84rem;
             color: #fff;
@@ -139,6 +209,54 @@ export default {
             font-size: 0.36rem;
         }
     }
+   .top-search {
+    background-color: #2095f2;
+    height: 0.64rem;
+    width: calc(100% - 0.9rem);
+    flex:1;
+    margin:0;
+    box-sizing: border-box;
+    z-index: 10;
+    .search {
+      height: 100%;
+      background: url(../../assets/images/component/searchicon.png) no-repeat
+        0.2rem center;
+      background-size: 0.32rem 0.32rem;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 0.05rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      input {
+        width: 5.8rem;
+        padding: 0 0.1rem 0 0.6rem;
+        box-sizing: border-box;
+        border: none;
+        height: 100%;
+        background-color: transparent;
+        color: #fff;
+        font-size: 0.28rem;
+      }
+      button {
+        height: 0.64rem;
+        width: 0.64rem;
+        // background: url(../../assets/images/component/xjicon.png) no-repeat
+        //   center center;
+        background-color: transparent;
+        font-size: 0.55rem;
+        color:#fff;
+        border: none;
+        margin-right: 0.3rem;
+        // transform: rotate(45deg);
+        // position: relative;
+        // top:-0.005rem;
+        // border: none;
+        // position: relative;
+        // margin-right:0.3rem;
+       
+      }
+    }
+  }
     position:absolute;
     top:0;
     left:0;
@@ -146,7 +264,7 @@ export default {
     bottom:1.28rem;
     background-color: #fff;
     .news-list{
-        height: calc(100% - 0.9rem);
+        height: calc(100% - 1.8rem);
         overflow-y: auto;
         padding: 0.32rem;
         // padding-bottom: 0.9rem;
