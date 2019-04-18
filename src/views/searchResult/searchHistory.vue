@@ -81,7 +81,7 @@
             </div>
           </div>
         </div>
-        <footer :class="[isEdit?'show':'']" @click="del">删除</footer>
+
   </div>
 </template>
 <script>
@@ -92,7 +92,7 @@ export default {
     return {
         index:1,
         title:'查询历史',
-        list:["阿迪达斯阿迪达斯阿迪达斯阿迪达斯达斯阿迪达斯达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
+        list:["阿迪达斯阿迪达斯阿迪达斯阿迪达斯达斯阿迪达斯达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple","阿迪达斯阿迪达斯阿迪达斯阿迪达斯达斯阿迪达斯达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple","阿迪达斯阿迪达斯阿迪达斯阿迪达斯达斯阿迪达斯达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple","阿迪达斯阿迪达斯阿迪达斯阿迪达斯达斯阿迪达斯达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
         recognitionList: [
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
@@ -264,7 +264,7 @@ export default {
       }
     }
     .content-wrapper {
-        height: calc(100% - 3.18rem);
+        height: calc(100% - 1.9rem - 1.28rem);
         overflow-y: auto;
       .content-wrapper1 {
       }
@@ -362,37 +362,7 @@ export default {
         }
     }
     }
-    
-    .content-button{
-        position: fixed;
-        bottom: 1.28rem;
-        width: 100%;
-        height: 1rem;
 
-        background-color: #ffffff;
-        .delete{
-            display: inline-block;
-            width: 50%;
-
-
-            text-align: center;
-            line-height: 1rem;
-            .p{
-                width: 100%;
-                display: inline-block;
-                height: 0.32rem;
-                line-height: 0.32rem;
-                border-right: 0.02rem solid #bfbfbf;
-            }
-        }
-        .edit{
-            display: inline-block;
-            width: 50%;
-            text-align: center;
-            line-height: 1rem;
-            color: #2095f2;
-        }
-    }
 }
 .loading{
     display: flex;
@@ -406,23 +376,5 @@ export default {
         display: inline-block;
     }
 }
-footer{
-      position:fixed;
-      bottom:-1rem;
-      z-index:1000;
-      width:100%;
-      height:1rem;
-      line-height:1rem;
-      text-align:center;
-      font-size:.32rem;
-      color:#5b5b69;
-      background:#fff;
-      border-top:1px solid rgba(4, 0, 0, 0.1);
-      box-shadow:0 1px 10px 3px rgba(4, 0, 0, 0.1);
-      cursor:pointer;
-      transition:bottom .3s;
-      &.show{
-          bottom:0;
-      }
-  }
+
 </style>
