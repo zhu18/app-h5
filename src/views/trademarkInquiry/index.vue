@@ -72,7 +72,10 @@ export default {
 </script>
 <style lang="scss" scoped>
     .trademark-Wrap{
-        min-height: calc(100vh - 0.9rem - 0.98rem );
+        min-height: calc(100% - 0.9rem - 0.98rem );
+        position: absolute;
+        bottom:1.2rem;
+        width: 100%;
         top: 0;
        
     }
@@ -98,7 +101,12 @@ export default {
     }
     .trademark-list{
         padding:0.32rem;
-        max-height: calc(100vh - 4.54rem  - 1.2rem);
+        // max-height: calc(100vh - 4.54rem  - 1.2rem);
+        position: absolute;
+        top:4.54rem;
+        bottom:0;
+        left:0;
+        right:0;
         // background-color: red;
         box-sizing: border-box;
         display: flex;

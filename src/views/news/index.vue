@@ -8,21 +8,13 @@
   <div class="news-wrap">
     <!-- 头部 开始 -->
     <div class="top-header">
-        <div class="inner">
             <span class="iconfont icon-back" @click='back'></span>
             <span class="title">新闻资讯</span>
             <span class="iconfont-k"></span>
-        </div>
-        <div class="top-search">
-            <div class="search">
-                <form action="javascript:;" id="searchFrom" @submit="searchList">
-                    <input type="search" value="" placeholder="" v-model="name"/>
-                </form>
-                <button @click="delSearchVal" v-if="name.length" class="iconfont icon-del"></button>
-            </div>
-        </div>
     </div>
-
+    <div class="top-search">
+         <Search/>
+    </div> 
     <!-- 头部 结束 -->
  
     <!-- 新闻列表  开始  -->
@@ -59,7 +51,9 @@
   </div>
 </template>
 <script>
-import search from '../../components/search/lesearch';
+import Search from '../../components/search/innerSearch'
+
+// import search from '../../components/search/lesearch';
 export default {
   name: "home",
   data() {
@@ -172,7 +166,7 @@ export default {
       
   },
   components: {
-      search
+      Search
   }
 };
 </script>
@@ -180,22 +174,15 @@ export default {
 ::-webkit-search-cancel-button { display: none; }
 .news-wrap{
     .top-header{
-        height: 1.8rem;
+        height: 0.9rem;
         background-color: #2095f2;
         color: #fff;
         display: flex;
-        flex-direction: column;
         justify-content: center;
         align-items: center;
-        padding-bottom:0.26rem;
+        justify-content: space-between;
         box-sizing: border-box;
-        div.inner{
-            height: 0.9rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
+       box-shadow: 0 1px 5px rgba(0,0,0,.1);
         .iconfont-k{
             width: 0.64rem;
             display: inline-block;
@@ -210,53 +197,18 @@ export default {
         }
     }
    .top-search {
-    background-color: #2095f2;
-    height: 0.64rem;
-    width: calc(100% - 0.9rem);
-    flex:1;
-    margin:0;
-    box-sizing: border-box;
-    z-index: 10;
-    .search {
-      height: 100%;
-      background: url(../../assets/images/component/searchicon.png) no-repeat
-        0.2rem center;
-      background-size: 0.32rem 0.32rem;
-      background-color: rgba(255, 255, 255, 0.4);
-      border-radius: 0.05rem;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      input {
-        width: 5.8rem;
-        padding: 0 0.1rem 0 0.6rem;
-        box-sizing: border-box;
-        border: none;
-        height: 100%;
-        background-color: transparent;
-        color: #fff;
-        font-size: 0.28rem;
-      }
-      button {
-        height: 0.64rem;
-        width: 0.64rem;
-        // background: url(../../assets/images/component/xjicon.png) no-repeat
-        //   center center;
-        background-color: transparent;
-        font-size: 0.55rem;
-        color:#fff;
-        border: none;
-        margin-right: 0.3rem;
-        // transform: rotate(45deg);
-        // position: relative;
-        // top:-0.005rem;
-        // border: none;
-        // position: relative;
-        // margin-right:0.3rem;
-       
-      }
+       width: 100%;
+       height: 0.9rem;
+       display: flex;
+       align-items: center;
+       justify-content: center;
+       padding:0 0.64rem;
+       box-sizing: border-box;
+       box-shadow: 0 1px 5px rgba(0,0,0,.1);
+       .search{
+           flex: 1;
+       }
     }
-  }
     position:absolute;
     top:0;
     left:0;
