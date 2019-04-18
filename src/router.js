@@ -117,6 +117,7 @@ export default new Router({
                     name: '/searchhistory',
                     components: {
                         body: searchHistory,
+                        footer: footerTab
                     }
                 },
                 /* - - - - - - - 智能检索 - - - - - - - - - */

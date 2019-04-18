@@ -35,10 +35,7 @@
         <div class="content-wrapper">
           <div class="content-wrapper1" v-if="index == 1">
             <div class="content-item">
-              <span class="item" v-for="(item, index) in dataList">
-                  <span class="span" @click="searchList">{{item}}</span>
-                  <img src="../../assets/images/close.png" @click="closeitem(index)" class="img">
-              </span>
+                    <hisList :datalist="list"></hisList>
             </div>
           </div>
           <div class="content-wrapper2"  v-if="index == 2"
@@ -88,13 +85,14 @@
   </div>
 </template>
 <script>
+    import hisList from '../../components/historyList/hisList';
 export default {
   name: "home-searchhistory",
   data() {
     return {
         index:1,
         title:'查询历史',
-        dataList:["阿迪达斯阿迪达斯阿迪达斯阿迪达斯达斯阿迪达斯达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
+        list:["阿迪达斯阿迪达斯阿迪达斯阿迪达斯达斯阿迪达斯达斯阿迪达斯","NIKE","同仁堂","汉方","草本","Samsung","Apple"],
         recognitionList: [
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
           {res: '计算机; 内部通讯装置; 导航仪器; 遥控装置; 眼镜(光学)', isChecked: false},
@@ -134,13 +132,9 @@ export default {
       goBack(){
           this.$router.go(-1)
       },
-      //关闭方法
-      closeitem(item){
-       this.dataList.splice(item, 1 );
-      },
       //全部删除
       deleteall(){
-        this.dataList=[];
+        this.list=[];
       },
       searchList(){
           this.$router.push('/searchresult')
@@ -203,6 +197,7 @@ export default {
       }
   },
   components:{
+      hisList
   }
 };
 </script>
@@ -227,7 +222,6 @@ export default {
         }
     }
     .item {
-      position: relative;
       height: 1rem;
       background-color: #ffffff;
       box-shadow: 0 0 0.1rem rgba(0, 0, 0, 0.1);
@@ -241,7 +235,7 @@ export default {
           display: inline-block;
           text-align: center;
           height: 1rem;
-          
+
           cursor: pointer;
           width: 33.33%;
           line-height: 1rem;
@@ -270,21 +264,11 @@ export default {
       }
     }
     .content-wrapper {
-      position: fixed;
-      top: 1.9rem;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      overflow-y: scroll;
-      z-index: 1;
+        height: calc(100% - 3.18rem);
+        overflow-y: auto;
       .content-wrapper1 {
-          overflow-y: scroll;
       }
       .content-wrapper2 {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        overflow-y: scroll;
       }
       .content-item{
         padding: 0.38rem 0.32rem 0.14rem;

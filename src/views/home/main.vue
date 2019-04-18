@@ -16,9 +16,11 @@
             }
             let isBack = this.$router.isBack;
             if (isBack) {
-                this.slideName = 'slide-right';
-            } else {
                 this.slideName = 'slide-left';
+
+            } else {
+                this.slideName = 'slide-right';
+
             }
             this.$router.isBack = false;
             next();

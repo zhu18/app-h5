@@ -152,7 +152,7 @@ export default {
       }
       .field-title {
         display: inline-block;
-        width: 1.4rem;
+        width: 1.5rem;
         font-size: 0.24rem;
         color: #5b5b69;
         margin-right: 0.3rem;

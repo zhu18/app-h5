@@ -7,28 +7,25 @@
      <div class="trademark-list">
          <div class="title">
              搜索历史
-             <span class="delall" @click='delall' v-if="trademarkList.length">删除全部</span>
+             <span class="delall" @click='delall' v-if="list.length">删除全部</span>
          </div>
          <div class="list-content">
-             <div class="list-item" v-for="(item,index) in trademarkList" :key="index">
-                 <!-- <router-link :to="{ name: 'searchresult', params: { name: item}}" tag='span'>{{item}}</router-link> -->
-                 <span>{{item}}</span>
-                 <div class="del" @click="del(index)">+</div>
-             </div>
+             <hisList :datalist="list"></hisList>
              <div class="more">
-                <a href="javascript:;" v-if="trademarkList.length" @click="loadMore">更多</a>
+                <a href="javascript:;" v-if="list.length" @click="loadMore">更多</a>
              </div>
          </div>
      </div>
   </div>
 </template>
 <script>
+import hisList from '../../components/historyList/hisList';
 import Search from '../../components/search/index';
 export default {
   name: "home",
   data() {
     return {
-      trademarkList:[
+        list:[
           '商标专利权商标专利权商标专利权商标专利权商标专利权商标专利权',
           '商标专利权1',
           '商标专利权2',
@@ -53,7 +50,7 @@ export default {
   },
   methods: {
       loadMore(){
-          this.trademarkList.push(...[
+          this.list.push(...[
                  '商标专利权7',
                 '商标专利权7',
                 '商标专利权7',
@@ -63,14 +60,15 @@ export default {
           ])
       },
       delall(){
-          this.trademarkList=[]
+          this.list=[]
       },
       del(index){
-          this.trademarkList.splice(index,1)
+          this.list.splice(index,1)
       }
   },
   components:{
-    Search
+    Search,
+    hisList
   }
 };
 </script>
@@ -102,7 +100,7 @@ export default {
     }
     .trademark-list{
         padding:0.32rem;
-        height: calc(100vh - 4.54rem  - 0.98rem);
+        max-height: calc(100vh - 4.54rem  - 0.98rem);
         // background-color: red;
         box-sizing: border-box;
         display: flex;
@@ -155,7 +153,7 @@ export default {
         }
     }
     .more{
-        height: 0.9rem;
+        height: 1rem;
         display: flex;
         width: 100%;
         justify-content: center;

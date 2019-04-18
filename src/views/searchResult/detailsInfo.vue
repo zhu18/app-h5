@@ -71,7 +71,7 @@
              <tr>
                 <td class="left-font" >商标流程</td>
                 <td class="right-font">
-                    <div class="button" @click="viewClick">点击查看</div>
+                    <div class="button" @click="sblc">点击查看</div>
                   </td>
              </tr>
               <tr >
@@ -80,7 +80,7 @@
                       <table>
                           <tr>
                           <td>
-                                  <img src="../../assets/images/17.png" @click="sblc" class="t-img">
+                                  <img src="../../assets/images/17.png" class="t-img">
                           </td>
                           <td>
                                 <span class="span" >LIVE/APPLICATION/Awaiting Examination</span>
@@ -100,7 +100,9 @@
              <span class="delete" @click="addqz">
               <p class="p">添加我的取证</p>
              </span>
-            <span class="edit" @click="print"><img src="../../assets/images/print.png" class="p-img">打印</span>
+            <span class="edit" @click="print">
+            <i class="iconfont icon-print1"></i>
+            打印</span>
 
 
      </div>
@@ -191,9 +193,6 @@ export default {
         .iconfont {
             line-height: 1rem;
             font-size:0.66rem;
-        }
-        .iconfonta{
-            color: red;
         }
     }
     .content-all{
@@ -331,10 +330,10 @@ export default {
             text-align: center;
             line-height: 1rem;
             color: #2095f2;
-            .p-img{
-                height: 0.3rem;
-                margin-top: 0.32rem;
-                margin-right: 0.2rem
+            .iconfont{
+                vertical-align: middle;
+                font-size: 0.74rem;
+                color: #2095f2;
             }
         }
     }
