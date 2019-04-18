@@ -12,8 +12,7 @@
                     <mt-button icon="back" @click='goBack'></mt-button>
                 </div>
                 <div slot="right" >
-                    <i class="mintuibtn-operate mintui-more"></i>
-                    <i class="iconfont icon-query"></i>
+                    <!-- <i class="mintui btn-operate mintui-more"></i> -->
                 </div>
             </mt-header>
         </div>

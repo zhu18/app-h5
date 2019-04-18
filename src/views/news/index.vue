@@ -202,7 +202,7 @@ export default {
        display: flex;
        align-items: center;
        justify-content: center;
-       padding:0 0.64rem;
+       padding:0 0.3rem;
        box-sizing: border-box;
        box-shadow: 0 1px 5px rgba(0,0,0,.1);
        .search{
