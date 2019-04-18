@@ -10,7 +10,9 @@
       <i class="icon iconfont icon-query"></i>
     </div>
     <div class="item-inp">
-      <input type="search" v-model="txt" placeholder="请输入关键字">
+      <form action="javascript:;"  @submit="search">
+        <input type="search" v-model="txt" placeholder="请输入关键字" >
+      </form>
     </div>
     <i class="icon iconfont icon-del" v-show="txt" @click="clear()"></i>
   </div>
@@ -28,6 +30,9 @@ export default {
   methods: {
       clear(){
           this.txt=''
+      },
+      search(){
+        this.$emit('submit',this.txt)
       }
   },
   components: {}

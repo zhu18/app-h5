@@ -37,7 +37,8 @@ export default {
   },
   methods: {
       //查询按钮
-      searchList(){
+      searchList(txt){
+          console.log(txt)
           this.$router.push('/searchresult')
       },
       serchR(){
