@@ -50,9 +50,7 @@ export default {
 <style lang="scss">
 .home-hisList {
     width: 100%;
-    height: 100%;
     background-color: #f6f6f6;
-    overflow: hidden;
     top: 0;
     font-size: 0.24rem;
     .list-content{

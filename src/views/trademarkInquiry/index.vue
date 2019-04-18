@@ -98,7 +98,7 @@ export default {
     }
     .trademark-list{
         padding:0.32rem;
-        max-height: calc(100vh - 4.54rem  - 1.2rem);
+        max-height: calc(100vh - 4.54rem  - 0.98rem);
         // background-color: red;
         box-sizing: border-box;
         display: flex;
