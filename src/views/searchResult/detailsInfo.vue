@@ -203,7 +203,7 @@ export default {
         border: 0.01rem solid #ebebeb;
         background-color: #f6f6f6;
         height: calc(100% - 2.3rem);
-        overflow-y: auto;
+        border-radius: 0.1rem;
         .content-top{
             height: 2.2rem;
             border-bottom: 0.02rem solid #ebebeb;
@@ -239,7 +239,7 @@ export default {
             }
             .yuan-left{
                 position: absolute;
-                margin-top: 27.7%;
+                margin-top: 27%;
                 left:3.6%;
                 width: 0.2rem;
                 height: 0.3rem;
@@ -251,7 +251,7 @@ export default {
             }
             .yuan-right{
                 position: absolute;
-                margin-top: 27.7%;
+                margin-top: 27%;
                 right:3.6%;
                 width: 0.2rem;
                 height: 0.3rem;
@@ -263,7 +263,7 @@ export default {
             }
         }
         .content-middle{
-            height: calc(100% - 2.2rem - 0.5rem);
+            height: calc(100% - 2.2rem - 0.4rem);
             overflow-y: auto;
             font-size: 0.24rem;
             padding-top: 0.2rem;

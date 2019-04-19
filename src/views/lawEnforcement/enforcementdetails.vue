@@ -99,6 +99,7 @@
             margin: 0.2rem auto 0;
             border: 0.01rem solid #ebebeb;
             background-color: #ffffff;
+            border-radius: 0.1rem;
             .content-top{
                 padding: 0.4rem 0.32rem 0.32rem 0.32rem;
                 position: relative;
