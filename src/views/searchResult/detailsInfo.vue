@@ -75,16 +75,15 @@
                   </td>
              </tr>
               <tr >
-                <td class="left-font" >商标状态</td>
+                <td class="left-font-end" >商标状态</td>
                 <td class="right-font">
                       <table>
                           <tr>
                           <td>
                                   <img src="../../assets/images/17.png" class="t-img">
                           </td>
-                          <td>
-<!--                                 <span class="span" >LIVE/APPLICATION/Awaiting Examination</span> -->
-                               <span class="span" >初审公告</span>
+                          <td class="span">
+                               <span class="dds">初审公告</span>
                           </td>
                        </tr>
                       </table>
@@ -207,6 +206,7 @@ export default {
             height: 2.2rem;
             border-bottom: 0.02rem solid #ebebeb;
             background-color: #ffffff;
+            border-radius: 0.1rem;
             .left-content{
                 margin-top: 0.2rem;
                 width: 36%;
@@ -275,17 +275,26 @@ export default {
                 padding-right: 0.4rem;
                 line-height: 0.54rem;
             }
+            .left-font-end{
+                width:42%;
+                text-align: right;
+                vertical-align: middle;
+                padding-right: 0.4rem;
+            }
             .right-font{
                 width: 50%;
                 line-height: 0.54rem;
                 padding-right: 0.2rem;
                 .span{
-                    width: 2rem;
-                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .dds{
+                    width: 2.2rem;
                     padding-left: 0.2rem;
                     overflow: hidden;
                     text-overflow:ellipsis;
                     white-space: nowrap;
+                    display: inline-block;
                 }
                 .t-img{
                     height:1rem;

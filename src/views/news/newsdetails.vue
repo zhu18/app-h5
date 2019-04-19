@@ -30,17 +30,24 @@
                 <p>{{obj.name6}}</p>
             </div>
             <div class="btn-operate">
-                <a class="a-like"><i class="iconfont icon-zan"></i><span>45</span></a>
-                <a class="a-collect"><i class="iconfont icon-coll"></i><span>45</span></a>
+                <a class="a-like" @click="dianz">
+                    <i :class="zan==1 ? 'iconfont icon-zan2 p1' : 'iconfont icon-zan'"></i>
+                <span>45</span></a>
+                <a class="a-collect" @click="fbutton">
+                    <i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'"></i>
+                    <span>45</span></a>
             </div>
         </div>
     </div>
 </template>
 <script>
+    import {Toast} from 'mint-ui';
     export default {
         name: "home-newsdetails",
         data() {
             return {
+                index:0,
+                zan:0,
                 title:'新闻详情',
                 obj:{
                     name0:'在海外习近平听孩子们唱诵过这些中文诗、中文歌',
@@ -58,6 +65,23 @@
         mounted() {
         },
         methods: {
+            dianz(){
+                this.zan=1;
+            },
+             fbutton(){
+                if(this.index==0){
+                    this.index=1
+                    Toast({
+                        message: '收藏成功',
+                    });
+                }
+                else{
+                    this.index=0;
+                    Toast({
+                        message: '取消收藏',
+                    });
+                }
+            },
             goBack(){
                 this.$router.goBack()
             },
@@ -170,14 +194,18 @@
                 }
                 a.a-like{
                     padding:0 0.4rem 0 0.15rem;
-                    i{
-                        font-size: 0.8rem;
+                    .iconfont{
+                        font-size: 0.6rem;
                         margin-top: -2px;
+                        
+                    }
+                    .p1{
+                        color: #2095f2;
                     }
                 }
                 a.a-collect{
                     padding:0 0.4rem 0 0.23rem;
-                    i{
+                    .iconfont{
                         font-size: 0.6rem;
                         margin-top: -2px;
                     }
@@ -193,8 +221,8 @@
         .home-newsdetails .content-all{padding-bottom: 3rem}
         .mintui{font-size: 0.45rem}
     }
-    @media (max-width: 768px) and (min-height: 1024px) {
-        .home-newsdetails .content-all{padding-bottom: 3rem}
+    @media (max-width: 768px) and (min-height: 524px) {
+        .home-newsdetails .content-all{padding-bottom: 1.5rem}
         .mintui{font-size: 0.45rem}
     }
 </style>
