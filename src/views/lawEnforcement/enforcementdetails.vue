@@ -67,7 +67,7 @@ export default {
       isEdit: false,
       title: '执法记录详情',
       obj: {
-        name1: '2019-04-15',
+        name1: '2019-04-15 12:20:20',
         name2: '北京市海淀区丹棱街10号新海大厦办公中心内',
         name3: '金XX商标相关执法'
       },

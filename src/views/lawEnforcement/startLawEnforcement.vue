@@ -270,7 +270,7 @@ export default {
     },
     //分享点击
     shareClick(){
-      Toast('分享成功！')
+      MessageBox("提示", "原生app对接-分享");
     },
     //打印点击
     printClick(){
@@ -278,8 +278,13 @@ export default {
     },
     //收藏点击
     collClick(){
-      this.isColl = false;
-      Toast('收藏成功！')
+      this.isColl = !this.isColl;
+      if(this.isColl){
+        Toast('已取消收藏！')
+      }else {
+        Toast('收藏成功！')
+      }
+      
     }
   },
   components: {}
