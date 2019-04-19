@@ -42,10 +42,10 @@ export default {
 .top-header {
   height: 0.9rem;
   background-color: transparent;
-  box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.2);
   .mint-header {
     height: 0.9rem;
     background: transparent;
+    top: .09rem;
   }
 }
 .start-upload-wrapper {
@@ -65,12 +65,12 @@ export default {
     }
     .start-upload-pic {
         background: url('../../assets/images/lawenforcement/startPic.jpg') no-repeat;
-        background-size: cover;
+        background-size: 100% 100%;
     }
     .start-upload-record {
         top: 1px;
         background: url('../../assets/images/lawenforcement/startRecord.jpg') no-repeat;
-        background-size: cover;
+        background-size: 100% 100%;
     }
 }
 

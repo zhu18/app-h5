@@ -12,29 +12,26 @@
           <div slot="left">
             <mt-button icon="back" @click="goBack"></mt-button>
           </div>
-          <mt-button v-show="handleEdit" slot="right" @click="edit">{{collectEdit?'完成':'编辑'}}</mt-button>
+          <mt-button v-show="handleEdit" slot="right" @click="edit">{{isEdit?'完成':'编辑'}}</mt-button>
         </mt-header>
       </div>
       <div class="start-content-wrapper">
         <div class="start-content">
           <div class="start-item">
             <p class="start-item-title">执法内容</p>
-            <p class="start-item-content">金某某XXXX案件相关执法</p>
+            <p class="start-item-content"><input class="start-input" :disabled="!isEdit" v-model="enforceForm.content"/></p>
           </div>
           <div class="start-item">
             <p class="start-item-title">执法人</p>
-            <div class="start-item-content">
+            <div class="start-item-content start-item-content-list">
               <ul class="lawuser-box clearfix">
-                <li>
-                  <span class="host">
-                  </span>
-                  <i class="iconfont icon-host"></i>
+                <li v-for="(item, index) in enforcerList" :key="index">
+                  <span class="host" v-if="index === 0"></span>
+                  <i class="iconfont icon-host" v-if="index === 0"></i>
+                  <span class="del-btn" v-if="isEdit" @click="delEnforcer(index)"><i class="iconfont icon-del"></i></span>
                   <img src="../../assets/images/lawenforcement/lawUser.jpg" class="img">
                 </li>
-                <li>
-                  <img src="../../assets/images/lawenforcement/lawUser.jpg" class="img">
-                </li>
-                <li class="add-lawuser">
+                <li class="add-lawuser" v-if="isEdit" @click="addEnforcer">
                   <i class="iconfont icon-add"></i>
                   <p>添加执法人</p>
                 </li>
@@ -43,39 +40,37 @@
           </div>
           <div class="start-item">
             <p class="start-item-title">时间</p>
-            <p class="start-item-content">2019-04-05</p>
+            <p class="start-item-content"><input class="start-input" :disabled="!isEdit" v-model="enforceForm.date"/></p>
           </div>
           <div class="start-item">
             <p class="start-item-title">执法地点</p>
-            <p class="start-item-content">北京市海淀区丹棱街10号新海大厦办公中心内</p>
+            <p class="start-item-content"><input class="start-input" :disabled="!isEdit" v-model="enforceForm.place"/></p>
           </div>
           <div class="start-item">
             <p class="start-item-title">现场取证</p>
-            <ul class="evidence-box clearfix">
-              <li>
-                <img src="../../assets/images/lawenforcement/evidence.jpg" class="img">
-              </li>
-              <li>
-                <img src="../../assets/images/lawenforcement/evidence2.jpg" class="img">
-              </li>
-              <li>
-                <img src="../../assets/images/lawenforcement/evidence3.jpg" class="img">
-              </li>
-              <li class="add-evidence">
-                <i class="iconfont icon-add"></i>
-                <p>上传图片</p>
-              </li>
-            </ul>
+            <div class="start-item-content start-item-content-list">
+              <ul class="evidence-box clearfix">
+                <li v-for="(item, index) in evidenceList" :key="index">
+                  <span class="del-btn" v-if="isEdit" @click="delevidence(index)"><i class="iconfont icon-del"></i></span>
+                  <img :src="item.imgPath" class="img">
+                </li>
+                <li class="add-evidence" @click="uploadPicClick" v-if="isEdit">
+                  <i class="iconfont icon-add"></i>
+                  <p>上传图片</p>
+                </li>
+              </ul>
+            </div>
           </div>
+          <div class="start-save-btn" @click="saveClick">保存执法记录</div>
           <div class="start-bottom">
-            <span>
+            <span @click="shareClick">
               <i class="iconfont icon-share"></i>
             </span>
-            <span>
+            <span @click="printClick">
               <i class="iconfont icon-print1"></i>
             </span>
-            <span>
-              <i class="iconfont icon-coll"></i>
+            <span class="collBtn" @click="collClick">
+              <i :class="isColl? 'iconfont icon-coll': 'iconfont icon-coll2'"></i>
             </span>
           </div>
         </div>
@@ -88,7 +83,7 @@
       <ul class="start-hidden-btn">
           <li  class="start-hidden-li">
           <span class="start-add-btn">
-            <i class="iconfont icon-txtquery"></i>
+            <i class="iconfont icon-txtquery" @click="txtqueryClick"></i>
           </span>
         </li>
         
@@ -108,18 +103,34 @@
 </template>
 <script>
 import anime from "animejs";
-import {  MessageBox } from "mint-ui";
+import {  MessageBox, Toast } from "mint-ui";
+import img1 from '../../assets/images/lawenforcement/evidence.jpg'
+import img2 from '../../assets/images/lawenforcement/evidence2.jpg'
+import img3 from '../../assets/images/lawenforcement/evidence3.jpg'
 export default {
   name: "startLawEnforcement",
   data() {
     return {
       title: "执法(8620)",
       handleEdit: true,
-      collectEdit: false,
-      btnClickFlag: false
+      isEdit: false,
+      btnClickFlag: false,
+      enforcerList: [1,2],
+      evidenceList: [
+        {imgPath: img1},
+        {imgPath: img2},
+        {imgPath: img3}
+      ],
+      enforceForm:{
+        content: '金XX商标相关执法',
+        date: '2019-04-05 12:20:20',
+        place: '北京市海淀区丹棱街10号新海大厦办公中心内北京市海淀区丹棱街10号新海大厦办公中心内  '
+      },
+      isColl: true
     };
   },
   mounted() {
+      document.body.addEventListener('touchstart', function() {}, false);
       this.$route.params.code && (this.title = "执法("+this.$route.params.code+")")
 
       anime.set(".start-hidden-li", {
@@ -132,7 +143,32 @@ export default {
     goBack() {
       this.$router.goBack();
     },
-    edit() {},
+    //编辑
+    edit() {
+      
+      let obj = {...this.enforceForm};
+      if(this.isEdit){
+        if(!(obj.content && obj.date && obj.place && this.enforcerList.length && this.evidenceList.length)){
+          if(!obj.content){
+            Toast('请输入执法内容！');
+          }else if(!obj.date){
+            Toast('请输入执法时间！');
+          }else if(!obj.place){
+            Toast('请输入执法地点！');
+          }else if(this.enforcerList.length === 0){
+            Toast('请选择执法人！');
+          }else if(this.evidenceList.length === 0){
+            Toast('请选择现场取证照片！');
+          }
+        }else {
+          this.isEdit = !this.isEdit;
+        }
+        
+      }else {
+        this.isEdit = !this.isEdit;
+      }
+      
+    },
     //右下角加号点击
     btnClick() {
       this.btnClickFlag = !this.btnClickFlag;
@@ -168,7 +204,7 @@ export default {
     },
     // 图片按钮点击
     picBtnClick() {
-        MessageBox("提示", "原生app对接，现在为模拟状态");
+        MessageBox("提示", "原生app对接-打开相机");
       this.$router.push({
         name: "startLawEnforcementUpload",
         params: { type: "pic" }
@@ -176,7 +212,7 @@ export default {
     },
     // 图片按钮点击
     recordBtnClick() {
-        MessageBox("提示", "原生app对接，现在为模拟状态");
+        MessageBox("提示", "原生app对接-打开录音");
       this.$router.push({
         name: "startLawEnforcementUpload",
         params: { type: "record" }
@@ -201,6 +237,49 @@ export default {
       }
       
       
+    },
+    //点击搜索按钮
+    txtqueryClick(){
+      this.$router.push({name: 'trademarkinquiry'})
+    },
+    //添加取证
+    uploadPicClick(){
+      MessageBox("提示", "原生app对接-打开系统相册");
+    },
+    //添加执法人
+    addEnforcer(){
+      this.$router.push({name: 'enforcerList'})
+    },
+    //保存执法记录
+    saveClick(){
+      let instance = Toast('已生成');
+      let _this = this;
+      setTimeout(() => {
+        instance.close();
+        _this.$router.push({name: 'lelog'})
+      }, 2000);
+      
+    },
+    //删除执法人照片
+    delEnforcer(index){
+      this.enforcerList.splice(index,1);
+    },
+    //删除现场取证照片
+    delevidence(index){
+      this.evidenceList.splice(index, 1);
+    },
+    //分享点击
+    shareClick(){
+      Toast('分享成功！')
+    },
+    //打印点击
+    printClick(){
+      MessageBox("提示", "原生app对接-打印");
+    },
+    //收藏点击
+    collClick(){
+      this.isColl = false;
+      Toast('收藏成功！')
     }
   },
   components: {}
@@ -250,20 +329,24 @@ export default {
   overflow-y: auto;
   .start-content {
     margin: 0.4rem 0;
-    padding: 0.32rem;
+    padding: 0.32rem 0.06rem 0.32rem 0.32rem;
     border-radius: 0.1rem;
     background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     .start-item {
-      margin-bottom: 0.36rem;
+      margin-bottom: 0.2rem;
       .start-item-title {
         font-size: 0.24rem;
         color: #5b5b69;
       }
       .start-item-content {
         margin-top: 0.16rem;
+        padding-right: .26rem;
         font-size: 0.28rem;
         color: #1e2128;
+      }
+      .start-item-content-list {
+        padding: 0;
       }
     }
   }
@@ -331,6 +414,20 @@ export default {
       font-size: 0.8rem;
       color: rgba(191, 191, 191, 0.8);
     }
+    &:active{
+      border-color: #2095f2;
+      i{
+        color: #2095f2;
+      }
+    }
+  }
+  span.collBtn{
+    &:active{
+      border-color: #fea71a;
+      i{
+        color: #fea71a;
+      }
+    }
   }
 }
 //执法人
@@ -342,9 +439,9 @@ export default {
     height: 1.9rem;
     float: left;
     margin: 0.14rem 0.26rem 0 0;
-    overflow: hidden;
     border-radius: 0.1rem;
     background: #f6f6f6;
+    
     img.img {
       width: 1.64rem;
       height: 1.64rem;
@@ -370,9 +467,6 @@ export default {
         color: #2095f2;
         font-size: 0.5rem;
       }
-    &:nth-child(3n) {
-      margin-right: 0;
-    }
   }
   li.add-lawuser {
     background: #f6f6f6;
@@ -396,18 +490,16 @@ export default {
 .evidence-box {
   margin: 0 0 0.4rem 0;
   li {
+    position: relative;
     width: 2.98rem;
     height: 1.68rem;
     float: left;
     margin: 0.26rem 0.26rem 0 0;
-    overflow: hidden;
     border-radius: 0.1rem;
     img.img {
       width: 2.98rem;
       height: 1.68rem;
-    }
-    &:nth-child(even) {
-      margin-right: 0;
+      border-radius: 0.1rem;
     }
   }
   /*现场取证-上传图片*/
@@ -428,6 +520,46 @@ export default {
       color: #5b5b69;
     }
   }
+}
+.start-save-btn {
+  height: .8rem;
+  margin-right: 0.26rem;
+  border: 1px solid #dfdfdf;
+  border-radius: .1rem;
+  color: #2095f2;
+  font-size: .28rem;
+  text-align: center;
+  line-height: .8rem;
+}
+.del-btn {
+  position: absolute;
+  right: -.16rem;
+  top: -.16rem;
+  width: .4rem;
+  height: .4rem;
+  border-radius: 50%;
+  background: rgba(0,0,0,.4);
+  text-align: center;
+  i.icon-del{
+    color: #fff;
+    font-size: .36rem;
+    line-height: .4rem;
+    font-weight: 700;
+  }
+}
+.start-input {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 0 .16rem 0;
+  border: none;
+  border-bottom: .01rem solid rgba(191,191,191,.8);
+}
+.start-input:disabled {
+  color: #1e2128;
+  border: none;
+  border-bottom: .01rem solid rgba(0,0,0,0);
 }
 </style>
 

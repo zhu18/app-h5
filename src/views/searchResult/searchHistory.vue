@@ -81,7 +81,7 @@
             </div>
           </div>
         </div>
-
+        <footer :class="[isEdit?'show':'']" @click="del">删除</footer>
   </div>
 </template>
 <script>
@@ -266,7 +266,7 @@ export default {
       }
     }
     .content-wrapper {
-        height: calc(100% - 1.9rem - 1.28rem);
+        height: calc(100% - 1.9rem);
         overflow-y: auto;
       .content-wrapper1 {
       }
@@ -376,6 +376,25 @@ export default {
     .tips{
         margin:0 0.3rem;
         display: inline-block;
+    }
+}
+footer{
+    position:fixed;
+    bottom:-1rem;
+    z-index:1000;
+    width:100%;
+    height:1rem;
+    line-height:1rem;
+    text-align:center;
+    font-size:.32rem;
+    color:#5b5b69;
+    background:#fff;
+    border-top:1px solid rgba(4, 0, 0, 0.1);
+    box-shadow:0 1px 10px 3px rgba(4, 0, 0, 0.1);
+    cursor:pointer;
+    transition:bottom .3s;
+    &.show{
+        bottom:0;
     }
 }
 

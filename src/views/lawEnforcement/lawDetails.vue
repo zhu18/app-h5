@@ -112,7 +112,6 @@
             width: 90%;
             background-color: #ffffff;
             margin: 0.4rem auto;
-            border-radius: 0.1rem;
             .title{
                 height: 0.9rem;
                 line-height: 0.9rem;

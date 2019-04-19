@@ -84,12 +84,16 @@
             padding:0 0.32rem;
         }
         .top-header{
-            height: 1.8rem;
-            background: #2095f2;
+            height: 4.5rem;
+            background:url(../../assets/images/zfbg.png) no-repeat center center #2095f2;
+            background-size: cover;
             box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.2);
+            .title{
+                margin-bottom:2.5rem;
+            }
         }
         .list{
-            height:calc(100vh - 1.8rem - 1.28rem);
+            height:calc(100% - 4.5rem);
             overflow-y: auto;
             padding: 0.32rem;
             box-sizing: border-box;
@@ -97,6 +101,7 @@
             flex-direction:column;
             .item{
                 height:1.8rem;
+                // flex: 1;
                 border-radius: 0.1rem;
                 background: #fff;
                 color: #000;
