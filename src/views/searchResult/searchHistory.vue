@@ -117,6 +117,8 @@ export default {
   created() {
   },
   mounted() {
+    if(this.$route.params.index)//1文字|2识图|3图片
+      this.index = this.$route.params.index
   },
   methods: {
       //点击导航
@@ -130,7 +132,7 @@ export default {
         }
       },
       goBack(){
-          this.$router.go(-1)
+          this.$router.goBack()
       },
       //全部删除
       deleteall(){
