@@ -148,13 +148,17 @@ export default {
       
       let obj = {...this.enforceForm};
       if(this.isEdit){
-        if(!(obj.content && obj.date && obj.place)){
+        if(!(obj.content && obj.date && obj.place && this.enforcerList.length && this.evidenceList.length)){
           if(!obj.content){
             Toast('请输入执法内容！');
           }else if(!obj.date){
             Toast('请输入执法时间！');
           }else if(!obj.place){
             Toast('请输入执法地点！');
+          }else if(this.enforcerList.length === 0){
+            Toast('请选择执法人！');
+          }else if(this.evidenceList.length === 0){
+            Toast('请选择现场取证照片！');
           }
         }else {
           this.isEdit = !this.isEdit;
@@ -419,7 +423,10 @@ export default {
   }
   span.collBtn{
     &:active{
-
+      border-color: #fea71a;
+      i{
+        color: #fea71a;
+      }
     }
   }
 }
@@ -542,12 +549,12 @@ export default {
 }
 .start-input {
   width: 100%;
-  // overflow: hidden;
-  // white-space: nowrap;
-  // text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   padding: 0 0 .16rem 0;
   border: none;
-  border-bottom: .01rem solid #bfbfbf;
+  border-bottom: .01rem solid rgba(191,191,191,.8);
 }
 .start-input:disabled {
   color: #1e2128;

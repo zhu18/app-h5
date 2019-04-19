@@ -45,6 +45,7 @@ export default {
   .mint-header {
     height: 0.9rem;
     background: transparent;
+    top: .09rem;
   }
 }
 .start-upload-wrapper {
