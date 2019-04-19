@@ -108,7 +108,7 @@
   </div>
 </template>
 <script>
-import {Toast} from 'mint-ui';
+import {Toast,MessageBox} from 'mint-ui';
 export default {
   name: "home-detailsinfo",
   data() {
@@ -136,9 +136,7 @@ export default {
           this.$router.goBack()
       },
       pageshare(){
-          Toast({
-              message: '原生app对接-调用原生分享功能',
-          });
+          MessageBox('提示','原生app对接-调用原生分享功能');
       },
       iconclick(){
           if(this.index==0){
@@ -159,13 +157,13 @@ export default {
       },
       //打印按钮方法
       print(){
-            Toast({
-                message: '原生app对接-调用原生分享功能',
-            });
+            MessageBox('提示','原生app对接-打印');
       },
       //添加我的取证按钮方法
       addqz(){
-
+            Toast({
+                  message: '已添加到我的取证',
+            });
       },
       //点击查看按钮方法
       viewClick(){
@@ -269,7 +267,8 @@ export default {
             padding-top: 0.2rem;
             padding-bottom: 0.2rem;
             background-color: #ffffff;
-            border-radius: 0.1rem;
+            border-radius: .1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,.1);
             .left-font{
                 width:42%;
                 text-align: right;
@@ -321,7 +320,7 @@ export default {
         width: 100%;
         height: 1rem;
         line-height: 1rem;
-        color: black;
+        color: #5b5b68;
         background-color: #ffffff;
         .delete{
             display: inline-block;
@@ -333,7 +332,6 @@ export default {
                 display: inline-block;
                 height: 0.32rem;
                 line-height: 0.32rem;
-                color: #2095f2;
                 border-right: 0.02rem solid #bfbfbf;
             }
         }
@@ -342,11 +340,9 @@ export default {
             width: 50%;
             text-align: center;
             line-height: 1rem;
-            color: #2095f2;
             .iconfont{
                 vertical-align: middle;
                 font-size: 0.74rem;
-                color: #2095f2;
             }
         }
     }

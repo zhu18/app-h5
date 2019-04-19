@@ -6,13 +6,13 @@
 -->
 <template>
     <div class="footer">
-        <div class="item border" @click="print"><i class="iconfont icon-print1"></i>打印</div>
+        <div class="item " @click="print"><i class="iconfont icon-print1"></i>打印</div>
         <div class="item border" @click="pageshare"><i class="iconfont icon-share"></i>分享</div>
-        <div class="item" @click="iconclick"><i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'"></i>收藏</div>
+        <div class="item border" @click="iconclick"><i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'"></i>收藏</div>
     </div>
 </template>
 <script>
-import {Toast} from 'mint-ui';
+import {Toast,MessageBox} from 'mint-ui';
       export default {
         name: "lawsRegulationsFooter",
         data() {
@@ -23,9 +23,7 @@ import {Toast} from 'mint-ui';
         },
         methods: {
             pageshare(){
-                Toast({
-                    message: '原生app对接-调用原生分享功能',
-                });
+                MessageBox('提示','原生app对接-调用原生分享功能')
             },
             iconclick(){
                 if(this.index==0){
@@ -43,9 +41,7 @@ import {Toast} from 'mint-ui';
             },
             //打印按钮方法
             print(){
-                Toast({
-                    message: '原生app对接-调用原生打印功能',
-                });
+                MessageBox('提示','原生app对接-调用原生打印功能');
             },
         },
         components: {
@@ -78,7 +74,17 @@ import {Toast} from 'mint-ui';
            }
        }
        .border{
-           border-right: 1px solid #bfbfbf;
+           position: relative;
+           &::before{
+               content: '';
+               position: absolute;
+               top: .33rem;
+               left: 0;
+               display:block;
+               height: .32rem;
+               background:#bfbfbf;
+               width: 0.02rem;
+           }
        }
        
     }

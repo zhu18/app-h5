@@ -35,7 +35,7 @@
                 <span>45</span></a>
                 <a class="a-collect" @click="fbutton">
                     <i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'"></i>
-                    <span>45</span></a>
+                    <span>18</span></a>
             </div>
         </div>
     </div>
@@ -66,7 +66,18 @@
         },
         methods: {
             dianz(){
-                this.zan=1;
+                if(this.zan==0){
+                    this.zan=1
+                    Toast({
+                        message: '点赞成功',
+                    });
+                }
+                else{
+                    this.zan=0;
+                    Toast({
+                        message: '取消点赞',
+                    });
+                }
             },
              fbutton(){
                 if(this.index==0){
@@ -208,6 +219,9 @@
                     .iconfont{
                         font-size: 0.6rem;
                         margin-top: -2px;
+                    }
+                    .icon-collection{
+                        color: #2095f2;
                     }
                 }
                 a:last-child{
