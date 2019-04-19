@@ -6,9 +6,9 @@
 -->
 <template>
     <div class="footer">
-        <div class="item border" @click="print"><i class="iconfont icon-print1"></i>打印</div>
+        <div class="item " @click="print"><i class="iconfont icon-print1"></i>打印</div>
         <div class="item border" @click="pageshare"><i class="iconfont icon-share"></i>分享</div>
-        <div class="item" @click="iconclick"><i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'"></i>收藏</div>
+        <div class="item border" @click="iconclick"><i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'"></i>收藏</div>
     </div>
 </template>
 <script>
@@ -74,7 +74,17 @@ import {Toast,MessageBox} from 'mint-ui';
            }
        }
        .border{
-           border-right: 1px solid #bfbfbf;
+           position: relative;
+           &::before{
+               content: '';
+               position: absolute;
+               top: .33rem;
+               left: 0;
+               display:block;
+               height: .32rem;
+               background:#bfbfbf;
+               width: 0.02rem;
+           }
        }
        
     }
