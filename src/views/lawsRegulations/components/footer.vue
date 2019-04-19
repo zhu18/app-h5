@@ -12,7 +12,7 @@
     </div>
 </template>
 <script>
-import {Toast} from 'mint-ui';
+import {Toast,MessageBox} from 'mint-ui';
       export default {
         name: "lawsRegulationsFooter",
         data() {
@@ -23,9 +23,7 @@ import {Toast} from 'mint-ui';
         },
         methods: {
             pageshare(){
-                Toast({
-                    message: '原生app对接-调用原生分享功能',
-                });
+                MessageBox('提示','原生app对接-调用原生分享功能')
             },
             iconclick(){
                 if(this.index==0){
@@ -43,9 +41,7 @@ import {Toast} from 'mint-ui';
             },
             //打印按钮方法
             print(){
-                Toast({
-                    message: '原生app对接-调用原生打印功能',
-                });
+                MessageBox('提示','原生app对接-调用原生打印功能');
             },
         },
         components: {
