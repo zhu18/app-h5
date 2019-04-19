@@ -161,7 +161,6 @@ export default {
       this.lampState++
       if(this.lampState>2)
         this.lampState=0;
-     console.log(this.lampState)
     },
     hideTip () {
       this.$refs.imgtip && this.$refs.imgtip.remove();
