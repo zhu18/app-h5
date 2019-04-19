@@ -159,7 +159,9 @@ export default {
       },
       //打印按钮方法
       print(){
-
+            Toast({
+                message: '原生app对接-调用原生分享功能',
+            });
       },
       //添加我的取证按钮方法
       addqz(){
