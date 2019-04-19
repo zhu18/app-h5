@@ -75,16 +75,15 @@
                   </td>
              </tr>
               <tr >
-                <td class="left-font" >商标状态</td>
+                <td class="left-font-end" >商标状态</td>
                 <td class="right-font">
                       <table>
                           <tr>
                           <td>
                                   <img src="../../assets/images/17.png" class="t-img">
                           </td>
-                          <td>
-                                <span class="span" >LIVE/APPLICATION/Awaiting Examination</span>
-                               <span class="span" >商标状态说明</span>
+                          <td class="span">
+                               <span class="dds">初审公告</span>
                           </td>
                        </tr>
                       </table>
@@ -109,7 +108,7 @@
   </div>
 </template>
 <script>
-import {Toast} from 'mint-ui';
+import {Toast,MessageBox} from 'mint-ui';
 export default {
   name: "home-detailsinfo",
   data() {
@@ -137,9 +136,7 @@ export default {
           this.$router.goBack()
       },
       pageshare(){
-          Toast({
-              message: '原生app对接-调用原生分享功能',
-          });
+          MessageBox('提示','原生app对接-调用原生分享功能');
       },
       iconclick(){
           if(this.index==0){
@@ -160,11 +157,13 @@ export default {
       },
       //打印按钮方法
       print(){
-
+            MessageBox('提示','原生app对接-打印');
       },
       //添加我的取证按钮方法
       addqz(){
-
+            Toast({
+                  message: '已添加到我的取证',
+            });
       },
       //点击查看按钮方法
       viewClick(){
@@ -207,6 +206,7 @@ export default {
             height: 2.2rem;
             border-bottom: 0.02rem solid #ebebeb;
             background-color: #ffffff;
+            border-radius: 0.1rem;
             .left-content{
                 margin-top: 0.2rem;
                 width: 36%;
@@ -267,23 +267,34 @@ export default {
             padding-top: 0.2rem;
             padding-bottom: 0.2rem;
             background-color: #ffffff;
+            border-radius: .1rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,.1);
             .left-font{
                 width:42%;
                 text-align: right;
                 padding-right: 0.4rem;
                 line-height: 0.54rem;
             }
+            .left-font-end{
+                width:42%;
+                text-align: right;
+                vertical-align: middle;
+                padding-right: 0.4rem;
+            }
             .right-font{
                 width: 50%;
                 line-height: 0.54rem;
                 padding-right: 0.2rem;
                 .span{
-                    width: 2rem;
-                    display: inline-block;
+                    vertical-align: middle;
+                }
+                .dds{
+                    width: 2.2rem;
                     padding-left: 0.2rem;
                     overflow: hidden;
                     text-overflow:ellipsis;
                     white-space: nowrap;
+                    display: inline-block;
                 }
                 .t-img{
                     height:1rem;
@@ -309,7 +320,7 @@ export default {
         width: 100%;
         height: 1rem;
         line-height: 1rem;
-        color: black;
+        color: #5b5b68;
         background-color: #ffffff;
         .delete{
             display: inline-block;
@@ -329,11 +340,9 @@ export default {
             width: 50%;
             text-align: center;
             line-height: 1rem;
-            color: #2095f2;
             .iconfont{
                 vertical-align: middle;
                 font-size: 0.74rem;
-                color: #2095f2;
             }
         }
     }

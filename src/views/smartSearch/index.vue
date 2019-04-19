@@ -13,8 +13,15 @@
         <div slot="left">
           <mt-button icon="back"
                      @click="back"></mt-button>
+          
         </div>
+        
         <!-- 右侧-帮助、历史、打开相册 -->
+        <mt-button class="lamp" slot="right" @click="setLamp()">
+              <i class="iconfont icon-lampclose" v-show="lampState===0"></i>
+              <i class="iconfont icon-lamp" v-show="lampState===1"></i>
+              <i class="iconfont icon-lampauto" v-show="lampState===2"></i>
+        </mt-button>
         <mt-button slot="right"
                    @click="openHelp()">
           <i class="iconfont icon-help"></i>
@@ -122,6 +129,7 @@ export default {
       height: 210,
       clientWidth: 0,
       language: 'ch',
+      lampState:1,//闪光灯：0关闭|1开启|2自动
       // img
     };
   },
@@ -149,6 +157,11 @@ export default {
     back () {
       this.$router.goBack();
     },
+    setLamp(){
+      this.lampState++
+      if(this.lampState>2)
+        this.lampState=0;
+    },
     hideTip () {
       this.$refs.imgtip && this.$refs.imgtip.remove();
     },
@@ -156,7 +169,7 @@ export default {
       MessageBox("提示", "帮助待开发...");
     },
     openHistory () {
-      this.$router.push("searchhistory");
+      this.$router.push({name:"searchhistory",params:{index:2}});
     },
     openPic () {
       MessageBox("提示", "原生app对接-打开系统相册");
@@ -219,6 +232,9 @@ export default {
   .mint-header {
     height: 0.9rem;
     background: rgba(0, 0, 0, 0);
+    .lamp{
+      margin-right: 3.5rem;
+    }
     .iconfont {
       font-size: 0.8rem;
       color: #fff;

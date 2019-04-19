@@ -6,22 +6,43 @@
 -->
 <template>
     <div class="footer">
-        <div class="item border">打印</div>
-        <div class="item border">分享</div>
-        <div class="item">收藏</div>
+        <div class="item border" @click="print"><i class="iconfont icon-print1"></i>打印</div>
+        <div class="item border" @click="pageshare"><i class="iconfont icon-share"></i>分享</div>
+        <div class="item" @click="iconclick"><i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'"></i>收藏</div>
     </div>
 </template>
 <script>
+import {Toast,MessageBox} from 'mint-ui';
       export default {
         name: "lawsRegulationsFooter",
         data() {
-            return {};
+            return {index:0};
         },
         created() {},
         mounted() {
         },
         methods: {
-
+            pageshare(){
+                MessageBox('提示','原生app对接-调用原生分享功能')
+            },
+            iconclick(){
+                if(this.index==0){
+                    this.index=1
+                    Toast({
+                        message: '收藏成功',
+                    });
+                }
+                else{
+                    this.index=0;
+                    Toast({
+                        message: '取消收藏',
+                    });
+                }
+            },
+            //打印按钮方法
+            print(){
+                MessageBox('提示','原生app对接-调用原生打印功能');
+            },
         },
         components: {
         }
@@ -44,6 +65,13 @@
        .item{
            flex:1 0 auto;
            text-align: center;
+           cursor:pointer;
+           height:.97rem;
+           line-height:.97rem;
+           i{
+               font-size: .6rem;
+               vertical-align:middle;
+           }
        }
        .border{
            border-right: 1px solid #bfbfbf;

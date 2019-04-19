@@ -20,6 +20,7 @@
 export default {
   name: "home-hisList",
     props: {
+        gotoPath:{default:'/searchresult'},
         datalist: {
             type: Array,
             default: () => []
@@ -37,7 +38,8 @@ export default {
   methods: {
       //查询按钮
       searchList(){
-          this.$router.push('/searchresult')
+          this.$emit('hisclick');
+          this.$router.push(this.gotoPath)
       },
       del(index){
           this.datalist.splice(index,1);

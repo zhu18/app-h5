@@ -222,7 +222,7 @@ export default {
         // padding-bottom: 0.9rem;
         box-sizing: border-box;
         .list-item{
-            padding: 0.32rem 0;
+            padding: 0.24rem 0;
             display: flex;
             // background: #fff;
             // box-shadow: 0 1px 3px rgba(0,0,0,.1);
@@ -250,21 +250,14 @@ export default {
                 justify-content: space-between;
                 padding:0.32rem 0;
                 span{
-                    width: 31%;
+                    width: 33%;
                     display: inline-block;
                     // border:1px solid rgba(0,0,0,.1);/
                 }
                 img{
                   border-radius: 0.1rem;
-                    width: 2rem;
-                    height: 1.2rem;
-                    object-fit: cover;
-                    // border:1px solid rgba(0,0,0,.1);
-                }
-                img{
-                  border-radius: 0.1rem;
-                   width: 2rem;
-                   height: 1.2rem;
+                   width: 100%;
+                //    height: 1.2rem;
                     object-fit: cover;
                   object-fit: cover;
                 }
@@ -276,7 +269,7 @@ export default {
                 min-height: 1.2rem;
                 flex: 1;
                 h4{
-                    font-size: 0.28rem;
+                    font-size: 0.34rem;
                     color: #1e2128;
                     font-weight: normal;
                     white-space: wrap;
@@ -290,9 +283,9 @@ export default {
                     align-content: center;
                     var{
                         font-size: 0.2rem;
-                        color: #fea71a;
+                        // color: #fea71a;
                         font-style: normal;
-                        border: 1px solid #fea71a;
+                        // border: 1px solid #fea71a;
                         padding: 0.1rem 0.2rem;
                         border-radius: 0.2rem;
                         margin-left:0.2rem;

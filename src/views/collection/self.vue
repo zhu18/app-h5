@@ -7,7 +7,7 @@
 <template>
     <div class="container">
         <header>
-            <mt-header fixed title="我的收藏">
+            <mt-header fixed title="执法收藏">
                 <div slot="left" >
                     <mt-button icon="back" @click='goBack'></mt-button>
                 </div>

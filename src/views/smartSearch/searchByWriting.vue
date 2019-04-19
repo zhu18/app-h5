@@ -11,7 +11,7 @@
 
       
         <div class="content-item">
-          <hisList :datalist="list"></hisList>
+          <hisList :datalist="list" goto-path='/smartsearch' @hisclick="searchList"></hisList>
 
         </div>
   </div>
@@ -35,8 +35,7 @@ export default {
   methods: {
       //查询按钮
       searchList(txt){
-          console.log(txt)
-          this.$router.push('/searchresult')
+           this.$emit('callback',txt)
       },
   },
     components:{

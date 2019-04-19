@@ -44,7 +44,8 @@
     <LogoList v-show="status==='list'"
               :scan-type="scanType" />
     <!-- 查询面板 -->
-    <SearchByWriting v-show="status==='query'" />
+    <SearchByWriting v-show="status==='query'" 
+                     @callback="queryCallback" />
     <!-- 排序面板 -->
     <Sort v-show="status==='sort'"
           @callback="sortCallback" />
@@ -120,6 +121,10 @@ export default {
       this.setStatus('query')
       this.reset()
     },
+    queryCallback(){
+      this.setStatus('list')
+      this.reset()
+    },
     sort () {
       this.setStatus('sort')
       this.reset()
@@ -127,6 +132,7 @@ export default {
     sortCallback (params) {
       this.list()
     },
+    
     setStatus (status) {
       //二次点击回到列表
       if (status === this.status)
