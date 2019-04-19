@@ -83,7 +83,7 @@
                                   <img src="../../assets/images/17.png" class="t-img">
                           </td>
                           <td class="span">
-                               <span class="dds">初审公告初审公告商标状态</span>
+                               <span class="dds">初审公告</span>
                           </td>
                        </tr>
                       </table>
