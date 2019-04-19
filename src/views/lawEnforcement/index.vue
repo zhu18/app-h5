@@ -28,7 +28,7 @@
             </router-link>
             <router-link tag="div"  to="/selfCollection" class="item">
                 <span class="icon icon4 iconfont icon-collection"></span>
-                <span class="title">我的收藏</span>
+                <span class="title">执法收藏</span>
                 <span class="arrow">
                      <span class="iconfont icon-back"></span>
                 </span>

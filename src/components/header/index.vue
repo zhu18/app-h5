@@ -10,7 +10,7 @@
         <div slot="left"  >
             <mt-button icon="back" @click='goBack' v-if="$route.path!='/home'"></mt-button>
         </div>
-        <mt-button  icon="more" slot="right"></mt-button>
+        <!-- <mt-button  icon="more" slot="right"></mt-button> -->
      </mt-header>
   </div>
 </template>
