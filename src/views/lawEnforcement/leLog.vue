@@ -9,7 +9,7 @@
         <div class="top-header">
             <Search/>
         </div>
-        <div class="total">共{{list.length}}条执法案件记录</div>
+        <div class="total"><span class='area'>{{areaName}}</span>共{{areaCount}}条执法案件记录</div>
         <div class="list"
              v-infinite-scroll="loadMore"
              infinite-scroll-disabled="loading"
@@ -48,6 +48,8 @@
         name: "law-enforcement",
         data() {
             return {
+                areaName:'',
+                areaCount:118,
                 img:img,
                 current:0,
                 loading:false,
@@ -56,6 +58,10 @@
         },
         created() {},
         mounted() {
+            if(this.$route.params.areaName)
+                this.areaName=this.$route.params.areaName
+            if(this.$route.params.areaCount)
+                this.areaCount=this.$route.params.areaCount
         },
         methods: {
             tab(index){
@@ -104,6 +110,10 @@
             font-size: 0.24rem;
             padding: 0 0.32rem;
             box-sizing: border-box;
+            .area{
+                font-size:.36rem;
+                margin-right: .2rem;
+            }
         }
         .list{
             height:calc(100% - 1.8rem - 1.28rem);

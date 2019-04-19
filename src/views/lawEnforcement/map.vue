@@ -47,11 +47,11 @@ export default {
     map.add(marker4);
     map.add(marker5);
 
-    marker1.on("click", this.showInfo);
-    marker2.on("click", this.showInfo);
-    marker3.on("click", this.showInfo);
-    marker4.on("click", this.showInfo);
-    marker5.on("click", this.showInfo);
+    marker1.on("click", ()=>{this.showInfo('朝阳区',328)});
+    marker2.on("click", ()=>{this.showInfo('海淀区',123)});
+    marker3.on("click", ()=>{this.showInfo('东城区',135)});
+    marker4.on("click", ()=>{this.showInfo('西城区',233)});
+    marker5.on("click", ()=>{this.showInfo('丰台区',98)});
 
     document.addEventListener("touchstart", function(event) {
       if (event.touches.length > 1) {
@@ -60,8 +60,8 @@ export default {
     });
   },
   methods: {
-    showInfo() {
-      this.$router.push("enforcementdetails");
+    showInfo(areaName,areaCount) {
+      this.$router.push({name:"lelog",params:{areaName,areaCount}});
     }
   },
   components: {
@@ -150,5 +150,8 @@ function getContent(nmb, txt) {
   width: 100%;
   touch-action: none;
   overflow: hidden;
+}
+.icon-map{
+  opacity: .6;
 }
 </style>

@@ -8,11 +8,12 @@
         </form>
     </div>
     <span class="iconfont icon-date" @click="date()"></span>
-    <span class="iconfont icon-map" @click="map()"></span>
+    <span class="iconfont icon-map" :class="isMap() && 'disabled'" @click="map()"></span>
   </div>
 </template>
 
 <script>
+import { debug } from 'util';
 export default {
     data(){
         return{
@@ -32,6 +33,10 @@ export default {
          map(){
              this.$router.push('/map')
          },
+         isMap(){
+             console.log(this.$route)
+             return this.$route.path=='/map'
+         },
          searchList(){
 
          }
@@ -49,6 +54,9 @@ export default {
         display: flex;
         align-items: center;
         align-content: center;
+        .disabled{
+            opacity: .6;
+        }
         .iconfont{
             display: block;
             width:0.72rem;
