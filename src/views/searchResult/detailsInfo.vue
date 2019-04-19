@@ -83,8 +83,8 @@
                                   <img src="../../assets/images/17.png" class="t-img">
                           </td>
                           <td>
-                                <span class="span" >LIVE/APPLICATION/Awaiting Examination</span>
-                               <span class="span" >商标状态说明</span>
+<!--                                 <span class="span" >LIVE/APPLICATION/Awaiting Examination</span> -->
+                               <span class="span" >初审公告</span>
                           </td>
                        </tr>
                       </table>
@@ -321,6 +321,7 @@ export default {
                 display: inline-block;
                 height: 0.32rem;
                 line-height: 0.32rem;
+                color: #2095f2;
                 border-right: 0.02rem solid #bfbfbf;
             }
         }
