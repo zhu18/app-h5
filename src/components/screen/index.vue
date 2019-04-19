@@ -105,28 +105,28 @@ export default {
                     background: #d2eafc;
                     color: #46a2f3;
                 }
-                &.active::before{
-                    position: absolute;
-                    content: attr(data-content);
-                    width: 0.3rem;
-                    height: 0.3rem;
-                    color:#fff;
-                    font-size: 0.3rem;
-                    transform: rotate(45deg);
-                    right: -0.2rem;
-                    bottom: 0.2rem;
-                    z-index: 10;
-                }
-                &.active:after{
-                    position: absolute;
-                    content:'';
-                    width: 0.6rem;
-                    height: 0.6rem;
-                    background: #2095f2;
-                    right: -0.3rem;
-                    bottom:-0.3rem;
-                    transform: rotate(45deg)
-                }
+                // &.active::before{
+                //     position: absolute;
+                //     content: attr(data-content);
+                //     width: 0.3rem;
+                //     height: 0.3rem;
+                //     color:#fff;
+                //     font-size: 0.3rem;
+                //     transform: rotate(45deg);
+                //     right: -0.2rem;
+                //     bottom: 0.2rem;
+                //     z-index: 10;
+                // }
+                // &.active:after{
+                //     position: absolute;
+                //     content:'';
+                //     width: 0.6rem;
+                //     height: 0.6rem;
+                //     background: #2095f2;
+                //     right: -0.3rem;
+                //     bottom:-0.3rem;
+                //     transform: rotate(45deg)
+                // }
             }
         }
         .btn-box{
