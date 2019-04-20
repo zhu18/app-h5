@@ -53,7 +53,6 @@ export default {
   watch: {
     index: {
       handler: function(newV, oldV) {
-        console.log(newV)
         newV == 1 && this.$router.push({ name: 'brandTab' })
         newV == 2 && this.$router.push({ name: 'newsTab' })
         newV == 3 && this.$router.push({ name: 'lawTab' })

@@ -239,7 +239,6 @@ export default {
           temp.push(item)
         }
       }
-      console.log(temp)
       this.list = temp
       // 调取接口刷新列表
     }

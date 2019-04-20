@@ -1,6 +1,6 @@
 <template>
   <div class="law-container">
-    <ul>
+    <ul class="collet-box">
       <li
         class="item"
         v-for="item in list"
