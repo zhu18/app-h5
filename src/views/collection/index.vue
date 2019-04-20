@@ -50,6 +50,7 @@ export default {
       index: 1
     }
   },
+
   watch: {
     index: {
       handler: function(newV, oldV) {
@@ -59,6 +60,13 @@ export default {
       },
       immediate: true
     }
+  },
+  beforeRouteUpdate(to, from, next) {
+    console.log(to.name)
+    to.name=='brandTab'&&(this.index=1)
+    to.name=='newsTab'&&(this.index=2)
+    to.name=='lawTab'&&(this.index=3)
+    next()
   },
   methods: {
     goBack() {
