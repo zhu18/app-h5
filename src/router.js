@@ -49,6 +49,9 @@ import lawsRegulations from './views/lawsRegulations'
 import lawsRegulationsDetail from './views/lawsRegulations/detail'
 /* - - - - - - - 4.收藏 - - - - - - - - - */
 import collection from './views/collection'
+import brandTab from './views/collection/brandTab'
+import newsTab from './views/collection/newsTab'
+import lawTab from './views/collection/lawTab'
 import evidenceList from './views/evidenceList'
 //我的收藏
 import selfCollection from './views/collection/self'
@@ -245,9 +248,27 @@ export default new Router({
                 { //收藏
                     path: '/collection',
                     name: 'collection',
+                    redirect: '/collection/brandTab',
                     components: {
                         body: collection,
-                    }
+                    },
+                    children:[
+                      {
+                        name:'brandTab',
+                        path:'brandTab',
+                        component:brandTab
+                      },
+                      {
+                        name:'lawTab',
+                        path:'lawTab',
+                        component:lawTab
+                      },
+                      {
+                        name:'newsTab',
+                        path:'newsTab',
+                        component:newsTab
+                      }
+                    ]
                 },
                
                 /* - - - - - - - 5.新闻 - - - - - - - - - */
