@@ -233,7 +233,7 @@ export default {
     height: 0.9rem;
     background: rgba(0, 0, 0, 0);
     .lamp{
-      margin-right: 3.5rem;
+      margin-right: 3.2rem;
     }
     .iconfont {
       font-size: 0.8rem;

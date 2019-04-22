@@ -168,7 +168,10 @@ export default {
         
       },
       sel(item,index){
-          if(!this.isEdit) return;
+          if(!this.isEdit){
+            this.searchList()
+             return;
+          }
           item.isChecked = !item.isChecked;
       },
       del(){

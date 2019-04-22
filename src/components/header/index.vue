@@ -19,11 +19,11 @@
 export default {
     data(){
         return {
-            title:'商标智能检索/执法',
+            title:'商标智能检索',
         }
     },
     beforeRouteLeave (to, from, next) {
-        this.title=to.params.title?to.params.title:'商标智能检索/执法'
+        this.title=to.params.title?to.params.title:'商标智能检索'
         next()
     },
     mounted() {
