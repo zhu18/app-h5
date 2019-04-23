@@ -34,9 +34,9 @@
                         <span class="del-btn" v-if="isEdit" @click="delEnforcer(index)"><i class="iconfont icon-del"></i></span>
                         <img src="../../assets/images/lawenforcement/lawUser.jpg" class="img">
                     </li>
-                    <li class="add-evidence" @click="addEnforcer" v-if="isEdit">
+                    <li class="add-evidence" @click="addEnforcer">
                         <i class="iconfont icon-add"></i>
-                        <p>上传图片</p>
+                        <p>添加执法人</p>
                     </li>
                 </ul>
                 <label class="lable-title">现场取证</label>
@@ -45,7 +45,7 @@
                         <span class="del-btn" v-if="isEdit" @click="delevidence(index)"><i class="iconfont icon-del"></i></span>
                         <img :src="item.imgPath" class="img">
                     </li>
-                    <li class="add-evidence" v-if="isEdit" @click="uploadPicClick">
+                    <li class="add-evidence"  @click="uploadPicClick">
                         <i class="iconfont icon-add"></i>
                         <p>上传图片</p>
                     </li>
