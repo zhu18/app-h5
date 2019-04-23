@@ -269,7 +269,6 @@ export default {
           p {
             font-size: 0.24rem;
             color: #5b5b69;
-            margin-top: 0.15rem;
           }
         }
       }
