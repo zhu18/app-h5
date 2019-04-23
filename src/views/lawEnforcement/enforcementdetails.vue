@@ -260,9 +260,9 @@ export default {
           border: 0.02rem dashed #dfdfdf;
           text-align: center;
           i {
-            font-size: 0.5rem;
+            font-size: 0.8rem;
             color: #bfbfbf;
-            margin-top: 0.45rem;
+            margin-top: 0.3rem;
             display: inline-block;
             font-weight: 500;
           }
