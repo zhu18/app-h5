@@ -15,20 +15,21 @@
         <router-link :to="{ name: 'trademarkinquiry', params: { title: '商标查询'}} " class="list-item block" tag="div">
             <i class="iconfont icon-logoquery"></i>商标查询
         </router-link>
-        <router-link :to="{ name: 'smartsearch', params: { title: '智能检索'}} " class="list-item block" tag="div">
-            <i class="iconfont icon-imgquery"></i>智能检索
+        <router-link :to="{ name: 'smartsearch', params: { title: '图形检索'}} " class="list-item block" tag="div">
+            <i class="iconfont icon-imgquery"></i>图形检索
         </router-link>
         <router-link :to="{ name: 'lawsRegulations', params: { title: '法律法规',handleEdit:true}} " class="list-item block" tag="div">
             <i class="iconfont icon-regulations"></i>法律法规
         </router-link>
-        <router-link :to="{ name: 'collection', params: { title: '收藏',handleEdit:true}} " class="list-item block" tag="div">
-            <i class="iconfont icon-collection"></i>收藏
-        </router-link>
         <router-link :to="{ name: 'news'}" class="list-item block" tag="div">
             <i class="iconfont icon-new"></i>新闻
         </router-link>
+        <router-link :to="{ name: 'collection', params: { title: '统计分析',handleEdit:true}} " class="list-item block" tag="div">
+            <i class="iconfont icon-collection"></i>统计分析
+        </router-link>
+        
        <div class="list-item block">
-         <i class="iconfont icon-read"></i>阅读
+         <i class="iconfont icon-read"></i>案件共享
        </div>
      </div>
       </div>
@@ -91,8 +92,8 @@ export default {
     }
   }
   .list{
-      padding: 0 0.32rem 0.32rem 0.32rem;
-      height: calc(100vh - 7.97rem );
+      padding: 0 0.32rem;
+      height: 5.15rem;
       justify-content: space-between;
        flex-wrap:wrap;
        display: flex;
