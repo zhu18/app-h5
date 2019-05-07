@@ -34,7 +34,6 @@ export default {
              this.$router.push('/map')
          },
          isMap(){
-             console.log(this.$route)
              return this.$route.path=='/map'
          },
          searchList(){

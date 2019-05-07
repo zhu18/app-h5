@@ -55,6 +55,9 @@ export default {
 };
 </script>
 <style lang="scss">
+.mint-swipe{
+      border-radius: .15rem;
+}
 .home-Wrap {
   width: 100%;
   height: 100%;
@@ -83,7 +86,7 @@ export default {
     width: 6.86rem;
     img{
       width: 100%;
-      border-radius: 10px;
+      // border-radius: 10px;
       box-shadow: 0 1px 5px rgba(0,0,0,.1)
     }
   }
