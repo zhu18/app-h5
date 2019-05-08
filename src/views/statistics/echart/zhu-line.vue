@@ -163,11 +163,6 @@ import echarts from 'echarts'
         };
         // 使用刚指定的配置项和数据显示图表。
         this.chart.setOption(option);
-        window.addEventListener("resize", function () {
-            setTimeout(function () {
-                searchWordChart.resize();
-            }, 500)
-        });
       },
       // echats 图表自适应
       _resizeHanlder() {
@@ -185,7 +180,7 @@ import echarts from 'echarts'
 
 <style lang="scss" scoped>
   .zhu {
-    width: 100%;
+    width: 120%;
     height: 90%;
   }
 </style>

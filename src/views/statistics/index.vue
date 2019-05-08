@@ -32,7 +32,7 @@
               </div>
           </div>
           <div class="middle">
-            <zhu :echartsData="echartData" ></zhu>
+            <zhu :echartsData="echartData" style="" ></zhu>
           </div>
           <div class="button">
               <div class="title-name">
@@ -95,9 +95,9 @@ export default {
   },
   mounted() {
         this.echartData={
-        data1: ['1月', '2月', '3月', '4月', '5月', '6月'],
-        data2: [60, 32, 50, 34, 90, 80] ,
-        data3: [30, 42, 70, 34, 40, 90],
+        data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
+        data2: [60, 32, 50, 34, 90, 80,60, 32, 50, 34, 90, 80] ,
+        data3: [30, 42, 70, 34],
         }
   },
   methods: {
@@ -203,6 +203,8 @@ export default {
         }
         .middle{
             height:55%;
+            width: 100%;
+            overflow-x: scroll;
         }
         .button{
             height:34%;
