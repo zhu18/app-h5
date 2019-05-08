@@ -22,14 +22,14 @@
             <i class="iconfont icon-regulations"></i>法律法规
         </router-link>
         <router-link :to="{ name: 'news'}" class="list-item block" tag="div">
-            <i class="iconfont icon-new"></i>新闻
+            <i class="iconfont icon-new"></i>新闻资讯
         </router-link>
         <router-link :to="{ name: 'collection', params: { title: '统计分析',handleEdit:true}} " class="list-item block" tag="div">
-            <i class="iconfont icon-collection"></i>统计分析
+            <i class="iconfont icon-tongji"></i>统计分析
         </router-link>
         
        <div class="list-item block">
-         <i class="iconfont icon-read"></i>案件共享
+         <i class="iconfont icon-law1"></i>案件共享
        </div>
      </div>
       </div>
@@ -130,14 +130,15 @@ export default {
        .list-item:nth-child(3) .iconfont{ 
         background: -webkit-linear-gradient(60deg,#3f83ff,#48abff) #53bafc;
       }
-       .list-item:nth-child(4) .iconfont{
+       .list-item:nth-child(5) .iconfont{
         background: -webkit-linear-gradient(60deg,#fe9700,#fec006) #fbb84f;
       }
-       .list-item:nth-child(5) .iconfont{
+       .list-item:nth-child(4) .iconfont{
         background: -webkit-linear-gradient(60deg,#f2896a,#e77e72) #f88776;
       }
        .list-item:nth-child(6) .iconfont{
-        background:  -webkit-linear-gradient(60deg,#51b9d1,#46acc3) #53bafc;
+        background:  -webkit-linear-gradient(60deg,#53bafc,#53bafc) #53bafc;
+        color: #fff;
       }
   }
  
