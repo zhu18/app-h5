@@ -64,11 +64,14 @@ import brandProcess from './views/brandProcess'
 
 /* - - - - - - - 城市列表 - - - - - - - - - */
 import cityList from './views/cityList'
+/* - - - - - - - 7.统计分析 - - - - - - - - - */
+import statistics from './views/statistics'
 // 临时测试路由
 import my from './views/test/my'
 import test3 from './views/test/test3'
 import test2 from './views/test/test2'
 import test4 from './views/test/test4'
+
 
 Vue.use(Router)
 Router.prototype.goBack = function () {
@@ -301,8 +304,7 @@ export default new Router({
                 { //生活服务主页
                     path: '/cityList',
                     components: {
-                        body: cityList,
-                        header: headerBar
+                        body: cityList
                     }
                 },
                 { //生活服务主页
@@ -343,6 +345,13 @@ export default new Router({
                     components: {
                         body: my,
                         footer: footerTab,
+                    }
+                },
+                {//统计分析
+                    path: '/statistics',
+                    name: 'statistics',
+                    components: {
+                        body: statistics,
                     }
                 },
             ]

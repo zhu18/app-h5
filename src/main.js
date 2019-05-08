@@ -6,7 +6,9 @@ import router from './router'
 import store from './store'
 import './assets/js/rem'
 
+
 import MintUI from 'mint-ui';
+
 import 'mint-ui/lib/style.css';
 import '@/assets/css/index.css';
 // 图片懒加载
@@ -17,7 +19,6 @@ Vue.use(VueLazyload, {
     loading: defaultImg,
     attempt: 1
 })
-
 Vue.config.productionTip = false
 Vue.use(MintUI);
 Vue.prototype.slideName = 'slide-left';
