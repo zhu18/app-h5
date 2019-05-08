@@ -61,6 +61,9 @@ import News from './views/news';
 import newsDetails from './views/news/newsdetails.vue';
 /* - - - - - - - 6.阅读 - - - - - - - - - */
 import brandProcess from './views/brandProcess'
+
+/* - - - - - - - 城市列表 - - - - - - - - - */
+import cityList from './views/cityList'
 // 临时测试路由
 import my from './views/test/my'
 import test3 from './views/test/test3'
@@ -68,7 +71,7 @@ import test2 from './views/test/test2'
 import test4 from './views/test/test4'
 
 Vue.use(Router)
-Router.prototype.goBack = function() {
+Router.prototype.goBack = function () {
     this.isBack = true;
     window.history.go(-1);
 };
@@ -77,13 +80,13 @@ export default new Router({
             path: '/',
             name: 'login',
             component: () =>
-                import ('./views/login/login')
+                import('./views/login/login')
         },
         { //加载首页
             path: '/main',
             name: 'main',
             component: () =>
-                import ('./views/home/main'),
+                import('./views/home/main'),
             children: [{ //主页
                     path: '/home',
                     components: {
@@ -132,7 +135,7 @@ export default new Router({
                         body: smartSearch
                     }
                 },
-                 /* - - - - - - - 法律法规 - - - - - - - - - */
+                /* - - - - - - - 法律法规 - - - - - - - - - */
                 { //列表
                     path: '/lawsRegulations',
                     name: 'lawsRegulations',
@@ -158,14 +161,14 @@ export default new Router({
                 },
                 { //新建协同码
                     path: '/cooperationCode',
-                    name:'cooperationCode',
+                    name: 'cooperationCode',
                     components: {
                         body: cooperationCode
                     }
                 },
                 { //执法协同码
                     path: '/synergyCode',
-                    name:'synergyCode',
+                    name: 'synergyCode',
                     components: {
                         body: synergyCode,
                         header: headerBar
@@ -186,11 +189,11 @@ export default new Router({
                         body: selfCollection
                     }
                 },
-                 { //取证详情
-                     path: '/lawDetails',
-                     name: 'lawDetails',
-                     components: {
-                         body: lawDetails
+                { //取证详情
+                    path: '/lawDetails',
+                    name: 'lawDetails',
+                    components: {
+                        body: lawDetails
                     }
                 },
                 { //执法记录
@@ -200,7 +203,7 @@ export default new Router({
                         body: LElog
                     }
                 },
-               
+
                 { //执法记录详情
                     path: '/enforcementdetails',
                     name: 'enforcementdetails',
@@ -217,7 +220,7 @@ export default new Router({
                 },
                 { //执法日期
                     path: '/dateSelect',
-                    name:'dateSelect',
+                    name: 'dateSelect',
                     components: {
                         body: dateSelect,
                         footer: footerTab
@@ -252,25 +255,24 @@ export default new Router({
                     components: {
                         body: collection,
                     },
-                    children:[
-                      {
-                        name:'brandTab',
-                        path:'brandTab',
-                        component:brandTab
-                      },
-                      {
-                        name:'lawTab',
-                        path:'lawTab',
-                        component:lawTab
-                      },
-                      {
-                        name:'newsTab',
-                        path:'newsTab',
-                        component:newsTab
-                      }
+                    children: [{
+                            name: 'brandTab',
+                            path: 'brandTab',
+                            component: brandTab
+                        },
+                        {
+                            name: 'lawTab',
+                            path: 'lawTab',
+                            component: lawTab
+                        },
+                        {
+                            name: 'newsTab',
+                            path: 'newsTab',
+                            component: newsTab
+                        }
                     ]
                 },
-               
+
                 /* - - - - - - - 5.新闻 - - - - - - - - - */
                 { //新闻
                     path: '/news',
@@ -280,7 +282,7 @@ export default new Router({
                         footer: footerTab,
                     }
                 },
-                {//新闻详情
+                { //新闻详情
                     path: '/newsDetails',
                     name: 'newsDetails',
                     components: {
@@ -288,12 +290,19 @@ export default new Router({
                         footer: footerTab,
                     }
                 },
-            /* - - - - - - - 6.阅读 - - - - - - - - - */
-                 {//商标流程
+                /* - - - - - - - 6.阅读 - - - - - - - - - */
+                { //商标流程
                     path: '/brandProcess',
                     name: 'brandProcess',
                     components: {
                         body: brandProcess
+                    }
+                },
+                { //生活服务主页
+                    path: '/cityList',
+                    components: {
+                        body: cityList,
+                        header: headerBar
                     }
                 },
                 { //生活服务主页
