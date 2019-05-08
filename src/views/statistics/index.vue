@@ -32,7 +32,10 @@
               </div>
           </div>
           <div class="middle">
-            <zhu :echartsData="echartData" style="" ></zhu>
+              <div class="echart-div">
+                          <zhu :echartsData="echartData"  ></zhu>
+             </div>
+
           </div>
           <div class="button">
               <div class="title-name">
@@ -47,7 +50,7 @@
 
                  <div class="button-center"><span>|</span></div>
                   <div class="button-right">
-                      <div class="divTop">+25%</div>
+                      <div class="divTop">+10%</div>
                       <div class="divBotton">较上月</div>
                   </div>
               </div>
@@ -95,9 +98,9 @@ export default {
   },
   mounted() {
         this.echartData={
-        data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-        data2: [60, 32, 50, 34, 90, 80,60, 32, 50, 34, 90, 80] ,
-        data3: [30, 42, 70, 34],
+            data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
+            data2: [60, 32, 50, 34, 90, 80,60, 32, 50, 34, 90, 80] ,
+            data3: [30, 42, 70, 34],
         }
   },
   methods: {
@@ -110,10 +113,20 @@ export default {
       tab(index){
          this.bindex=index;
          if(index==1){
+             this.echartData={
+                 data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
+                 data2: [60, 32, 50, 34, 90, 80,60, 32, 50, 34, 90, 80] ,
+                 data3: [30, 42, 70, 34],
+             }
              this.titleRight="4月注册商标";
              this.titleButton="河北省2019年4月注册商标";
          }
          else{
+             this.echartData={
+                 data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
+                 data2: [30, 32, 60, 44, 60, 90,30, 42, 45, 34, 60, 80] ,
+                 data3: [20, 60, 30, 70],
+             }
              this.titleRight="4月案件";
              this.titleButton="河北省2019年4月执法";
          }
@@ -205,6 +218,10 @@ export default {
             height:55%;
             width: 100%;
             overflow-x: scroll;
+            .echart-div{
+                height: 100%;
+                width: 200%
+            }
         }
         .button{
             height:34%;
@@ -259,6 +276,7 @@ export default {
                     display: flex;
                     align-items: center;
                     span{
+                        padding-top:0.5rem;
                         opacity: 0.3;
                     }
                 }

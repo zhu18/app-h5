@@ -190,7 +190,7 @@ import echarts from 'echarts'
 
 <style lang="scss" scoped>
   .zhu {
-    width: 200%;
+    width: 100%;
     height: 90%;
   }
 </style>
