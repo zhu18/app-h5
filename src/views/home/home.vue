@@ -24,7 +24,7 @@
         <router-link :to="{ name: 'news'}" class="list-item block" tag="div">
             <i class="iconfont icon-new"></i>新闻资讯
         </router-link>
-        <router-link :to="{ name: 'collection', params: { title: '统计分析',handleEdit:true}} " class="list-item block" tag="div">
+        <router-link :to="{ name: 'statistics', params: { title: '统计分析',handleEdit:true}} " class="list-item block" tag="div">
             <i class="iconfont icon-tongji"></i>统计分析
         </router-link>
         
