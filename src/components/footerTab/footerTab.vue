@@ -113,7 +113,7 @@ export default {
         top:-0.1rem;
     }
     .footerTab .tab-item a.router-link-active{
-        color: #5aa9fd;
+        color: #2294f2;
     }
 
 </style>
