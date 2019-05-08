@@ -163,6 +163,16 @@ import echarts from 'echarts'
         };
         // 使用刚指定的配置项和数据显示图表。
         this.chart.setOption(option);
+        this.chart.dispatchAction({
+              type: 'highlight',
+              seriesIndex: 0,
+              dataIndex:3
+          });
+          this.chart.dispatchAction({
+              type: 'showTip',
+              seriesIndex: 0,
+              dataIndex:3
+          });
       },
       // echats 图表自适应
       _resizeHanlder() {
@@ -180,7 +190,7 @@ import echarts from 'echarts'
 
 <style lang="scss" scoped>
   .zhu {
-    width: 120%;
+    width: 200%;
     height: 90%;
   }
 </style>
