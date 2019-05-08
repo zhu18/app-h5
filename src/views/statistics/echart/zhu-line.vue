@@ -130,11 +130,11 @@ import echarts from 'echarts'
                             color: new echarts.graphic.LinearGradient(
                                 0, 0, 0, 1, [{
                                         offset: 0,
-                                        color: '#bcdffb'
+                                        color: 'rgba(32,149,242,.3)'
                                     },
                                     {
                                         offset: 1,
-                                        color: '#bcdffb'
+                                        color: 'rgba(32,149,242,.3)'
                                     }
                                 ]
                             )
