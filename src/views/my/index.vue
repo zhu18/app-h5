@@ -13,7 +13,7 @@
       </div>
     </div>
     <ul class="panel">
-      <router-link tag="li" :to="{ name: 'selfCollection' }"
+      <router-link tag="li" :to="{ name: 'collection' }"
         ><span class="iconfont icon-coll icon"></span>我的收藏<span
           class="iconfont icon-back icon-r"
         ></span
