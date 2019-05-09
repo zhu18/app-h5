@@ -10,15 +10,22 @@
       这是一段测试文字，会按照下方您的选择调整字体大小
     </div>
     <ul class="handle-panel">
-      <li class="samll panel-item"></li>
-      <li class="middle panel-item"></li>
-      <li class="big panel-item"></li>
+      <li :class="['panel-item', fontSize == 'small' ? 'active' : '']" @click="changeFontSize('small')"></li>
+      <li :class="['panel-item', fontSize == 'middle' ? 'active' : '']"  @click="changeFontSize('middle')"></li>
+      <li :class="['panel-item', fontSize == 'big' ? 'active' : '']"  @click="changeFontSize('big')"></li>
+      <li class="panel-line"></li>
+      <li class="panel-line"></li>
     </ul>
   </div>
 </template>
 <script>
+import { mapState, mapMutations } from 'vuex'
 export default {
+  computed: {
+    ...mapState(['fontSize'])
+  },
   methods: {
+    ...mapMutations(['changeFontSize']),
     back() {
       this.$router.goBack()
     }
@@ -70,7 +77,7 @@ export default {
     box-shadow: 0 0px 10px 1px rgba(4, 0, 0, 0.1);
     padding: 0.8rem 0.32rem;
     box-sizing: border-box;
-    line-height: .5rem;
+    line-height: 0.5rem;
   }
   .handle-panel {
     position: fixed;
@@ -83,56 +90,74 @@ export default {
     box-shadow: 0 0px 10px 1px rgba(4, 0, 0, 0.1);
     padding: 0.8rem 0.32rem;
     box-sizing: border-box;
-    .panel-item{
+    .panel-item {
       float: left;
       width: 0.4rem;
       height: 0.4rem;
-      border-radius:50%;
+      border-radius: 50%;
       border: 1px solid #bfbfbf;
-      padding:  0.04rem;
-      background: #bfbfbf;
+      padding: 0.04rem;
+      background: #cfc2c2;
       background-clip: content-box;
-      box-sizing:border-box; 
+      box-sizing: border-box;
       position: relative;
       text-align: center;
-      &:nth-child(1){
-        margin-left: .8rem;
-        margin-right: 1.85rem;
-        &::before{
+      transition: all 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+      &.active {
+        background-color: #2095f2;
+        color: #2095f2;
+        border-color: #2095f2;
+      }
+      &:nth-child(1) {
+        margin-left: 0.64rem;
+        margin-right: 1.88rem;
+        &::before {
           content: '小';
           position: absolute;
           width: 0.4rem;
           height: 0.6rem;
-          line-height: .6rem;
-          top:-.6rem;
-           left: 0;
-          font-size: .28rem;
+          line-height: 0.6rem;
+          top: -0.6rem;
+          left: 0;
+          font-size: 0.28rem;
         }
       }
-      &:nth-child(2){
-        margin-right: 1.85rem;
-         &::before{
+      &:nth-child(2) {
+        margin-right: 1.88rem;
+        &::before {
           content: '中';
           position: absolute;
           width: 0.4rem;
           height: 0.6rem;
-          line-height: .6rem;
-          top:-.6rem;
+          line-height: 0.6rem;
+          top: -0.6rem;
           left: 0;
-          font-size: .32rem;
+          font-size: 0.32rem;
         }
       }
-      &:nth-child(3){
-         &::before{
+      &:nth-child(3) {
+        &::before {
           content: '大';
           position: absolute;
           width: 0.4rem;
           height: 0.6rem;
-          line-height: .6rem;
-          top:-.6rem;
-           left: 0;
-          font-size: .4rem;
+          line-height: 0.6rem;
+          top: -0.6rem;
+          left: 0;
+          font-size: 0.4rem;
         }
+      }
+    }
+    .panel-line {
+      position: absolute;
+      top: 50%;
+      left: 1.36rem;
+      width: 1.88rem;
+      height: 1px;
+      background: #bfbfbf;
+      &:nth-child(5) {
+        left: inherit;
+        right: 1.33rem;
       }
     }
   }
