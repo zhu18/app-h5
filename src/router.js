@@ -27,6 +27,8 @@ import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcemen
 // 取证详情
 import lawDetails from './views/lawEnforcement/lawDetails'
 // 执法人员列表
+import lawEnforcementRecords from './views/lawEnforcement/lawEnforcementRecords'
+// 执法现场笔录
 import enforcerList from './views/lawEnforcement/enforcerList'
 /* - - - - - - - 3.检索 - - - - - - - - - */
 import smartSearch from './views/smartSearch'
@@ -242,6 +244,13 @@ export default new Router({
                     name: 'enforcerList',
                     components: {
                         body: enforcerList
+                    }
+                },
+                { //开始执法-执法现场笔录
+                    path: '/lawEnforcementRecords',
+                    name: 'lawEnforcementRecords',
+                    components: {
+                        body: lawEnforcementRecords
                     }
                 },
                 /* - - - - - - - 4.收藏 - - - - - - - - - */
