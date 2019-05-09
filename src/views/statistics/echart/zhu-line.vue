@@ -39,11 +39,22 @@ import echarts from 'echarts'
                 axisPointer: { // 坐标轴指示器，坐标轴触发有效
                     type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
                 },
+                alwaysShowContent:true,
                 textStyle: {
                     color: '#fff',
-                    fontSize: 12
+                    fontSize: 12,
                 },
-                padding: 10
+                padding: 10,
+                formatter: function (params, ticket, callback) {
+                    var result = params[0].axisValue + "</br>";
+                    var dotHtml = '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#2095f2"></span>'
+                    var dotHtml2 = '<span style="display:inline-block;margin-right:5px;border-radius:10px;width:10px;height:10px;background-color:#fea71a"></span>'
+                    result +=  dotHtml + params[0].seriesName+":"+params[0].data+ "</br>";
+                    if(params[1]){
+                        result += dotHtml2 + params[1].seriesName+":"+params[1].data;
+                    }
+                    return result
+                }
             },
             legend: {
                 show: true,
