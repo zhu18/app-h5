@@ -34,7 +34,7 @@ export default {
         this.fontSize == 'small' && this.setFont(0.8)
         this.fontSize == 'middle' && this.setFont(1)
         this.fontSize == 'big' && this.setFont(1.2)
-      }, 500)
+      }, 0)
     },
     fontSize: function(v) {
       v == 'small' && this.setFont(0.8)
@@ -49,7 +49,8 @@ export default {
         let tag = document.all[i]
         if (
           tag.tagName != 'SCRIPT' &&
-          tag.tagName != 'I' &&
+          tag.tagName != 'I' && 
+          !tag.hasAttribute('v-fontsize') &&
           tag.innerText.indexOf('\n') == -1
         ) {
           let fz = window.getComputedStyle(tag, null).fontSize
@@ -62,7 +63,7 @@ export default {
         let tag = document.all[i]
         if (tag.hasAttribute('v-fontsize')) {
           let fz = tag.getAttribute('v-fontsize')
-          console.log(tag.nodeName + ':' + (parseFloat(fz) * v + 'px'))
+          //console.log(tag.nodeName + ':' + (parseFloat(fz) * v + 'px'))
           tag.style.fontSize = parseFloat(fz) * v + 'px'
         }
       }
