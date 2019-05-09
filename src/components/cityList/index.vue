@@ -1,54 +1,42 @@
 <template>
   <div class="city-list">
-    <div class="top-header ">
-      <mt-header fixed
-                 title="案件共享">
-        <div slot="left">
-          <mt-button icon="back"
-                     @click='goBack'></mt-button>
+    <div>
+      <div class="letter-item">
+        <div class="letter-header"><a id="history">当前/历史</a></div>
+        <div class="his-panel flex ">
+          <div class="his-city"
+               :class="index===0?'curr-city':''"
+               v-for="(city, index) in hisCities"
+               :key="city">
+            <i class="iconfont icon-local"
+               v-if="index===0"></i>
+            {{city}}
+          </div>
         </div>
 
-      </mt-header>
+      </div>
+      <div v-for="item in cityGroup"
+           :key="item.letter"
+           class="letter-item">
+        <div class="letter-header"><a :id="item.letter">{{item.letter}}</a></div>
+        <div class="city-panel">
+          <div v-for="city in item.cities"
+               :key="city.name">{{city.name}} </div>
+        </div>
+
+      </div>
     </div>
-    <div class="header-content">
-      <div>
-        <div class="letter-item">
-          <div class="letter-header"><a id="history">当前/历史</a></div>
-          <div class="his-panel flex ">
-            <div class="his-city"
-                 :class="index===0?'curr-city':''"
-                 v-for="(city, index) in hisCities"
-                 :key="city">
-              <i class="iconfont icon-local"
-                 v-if="index===0"></i>
-              {{city}}
-            </div>
-          </div>
-
-        </div>
-        <div v-for="item in cityGroup"
-             :key="item.letter"
-             class="letter-item">
-          <div class="letter-header"><a :id="item.letter">{{item.letter}}</a></div>
-          <div class="city-panel">
-            <div v-for="city in item.cities"
-                 :key="city.name">{{city.name}} </div>
-          </div>
-
-        </div>
-      </div>
-      <aside class="letter-aside">
-        <ul>
-          <li @click="naver('history')">历史 </li>
-          <li v-for="item in cityGroup"
-              :key="item.letter"
-              @click="naver(item.letter)">{{item.letter}} </li>
-        </ul>
-      </aside>
-      <div class="tip"
-           :class="tipClass">
-        {{tipString}}
-      </div>
+    <aside class="letter-aside">
+      <ul>
+        <li @click="naver('history')">历史 </li>
+        <li v-for="item in cityGroup"
+            :key="item.letter"
+            @click="naver(item.letter)">{{item.letter}} </li>
+      </ul>
+    </aside>
+    <div class="tip"
+         :class="tipClass">
+      {{tipString}}
     </div>
   </div>
 </template>
@@ -64,15 +52,11 @@ export default {
       tipString: '',
       tipClass: '',
       hisCities: ['北京', '重庆', '天津', '成都', '长沙', '厦门'],
-      topHeaderHeight: 0
+      zoom: 0
     }
   },
   methods: {
     naver (id) {
-      if (!this.topHeaderHeight) {
-        let topDom = document.querySelector('.top-header')
-        this.topHeaderHeight = topDom.offsetHeight
-      }
       let target = document.getElementById(id)
       let top = target.offsetTop
       this.tipString = id === 'history' ? '历史' : id
@@ -80,7 +64,8 @@ export default {
       setTimeout(() => {
         this.tipClass = ''
       }, 500);
-      window.scrollTo(0, top - this.topHeaderHeight - 20)
+      let dom = document.querySelector('.city-list')
+      dom.scrollTo(0, top - 100 * this.zoom)
     },
     goBack () {
       this.$router.goBack()
@@ -98,6 +83,7 @@ export default {
       cities.push(city)
     })
     this.cityGroup.push({ letter, cities })
+    this.zoom = window.innerWidth / 750
   }
 }
 
@@ -105,27 +91,10 @@ export default {
 
 <style lang="scss">
 .city-list {
+  padding: 0 0.3rem;
+  box-sizing: border-box;
   width: 100%;
-  // height: calc(100vh - 0.9rem );
-  // overflow: hidden;
   overflow-y: auto;
-  .top-header {
-    height: 0.9rem;
-    background-color: #2095f2;
-    .mint-header {
-      height: 0.9rem;
-      background: #2095f2;
-    }
-    .iconfont {
-      width: 0.72rem;
-      color: #fff;
-      font-size: 0.72rem;
-    }
-  }
-  .header-content {
-    padding: 0.3rem;
-    box-sizing: border-box;
-  }
   .his-panel {
     flex-wrap: wrap;
     margin: -0.12rem -0.16rem;
