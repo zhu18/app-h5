@@ -63,7 +63,8 @@ import newsDetails from './views/news/newsdetails.vue';
 import brandProcess from './views/brandProcess'
 
 /* - - - - - - - 城市列表 - - - - - - - - - */
-import cityList from './views/cityList'
+// import cityList from './views/cityList'
+import invalidList from './views/invalidList'
 /* - - - - - - - 7.统计分析 - - - - - - - - - */
 import statistics from './views/statistics'
 // 临时测试路由
@@ -301,10 +302,16 @@ export default new Router({
                         body: brandProcess
                     }
                 },
-                { //生活服务主页
+                { 
                     path: '/cityList',
                     components: {
-                        body: cityList
+                        body: invalidList
+                    }
+                },
+                { 
+                    path: '/invalidList',
+                    components: {
+                        body: invalidList
                     }
                 },
                 { //生活服务主页
