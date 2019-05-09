@@ -15,7 +15,7 @@
             </div>
             <div class="tab-item searchbtn">
                <router-link to='/smartsearch' >
-                    收缩
+                    搜索
                 </router-link>
             </div>
             <div class="tab-item">
@@ -46,22 +46,22 @@ export default {
         bottom: 0;
         width: 100%;
         height: 1.45rem;
-        overflow: hidden;
         line-height:  1.45rem;
         z-index: 888;
-        &:after{
-            content: '';
-            height: 1.1rem;
-            width:1.1rem;
-            position: absolute;
-            box-shadow: 0 0 10px rgba(0,0,0,.1);
-            border-radius: 50%;
-            z-index:1;
-            top:-0.01rem;
-            left:50%;
-            margin-left:-0.75rem;
-            box-sizing: border-box;
-          }
+         &:after{
+              content: '';
+              height: 1.08rem;
+              width:1.42rem;
+              box-sizing: border-box;
+              background: url(../../assets/images/sss2.png) no-repeat center center;
+              background-size: cover;
+              display:inline-block;
+              position:absolute;
+              left:50%;
+              margin-left:-0.75rem;
+              top:-0.034rem;
+              z-index:1;
+            }
         .inner{
           height:1.1rem;
           line-height: 1.1rem;
@@ -73,22 +73,22 @@ export default {
           width: 100%;
           box-shadow: 0 0 5px rgba(0,0,0,.1);
           z-index:2;
-        
+
           .searchbtn{
             position:relative;
             background-color: #fff;
             border-radius: 50%;
-            top:-0.37rem;
-            height: 1.1rem;
-            width:1.1rem;
+            top:-0.36rem;
+            height: 1.08rem;
+            width:1.42rem;
             box-sizing: border-box;
-            background: url(../../assets/images/component/searchbtn.png) no-repeat center center;
+            background: url(../../assets/images/ssss.png) no-repeat center center;
             background-size: cover;
-            border:0.1rem solid #fff;
             box-sizing: border-box;
+           
             a{
               position: relative;
-              bottom:-0.7rem;
+              bottom:-0.73rem;
               font-size: 0.18rem;
             }
             
@@ -106,7 +106,7 @@ export default {
         align-items:center;
     }
     .footerTab .tab-item a{
-        color: #666;
+        color: #9b9fa2;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -128,7 +128,7 @@ export default {
         top:-0.1rem;
     }
     .footerTab .tab-item a.router-link-active{
-        color: #5aa9fd;
+        color: #2294f2;
     }
 
 </style>
