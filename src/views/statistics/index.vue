@@ -44,13 +44,13 @@
               </div>
               <div class="bl-value">
                   <div class="button-left">
-                      <div class="divTop">+25%</div>
+                      <div class="divTop">+{{oldmonth}}%</div>
                       <div class="divBotton">较去年同期</div>
                   </div>
 
                  <div class="button-center"><span>|</span></div>
                   <div class="button-right">
-                      <div class="divTop">+10%</div>
+                      <div class="divTop">+{{nowmonth}}%</div>
                       <div class="divBotton">较上月</div>
                   </div>
               </div>
@@ -84,8 +84,10 @@ export default {
     return {
         title:'统计分析',
         titleRight:'当前注册商标',
-        count:'16,5461',
+        count:'16,546',
         bindex:1,
+        oldmonth:'25',
+        nowmonth:'10',
         titleButton:'河北省2019年4月注册商标',
         echartData:{
             data1: [],
@@ -166,6 +168,7 @@ export default {
         height: calc(100% - 2.5rem);
         overflow-y: hidden;
         display: flex;
+        border-radius: 0.1rem;
         flex-direction: column;
         .top{
             height: 16%;
@@ -191,7 +194,7 @@ export default {
                     color: #2095f2;
                     display: inline-block;
                     padding-right: 0.05rem;
-                    max-width: 1.2rem;
+                    max-width: 1.5rem;
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     overflow: hidden;
@@ -276,7 +279,6 @@ export default {
                     display: flex;
                     align-items: center;
                     span{
-                        padding-top:0.5rem;
                         opacity: 0.3;
                     }
                 }

@@ -4,44 +4,12 @@ window.onload = function(){
     /*720代表设计师给的设计稿的宽度，你的设计稿是多少，就写多少;100代表换算比例，这里写100是
       为了以后好算,比如，你测量的一个宽度是100px,就可以写为1rem,以及1px=0.01rem等等*/
     getRem(750,100)
-    initFont();
 };
 //页面大小变化时调用
 window.onresize = function(){
     getRem(750,100)
 };
-window.initFont=function(){
-  for(let i=0;i<document.all.length;i++)
-  {
-    let tag=document.all[i];
-    if(tag.tagName!='SCRIPT' && tag.tagName!='I' && tag.innerText.indexOf('\n')==-1)
-    {
-      let fz = (window.getComputedStyle(tag,null).fontSize);
-      tag.setAttribute('v-fontsize',parseFloat(fz)+'px')
-    }
-  }
-}
-window.fontZJ=function(){
-  setFont(1.2)
-}
-window.fontJS=function(){
-  setFont(.8)
-}
-window.fontHY=function(){
-  setFont(1);
-}
-window.setFont=function(v){
-  for(let i=0;i<document.all.length;i++)
-  {
-    let tag=document.all[i];
-    if(tag.hasAttribute('v-fontsize'))
-    {
-      let fz = tag.getAttribute('v-fontsize');
-      console.log(tag.nodeName+':'+(parseFloat(fz)*v+'px'))
-      tag.style.fontSize=parseFloat(fz)*v+'px'
-    }
-  }
-}
+
 /***
  * 根据页面大小设置字体大小（用于移动端H5页面）
  * @memberof util

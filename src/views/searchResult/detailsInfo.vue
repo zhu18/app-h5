@@ -298,6 +298,7 @@ export default {
                 }
                 .t-img{
                     height:1rem;
+                   padding-top: 0.2rem;
                 }
             }
             .button{
