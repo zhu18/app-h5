@@ -72,8 +72,8 @@ import echarts from 'echarts'
             grid: {
                 bottom: '10%',
                 top:'5%',
-                left:'5%',
-                right:'5%',
+                left:'1.8%',
+                right:'1.8%',
                 containLabel: true
             },
             xAxis: [{

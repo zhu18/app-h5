@@ -84,7 +84,7 @@ export default {
     return {
         title:'统计分析',
         titleRight:'当前注册商标',
-        count:'16,5461',
+        count:'16,546',
         bindex:1,
         oldmonth:'25',
         nowmonth:'10',
@@ -194,7 +194,7 @@ export default {
                     color: #2095f2;
                     display: inline-block;
                     padding-right: 0.05rem;
-                    max-width: 1.2rem;
+                    max-width: 1.5rem;
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     overflow: hidden;
@@ -243,7 +243,7 @@ export default {
                     font-size: 0.36rem;
                     color: #2095f2;
                     display: inline-block;
-                    max-width: 1.2rem;
+                    max-width: 1.5rem;
                     padding-right: 0.05rem;
                     text-overflow: ellipsis;
                     white-space: nowrap;
