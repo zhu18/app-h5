@@ -33,7 +33,7 @@
               <p class="start-item-title">执法人</p>
               <div class="start-item-content start-item-content-list">
                 <ul class="lawuser-box clearfix">
-                  <li v-for="(item, index) in enforcerList" :key="index">
+                  <li v-for="(item, index) in enforcerList" :key="index" @click="lawuserClick">
                     <div class="lawuser-item-top">
                       <span class="host" v-if="index === 0"></span>
                       <i class="iconfont icon-host" v-if="index === 0"></i>
@@ -76,6 +76,58 @@
                   <span>住址</span>
                   <input type="text"  v-model="enforceForm.address">
                 </li>
+                <li class="clearfix">
+                  <span>联系电话</span>
+                  <input type="text"  v-model="enforceForm.phoneNum">
+                </li>
+                <li class="clearfix">
+                  <span>通知当事人到场情况</span>
+                  <textarea name=""  v-model="enforceForm.attendance"></textarea>
+                </li>
+                <li class="clearfix">
+                  <span>出示执法身份证件情况</span>
+                  <textarea name=""  v-model="enforceForm.credentials"></textarea>
+                </li>
+                <li class="clearfix">
+                  <span>告知情况</span>
+                  <textarea name=""  v-model="enforceForm.notification"></textarea>
+                </li>
+                <li class="clearfix">
+                  <span class="multiple">如实施行政强制措施，当场告知当事人采取行政强制措施的理由、依据以及当事人依法享有的权利、救济途径的情况</span>
+                  <textarea name=""  v-model="enforceForm.reason"></textarea>
+                </li>
+                <li class="clearfix">
+                  <span>当事人的陈述和申辩</span>
+                  <textarea name=""  v-model="enforceForm.statement"></textarea>
+                </li>
+                <li class="clearfix">
+                    <ul>
+                      <li v-for="(item, index) in enforceForm.signArr" :key="index">
+                        <span>当事人（签名）</span>
+                          <textarea name=""  v-model="item.name"></textarea>
+                          <div class="sign-time">
+                            <p><i>{{item.yy}}</i>年<i>{{item.mm}}</i>月<i>{{item.dd}}</i>日</p>
+                            <span @click="dateClick('witness')">修改日期</span>
+                          </div>
+                      </li>
+                    </ul>
+                  <span>见证人</span>
+                  <div class="witness-btn" @click="addWintessClick"><i class="iconfont icon-add"></i>添加见证人</div>
+                </li>
+                <li class="clearfix">
+                  <ul>
+                    <li v-for="(item, index) in enforceForm.checkArr" :key="index">
+                      <span>检查人员</span>
+                      <textarea name=""  v-model="item.name"></textarea>
+                      <div class="sign-time">
+                        <p><i>{{item.yy}}</i>年<i>{{item.mm}}</i>月<i>{{item.dd}}</i>日</p>
+                        <span @click="dateClick('check')">修改日期</span>
+                      </div>
+                    </li>
+                  </ul>
+                  
+                  <div class="witness-btn check-people-btn" @click="addCheckClick"><i class="iconfont icon-add"></i>添加</div>
+                </li>
               </ul>
             </div>
             <div class="start-item">
@@ -111,8 +163,7 @@
         </div>
       </div>
       <div class="start-bottom-btn">
-        <span @click="saveClick(0)" :class="{active: current == 0}">生成现场笔录</span>
-        <span @click="saveClick(1)" :class="{active: current == 1}">保存执法记录</span>
+        <span @click="saveClick(1)" :class="{active: current == 1}">保存现场笔录</span>
       </div>
     </div>
     <div class="start-btn">
@@ -138,11 +189,69 @@
         </li>
       </ul>
     </div>
+    <!-- 日期选择 -->
+    <mt-datetime-picker
+        ref="picker"
+        type="date"
+        year-format="{value} 年"
+        month-format="{value} 月"
+        date-format="{value} 日"
+        v-model="pickerValue"
+        @confirm="handleConfirm">
+    </mt-datetime-picker>
+    <!-- 新增当事人弹出框 -->
+    <mt-popup
+        v-model="popupVisible" class="add-popup-wrapper">
+        <ul class="litigant-form add-popup">
+            <li class="clearfix">
+                <span>当事人（签名）</span>
+                <textarea   v-model="addWitnessForm.sign"></textarea>
+            </li>
+            <li class="clearfix">
+                <div class="sign-time">
+                    <p><i>{{addwitnessDate.yy}}</i>年<i>{{addwitnessDate.mm}}</i>月<i>{{addwitnessDate.dd}}</i>日</p>
+                    <span @click="dateClick('addwitness')">修改日期</span>
+                </div>
+            </li>
+        </ul>
+        <mt-button type="primary" size="large" @click="addBtnClick('witness')">新建</mt-button>
+    </mt-popup>
+    <!-- 新增检查弹出框 -->
+    <mt-popup
+        v-model="popupVisible1"  class="add-popup-wrapper">
+        <ul class="litigant-form add-popup">
+            <li class="clearfix">
+                <span>检查人员</span>
+                <textarea v-model="addCheckForm.sign"></textarea>
+            </li>
+            <li class="clearfix">
+                <div class="sign-time">
+                    <p><i>{{addcheckDate.yy}}</i>年<i>{{addcheckDate.mm}}</i>月<i>{{addcheckDate.dd}}</i>日</p>
+                    <span @click="dateClick('addcheck')">修改日期</span>
+                </div>
+            </li>
+        </ul>
+        <mt-button type="primary" size="large" @click="addBtnClick('check')">新建</mt-button>
+    </mt-popup>
+    <!-- 点击执法人头像弹出框 -->
+    <mt-popup
+        v-model="popupVisible2">
+        <div class="lawuser-popup">
+          <p class="lawuser-title">执法证</p>
+          <div class="lawuser-img">
+            <img src="../../assets/images/lawenforcement/police.png">
+            <p>刘国军</p>
+          </div>
+          <p class="lawuser-text">执法证号码：<span>1102361197</span></p>
+          <p class="lawuser-text">北京市工商局海淀区分局综合执法处</p>
+          <div class="chapter"></div>
+        </div>
+    </mt-popup>
   </div>
 </template>
 <script>
 import anime from 'animejs'
-import { MessageBox, Toast } from 'mint-ui'
+import { MessageBox, Toast, DatetimePicker } from 'mint-ui'
 import img1 from '../../assets/images/lawenforcement/evidence.jpg'
 import img2 from '../../assets/images/lawenforcement/evidence2.jpg'
 import img3 from '../../assets/images/lawenforcement/evidence3.jpg'
@@ -152,7 +261,7 @@ export default {
   name: 'startLawEnforcement',
   data() {
     return {
-      title: '执法记录(协同码8620)',
+      title: '执法 现场笔录',
       startTopText: '海淀区工商行政管理局执法记录',
       handleEdit: true,
       isEdit: false,
@@ -166,26 +275,71 @@ export default {
       evidenceList: [{ imgPath: img1 }, { imgPath: img2 }, { imgPath: img3 }],
       enforceForm: {
         startTime: '2019-04-05 12:20',
-        endTime: '',
+        endTime: '2019-04-05 14:20',
         place:'北京市海淀区丹棱街10号新海大厦办公中心内北京市海淀区丹棱街10号新海大厦办公中心内  ',
         name: '',
         idNumber: '',
         unitName: '',
-        address: ''
+        address: '',
+        phoneNum: '',
+        attendance: '',
+        credentials: '',
+        notification: '',
+        reason: '',
+        statement: '',
+        signArr: [
+          {name: '', yy: '', mm: '', dd: ''}
+        ],
+        checkArr: [
+          {name: '', yy: '', mm: '', dd: ''}
+        ],
+        witness: ''
       },
+        pickerValue: '',
+        checkDate: {
+            yy: '', mm: '', dd: ''
+        },
+        addwitnessDate: {
+            yy: '', mm: '', dd: ''
+        },
+        addcheckDate: {
+            yy: '', mm: '', dd: ''
+        },
+        dateFlag: '',
       isColl: true,
-      current: 1
+      current: 0,
+      popupVisible: false,
+      popupVisible1: false,
+      addWitnessForm: {
+          sign: ''
+      },
+      addCheckForm: {
+          sign: ''
+      },
+      popupVisible2: false
     }
   },
   mounted() {
     document.body.addEventListener('touchstart', function() {}, false)
-    this.$route.params.code &&
-      (this.title = '执法记录(协同码' + this.$route.params.code + ')')
-
     anime.set('.start-hidden-li', {
       bottom: '0',
       scale: [0, 0]
     })
+    this.enforceForm = Object.assign(this.enforceForm, this.$route.params)
+    let d = new Date();
+    this.enforceForm.signArr[0].yy = d.getFullYear();
+    this.enforceForm.signArr[0].mm = d.getMonth() + 1;
+    this.enforceForm.signArr[0].dd = d.getDate();
+    this.enforceForm.checkArr[0].yy = d.getFullYear();
+    this.enforceForm.checkArr[0].mm = d.getMonth() + 1;
+    this.enforceForm.checkArr[0].dd = d.getDate();
+    this.addwitnessDate.yy = d.getFullYear();
+    this.addwitnessDate.mm = d.getMonth() + 1;
+    this.addwitnessDate.dd = d.getDate();
+    this.addcheckDate.yy = d.getFullYear();
+    this.addcheckDate.mm = d.getMonth() + 1;
+    this.addcheckDate.dd = d.getDate();
+
 
     this.enforceForm.startTime = this.getNowDate();
   },
@@ -300,21 +454,14 @@ export default {
     },
     //保存执法记录/生成现场笔录
     saveClick(index) {
+      this.enforceForm.endTime = this.getNowDate();
       this.current = index;
       if(index == 1){
-        this.enforceForm.endTime = this.getNowDate();
         let instance = Toast('已保存')
         let _this = this
         setTimeout(() => {
           instance.close()
           _this.$router.push({ name: 'lelog' })
-        }, 1000)
-      }else {
-        let instance = Toast('已生成')
-        let _this = this
-        setTimeout(() => {
-          instance.close()
-          _this.$router.push({ name: 'lawEnforcementRecords', params: this.enforceForm })
         }, 1000)
       }
     },
@@ -342,7 +489,56 @@ export default {
       } else {
         Toast('收藏成功！')
       }
-    }
+    },
+    // 当事人日期修改
+    dateClick(str){
+        this.$refs.picker.open();
+        this.dateFlag = str;
+    },
+    handleConfirm(val){
+        let d = new Date(val);
+        if(this.dateFlag == 'witness'){
+            this.witnessDate.yy = d.getFullYear();
+            this.witnessDate.mm = d.getMonth() + 1;
+            this.witnessDate.dd = d.getDate();
+        }else if(this.dateFlag == 'check'){
+            this.checkDate.yy = d.getFullYear();
+            this.checkDate.mm = d.getMonth() + 1;
+            this.checkDate.dd = d.getDate();
+        }else if(this.dateFlag == 'addwitness'){
+            this.addwitnessDate.yy = d.getFullYear();
+            this.addwitnessDate.mm = d.getMonth() + 1;
+            this.addwitnessDate.dd = d.getDate();
+        }else if(this.dateFlag == 'addcheck'){
+            this.addcheckDate.yy = d.getFullYear();
+            this.addcheckDate.mm = d.getMonth() + 1;
+            this.addcheckDate.dd = d.getDate();
+        }
+    },
+    //新增当事人
+    addWintessClick(){
+        this.popupVisible = true;
+    },
+    //新增当事人-btn
+    addBtnClick(str){
+      if(str == 'witness'){
+        this.popupVisible = false;
+        this.enforceForm.signArr.push({name: this.addWitnessForm.sign, yy: this.addwitnessDate.yy, mm: this.addwitnessDate.mm, dd: this.addwitnessDate.dd})
+      }else if(str == 'check'){
+        this.popupVisible1 = false;
+        this.enforceForm.checkArr.push({name: this.addCheckForm.sign, yy: this.addcheckDate.yy, mm: this.addcheckDate.mm, dd: this.addcheckDate.dd})
+      }
+      
+    },
+    //新增检查
+    addCheckClick(){
+        this.popupVisible1 = true;
+    },
+   
+    //点击执法人头像
+    lawuserClick(){
+      this.popupVisible2 = true;
+    },
   },
   components: {}
 }
@@ -671,36 +867,58 @@ export default {
 .litigant-form {
   margin-top: .2rem;
   li{
-    height: .6rem;
     margin-bottom: .2rem;
-    line-height: .6rem;
     span{
       float: left;
       font-size: .28rem;
       color: #1e2128;
+    line-height: .6rem;
+
+    }
+    span.multiple{
+      padding: 0 .26rem .2rem 0;
+    line-height: .36rem;
     }
     input{
       float: right;
       height: .58rem;
       margin: 0 .26rem 0 .2rem;
       padding: 0 .1rem;
-      border: 1px solid #dbdbdb;
+      border: .01rem solid #dbdbdb;
       background: #f8f8f8;
       border-radius: .1rem;
+    }
+    textarea{
+        width: 6.2rem;
+        height: 1.4rem;
+        padding: .1rem;
+        border: .01rem solid #dbdbdb;
+        background: #f8f8f8;
+        border-radius: .1rem;
     }
      &:nth-child(2){
        input{
          width: 5.18rem;
        }
       }
-      &:nth-child(2n+1){
+      &:nth-child(1){
         input{
-         width: 4.52rem;
+         width: 4.6rem;
+       }
+      }
+      &:nth-child(3){
+        input{
+         width: 4.6rem;
        }
       }
       &:nth-child(4){
        input{
          width: 5.4rem;
+       }
+      }
+      &:nth-child(5){
+       input{
+         width: 4.9rem;
        }
       }
   }
@@ -718,24 +936,117 @@ export default {
   span{
     position: relative;
     display: inline-block;
-    width: 50%;
+    width: 100%;
     font-size: .32rem;
     color: #5b5b69;
-    &:nth-child(1){
-      &::after{
-        position: absolute;
-        right: 0;
-        top: 0;
-        content: '';
-        width: 1px;
-        height: .36rem;
-        background: #bfbfbf;
-      }
-    }
     &.active{
       color: #2095f2;
     }
   }
+}
+.litigant-form li  .sign-time {
+    width: 100%;
+    height: .6rem;
+    margin: .2rem 0;
+    line-height: .6rem;
+    overflow: hidden;
+    p{
+        float: left;
+        font-size: .28rem;
+        i{
+            padding: 0 .12rem;
+            color: #2095f2;
+        }
+    }
+    span{
+        float: right;
+        width: 1.74rem;
+        height: .58rem;
+        margin-right: .26rem;
+        border: .01rem solid #dfdfdf;
+        border-radius: .1rem;
+        color: #0b0e13;
+        text-align: center;
+        box-sizing: border-box;
+    }
+}
+.witness-btn {
+    float: right;
+    width: 5.16rem;
+    height: .6rem;
+    line-height: .6rem;
+    margin: 0 .26rem 0 0;
+    color: #5b5b69;
+    font-size: .26rem;
+    text-align: center;
+    border: .01rem solid #dbdbdb;
+    background: #f8f8f8;
+    border-radius: .1rem;
+    i{
+        position: relative;
+        top: .06rem;
+        font-size: .4rem;
+        font-weight: 600;
+    }
+}
+.check-people-btn{
+    width: 6.12rem;
+}
+.add-popup {
+    padding: .2rem .5rem;
+}
+.mint-popup{
+    border-radius: .1rem!important;
+}
+.lawuser-popup {
+  position: relative;
+  width: 4rem;
+  padding: .4rem 1.2rem .2rem;
+  .lawuser-title{
+    font-size: .36rem;
+    color: #1e2128;
+    text-align: center;
+  }
+  .lawuser-img{
+    width: 1.7rem;
+    margin: .38rem auto;
+    img{
+      width: 1.7rem;
+      height: 1.7rem;
+    }
+    p {
+      margin-top: .15rem;
+      text-align: center;
+      font-size: .32rem;
+      color: #1e2128;
+    }
+  }
+  .lawuser-text {
+    font-size: .24rem;
+    color: #5b5b69;
+    margin-bottom: .2rem;
+    text-align: center;
+    span{
+      color: #1e2128;
+    }
+  }
+  .chapter{
+    position: absolute;
+    bottom: .88rem;
+    right: .6rem;
+    width: 2.16rem;
+    height: 2.16rem;
+    background: url('../../assets/images/lawenforcement/chapter.png') no-repeat;
+    background-size: cover;
+  }
+}
+.add-popup li textarea{
+  width: 5rem;
+}
+.add-popup-wrapper .mint-button {
+  width: 3rem!important;
+  height: 0.9rem;
+  margin: 0 auto .5rem;
 }
 </style>
 
