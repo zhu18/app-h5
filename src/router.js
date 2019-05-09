@@ -301,8 +301,9 @@ export default new Router({
                         body: brandProcess
                     }
                 },
-                { //生活服务主页
+                { //案件共享
                     path: '/cityList',
+                    name:'cityList',
                     components: {
                         body: cityList
                     }
