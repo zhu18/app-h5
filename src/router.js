@@ -27,6 +27,8 @@ import startLawEnforcementUpload from './views/lawEnforcement/startLawEnforcemen
 // 取证详情
 import lawDetails from './views/lawEnforcement/lawDetails'
 // 执法人员列表
+import lawEnforcementRecords from './views/lawEnforcement/lawEnforcementRecords'
+// 执法现场笔录
 import enforcerList from './views/lawEnforcement/enforcerList'
 /* - - - - - - - 3.检索 - - - - - - - - - */
 import smartSearch from './views/smartSearch'
@@ -60,7 +62,13 @@ import News from './views/news'
 import newsDetails from './views/news/newsdetails.vue'
 /* - - - - - - - 6.阅读 - - - - - - - - - */
 import brandProcess from './views/brandProcess'
-/* - - - - - - - 7.我的 - - - - - - - - - */
+
+/* - - - - - - - 城市列表 - - - - - - - - - */
+// import cityList from './views/cityList'
+import invalidList from './views/invalidList'
+/* - - - - - - - 7.统计分析 - - - - - - - - - */
+import statistics from './views/statistics'
+/* - - - - - - - 8.我的 - - - - - - - - - */
 import my from './views/my'
 import set from './views/my/set'
 import about from './views/my/about'
@@ -267,6 +275,14 @@ export default new Router({
             body: enforcerList
           }
         },
+        {
+          //开始执法-执法现场笔录
+          path: '/lawEnforcementRecords',
+          name: 'lawEnforcementRecords',
+          components: {
+            body: lawEnforcementRecords
+          }
+        },
         /* - - - - - - - 4.收藏 - - - - - - - - - */
         {
           //收藏
@@ -324,6 +340,18 @@ export default new Router({
           }
         },
         {
+          path: '/cityList',
+          components: {
+            body: invalidList
+          }
+        },
+        {
+          path: '/invalidList',
+          components: {
+            body: invalidList
+          }
+        },
+        {
           //生活服务主页
           path: '/test2',
           components: {
@@ -358,6 +386,14 @@ export default new Router({
             body: test4,
             footer: footerTab,
             header: headerBar
+          }
+        },
+        {
+          //统计分析
+          path: '/statistics',
+          name: 'statistics',
+          components: {
+            body: statistics
           }
         },
         {
