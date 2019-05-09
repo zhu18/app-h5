@@ -386,7 +386,7 @@ export default {
 }
 .start-content-wrapper {
   position: relative;
-  height: calc(100% - 2.1rem);
+  height: calc(100% - 1.9rem);
   padding: 0 0.32rem;
   // margin-bottom: .2rem;
   overflow-y: auto;
@@ -710,7 +710,7 @@ export default {
   width: 100%;
   height: .36rem;
   line-height: .36rem;
-  padding: .42rem 0;
+  padding: .32rem 0;
   background: #ffff;
   text-align: center;
   box-shadow: 0 1px 10px 3px rgba(0, 0, 0, 0.1);
