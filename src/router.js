@@ -304,12 +304,14 @@ export default new Router({
                 },
                 { 
                     path: '/cityList',
+                    name:'cityList',
                     components: {
                         body: invalidList
                     }
                 },
                 { 
                     path: '/invalidList',
+                    name:'invalidList',
                     components: {
                         body: invalidList
                     }
