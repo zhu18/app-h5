@@ -72,8 +72,8 @@ import echarts from 'echarts'
             grid: {
                 bottom: '10%',
                 top:'5%',
-                left:'1.8%',
-                right:'1.8%',
+                left:'3%',
+                right:'3%',
                 containLabel: true
             },
             xAxis: [{
@@ -89,6 +89,7 @@ import echarts from 'echarts'
                 axisTick: {
                     show: false
                 },
+                boundaryGap: false,
                 axisLabel: {
                     textStyle: {
                         color: "#5b5b69",

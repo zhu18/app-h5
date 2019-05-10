@@ -37,6 +37,7 @@
              </div>
 
           </div>
+
           <div class="button">
               <div class="title-name">
                     {{titleButton}}
@@ -55,8 +56,8 @@
                   </div>
               </div>
           </div>
-           <div class="yuan-left"></div>
-           <div class="yuan-right"></div>
+         <span class="yuan-left"></span>
+         <span class="yuan-right"></span>
       </div>
 
        <div class="print">
@@ -160,6 +161,7 @@ export default {
         }
     }
     .content-all{
+        position:relative;
         width: 92%;
         margin: 0px auto;
         margin-top: 0.2rem;
@@ -277,7 +279,8 @@ export default {
                 }
                 .button-center{
                     display: flex;
-                    align-items: center;
+                    padding-top: 0.8rem;
+                    box-sizing: border-box;
                     span{
                         opacity: 0.3;
                     }
@@ -309,9 +312,8 @@ export default {
         }
         .yuan-left{
             position: absolute;
-            top: 61%;
-            left:2.6%;
-            width: 0.2rem;
+            bottom: 31%;
+            width: 0.16rem;
             height: 0.3rem;
             border-left: none;
             display: flex;
@@ -321,9 +323,9 @@ export default {
         }
         .yuan-right{
             position: absolute;
-            top: 61%;
-            right:2.6%;
-            width: 0.2rem;
+            bottom: 31%;
+            right: 0;
+            width: 0.16rem;
             height: 0.3rem;
             display: flex;
             border-left: none;

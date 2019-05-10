@@ -75,15 +75,15 @@
                   </td>
              </tr>
               <tr >
-                <td class="left-font-end" >商标状态</td>
-                <td class="right-font">
+                <td class="left-font-end" style="padding-top: 0.2rem;" >商标状态</td>
+                <td class="right-font" style="padding-top: 0.2rem;">
                       <table>
                           <tr>
                           <td>
-                                  <img src="../../assets/images/17.png" class="t-img">
+                                  <img src="../../assets/images/17.png" :class="states==1 ? 't-img tmd':'t-img'">
                           </td>
                           <td class="span">
-                               <span class="dds">初审公告</span>
+                               <span class="dds">{{shname}}</span>
                           </td>
                        </tr>
                       </table>
@@ -115,6 +115,8 @@ export default {
     return {
         title:'耐克',
         index:0,
+        states:'',
+        shname:'初审公告',
         obj:{
             name1:'12749588',
             name2:'2013-06-14',
@@ -130,6 +132,10 @@ export default {
   created() {
   },
   mounted() {
+      if (this.$route.query.state) {
+          this.states = this.$route.query.state;
+          this.shname="商标无效";
+      }
   },
   methods: {
       goBack(){
@@ -198,7 +204,6 @@ export default {
         width: 92%;
         margin: 0px auto;
         margin-top: 0.2rem;
-        border: 0.01rem solid #ebebeb;
         background-color: #f6f6f6;
         height: calc(100% - 2.3rem);
         overflow-y: auto;
@@ -207,6 +212,7 @@ export default {
             border-bottom: 0.02rem solid #ebebeb;
             background-color: #ffffff;
             border-radius: 0.1rem;
+            box-sizing: border-box;
             .left-content{
                 margin-top: 0.2rem;
                 width: 36%;
@@ -261,11 +267,12 @@ export default {
             }
         }
         .content-middle{
-            height: calc(100% - 2.2rem - 0.5rem);
+            height: calc(100% - 2.2rem);
             overflow-y: auto;
             font-size: 0.24rem;
             padding-top: 0.2rem;
             padding-bottom: 0.2rem;
+            box-sizing: border-box;
             background-color: #ffffff;
             border-radius: .1rem;
             box-shadow: 0 1px 3px rgba(0,0,0,.1);
@@ -296,9 +303,11 @@ export default {
                     white-space: nowrap;
                     display: inline-block;
                 }
+                .tmd{
+                    opacity: 0.6;
+                }
                 .t-img{
                     height:1rem;
-                   padding-top: 0.2rem;
                 }
             }
             .button{
@@ -309,6 +318,7 @@ export default {
                 border: solid 0.02rem #2095f2;
                 line-height: 0.45rem;
                 text-align: center;
+                box-sizing: border-box;
                 color:#2095f2;
             }
 
