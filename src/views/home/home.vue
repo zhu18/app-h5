@@ -18,19 +18,20 @@
         <router-link :to="{ name: 'smartsearch', params: { title: '图形检索'}} " class="list-item block" tag="div">
             <i class="iconfont icon-imgquery"></i>图形检索
         </router-link>
-        <router-link :to="{ name: 'lawsRegulations', params: { title: '法律法规',handleEdit:true}} " class="list-item block" tag="div">
+       
+        <router-link :to="{ name: 'statistics', params: { title: '统计分析'}} " class="list-item block" tag="div">
+            <i class="iconfont icon-tongji"></i>统计分析
+        </router-link>
+        <router-link :to="{ name: 'cityList', params: { title: '案件共享'}} " class="list-item block" tag="div">
+            <i class="iconfont icon-law1"></i>案件共享
+         </router-link>
+         <router-link :to="{ name: 'lawsRegulations', params: { title: '法律法规',handleEdit:true}} " class="list-item block" tag="div">
             <i class="iconfont icon-regulations"></i>法律法规
         </router-link>
         <router-link :to="{ name: 'news'}" class="list-item block" tag="div">
             <i class="iconfont icon-new"></i>新闻资讯
         </router-link>
-        <router-link :to="{ name: 'statistics', params: { title: '统计分析'}} " class="list-item block" tag="div">
-            <i class="iconfont icon-tongji"></i>统计分析
-        </router-link>
-        
-         <router-link :to="{ name: 'cityList', params: { title: '案件共享'}} " class="list-item block" tag="div">
-            <i class="iconfont icon-law1"></i>案件共享
-         </router-link>
+         
      </div>
       </div>
   </div>
@@ -127,19 +128,20 @@ export default {
        .list-item:nth-child(2) .iconfont{
         background: -webkit-linear-gradient(60deg,#fe9700,#fec006) #fec604;
       }
-       .list-item:nth-child(3) .iconfont{ 
-        background: -webkit-linear-gradient(60deg,#3f83ff,#48abff) #53bafc;
-      }
-       .list-item:nth-child(5) .iconfont{
-        background: -webkit-linear-gradient(60deg,#fe9700,#fec006) #fbb84f;
-      }
-       .list-item:nth-child(4) .iconfont{
-        background: -webkit-linear-gradient(60deg,#f2896a,#e77e72) #f88776;
-      }
-       .list-item:nth-child(6) .iconfont{
+     .list-item:nth-child(4) .iconfont{
         background:  -webkit-linear-gradient(60deg,#53bafc,#53bafc) #53bafc;
         color: #fff;
       }
+       .list-item:nth-child(3) .iconfont{
+        background: -webkit-linear-gradient(60deg,#fe9700,#fec006) #fbb84f;
+      }
+        .list-item:nth-child(5) .iconfont{ 
+        background: -webkit-linear-gradient(60deg,#3f83ff,#48abff) #53bafc;
+      }
+       .list-item:nth-child(6) .iconfont{
+        background: -webkit-linear-gradient(60deg,#f2896a,#e77e72) #f88776;
+      }
+       
   }
  
 }
