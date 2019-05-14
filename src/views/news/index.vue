@@ -238,8 +238,8 @@ export default {
                 overflow: hidden;
                 img{
                   border-radius: 0.1rem;
-                    width: 2rem;
                     height: 1.2rem;
+                    width: 100%;
                     object-fit: cover;
                   border-radius: 0.1rem;
                 }
@@ -248,9 +248,9 @@ export default {
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
-                padding:0.32rem 0;
+                padding:0.16rem 0;
                 span{
-                    width: 33%;
+                    width: 32%;
                     display: inline-block;
                     // border:1px solid rgba(0,0,0,.1);/
                 }
@@ -273,7 +273,7 @@ export default {
                     color: #1e2128;
                     font-weight: normal;
                     white-space: wrap;
-                    line-height: 0.32rem;
+                    line-height: 0.40rem;
                 }
                 .tinfo{
                     font-size: 0.24rem;
