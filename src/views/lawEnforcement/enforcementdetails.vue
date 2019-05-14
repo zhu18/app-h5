@@ -211,6 +211,7 @@ export default {
   top: 0;
   font-size: 0.12rem;
   .top-header {
+    position: relative;
     height: 0.9rem;
     background-color: #2095f2;
     box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.2);
@@ -331,7 +332,7 @@ export default {
 
 .start-content-wrapper {
   position: relative;
-  height: calc(100% - 1.9rem);
+  height: calc(100% - 0.9rem);
   padding: 0 0.32rem;
   // margin-bottom: .2rem;
   overflow-y: auto;
