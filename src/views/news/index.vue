@@ -62,20 +62,20 @@ export default {
         name:'',
         list:[
             {
-                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌',
+                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌时间',
                 source:'新华网',
                 numbers:'2223',
                 times:`${Math.ceil(Math.random()*10)}分钟前`,
                 images:['../../assets/images/news/news.png']
             },
              {
-                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌',
+                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌在海外习近平听孩子们唱诵过',
                 source:'新华网',
                 numbers:'2223',
                 times:'17分钟前',
                 images:[]
             },{
-                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌',
+                title:'在海外习近平听孩子们唱诵过这些中文诗',
                 source:'新华网',
                 numbers:'2223',
                 times:'17分钟前',
@@ -88,13 +88,13 @@ export default {
                 images:['../../assets/images/news/news.png']
             },
              {
-                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌',
+                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌海外习近平听孩子们唱诵过',
                 source:'新华网',
                 numbers:'2223',
                 times:'17分钟前',
                 images:[]
             },{
-                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌',
+                title:'在海外习近平听孩子们唱诵过这些中文诗、中文歌海外习近平听孩子们唱诵过',
                 source:'新华网',
                 numbers:'2223',
                 times:'17分钟前',
