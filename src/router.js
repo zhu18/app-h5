@@ -77,12 +77,13 @@ import test3 from './views/test/test3'
 import test2 from './views/test/test2'
 import test4 from './views/test/test4'
 
+
 Vue.use(Router)
 Router.prototype.goBack = function () {
     this.isBack = true
     window.history.go(-1)
 }
-export default new Router({
+const router =  new Router({
     routes: [{
             path: '/',
             name: 'login',
@@ -100,7 +101,8 @@ export default new Router({
                         body: home,
                         footer: footerTab,
                         header: headerBar
-                    }
+                    },
+                    meta: {allowBack: false}
                 },
                 /* - - - - - - - 商标查询 - - - - - - - - - */
                 {
@@ -423,3 +425,14 @@ export default new Router({
         }
     ]
 })
+router.beforeEach((to, from, next) =>{
+    next()
+    let allowBack = true    //    给个默认值true
+    if (to.meta.allowBack !== undefined ) {
+        allowBack = to.meta.allowBack
+    }
+    if (!allowBack) {
+        history.pushState(null, null, '')
+    } 
+})
+export default router;

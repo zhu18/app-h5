@@ -12,5 +12,6 @@ export default new Vuex.Store({
       state.fontSize = v
     }
   },
-  actions: {}
+  actions: {
+  }
 })

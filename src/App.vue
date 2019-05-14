@@ -9,7 +9,11 @@ export default {
   methods: {
   },
   mounted () {
-
+     window.onpopstate = (event) => {
+       if(!event.state){
+         history.pushState(null, null, document.URL)
+       }
+    }
   },
 }
 </script>
