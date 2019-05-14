@@ -7,7 +7,7 @@
 <template>
     <div class="law-enforcement">
         <div class="top-header">
-            <h2 class="title">执法</h2>
+            <h1 class="title">执法</h1>
             <Search/>
         </div>
         <div class="list">
@@ -79,8 +79,9 @@
             height: 0.9rem;
             line-height:0.9rem;
             color: #fff;
-            font-size: 0.36rem;
+            font-size: 0.30rem;
             font-weight: normal;
+            text-align: center;
             padding:0 0.32rem;
         }
         .top-header{

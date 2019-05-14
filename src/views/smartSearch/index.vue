@@ -138,14 +138,12 @@ export default {
     this.width = this.height = (this.clientWidth * 480) / 750;
   },
   mounted () {
-
-
     ["click", "touchstart"].forEach(item => {
       window.addEventListener(item, () => {
         this.hideTip();
       });
     });
-    this.$route.params.type && this.setScanType(this.$route.params.type)
+    this.$route.params.type && setTimeout(()=>{this.setScanType(this.$route.params.type)},300)
     anime({
       targets: ".img-tip",
       translateY: [-30, 0],
@@ -249,9 +247,10 @@ export default {
   flex-direction: column;
   color: #fff;
   height: 100%;
+   background: #ddd url(/scantestbg.jpg) no-repeat;
+   background-size:cover;
   .search-view {
     flex: 1;
-    // background: #ddd url(../../assets/images/scanbg.jpg) no-repeat;
     justify-content: center;
     display: flex;
     background-size: cover;
@@ -360,20 +359,20 @@ export default {
     display: flex;
     flex-direction: column;
     height: 3rem;
-    background: -webkit-linear-gradient(-90deg, #172737, #293f64) #182339;
+    background:rgba(0,0,0,.8);
     .opt-txtbar {
       flex: 1;
       display: flex;
       padding: 0 0.1rem;
       .txt {
-        font-size: 0.28rem;
+        font-size: 0.28rem !important;
         color: #fff;
         width: 2.2rem;
         line-height: 1rem;
         text-align: center;
         transition: font-size 0.2s;
         &.active {
-          font-size: 0.36rem;
+          font-size: 0.36rem !important;
           width: 3rem;
         }
       }
@@ -408,10 +407,10 @@ export default {
       .btn-watch {
         width: 0.92rem;
         height: 0.92rem;
-        background: -webkit-linear-gradient(100deg, #2095f2, #67ccfb) #3fabf6;
+        background: -webkit-linear-gradient(100deg, #2095f2, #46a4ef) #3fabf6;
         border-radius: 50%;
         margin: 10px auto;
-        box-shadow: 0 0 1px 7px rgba(255, 255, 255, 0.4);
+        box-shadow: 0 0 1px 7px rgba(255, 255, 255, 0.2);
         .iconfont {
           color: #fff;
           font-size: 0.92rem;

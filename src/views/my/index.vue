@@ -1,7 +1,7 @@
 <template>
   <div class="my">
     <div class="top-header">
-      <h2 class="title">我的</h2>
+      <h1 class="title">我的</h1>
       <span class="edit">编辑</span>
       <div class="figure">
         <span class="box">
@@ -57,7 +57,7 @@ export default {
     line-height: 0.9rem;
     text-align: center;
     color: #fff;
-    font-size: 0.36rem;
+    font-size: 0.30rem;
     font-weight: normal;
     padding: 0 0.32rem;
   }
@@ -68,7 +68,7 @@ export default {
     height: 0.9rem;
     line-height: 0.9rem;
     color: #fff;
-    font-size: 0.36rem;
+    font-size: 0.30rem;
     font-weight: normal;
     padding: 0 0.32rem;
     text-align: right;

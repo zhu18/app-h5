@@ -57,7 +57,7 @@ export default {
       color: #fff;
     }
     .title {
-      font-size: 0.36rem;
+      font-size: 0.30rem;
     }
   }
   .font-size {

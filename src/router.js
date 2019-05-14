@@ -132,12 +132,14 @@ const router =  new Router({
                         footer: footerTab
                     }
                 },
+                /* - - - - - - - 历史 - - - - - - - - - */
                 {
                     //查询历史
                     path: '/searchhistory',
                     name: 'searchhistory',
                     components: {
-                        body: searchHistory
+                        body: searchHistory,
+                        footer: footerTab
                     }
                 },
                 /* - - - - - - - 智能检索 - - - - - - - - - */
@@ -350,43 +352,6 @@ const router =  new Router({
                     name: 'invalidList',
                     components: {
                         body: invalidList
-                    }
-                },
-                {
-                    //生活服务主页
-                    path: '/test2',
-                    components: {
-                        body: test2,
-                        footer: footerTab,
-                        header: headerBar
-                    }
-                },
-                {
-                    //生活服务主页
-                    path: '/test2',
-                    name: 'test2',
-                    components: {
-                        body: test2,
-                        footer: footerTab,
-                        header: headerBar
-                    }
-                },
-                {
-                    //生活服务主页
-                    path: '/test3',
-                    components: {
-                        body: test3,
-                        footer: footerTab,
-                        header: headerBar
-                    }
-                },
-                {
-                    //生活服务主页
-                    path: '/test4',
-                    components: {
-                        body: test4,
-                        footer: footerTab,
-                        header: headerBar
                     }
                 },
                 {
