@@ -41,7 +41,7 @@ export default {
   name: "home",
   data() {
     return {
-      username:'测试',
+        currentTab: 0
     };
   },
   created() {

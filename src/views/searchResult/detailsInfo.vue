@@ -79,8 +79,8 @@
                 <td class="right-font" style="padding-top: 0.2rem;">
                       <table>
                           <tr>
-                          <td>
-                                  <img src="../../assets/images/17.png" :class="states==1 ? 't-img tmd':'t-img'">
+                          <td height="1rem">
+                                  <img :src="src" class="t-img">
                           </td>
                           <td class="span">
                                <span class="dds">{{shname}}</span>
@@ -109,6 +109,8 @@
 </template>
 <script>
 import {Toast,MessageBox} from 'mint-ui';
+import pass from '../../assets/images/17.png'
+import nopass from '../../assets/images/nopass.png'
 export default {
   name: "home-detailsinfo",
   data() {
@@ -116,6 +118,7 @@ export default {
         title:'耐克',
         index:0,
         states:'',
+        src:pass,
         shname:'初审公告',
         obj:{
             name1:'12749588',
@@ -135,6 +138,7 @@ export default {
       if (this.$route.query.state) {
           this.states = this.$route.query.state;
           this.shname="商标无效";
+          this.src=nopass;
       }
   },
   methods: {
