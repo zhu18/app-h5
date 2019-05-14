@@ -247,8 +247,8 @@ export default {
   flex-direction: column;
   color: #fff;
   height: 100%;
-   background: #ddd url(/scantestbg.jpg) no-repeat;
-   background-size:cover;
+  background: #ddd url(../../assets/images/scantestbg.jpg) no-repeat;
+  background-size: cover;
   .search-view {
     flex: 1;
     justify-content: center;
