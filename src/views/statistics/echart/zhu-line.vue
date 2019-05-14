@@ -58,7 +58,7 @@ import echarts from 'echarts'
             },
             legend: {
                 show: true,
-                data: ['去年同期数量', '今年趋势'],
+                data: ['去年同期数量', '今年本月商标注册量'],
                 y: 'bottom',
                 x:'center',
                 padding: [0, 0, 0, 0],
@@ -72,8 +72,8 @@ import echarts from 'echarts'
             grid: {
                 bottom: '10%',
                 top:'5%',
-                left:'3%',
-                right:'3%',
+                left:'5%',
+                right:'5%',
                 containLabel: true
             },
             xAxis: [{
@@ -91,10 +91,11 @@ import echarts from 'echarts'
                 },
                 boundaryGap: false,
                 axisLabel: {
+                    interval: 0,
                     textStyle: {
                         color: "#5b5b69",
                         fontSize: 12
-                    }
+                    },
                 },
             }],
             yAxis: [{
@@ -131,7 +132,7 @@ import echarts from 'echarts'
                     name: '去年同期数量',
                     type: 'bar',
                     stack: '总量',
-                    barMaxWidth: 20,
+                    barMaxWidth: 15,
                     itemStyle: {
                         emphasis: {
                             color: "#2095f2",
@@ -155,7 +156,7 @@ import echarts from 'echarts'
                     data: this.echartsData.data2
                 },
                 {
-                    name: '今年趋势',
+                    name: '今年本月商标注册量',
                     type: 'line',
                     lineStyle: {
                         normal: {
@@ -185,6 +186,12 @@ import echarts from 'echarts'
               seriesIndex: 0,
               dataIndex:3
           });
+          this.chart.on('click', this.aa);
+      },
+      aa(params){
+          if (params.componentType == "series") {
+              this.$emit("echartclick", {value: params.data, index: params.dataIndex});
+          }
       },
       // echats 图表自适应
       _resizeHanlder() {

@@ -19,12 +19,17 @@
       <div class="content-all">
           <div class="top">
               <div class="top-left">
-                  <select class="select" >
-                    <option value ="2016">2016年</option>
-                    <option value ="2017">2017年</option>
-                    <option value ="2018">2018年</option>
-                    <option value ="2019" selected = "selected" >2019年</option>
-                    </select>
+                <input type="text" v-model="selectYear" readonly="readonly" class="input-text" @click="showdate"/>
+                <!-- 日期选择 -->
+                <mt-datetime-picker
+                    ref="picker1"
+                    type="date"
+                    year-format="{value} 年"
+                    month-format="{value} 月"
+                    date-format="{value} 日"
+                    v-model="pickerValue"
+                    @confirm="handleConfirm">
+                </mt-datetime-picker>
               </div>
               <div class="top-right">
                   {{titleRight}}
@@ -32,10 +37,7 @@
               </div>
           </div>
           <div class="middle">
-              <div class="echart-div">
-                          <zhu :echartsData="echartData"  ></zhu>
-             </div>
-
+             <zhu :echartsData="echartData"  @echartclick="echartclick"></zhu>
           </div>
 
           <div class="button">
@@ -52,7 +54,7 @@
                  <div class="button-center"><span>|</span></div>
                   <div class="button-right">
                       <div class="divTop">+{{nowmonth}}%</div>
-                      <div class="divBotton">较上月</div>
+                      <div class="divBotton">较今年本月商标注册量</div>
                   </div>
               </div>
           </div>
@@ -83,12 +85,14 @@ export default {
   name: "home-statistics",
   data() {
     return {
+        pickerValue: '',
         title:'统计分析',
         titleRight:'当前注册商标',
         count:'16,546',
         bindex:1,
-        oldmonth:'25',
-        nowmonth:'10',
+        oldmonth:'9',
+        nowmonth:'14',
+        selectYear:'2019年',
         titleButton:'河北省2019年4月注册商标',
         echartData:{
             data1: [],
@@ -102,11 +106,39 @@ export default {
   mounted() {
         this.echartData={
             data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-            data2: [60, 32, 50, 34, 90, 80,60, 32, 50, 34, 90, 80] ,
-            data3: [30, 42, 70, 34],
+            data2: [20, 32, 50, 64, 90, 80,60, 32, 50, 34, 90, 32] ,
+            data3: [30, 45, 61, 70],
         }
   },
   methods: {
+      handleConfirm(val){
+          let d = new Date(val);
+          this.selectYear= d.getFullYear()+"年";
+      },
+      showdate(){
+          this.$refs.picker1.open();
+      },
+      echartclick(obj){
+          let sdata=parseInt(obj.value);
+          let index=parseInt(obj.index);
+          if(index<4) {
+              this.oldmonth = parseFloat((parseInt(this.echartData.data3[index]-sdata) /sdata )) * 100;
+              if (index > 0)
+              {
+                  this.nowmonth=((parseFloat(this.echartData.data3[index])-parseInt(this.echartData.data3[index-1]))/parseInt(this.echartData.data3[index-1]))*100;
+              }
+              else{
+                  this.nowmonth=0;
+              }
+          }
+          else{
+              this.oldmonth=0;
+              this.nowmonth=0;
+          }
+          this.oldmonth=parseInt(this.oldmonth);
+          this.nowmonth=parseInt(this.nowmonth);
+
+      },
       goBack(){
           this.$router.goBack()
       },
@@ -118,8 +150,8 @@ export default {
          if(index==1){
              this.echartData={
                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-                 data2: [60, 32, 50, 34, 90, 80,60, 32, 50, 34, 90, 80] ,
-                 data3: [30, 42, 70, 34],
+                 data2: [20, 32, 50, 64, 90, 80,60, 32, 50, 34, 90, 32] ,
+                 data3: [30, 45, 61, 70],
              }
              this.titleRight="4月注册商标";
              this.titleButton="河北省2019年4月注册商标";
@@ -127,8 +159,8 @@ export default {
          else{
              this.echartData={
                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-                 data2: [30, 32, 60, 44, 60, 90,30, 42, 45, 34, 60, 80] ,
-                 data3: [20, 60, 30, 70],
+                 data2: [12, 26, 45, 70, 90, 80,60, 32, 50, 34, 90, 32] ,
+                 data3: [16, 45, 61, 70],
              }
              this.titleRight="4月案件";
              this.titleButton="河北省2019年4月执法";
@@ -141,6 +173,12 @@ export default {
 };
 </script>
 <style lang="scss">
+    .picker-slot-center:nth-child(3){
+        display: none
+    }
+    .picker-slot-center:nth-child(2){
+        display: none
+    }
 .home-statistics {
     width: 100%;
     height: 100%;
@@ -172,6 +210,23 @@ export default {
         display: flex;
         border-radius: 0.1rem;
         flex-direction: column;
+        .input-text{
+            width: 1.6rem;
+            border: none;
+            padding-bottom: 0.04rem;
+            padding-left: 0.2rem;
+            line-height: 0.3rem;
+            border-bottom: 0.03rem solid #2095f2;
+            background: transparent;
+            border-radius: 0px;
+            color: #2095f2;
+            font-size: 0.3rem;
+            -webkit-appearance:none;
+            font-weight: 600;
+            background: url('../../assets/images/yeardrop.png') no-repeat;
+            background-size: 8%;
+            background-position: 1.35rem 0.1rem;
+        }
         .top{
             height: 16%;
             width: 100%;
@@ -222,11 +277,6 @@ export default {
         .middle{
             height:55%;
             width: 100%;
-            overflow-x: scroll;
-            .echart-div{
-                height: 100%;
-                width: 200%
-            }
         }
         .button{
             height:34%;
