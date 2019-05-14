@@ -68,13 +68,23 @@ import {Toast,MessageBox} from 'mint-ui';
            cursor:pointer;
            height:.97rem;
            line-height:.97rem;
+           position: relative;
            i{
                font-size: .6rem;
                vertical-align:middle;
            }
        }
        .border{
-           border-right: 1px solid #bfbfbf;
+       }
+       .border:after{
+           content:"";
+           height: 0.32rem;
+           position: absolute;
+           right: 0;
+           width:1px;
+           background:#bfbfbf;
+           top:50%;
+           margin-top: -0.16rem;
        }
        
     }

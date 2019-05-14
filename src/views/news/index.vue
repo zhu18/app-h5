@@ -26,13 +26,13 @@
         <template v-for="(item,index) in list" >
             <router-link class="list-item" tag="div" to="/newsdetails" :key="index">
                 <div class="img-box" v-if="item.images.length==1">
-                    <img src="https://ss1.baidu.com/9vo3dSag_xI4khGko9WTAnF6hhy/image/h%3D300/sign=03ffa97602d79123ffe092749d355917/48540923dd54564e5b271d47bdde9c82d1584f0a.jpg" alt="" v-for="(url,index2) in item.images" :key="index2">
+                    <img :src="require('../../assets/images/newslist2.jpg')" alt="" v-for="(url,index2) in item.images" :key="index2">
                 </div>
                 <div class="item-content">
                     <h4>{{item.title}}</h4>
                     <div class="img-box2" v-if="item.images.length>1">
                         <span v-for="(url,index2) in item.images" :key="index2">
-                            <img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1555417513810&di=322d9fa187a1d55d9ff2b8f33c7489a2&imgtype=0&src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fwallpaper%2F1504%2F21%2Fc0%2F5753481_1429626381597_800x600.jpg" alt="" >
+                            <img :src="require('../../assets/images/newslist1.jpeg')" alt="" >
                         </span>
                     </div>
                     <div class="tinfo"><span class="title">{{item.source}}<var>{{item.numbers}}评论</var></span> <span>{{item.times}}</span></div>
@@ -52,7 +52,6 @@
 </template>
 <script>
 import Search from '../../components/search/innerSearch'
-
 // import search from '../../components/search/lesearch';
 export default {
   name: "home",
@@ -213,7 +212,7 @@ export default {
     top:0;
     left:0;
     right:0;
-    bottom:1.28rem;
+    bottom:1.1rem;
     background-color: #fff;
     .news-list{
         height: calc(100% - 1.8rem);
