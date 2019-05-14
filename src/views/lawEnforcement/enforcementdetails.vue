@@ -63,6 +63,27 @@
                   </p>
                 </div>
                 <div class="start-item">
+                  <p class="start-item-title">当事人</p>
+                  <ul class="litigant-form">
+                    <li class="clearfix">
+                      <span>(个人)姓名</span>
+                      <input type="text" v-model="enforceForm.name">
+                    </li>
+                    <li class="clearfix">
+                      <span>身份证</span>
+                      <input type="text"  v-model="enforceForm.idNumber">
+                    </li>
+                    <li class="clearfix">
+                      <span>(单位)名称</span>
+                      <input type="text"  v-model="enforceForm.unitName">
+                    </li>
+                    <li class="clearfix">
+                      <span>住址</span>
+                      <input type="text"  v-model="enforceForm.address">
+                    </li>
+                  </ul>
+                </div>
+                <div class="start-item">
                   <p class="start-item-title">现场取证</p>
                   <div class="start-item-content start-item-content-list">
                     <ul class="evidence-box clearfix">
@@ -439,6 +460,43 @@ export default {
       font-size: 0.24rem;
       color: #5b5b69;
     }
+  }
+}
+.litigant-form {
+  margin-top: .2rem;
+  li{
+    height: .6rem;
+    margin-bottom: .2rem;
+    line-height: .6rem;
+    span{
+      float: left;
+      font-size: .28rem;
+      color: #1e2128;
+    }
+    input{
+      float: right;
+      height: .58rem;
+      margin: 0 .26rem 0 .2rem;
+      padding: 0 .1rem;
+      border: 1px solid #dbdbdb;
+      background: #f8f8f8;
+      border-radius: .1rem;
+    }
+     &:nth-child(2){
+       input{
+         width: 5.18rem;
+       }
+      }
+      &:nth-child(2n+1){
+        input{
+         width: 4.52rem;
+       }
+      }
+      &:nth-child(4){
+       input{
+         width: 5.4rem;
+       }
+      }
   }
 }
 </style>
