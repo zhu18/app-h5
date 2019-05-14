@@ -79,10 +79,7 @@ import test4 from './views/test/test4'
 
 
 Vue.use(Router)
-Router.prototype.goBack = function () {
-    this.isBack = true
-    window.history.go(-1)
-}
+
 const router =  new Router({
     routes: [{
             path: '/',
@@ -390,6 +387,7 @@ const router =  new Router({
         }
     ]
 })
+//回退控制
 router.beforeEach((to, from, next) =>{
     next()
     let allowBack = true    //    给个默认值true
@@ -400,4 +398,9 @@ router.beforeEach((to, from, next) =>{
         history.pushState(null, null, '')
     } 
 })
+//自定义回退
+Router.prototype.goBack = function (path) {
+    this.isBack = true
+    path?this.push(path):window.history.go(-1)
+}
 export default router;

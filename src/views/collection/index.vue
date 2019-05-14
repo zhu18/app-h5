@@ -70,7 +70,7 @@ export default {
   },
   methods: {
     goBack() {
-      this.$router.goBack()
+      this.$router.goBack('/my')
     },
     edit() {
       this.isEdit = !this.isEdit

@@ -44,6 +44,7 @@ export default {
   },
   mounted() {},
   methods: {
+    //字体控制-初始化
     initFont() {
       for (let i = 0; i < document.all.length; i++) {
         let tag = document.all[i]
@@ -58,6 +59,7 @@ export default {
         }
       }
     },
+    //字体控制-设置大小
     setFont(v) {
       for (let i = 0; i < document.all.length; i++) {
         let tag = document.all[i]

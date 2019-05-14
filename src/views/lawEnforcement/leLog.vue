@@ -101,7 +101,6 @@
         .top-header{
             height: 0.9rem;
             background: #2095f2;
-            box-shadow: 0 1px 10px 3px rgba(4, 0, 0, 0.2);
         }
         .total{
             height:0.9rem;
