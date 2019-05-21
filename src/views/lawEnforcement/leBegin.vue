@@ -48,7 +48,7 @@
 <style lang="scss" scoped>
     .le-begin {
         padding: 0.6rem;
-        border-radius: 5px;
+        border-radius: .1rem;
         text-align: center;
         position: relative;
         box-sizing: border-box;
