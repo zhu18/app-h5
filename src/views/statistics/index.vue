@@ -173,10 +173,10 @@ export default {
 };
 </script>
 <style lang="scss">
-    .picker-slot-center:nth-child(3){
+    .home-statistics .picker-slot-center:nth-child(3){
         display: none
     }
-    .picker-slot-center:nth-child(2){
+    .home-statistics .picker-slot-center:nth-child(2){
         display: none
     }
 .home-statistics {

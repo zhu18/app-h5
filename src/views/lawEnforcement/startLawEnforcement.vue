@@ -90,7 +90,7 @@
                   </li>
                   <li class="add-evidence" @click="uploadPicClick">
                     <i class="iconfont icon-add"></i>
-                    <p>上传图片</p>
+                    <p>添加证据</p>
                   </li>
                 </ul>
               </div>
@@ -488,6 +488,11 @@ export default {
     }
   }
   span.collBtn {
+    i{
+      position: relative;
+      left: 1px;
+      top: -1px;
+    }
     &:active {
       border-color: #fea71a;
       i {

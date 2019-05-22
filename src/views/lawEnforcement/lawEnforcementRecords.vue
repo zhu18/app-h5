@@ -104,6 +104,7 @@
                     <ul>
                       <li v-for="(item, index) in enforceForm.signArr" :key="index">
                         <span>当事人（签名）</span>
+                        <span class="sign-del-btn" @click="delSign(index)">删除</span>
                           <textarea name=""  v-model="item.name"></textarea>
                           <div class="sign-time">
                             <p><i>{{item.yy}}</i>年<i>{{item.mm}}</i>月<i>{{item.dd}}</i>日</p>
@@ -118,6 +119,7 @@
                   <ul>
                     <li v-for="(item, index) in enforceForm.checkArr" :key="index">
                       <span>检查人员</span>
+                      <span class="sign-del-btn" @click="delCheck(index)">删除</span>
                       <textarea name=""  v-model="item.name"></textarea>
                       <div class="sign-time">
                         <p><i>{{item.yy}}</i>年<i>{{item.mm}}</i>月<i>{{item.dd}}</i>日</p>
@@ -142,7 +144,7 @@
                   </li>
                   <li class="add-evidence" @click="uploadPicClick">
                     <i class="iconfont icon-add"></i>
-                    <p>上传图片</p>
+                    <p>添加证据</p>
                   </li>
                 </ul>
               </div>
@@ -539,6 +541,31 @@ export default {
     lawuserClick(){
       this.popupVisible2 = true;
     },
+    //删除当事人签名
+    delSign(index){
+      let len = this.enforceForm.signArr.length;
+      if(len){
+        if(len > 1){
+          this.enforceForm.signArr.splice(index, 1)
+          Toast('删除成功！')
+        }else {
+          Toast('至少保留一项')
+        }
+      }
+      
+    },
+    //删除检查人员
+    delCheck(index){
+      let len = this.enforceForm.checkArr.length;
+      if(len){
+          if(len > 1){
+            this.enforceForm.checkArr.splice(index, 1)
+            Toast('删除成功！')
+          }else {
+            Toast('至少保留一项')
+          }
+      }
+    }
   },
   components: {}
 }
@@ -684,6 +711,11 @@ export default {
     }
   }
   span.collBtn {
+    i{
+      position: relative;
+      left: 1px;
+      top: -1px;
+    }
     &:active {
       border-color: #fea71a;
       i {
@@ -891,6 +923,7 @@ export default {
     textarea{
         width: 6.2rem;
         height: 1.4rem;
+        margin-top: .2rem;
         padding: .1rem;
         border: .01rem solid #dbdbdb;
         background: #f8f8f8;
@@ -1047,6 +1080,20 @@ export default {
   width: 3rem!important;
   height: 0.9rem;
   margin: 0 auto .5rem;
+}
+.litigant-form li span.sign-del-btn {
+  float: right;
+  width: 1.2rem;
+  height: .58rem;
+  margin-right: .26rem;
+  border: .01rem solid #dfdfdf;
+  border-radius: .1rem;
+  color: #0b0e13;
+  text-align: center;
+}
+.start-wrapper .picker-slot-center:nth-child(2),
+.start-wrapper .picker-slot-center:nth-child(3){
+  display: block!important;
 }
 </style>
 
