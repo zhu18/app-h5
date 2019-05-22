@@ -1,7 +1,9 @@
 <template>
   <div class="flex brand-list">
     <div class="top-search flex-fixed">
-      <innerSearch />
+      <div class="inner-search">
+        <innerSearch />
+      </div>
     </div>
     <div class="header-content flex-fill">
       <!-- 搜索结果  开始  -->
@@ -41,28 +43,31 @@
       <!-- 搜索结果  结束  -->
     </div>
     <div class="tips-bar flex-fixed">
-      <div class="tips">
-        时间<span>{{year}}年{{month}}月</span>
+      <div class="tips-bar-inner flex">
+        <div class="tips">
+          时间<span>{{year}}年{{month}}月</span>
+        </div>
+        <div class="tips">
+          类别<span>{{category}}</span>
+        </div>
+        <span class="btn-filter"
+              @click="popupVisible=true"><i class="iconfont icon-filter"></i>筛选</span>
+
       </div>
-      <div class="tips">
-        类别<span>{{category}}</span>
-      </div>
-      <span class="btn-filter"
-            @click="popupVisible=true"><i class="iconfont icon-filter"></i>筛选</span>
-      <mt-popup class="popup-filter"
-                v-model="popupVisible"
-                position="bottom">
-        <mt-picker :slots="slots"
-                   :showToolbar="true"
-                   @change="onValuesChange">
-          <div class="pop-tools flex">
-            <span class="flex-fill">年</span>
-            <span class="flex-fill">月</span>
-            <span class="flex-fill">类别</span>
-          </div>
-        </mt-picker>
-      </mt-popup>
     </div>
+    <mt-popup class="popup-filter"
+              v-model="popupVisible"
+              position="bottom">
+      <mt-picker :slots="slots"
+                 :showToolbar="true"
+                 @change="onValuesChange">
+        <div class="pop-tools flex">
+          <span class="flex-fill">年</span>
+          <span class="flex-fill">月</span>
+          <span class="flex-fill">类别</span>
+        </div>
+      </mt-picker>
+    </mt-popup>
   </div>
 </template>
 <script>
@@ -132,12 +137,17 @@ export default {
   .top-search {
     width: 100%;
     height: 0.9rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 0.3rem;
-    box-sizing: border-box;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 0.05rem rgba(0, 0, 0, 0.1);
+    .inner-search {
+      padding: 0.1rem 0.3rem;
+      top: 0.9rem;
+      box-sizing: border-box;
+      position: fixed;
+      height: 0.9rem;
+      width: 100%;
+      z-index: 5;
+      background:#f6f6f6;
+    }
     .search {
       flex: 1;
     }
@@ -234,14 +244,20 @@ export default {
   .tips-bar {
     width: 100%;
     height: 1rem;
-    background-color: #ffffff;
-    box-shadow: 0px -0.04rem 0.08rem 0px rgba(68, 68, 68, 0.08);
-    display: flex;
-    padding: 0 0.3rem;
-    box-sizing: border-box;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(191, 191, 191, 0.3);
+    .tips-bar-inner {
+      position: fixed;
+      bottom: 0.96rem;
+      width: 100%;
+      height: 1rem;
+      background-color: #ffffff;
+      box-shadow: 0px -0.04rem 0.08rem 0px rgba(68, 68, 68, 0.08);
+      padding: 0 0.3rem;
+      box-sizing: border-box;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(191, 191, 191, 0.3);
+    }
+
     .tips {
       color: #5b5b69;
       font-size: 0.28rem;
@@ -268,6 +284,7 @@ export default {
   }
   .popup-filter {
     width: 100%;
+    z-index: 100;
   }
   .pop-tools {
     background: #efefef;

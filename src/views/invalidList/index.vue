@@ -1,5 +1,5 @@
 <template>
-  <div class="invalid-list flex">
+  <div class="invalid-list ">
     <div class="top-header flex-fixed ">
       <mt-header fixed
                  :title="title">
@@ -73,7 +73,6 @@ export default {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  overflow-y: auto;
   flex-direction: column;
   .top-header {
     height: 0.9rem;
