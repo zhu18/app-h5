@@ -125,16 +125,19 @@ export default {
       return height >= this.minH && height <= this.maxH
     },
     resize (width, height) {
-        this.maxH = this.$refs.scan.offsetHeight
-        this.maxW = this.$refs.scan.offsetWidth
-        this.width = width
-        this.height = height
-        this.top = (this.maxH - this.height) / 2
-        this.left = (this.maxW - this.width) / 2
-        this.resizing = true
-        setTimeout(() => {
-          this.resizing = false
-        }, 100);
+      this.maxH = this.$refs.scan.offsetHeight
+      this.maxW = this.$refs.scan.offsetWidth
+      this.width = width
+      this.height = height
+      this.top = (this.maxH - this.height) / 2
+      this.left = (this.maxW - this.width) / 2
+      this.resizing = true
+      setTimeout(() => {
+        this.resizing = false
+      }, 100);
+    },
+    getRect () {
+      return { top: this.top, left: this.left, width: this.width, height: this.height }
     }
   },
   watch: {

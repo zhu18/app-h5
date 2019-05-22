@@ -47,7 +47,8 @@
       <div class="tips">
         类别<span>{{category}}</span>
       </div>
-      <span class="btn-filter" @click="popupVisible=true"><i class="iconfont icon-filter"></i>筛选</span>
+      <span class="btn-filter"
+            @click="popupVisible=true"><i class="iconfont icon-filter"></i>筛选</span>
       <mt-popup class="popup-filter"
                 v-model="popupVisible"
                 position="bottom">
@@ -83,15 +84,15 @@ export default {
       slots: [
         {
           flex: 1,
-          values: [],
+          values: Array.apply(null, Array(50)).map((val, i) => 2019 - i),
           textAlign: 'center'
         }, {
           flex: 1,
-          values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+          values: Array.apply(null, Array(12)).map((val, i) => 1 + i),
           textAlign: 'center'
         }, {
           flex: 1,
-          values: [],
+          values: Array.apply(null, Array(46)).map((val, i) => 1 + i),
           textAlign: 'center'
         }
       ],
@@ -111,17 +112,17 @@ export default {
         this.loading = false;
       }, 1500);
     },
-    onValuesChange ({values}) {
+    onValuesChange ({ values }) {
       this.year = values[0]
       this.month = values[1]
       this.category = values[2]
     }
   },
-  created () {
-    this.currentTab = this.$route.name == 'cityList' ? 0 : 1
-    this.slots[0].values = Array.apply(null, Array(50)).map((val, i) => 2019 - i)
-    this.slots[2].values = Array.apply(null, Array(46)).map((val, i) => i + 1)
-  }
+  // created () {
+  //   this.slots[0].values = Array.apply(null, Array(50)).map((val, i) => 2019 - i)
+  //   this.slots[1].values = Array.apply(null, Array(12)).map((val, i) => 1 + i)
+  //   this.slots[2].values = Array.apply(null, Array(46)).map((val, i) => i + 1)
+  // }
 };
 </script>
 <style  lang="scss">
@@ -142,7 +143,7 @@ export default {
     }
   }
   .header-content {
-    height: 100%;
+    height: calc(100% - 1rem - 0.9rem);
     width: 100%;
     background-size: 100%;
     position: relative;

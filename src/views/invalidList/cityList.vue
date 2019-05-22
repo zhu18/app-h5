@@ -151,11 +151,13 @@ export default {
   .letter-aside {
     position: fixed;
     right: 0.1rem;
-    top: 2.3rem;
+    top: 1.3rem;
+    overflow-y:auto;
+    height: calc(100vh - 3rem );
     ul {
       list-style: none;
       line-height: 1.6em;
-      font-size: 0.2rem;
+      font-size: 0.28rem;
       color: #5b5b69;
       text-align: center;
     }

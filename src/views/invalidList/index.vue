@@ -2,25 +2,27 @@
   <div class="invalid-list flex">
     <div class="top-header flex-fixed ">
       <mt-header fixed
-                 title="商标复审无效决定">
+                 :title="title">
         <div slot="left">
           <mt-button icon="back"
                      @click='goBack'></mt-button>
         </div>
       </mt-header>
     </div>
-    <rejectList class="flex-fill"
+    <rejectList class="main flex-fill"
                 v-if="this.currentTab==1" />
-    <city-list class="flex-fill"
+    <city-list class="main flex-fill"
                v-else />
-    <div class="bottom-bar flex flex-fixed">
-      <div class="tab-item flex-fill"
-           :class="{active:currentTab==0}"
-           @click="clickTab(0)">案件共享</div>
-      <div class="tab-split flex-fixed"></div>
-      <div class="tab-item  flex-fill"
-           :class="{active:currentTab==1}"
-           @click="clickTab(1)">复审无效商标</div>
+    <div class="bottom-bar flex-fixed">
+      <div class="flex">
+        <div class="tab-item flex-fill"
+             :class="{active:currentTab==0}"
+             @click="clickTab(0)">案件共享</div>
+        <div class="tab-split flex-fixed"></div>
+        <div class="tab-item  flex-fill"
+             :class="{active:currentTab==1}"
+             @click="clickTab(1)">复审无效商标</div>
+      </div>
     </div>
   </div>
 </template>
@@ -46,7 +48,7 @@ export default {
       this.currentTab = this.$route.name == 'cityList' ? 0 : 1
     },
     clickTab (index) {
-      if(index==this.currentTab) return
+      if (index == this.currentTab) return
       this.$router.replace({ name: index === 0 ? 'cityList' : 'invalidList' })
     },
     goBack () {
@@ -82,11 +84,20 @@ export default {
   }
   .bottom-bar {
     $height: 0.98rem;
+    position: relative;
     height: $height;
-    display: flex;
     width: 100%;
-    align-items: center;
     background-color: #fff;
+    & > div {
+      position: fixed;
+      background-color: #fff;
+      height: $height;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      align-items: center;
+    }
     .tab-split {
       width: 1px;
       background: #bfbfbf;
@@ -99,6 +110,12 @@ export default {
       height: 100%;
       width: 2rem;
       line-height: $height;
+      background: linear-gradient(
+          to left,
+          rgba(191, 191, 191, 0.3),
+          rgba(191, 191, 191, 0.3)
+        )
+        no-repeat 0 0 / 100% 1px;
       &.active {
         $color: #2095f2;
         color: $color;
@@ -106,6 +123,13 @@ export default {
           100% 0.04rem;
       }
     }
+  }
+
+  .main {
+    height: calc(100vh - 0.98rem - 0.9rem);
+    overflow-y: auto;
+    // height: max-content;
+    // flex: 1 1;
   }
 }
 </style>
