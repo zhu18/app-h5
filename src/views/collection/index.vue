@@ -86,6 +86,11 @@ export default {
   }
 }
 </script>
+<style>
+.mint-popup{
+  border-radius: .1rem;
+}
+</style>
 <style lang="scss" scoped>
 .container {
   font-size: 0.24rem;

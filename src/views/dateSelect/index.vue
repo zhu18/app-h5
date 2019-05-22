@@ -36,7 +36,7 @@ export default {
       this.$router.goBack()
     },
     selectDate (date) {
-      this.$router.push({ name: 'enforcementdetails', query: { date } })
+      this.$router.push({ name: 'lelog', query: { date } })
     }
   }
 };

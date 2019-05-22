@@ -96,7 +96,7 @@ export default {
           source: '新华网',
           numbers: '2223',
           times: '17分钟前',
-          images: []
+          images: ['../../assets/images/news/news.png']
         },
         {
           id: '3',
@@ -104,11 +104,7 @@ export default {
           source: '新华网',
           numbers: '2223',
           times: '17分钟前',
-          images: [
-            '../../assets/images/news/news.png',
-            '../../assets/images/news/news.png',
-            '../../assets/images/news/news.png'
-          ]
+          images: ['../../assets/images/news/news.png']
         },
         {
           id: '4',
@@ -124,7 +120,7 @@ export default {
           source: '新华网',
           numbers: '2223',
           times: '17分钟前',
-          images: []
+          images: ['../../assets/images/news/news.png']
         },
         {
           id: '6',
@@ -132,11 +128,7 @@ export default {
           source: '新华网',
           numbers: '2223',
           times: '17分钟前',
-          images: [
-            '../../assets/images/news/news.png',
-            '../../assets/images/news/news.png',
-            '../../assets/images/news/news.png'
-          ]
+          images: ['../../assets/images/news/news.png']
         }
       ]
     }
@@ -147,11 +139,7 @@ export default {
       let list = [1, 2, 3, 4, 6, 7].map(v => {
         let images = []
         if (Math.ceil(Math.random() * 10) >= 5) {
-          images = [
-            '../../assets/images/news/news.png',
-            '../../assets/images/news/news.png',
-            '../../assets/images/news/news.png'
-          ]
+          images = ['../../assets/images/news/news.png']
         } else {
           images = ['../../assets/images/news/news.png']
         }
