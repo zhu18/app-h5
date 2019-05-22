@@ -11,7 +11,7 @@
                 <div slot="left" >
                     <mt-button icon="back" @click='goBack'></mt-button>
                 </div>
-                <mt-button v-show="handleEdit" slot="right" @click="edit">{{isEdit?'完成':'编辑'}}</mt-button>
+                <!-- <mt-button v-show="handleEdit" slot="right" @click="edit">{{isEdit?'完成':'编辑'}}</mt-button> -->
             </mt-header>
         </div>
         <div class="content-all start-content-wrapper">
@@ -95,10 +95,21 @@
                       </li>
                       <li class="add-evidence" @click="uploadPicClick">
                         <i class="iconfont icon-add"></i>
-                        <p>上传图片</p>
+                        <p>添加证据</p>
                       </li>
                     </ul>
                   </div>
+                </div>
+                <div class="start-bottom">
+                  <span @click="shareClick">
+                    <i class="iconfont icon-share"></i>
+                  </span>
+                  <span @click="printClick">
+                    <i class="iconfont icon-print1"></i>
+                  </span>
+                  <span class="collBtn" @click="collClick">
+                    <i :class="isColl? 'iconfont icon-coll': 'iconfont icon-coll2'"></i>
+                  </span>
                 </div>
               </div>
           </div>
@@ -142,7 +153,8 @@ export default {
         { imgPath: lawuserImg, name: '刘国军' },
         { imgPath: lawuserImg, name: '刘国军' }
       ],
-      evidenceList: [{ imgPath: img1 }, { imgPath: img2 }, { imgPath: img3 }]
+      evidenceList: [{ imgPath: img1 }, { imgPath: img2 }, { imgPath: img3 }],
+      isColl: true
     }
   },
   created() {},
@@ -197,6 +209,23 @@ export default {
     //删除现场取证照片
     delevidence(index) {
       this.evidenceList.splice(index, 1)
+    },
+    //分享点击
+    shareClick() {
+      MessageBox('提示', '原生app对接-分享')
+    },
+    //打印点击
+    printClick() {
+      MessageBox('提示', '原生app对接-打印')
+    },
+    //收藏点击
+    collClick() {
+      this.isColl = !this.isColl
+      if (this.isColl) {
+        Toast('已取消收藏！')
+      } else {
+        Toast('收藏成功！')
+      }
     }
   },
   components: {}
@@ -498,6 +527,47 @@ export default {
          width: 5.4rem;
        }
       }
+  }
+}
+.start-bottom {
+  width: 4.14rem;
+  margin: 0.4rem auto 0.08rem;
+  span {
+    display: inline-block;
+    width: 0.98rem;
+    height: 0.98rem;
+    margin-right: 0.6rem;
+    border-radius: 50%;
+    border: 0.02rem solid #e5e5e5;
+    box-sizing: border-box;
+    text-align: center;
+    &:last-child {
+      margin: 0;
+    }
+    i {
+      line-height: 0.98rem;
+      font-size: 0.8rem;
+      color: rgba(191, 191, 191, 0.8);
+    }
+    &:active {
+      border-color: #2095f2;
+      i {
+        color: #2095f2;
+      }
+    }
+  }
+  span.collBtn {
+    i{
+      position: relative;
+      left: 1px;
+      top: -1px;
+    }
+    &:active {
+      border-color: #fea71a;
+      i {
+        color: #fea71a;
+      }
+    }
   }
 }
 </style>

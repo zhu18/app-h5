@@ -35,13 +35,14 @@ export default {
   components: { cityList, rejectList },
   data () {
     return {
-      currentTab: 0
+      currentTab: 0,
+      title: '案件共享地区列表'
     };
   },
   computed: {
-    title () {
-      return this.currentTab == 0 ? '案件共享' : '复审无效商标'
-    }
+    // title () {
+    //   return this.currentTab == 0 ? '案件共享' : '复审无效商标'
+    // }
   },
   methods: {
     init () {
@@ -49,6 +50,11 @@ export default {
     },
     clickTab (index) {
       if (index == this.currentTab) return
+      if(index === 0){
+        this.title='案件共享地区列表'
+      }else {
+        this.title= '商标复审无效决定'
+      }
       this.$router.replace({ name: index === 0 ? 'cityList' : 'invalidList' })
     },
     goBack () {
