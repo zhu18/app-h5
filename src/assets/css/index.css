@@ -3,18 +3,22 @@
 @import './base.css';
 @import './mint-ui.css';
 
-body{
-    font-size: .28rem; /* 14px */
+body {
+    font-size: .28rem;
+    /* 14px */
 }
 
-.flex{
+.flex {
     display: flex;
 }
-.flex-fixed{
+
+.flex-fixed {
     flex-grow: 0;
     flex-shrink: 0;
 }
-.flex-fill{
-    flex-grow: 1;
-    flex-shrink: 1;
+
+.flex-fill {
+    flex: 1 1;
+    /* flex-grow: 1;
+    flex-shrink: 1; */
 }

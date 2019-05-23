@@ -55,7 +55,8 @@
         </div>
       </div> -->
       <clipbox :scanWidth="width"
-               :scanHeight="height" />
+               :scanHeight="height"
+               ref="scanbox" />
       <div class="scan-tips scan-txt"
            v-show="!isScaning">
         <p>请把商标放于框内</p>
@@ -173,6 +174,8 @@ export default {
       MessageBox("提示", "原生app对接-打开系统相册");
     },
     scan () {
+      // 获取扫描框宽高
+      console.log(this.$refs.scanbox.getRect())
       //在识别中 取消识别
       if (this.isScaning) {
         clearTimeout(this.timer);
