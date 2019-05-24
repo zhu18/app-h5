@@ -150,10 +150,10 @@ export default {
 
   .letter-aside {
     position: fixed;
-    right: 0;
-    top: 1.3rem;
+    right: .2rem;
+    top: 1.5rem;
     overflow-y: auto;
-    height: calc(100vh - 3.5rem);
+    height: calc(100vh - 4rem);
     ul {
       list-style: none;
       line-height: 1.6em;
