@@ -171,6 +171,9 @@
             width: 100%;
             height: 1rem;
             background-color: #ffffff;
+            p{
+                color: #5b5b68;
+            }
             .span1{
                 width: 48%;
                 text-align: center;
@@ -180,6 +183,15 @@
                 .iconfont{
                     font-size: 0.74rem;
                     vertical-align: middle
+                }
+                .icon-coll{
+                    font-size: .7rem;
+                    position: relative;
+                    top: -.04rem;
+                }
+                .icon-share{
+                    position: relative;
+                    top: -.01rem;
                 }
                 .iconfonta{
                     color: #2095f2;
@@ -198,9 +210,17 @@
                     }
                 }
                 .p1{
+                    position: relative;
                     height: 0.32rem;
-                    border-right: 0.02rem solid #bfbfbf;
-
+                    &::after{
+                        position: absolute;
+                        top: .16rem;
+                        right: 0;
+                        content: '';
+                        width: .01rem;
+                        height: .36rem;
+                        background: #bfbfbf;
+                    }
                 }
             }
         }
