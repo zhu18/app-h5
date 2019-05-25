@@ -114,7 +114,9 @@ export default {
         slots: [
             {
                 flex: 1,
-                values: ['北京市', '河北省', '山西省', '陕西省', '甘肃省', '内蒙古'],
+                values: ['北京市', '天津市', '上海市', '重庆市',"河北省","山东省","江苏省","安徽省","浙江省","福建省","广东省",
+                    "海南省","云南省","贵州省","四川省","湖南省","湖北省","河南省","山西省","陕西省","甘肃省","青海省","江西省",
+                    "黑龙江","吉林省","辽宁省", '新疆', '西藏','宁夏','内蒙古','广西'],
                 textAlign: 'right',
                 defaultIndex:1,
             },
@@ -197,8 +199,8 @@ export default {
               this.oldmonth = 0;
               this.nowmonth = 0;
           }
-          this.oldmonth = parseInt(this.oldmonth);
-          this.nowmonth = parseInt(this.nowmonth);
+          this.oldmonth =Math.abs(parseInt(this.oldmonth));
+          this.nowmonth = Math.abs(parseInt(this.nowmonth));
 
       },
       goBack() {
