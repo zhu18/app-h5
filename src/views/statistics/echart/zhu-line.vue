@@ -119,13 +119,13 @@ import echarts from 'echarts'
                     show: false,
                 },
                 splitLine: {
-                    show: true,
+                    show: false,
                     lineStyle: {
                         color: ['#ececec'],
                         type: 'dashed',
                     }
                 },
-                max: 100,
+                max: 3000,
                 interval: 20,
             }],
             series: [{
@@ -179,12 +179,12 @@ import echarts from 'echarts'
         this.chart.dispatchAction({
               type: 'highlight',
               seriesIndex: 0,
-              dataIndex:3
+              dataIndex:4
           });
           this.chart.dispatchAction({
               type: 'showTip',
               seriesIndex: 0,
-              dataIndex:3
+              dataIndex:4
           });
           this.chart.on('click', this.aa);
       },

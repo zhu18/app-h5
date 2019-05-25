@@ -19,9 +19,9 @@
       <div class="content-all">
           <div class="top">
               <div class="top-left">
-                <input type="text" v-model="selectYear" readonly="readonly" class="input-text" @click="showdate"/>
+                <input type="text" v-model="selectYear"  readonly="readonly" class="input-text" @click="showdate"/>
                 <!-- 日期选择 -->
-                <mt-datetime-picker
+<!--                <mt-datetime-picker
                     ref="picker1"
                     type="date"
                     year-format="{value} 年"
@@ -29,11 +29,22 @@
                     date-format="{value} 日"
                     v-model="pickerValue"
                     @confirm="handleConfirm">
-                </mt-datetime-picker>
+                </mt-datetime-picker>-->
+                  <mt-popup v-model="popupVisible" style="width: 100%" popup-transition="popup-fade" closeOnClickModal="true" position="bottom">
+                           <mt-picker :slots="slots" @change="onValuesChange" style="width:100%" showToolbar>
+                                       <div class="picker-toolbar-title">
+                        <div class="usi-btn-cancel" @click="popupVisible = !popupVisible">取消</div>
+
+                        <div class="usi-btn-sure" @click="saveselected">确定</div>
+                    </div>
+
+                              </mt-picker>
+           </mt-popup>
+
               </div>
               <div class="top-right">
                   {{titleRight}}
-                  <span> {{count}} </span>件
+                  <span> {{count1}} </span>件
               </div>
           </div>
           <div class="middle">
@@ -42,7 +53,7 @@
 
           <div class="button">
               <div class="title-name">
-                    {{titleButton}}
+                    {{selectYear.replace(/\s+/g,"")}}{{yufen}}{{titleButton}}
                    <span> {{count}} </span>件
               </div>
               <div class="bl-value">
@@ -86,19 +97,38 @@ export default {
   data() {
     return {
         pickerValue: '',
+        popupVisible:false,
         title:'统计分析',
-        titleRight:'当前注册商标',
-        count:'16,546',
+        titleRight:'至今注册商标',
+        count:'',
+        count1:'',
         bindex:1,
         oldmonth:'9',
         nowmonth:'14',
-        selectYear:'2019年',
-        titleButton:'河北省2019年4月注册商标',
+        titleButton:'注册商标',
         echartData:{
             data1: [],
             data2: [],
             data3: [],
-        }
+        },
+        slots: [
+            {
+                flex: 1,
+                values: ['北京市', '河北省', '山西省', '陕西省', '甘肃省', '内蒙古'],
+                textAlign: 'right',
+                defaultIndex:1,
+            },
+            {
+                flex: 1,
+                values: ['2014年', '2015年', '2016年', '2017年', '2018年', '2019年'],
+                textAlign: 'left',
+                defaultIndex:5,
+            }
+        ],
+        selectYear:'河北省  2019年',
+        saveselectYear:'',
+        yufen:'5月'
+
     };
   },
   created() {
@@ -106,65 +136,123 @@ export default {
   mounted() {
         this.echartData={
             data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-            data2: [20, 32, 50, 64, 90, 80,60, 32, 50, 34, 90, 32] ,
-            data3: [30, 45, 61, 70],
+            //data3: [30, 45, 61, 70],
+            data2:[],
+            data3:[],
         }
+        for(let i=0;i<12;i++){
+            this.echartData.data2.push(this.randomNum(1000,2000));
+        }
+        let summ = 0;
+        let sjs=0;
+        for(let i=0;i<5;i++) {
+            sjs=this.randomNum(1500, 2000);
+            summ+=sjs;
+            this.echartData.data3.push(sjs);
+        }
+      this.count1 = summ;
+      this.count = this.echartData.data2[4];
+
   },
   methods: {
-      handleConfirm(val){
-          let d = new Date(val);
-          this.selectYear= d.getFullYear()+"年";
+      randomNum(minNum, maxNum) {
+          switch (arguments.length) {
+              case 1:
+                  return parseInt(Math.random() * minNum + 1, 10);
+                  break;
+              case 2:
+                  return parseInt(Math.random() * (maxNum - minNum + 1) + minNum, 10);
+                  break;
+              default:
+                  return 0;
+                  break;
+          }
       },
-      showdate(){
-          this.$refs.picker1.open();
+      saveselected() {
+          this.popupVisible = false;
+          this.selectYear = this.saveselectYear;
       },
-      echartclick(obj){
-          let sdata=parseInt(obj.value);
-          let index=parseInt(obj.index);
-          if(index<4) {
-              this.oldmonth = parseFloat((parseInt(this.echartData.data3[index]-sdata) /sdata )) * 100;
-              if (index > 0)
-              {
-                  this.nowmonth=((parseFloat(this.echartData.data3[index])-parseInt(this.echartData.data3[index-1]))/parseInt(this.echartData.data3[index-1]))*100;
+      onValuesChange(picker, values) {
+          this.saveselectYear = values[0] + "  " + values[1];
+      },
+      showdate() {
+          this.popupVisible = true;
+          //this.$refs.picker1.open();
+      },
+      echartclick(obj) {
+          let sdata = parseInt(obj.value);
+          let index = parseInt(obj.index);
+          this.yufen=index+1+"月"
+          this.count = sdata;
+          if (index < 4) {
+              this.oldmonth = parseFloat((parseInt(this.echartData.data3[index] - sdata) / sdata )) * 100;
+              if (index > 0) {
+                  this.nowmonth = ((parseFloat(this.echartData.data3[index]) - parseInt(this.echartData.data3[index - 1])) / parseInt(this.echartData.data3[index - 1])) * 100;
               }
-              else{
-                  this.nowmonth=0;
+              else {
+                  this.nowmonth = 0;
               }
           }
-          else{
-              this.oldmonth=0;
-              this.nowmonth=0;
+          else {
+              this.oldmonth = 0;
+              this.nowmonth = 0;
           }
-          this.oldmonth=parseInt(this.oldmonth);
-          this.nowmonth=parseInt(this.nowmonth);
+          this.oldmonth = parseInt(this.oldmonth);
+          this.nowmonth = parseInt(this.nowmonth);
 
       },
-      goBack(){
+      goBack() {
           this.$router.goBack()
       },
-      pageshare(){
-          MessageBox('提示','原生app对接-调用原生分享功能');
+      pageshare() {
+          MessageBox('提示', '原生app对接-调用原生分享功能');
       },
-      tab(index){
-         this.bindex=index;
-         if(index==1){
-             this.echartData={
-                 data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-                 data2: [20, 32, 50, 64, 90, 80,60, 32, 50, 34, 90, 32] ,
-                 data3: [30, 45, 61, 70],
-             }
-             this.titleRight="4月注册商标";
-             this.titleButton="河北省2019年4月注册商标";
-         }
-         else{
-             this.echartData={
-                 data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-                 data2: [12, 26, 45, 60, 90, 50,50, 22, 45, 50, 66, 22] ,
-                 data3: [16, 45, 61, 70],
-             }
-             this.titleRight="4月案件";
-             this.titleButton="河北省2019年4月执法";
-         }
+      tab(index) {
+          this.bindex = index;
+          if (index == 1) {
+              this.echartData={
+                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
+                  //data3: [30, 45, 61, 70],
+                  data2:[],
+                  data3:[],
+              }
+              for(let i=0;i<12;i++){
+                  this.echartData.data2.push(this.randomNum(1000,2000));
+              }
+              let summ = 0;
+              let sjs=0;
+              for(let i=0;i<5;i++) {
+                  sjs=this.randomNum(1500, 2000);
+                  summ+=sjs;
+                  this.echartData.data3.push(sjs);
+              }
+              this.count1 = summ;
+              this.count = this.echartData.data2[4];
+              this.titleRight = "至今注册商标";
+              this.titleButton = "注册商标";
+          }
+          else {
+              this.echartData={
+                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
+                  //data3: [30, 45, 61, 70],
+                  data2:[],
+                  data3:[],
+              }
+              for(let i=0;i<12;i++){
+                  this.echartData.data2.push(this.randomNum(1000,2000));
+              }
+              let summ = 0;
+              let sjs=0;
+              for(let i=0;i<5;i++) {
+                  sjs=this.randomNum(1500, 2000);
+                  summ+=sjs;
+                  this.echartData.data3.push(sjs);
+              }
+              this.count1 = summ;
+              this.count = this.echartData.data2[4];
+              this.titleRight ="至今案件";
+              this.titleButton = "执法";
+          }
       },
   },
   components:{
@@ -178,6 +266,9 @@ export default {
     }
     .home-statistics .picker-slot-center:nth-child(2){
         display: none
+    }
+    .home-statistics .picker-slot-wrapper{
+        text-align: center;
     }
 .home-statistics {
     width: 100%;
@@ -211,10 +302,10 @@ export default {
         border-radius: 0.1rem;
         flex-direction: column;
         .input-text{
-            width: 1.6rem;
+            width: 2.5rem;
             border: none;
             padding-bottom: 0.04rem;
-            padding-left: 0.2rem;
+            padding-left: 0.1rem;
             line-height: 0.3rem;
             border-bottom: 0.03rem solid #2095f2;
             background: transparent;
@@ -225,7 +316,7 @@ export default {
             font-weight: 600;
             background: url('../../assets/images/yeardrop.png') no-repeat;
             background-size: 8%;
-            background-position: 1.35rem 0.1rem;
+            background-position: 2.25rem 0.1rem;
         }
         .top{
             height: 16%;
@@ -239,6 +330,21 @@ export default {
             box-sizing: border-box;
             .top-left{
                 width: 45%;
+                .picker-toolbar-title {
+                    display: flex;
+                    flex-direction: row;
+                    height: 48px;
+                    line-height: 48px;
+                    color: #2095f2;
+                    .usi-btn-cancel{
+                        width: 50%;
+                        text-align: center;
+                    }
+                    .usi-btn-sure{
+                        flex: 1;
+                        text-align: center;
+                    }
+                }
             }
             .top-right{
                 flex: 1;
