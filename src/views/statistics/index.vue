@@ -323,7 +323,7 @@ export default {
                 }
             }
             .top-right{
-                width: 45%;
+                flex: 1;
                 font-family: PingFangSC-Regular;
                 font-size: 0.28rem;
                 color: #5b5b69;
