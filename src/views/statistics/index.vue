@@ -46,6 +46,7 @@
                   {{titleRight}}
                   <span> {{count1}} </span>件
               </div>
+
           </div>
           <div class="middle">
              <zhu :echartsData="echartData"  @echartclick="echartclick"></zhu>
@@ -56,6 +57,7 @@
                     {{selectYear.replace(/\s+/g,"")}}{{yufen}}{{titleButton}}
                    <span> {{count}} </span>件
               </div>
+
               <div class="bl-value">
                   <div class="button-left">
                       <div class="divTop">+{{oldmonth}}%</div>
@@ -173,6 +175,50 @@ export default {
       saveselected() {
           this.popupVisible = false;
           this.selectYear = this.saveselectYear;
+          if (this.bindex == 1) {
+              this.echartData={
+                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
+                  //data3: [30, 45, 61, 70],
+                  data2:[],
+                  data3:[],
+              }
+              for(let i=0;i<12;i++){
+                  this.echartData.data2.push(this.randomNum(1000,2000));
+              }
+              let summ = 0;
+              let sjs=0;
+              for(let i=0;i<5;i++) {
+                  sjs=this.randomNum(1500, 2000);
+                  summ+=sjs;
+                  this.echartData.data3.push(sjs);
+              }
+              this.count1 = summ;
+              this.count = this.echartData.data2[4];
+              this.titleRight = "至今注册商标";
+              this.titleButton = "注册商标";
+          }
+          else {
+              this.echartData={
+                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
+                  //data3: [30, 45, 61, 70],
+                  data2:[],
+                  data3:[],
+              }
+              for(let i=0;i<12;i++){
+                  this.echartData.data2.push(this.randomNum(1000,2000));
+              }
+              let summ = 0;
+              let sjs=0;
+              for(let i=0;i<5;i++) {
+                  sjs=this.randomNum(1500, 2000);
+                  summ+=sjs;
+                  this.echartData.data3.push(sjs);
+              }
+              this.count1 = summ;
+              this.count = this.echartData.data2[4];
+              this.titleRight ="至今案件";
+              this.titleButton = "执法";
+          }
       },
       onValuesChange(picker, values) {
           this.saveselectYear = values[0] + "  " + values[1];
@@ -186,7 +232,7 @@ export default {
           let index = parseInt(obj.index);
           this.yufen=index+1+"月"
           this.count = sdata;
-          if (index < 4) {
+          if (index < 5) {
               this.oldmonth = parseFloat((parseInt(this.echartData.data3[index] - sdata) / sdata )) * 100;
               if (index > 0) {
                   this.nowmonth = ((parseFloat(this.echartData.data3[index]) - parseInt(this.echartData.data3[index - 1])) / parseInt(this.echartData.data3[index - 1])) * 100;
@@ -349,20 +395,17 @@ export default {
                 }
             }
             .top-right{
-                flex: 1;
+                width: 45%;
                 font-family: PingFangSC-Regular;
                 font-size: 0.28rem;
                 color: #5b5b69;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
                 span{
-                    font-family: PingFangSC-Medium;
                     font-size: 0.32rem;
                     color: #2095f2;
-                    display: inline-block;
                     padding-right: 0.05rem;
-                    max-width: 1.5rem;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
                 }
             }
             .select{
@@ -398,16 +441,13 @@ export default {
                 text-align: center;
                 font-size: 0.28rem;
                 color: #5b5b69;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
                 span{
-                    font-family: PingFangSC-Medium;
                     font-size: 0.36rem;
                     color: #2095f2;
-                    display: inline-block;
-                    max-width: 1.5rem;
                     padding-right: 0.05rem;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
                 }
             }
             .bl-value{
