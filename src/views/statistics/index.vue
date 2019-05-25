@@ -5,7 +5,7 @@
 * 修改时间：2019-04-12
 -->
 <template lang="html">
-  <div class="home-statistics">
+  <div class="flex home-statistics">
       <div class="top-header">
           <mt-header fixed :title="title">
             <div slot="left" >
@@ -73,7 +73,6 @@
             <div class="pop-tools flex">
               <span class="flex-fill">城市</span>
               <span class="flex-fill">年份</span>
-
             </div>
           </mt-picker>
        </mt-popup>
@@ -108,13 +107,13 @@ export default {
                     "海南省","云南省","贵州省","四川省","湖南省","湖北省","河南省","山西省","陕西省","甘肃省","青海省","江西省",
                     "黑龙江","吉林省","辽宁省", '新疆', '西藏','宁夏','内蒙古','广西'],
                 textAlign: 'center',
-                //defaultIndex:1,
+                defaultIndex:0,
             },
             {
                 flex: 1,
                 values: ['2014年', '2015年', '2016年', '2017年', '2018年', '2019年'],
                 textAlign: 'center',
-                //defaultIndex:5,
+                defaultIndex:5,
             }
         ],
         selectYear:'北京市  2019年',
@@ -233,7 +232,6 @@ export default {
 </script>
 <style lang="scss">
 .home-statistics {
-    display: flex;
     flex-direction: column;
     .pop-tools {
         background: #efefef;
