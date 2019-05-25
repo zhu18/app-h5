@@ -189,9 +189,7 @@ import echarts from 'echarts'
           this.chart.on('click', this.aa);
       },
       aa(params){
-          if (params.componentType == "series") {
-              this.$emit("echartclick", {value: params.data, index: params.dataIndex});
-          }
+          this.$emit("echartclick", {value: params.data, index: params.dataIndex});
       },
       // echats 图表自适应
       _resizeHanlder() {

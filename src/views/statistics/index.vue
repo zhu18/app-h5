@@ -31,12 +31,8 @@
                     @confirm="handleConfirm">
                 </mt-datetime-picker>-->
                   <mt-popup v-model="popupVisible" style="width: 100%" popup-transition="popup-fade" closeOnClickModal="true" position="bottom">
-                           <mt-picker :slots="slots" @change="onValuesChange" style="width:100%" showToolbar>
-                                       <div class="picker-toolbar-title">
-                        <div class="usi-btn-cancel" @click="popupVisible = !popupVisible">取消</div>
+                           <mt-picker :slots="slots" @change="onValuesChange" style="width:100%" >
 
-                        <div class="usi-btn-sure" @click="saveselected">确定</div>
-                    </div>
 
                               </mt-picker>
            </mt-popup>
@@ -138,22 +134,7 @@ export default {
   created() {
   },
   mounted() {
-        this.echartData={
-            data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-            //data3: [30, 45, 61, 70],
-            data2:[],
-            data3:[],
-        }
-        for(let i=0;i<12;i++){
-            this.echartData.data2.push(this.randomNum(1000,2000));
-        }
-        let summ = 0;
-        let sjs=0;
-        for(let i=0;i<5;i++) {
-            sjs=this.randomNum(1500, 2000);
-            summ+=sjs;
-            this.echartData.data3.push(sjs);
-        }
+      this.gitdata();
       this.count1 = summ;
       this.count = this.echartData.data2[4];
 
@@ -176,52 +157,18 @@ export default {
           this.popupVisible = false;
           this.selectYear = this.saveselectYear;
           if (this.bindex == 1) {
-              this.echartData={
-                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-                  //data3: [30, 45, 61, 70],
-                  data2:[],
-                  data3:[],
-              }
-              for(let i=0;i<12;i++){
-                  this.echartData.data2.push(this.randomNum(1000,2000));
-              }
-              let summ = 0;
-              let sjs=0;
-              for(let i=0;i<5;i++) {
-                  sjs=this.randomNum(1500, 2000);
-                  summ+=sjs;
-                  this.echartData.data3.push(sjs);
-              }
-              this.count1 = summ;
-              this.count = this.echartData.data2[4];
+              this.gitdata();
               this.titleRight = "至今注册商标";
               this.titleButton = "注册商标";
           }
           else {
-              this.echartData={
-                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-                  //data3: [30, 45, 61, 70],
-                  data2:[],
-                  data3:[],
-              }
-              for(let i=0;i<12;i++){
-                  this.echartData.data2.push(this.randomNum(1000,2000));
-              }
-              let summ = 0;
-              let sjs=0;
-              for(let i=0;i<5;i++) {
-                  sjs=this.randomNum(1500, 2000);
-                  summ+=sjs;
-                  this.echartData.data3.push(sjs);
-              }
-              this.count1 = summ;
-              this.count = this.echartData.data2[4];
+              this.gitdata();
               this.titleRight ="至今案件";
               this.titleButton = "执法";
           }
       },
       onValuesChange(picker, values) {
-          this.saveselectYear = values[0] + "  " + values[1];
+          this.selectYear = values[0] + "  " + values[1];
       },
       showdate() {
           this.popupVisible = true;
@@ -252,6 +199,26 @@ export default {
       goBack() {
           this.$router.goBack()
       },
+      gitdata(){
+          this.echartData={
+              data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
+              //data3: [30, 45, 61, 70],
+              data2:[],
+              data3:[],
+          }
+          for(let i=0;i<12;i++){
+              this.echartData.data2.push(this.randomNum(1000,2000));
+          }
+          let summ = 0;
+          let sjs=0;
+          for(let i=0;i<5;i++) {
+              sjs=this.randomNum(1500, 2000);
+              summ+=sjs;
+              this.echartData.data3.push(sjs);
+          }
+          this.count1 = summ;
+          this.count = this.echartData.data2[4];
+      },
       pageshare() {
           MessageBox('提示', '原生app对接-调用原生分享功能');
       },
@@ -259,46 +226,12 @@ export default {
           this.bindex = index;
           this.yufen="5月";
           if (index == 1) {
-              this.echartData={
-                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-                  //data3: [30, 45, 61, 70],
-                  data2:[],
-                  data3:[],
-              }
-              for(let i=0;i<12;i++){
-                  this.echartData.data2.push(this.randomNum(1000,2000));
-              }
-              let summ = 0;
-              let sjs=0;
-              for(let i=0;i<5;i++) {
-                  sjs=this.randomNum(1500, 2000);
-                  summ+=sjs;
-                  this.echartData.data3.push(sjs);
-              }
-              this.count1 = summ;
-              this.count = this.echartData.data2[4];
+              this.gitdata();
               this.titleRight = "至今注册商标";
               this.titleButton = "注册商标";
           }
           else {
-              this.echartData={
-                  data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
-                  //data3: [30, 45, 61, 70],
-                  data2:[],
-                  data3:[],
-              }
-              for(let i=0;i<12;i++){
-                  this.echartData.data2.push(this.randomNum(1000,2000));
-              }
-              let summ = 0;
-              let sjs=0;
-              for(let i=0;i<5;i++) {
-                  sjs=this.randomNum(1500, 2000);
-                  summ+=sjs;
-                  this.echartData.data3.push(sjs);
-              }
-              this.count1 = summ;
-              this.count = this.echartData.data2[4];
+              this.gitdata();
               this.titleRight ="至今案件";
               this.titleButton = "执法";
           }
