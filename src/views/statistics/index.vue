@@ -30,8 +30,8 @@
                     v-model="pickerValue"
                     @confirm="handleConfirm">
                 </mt-datetime-picker>-->
-                  <mt-popup v-model="popupVisible" style="width: 100%" popup-transition="popup-fade" closeOnClickModal="true" position="bottom">
-                           <mt-picker :slots="slots" @change="onValuesChange" style="width:100%" >
+                  <mt-popup v-model="popupVisible" style="width: 100%"  position="bottom">
+                           <mt-picker :slots="slots" :showToolbar="true" @change="onValuesChange" style="width:100%" >
 
 
                               </mt-picker>
