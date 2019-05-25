@@ -32,7 +32,11 @@
                 </mt-datetime-picker>-->
                   <mt-popup v-model="popupVisible" style="width: 100%"  position="bottom">
                            <mt-picker :slots="slots" :showToolbar="true" @change="onValuesChange" style="width:100%" >
+                            <div class="pop-tools flex">
+                              <span class="flex-fill">城市</span>
+                              <span class="flex-fill">年份</span>
 
+                            </div>
 
                               </mt-picker>
            </mt-popup>
@@ -40,7 +44,7 @@
               </div>
               <div class="top-right">
                   {{titleRight}}
-                  <span> {{count1}} </span>件
+                  <span> {{count1.toLocaleString()}} </span>件
               </div>
 
           </div>
@@ -51,7 +55,7 @@
           <div class="button">
               <div class="title-name">
                     {{selectYear.replace(/\s+/g,"")}}{{yufen}}{{titleButton}}
-                   <span> {{count}} </span>件
+                   <span> {{count.toLocaleString()}} </span>件
               </div>
 
               <div class="bl-value">
@@ -253,6 +257,16 @@ export default {
         text-align: center;
     }
 .home-statistics {
+    .pop-tools {
+        background: #efefef;
+        font-size: 0.32rem;
+        padding: 0.1rem;
+        span {
+            display: block;
+            width: 100px;
+            text-align: center;
+        }
+    }
     width: 100%;
     height: 100%;
     background-color: #f6f6f6;
