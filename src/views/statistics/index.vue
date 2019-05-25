@@ -257,6 +257,7 @@ export default {
       },
       tab(index) {
           this.bindex = index;
+          this.yufen="5月";
           if (index == 1) {
               this.echartData={
                   data1: ['1月', '2月', '3月', '4月', '5月', '6月','7月', '8月', '9月', '10月', '11月', '12月'],
