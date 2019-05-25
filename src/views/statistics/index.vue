@@ -30,16 +30,7 @@
                     v-model="pickerValue"
                     @confirm="handleConfirm">
                 </mt-datetime-picker>-->
-                  <mt-popup v-model="popupVisible" style="width: 100%"  position="bottom">
-                           <mt-picker :slots="slots" :showToolbar="true" @change="onValuesChange" style="width:100%" >
-                            <div class="pop-tools flex">
-                              <span class="flex-fill">城市</span>
-                              <span class="flex-fill">年份</span>
 
-                            </div>
-
-                              </mt-picker>
-           </mt-popup>
 
               </div>
               <div class="top-right">
@@ -89,6 +80,14 @@
 
 
      </div>
+      <mt-popup v-model="popupVisible" class="popup-filter"  position="bottom">
+         <mt-picker :slots="slots" :showToolbar="true" @change="onValuesChange">
+            <div class="pop-tools flex">
+              <span class="flex-fill">城市</span>
+              <span class="flex-fill">年份</span>
+            </div>
+          </mt-picker>
+       </mt-popup>
   </div>
 </template>
 <script>
@@ -266,6 +265,10 @@ export default {
             width: 100px;
             text-align: center;
         }
+    }
+    .popup-filter {
+        width: 100%;
+        z-index: 100;
     }
     width: 100%;
     height: 100%;
