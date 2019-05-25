@@ -20,18 +20,6 @@
           <div class="top">
               <div class="top-left">
                 <input type="text" v-model="selectYear"  readonly="readonly" class="input-text" @click="showdate"/>
-                <!-- 日期选择 -->
-<!--                <mt-datetime-picker
-                    ref="picker1"
-                    type="date"
-                    year-format="{value} 年"
-                    month-format="{value} 月"
-                    date-format="{value} 日"
-                    v-model="pickerValue"
-                    @confirm="handleConfirm">
-                </mt-datetime-picker>-->
-
-
               </div>
               <div class="top-right">
                   {{titleRight}}
@@ -85,6 +73,7 @@
             <div class="pop-tools flex">
               <span class="flex-fill">城市</span>
               <span class="flex-fill">年份</span>
+
             </div>
           </mt-picker>
        </mt-popup>
@@ -118,17 +107,17 @@ export default {
                 values: ['北京市', '天津市', '上海市', '重庆市',"河北省","山东省","江苏省","安徽省","浙江省","福建省","广东省",
                     "海南省","云南省","贵州省","四川省","湖南省","湖北省","河南省","山西省","陕西省","甘肃省","青海省","江西省",
                     "黑龙江","吉林省","辽宁省", '新疆', '西藏','宁夏','内蒙古','广西'],
-                textAlign: 'right',
-                defaultIndex:1,
+                textAlign: 'center',
+                //defaultIndex:1,
             },
             {
                 flex: 1,
                 values: ['2014年', '2015年', '2016年', '2017年', '2018年', '2019年'],
-                textAlign: 'left',
-                defaultIndex:5,
+                textAlign: 'center',
+                //defaultIndex:5,
             }
         ],
-        selectYear:'河北省  2019年',
+        selectYear:'北京市  2019年',
         saveselectYear:'',
         yufen:'5月'
 
@@ -138,9 +127,6 @@ export default {
   },
   mounted() {
       this.gitdata();
-      this.count1 = summ;
-      this.count = this.echartData.data2[4];
-
   },
   methods: {
       randomNum(minNum, maxNum) {
@@ -246,16 +232,9 @@ export default {
 };
 </script>
 <style lang="scss">
-    .home-statistics .picker-slot-center:nth-child(3){
-        display: none
-    }
-    .home-statistics .picker-slot-center:nth-child(2){
-        display: none
-    }
-    .home-statistics .picker-slot-wrapper{
-        text-align: center;
-    }
 .home-statistics {
+    display: flex;
+    flex-direction: column;
     .pop-tools {
         background: #efefef;
         font-size: 0.32rem;
