@@ -121,12 +121,6 @@
       </span>
       <ul class="start-hidden-btn">
         <li class="start-hidden-li">
-          <span class="start-add-btn">
-            <i class="iconfont icon-txtquery" @click="txtqueryClick"></i>
-          </span>
-        </li>
-
-        <li class="start-hidden-li">
           <span class="start-add-btn" @click="recordBtnClick">
             <i class="iconfont icon-record"></i>
           </span>

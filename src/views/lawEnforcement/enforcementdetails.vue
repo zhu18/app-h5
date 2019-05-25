@@ -43,10 +43,10 @@
                         </div>
                         <p class="lawuser-item-bottom">{{item.name}}</p>
                       </li>
-                      <li class="add-lawuser" @click="addEnforcer">
+                      <!-- <li class="add-lawuser" @click="addEnforcer">
                         <i class="iconfont icon-add"></i>
-                        <!-- <p>添加执法人</p> -->
-                      </li>
+                        <!-- <p>添加执法人</p> 
+                      </li>-->
                     </ul>
                   </div>
                 </div>
@@ -67,19 +67,19 @@
                   <ul class="litigant-form">
                     <li class="clearfix">
                       <span>(个人)姓名</span>
-                      <input type="text" v-model="enforceForm.name">
+                      <input type="text" v-model="enforceForm.name" disabled>
                     </li>
                     <li class="clearfix">
                       <span>身份证</span>
-                      <input type="text"  v-model="enforceForm.idNumber">
+                      <input type="text"  v-model="enforceForm.idNumber" disabled>
                     </li>
                     <li class="clearfix">
                       <span>(单位)名称</span>
-                      <input type="text"  v-model="enforceForm.unitName">
+                      <input type="text"  v-model="enforceForm.unitName" disabled>
                     </li>
                     <li class="clearfix">
                       <span>住址</span>
-                      <input type="text"  v-model="enforceForm.address">
+                      <input type="text"  v-model="enforceForm.address" disabled>
                     </li>
                   </ul>
                 </div>
@@ -93,10 +93,10 @@
                         </span>
                         <img :src="item.imgPath" class="img">
                       </li>
-                      <li class="add-evidence" @click="uploadPicClick">
+                      <!-- <li class="add-evidence" @click="uploadPicClick">
                         <i class="iconfont icon-add"></i>
                         <p>添加证据</p>
-                      </li>
+                      </li> -->
                     </ul>
                   </div>
                 </div>
@@ -141,10 +141,10 @@ export default {
         startTime: '2019-04-05 12:20',
         endTime: '2019-04-06 12:20',
         place:'北京市海淀区丹棱街10号新海大厦办公中心内北京市海淀区丹棱街10号新海大厦办公中心内  ',
-        name: '',
-        idNumber: '',
-        unitName: '',
-        address: '',
+        name: '王玮',
+        idNumber: '132456199001015786',
+        unitName: 'XXX街道办事处',
+        address: '北京市西城区XX街道',
         content: '金XX商标相关执法'
       },
       enforcerList: [

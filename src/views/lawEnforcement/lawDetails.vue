@@ -32,13 +32,12 @@
             </div>
         </div>
         <div class="bottom-content">
-      <span @click="fbutton" class="span1">
+      <!-- <span @click="fbutton" class="span1">
           <p class="p1">
-       <!-- <img src="../../assets/images/sc-qz.png">-->
            <i :class="index==1 ? 'iconfont icon-collection' : 'iconfont icon-coll'"></i>
            <span :class="index==1 ?'p2':''">收藏</span>
         </p>
-      </span>
+      </span> -->
       <span @click="iconclick" class="span1"><p>
           <i class="iconfont icon-share"></i>
                 <span>分享</span></p></span>

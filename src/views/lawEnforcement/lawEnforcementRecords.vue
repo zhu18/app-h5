@@ -169,9 +169,7 @@
       </div>
     </div>
     <div class="start-btn">
-      <span class="start-add-btn" :class="{active: btnClickFlag}" @click="btnClick">
-        <i class="iconfont icon-add"></i>
-      </span>
+      
       <ul class="start-hidden-btn">
         <li class="start-hidden-li">
           <span class="start-add-btn">
