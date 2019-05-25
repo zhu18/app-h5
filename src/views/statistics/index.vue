@@ -19,8 +19,8 @@
       <div class="content-all">
           <div class="top">
               <div class="top-left">
-                <input type="text" v-model="selectYear"  readonly="readonly" class="input-text" @click="showdate"/>
-              </div>
+                <div class="input-text" @click="showdate">{{selectYear}}</div>
+                </div>
               <div class="top-right">
                   {{titleRight}}
                   <span> {{count1.toLocaleString()}} </span>件
@@ -279,10 +279,10 @@ export default {
         flex-direction: column;
         .input-text{
             width: 2.5rem;
-            border: none;
+            height: 0.4rem;
+            line-height: 0.4rem;
             padding-bottom: 0.04rem;
             padding-left: 0.1rem;
-            line-height: 0.3rem;
             border-bottom: 0.03rem solid #2095f2;
             background: transparent;
             border-radius: 0px;
