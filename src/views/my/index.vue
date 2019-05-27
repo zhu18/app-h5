@@ -8,8 +8,8 @@
           <img :src="imgSrc" alt="">
         </span>
         <p>刘国福</p>
-        <p>北京市海淀分局</p>
-        <p>商标防伪法制办公室</p>
+        <p>北京市海淀分区-</p>
+        <p>市场监管局执法大队</p>
       </div>
     </div>
     <ul class="panel">
